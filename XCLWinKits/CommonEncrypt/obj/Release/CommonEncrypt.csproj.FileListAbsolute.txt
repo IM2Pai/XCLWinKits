@@ -11,3 +11,16 @@ D:\Work\TFS\TFSData\XCLWork\MyTask\XCLWinKits\MainLine\CommonEncrypt\obj\Release
 D:\Work\TFS\TFSData\XCLWork\MyTask\XCLWinKits\MainLine\CommonEncrypt\obj\Release\CommonEncrypt.csproj.GenerateResource.Cache
 D:\Work\TFS\TFSData\XCLWork\MyTask\XCLWinKits\MainLine\CommonEncrypt\obj\Release\CommonEncrypt.dll
 D:\Work\TFS\TFSData\XCLWork\MyTask\XCLWinKits\MainLine\CommonEncrypt\obj\Release\CommonEncrypt.pdb
+D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\bin\Release\CommonEncrypt.dll
+D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\bin\Release\CommonEncrypt.pdb
+D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\bin\Release\BaseForm.dll
+D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\bin\Release\CommonHelper.dll
+D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\bin\Release\XCLNetTools.dll
+D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\bin\Release\BaseForm.pdb
+D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\bin\Release\CommonHelper.pdb
+D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\bin\Release\XCLNetTools.xml
+D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\obj\Release\CommonEncrypt.csprojResolveAssemblyReference.cache
+D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\obj\Release\CommonEncrypt.Index.resources
+D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\obj\Release\CommonEncrypt.csproj.GenerateResource.Cache
+D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\obj\Release\CommonEncrypt.dll
+D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\obj\Release\CommonEncrypt.pdb
