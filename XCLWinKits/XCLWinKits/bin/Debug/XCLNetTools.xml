@@ -3836,6 +3836,11 @@
             <param name="AbsoluteFilePath">文件绝对地址</param>
             <returns>true:删除文件成功,false:删除文件失败</returns>
         </member>
+        <member name="M:XCLNetTools.Enum.EnumHelper.GetEnumFieldModelList(System.Type)">
+            <summary>
+            将枚举转为List(包含自定义属性description)
+            </summary>
+        </member>
         <member name="M:XCLNetTools.Enum.EnumHelper.GetEnumDesc``1(``0)">
             <summary>
             获取枚举的description注解

@@ -9,3 +9,14 @@ D:\Work\TFS\TFSData\XCLWork\MyTask\XCLWinKits\MainLine\BaseForm\obj\Debug\BaseFo
 D:\Work\TFS\TFSData\XCLWork\MyTask\XCLWinKits\MainLine\BaseForm\obj\Debug\BaseForm.csproj.GenerateResource.Cache
 D:\Work\TFS\TFSData\XCLWork\MyTask\XCLWinKits\MainLine\BaseForm\obj\Debug\BaseForm.dll
 D:\Work\TFS\TFSData\XCLWork\MyTask\XCLWinKits\MainLine\BaseForm\obj\Debug\BaseForm.pdb
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\bin\Debug\BaseForm.dll
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\bin\Debug\BaseForm.pdb
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\bin\Debug\CommonHelper.dll
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\bin\Debug\XCLNetTools.dll
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\bin\Debug\CommonHelper.pdb
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\bin\Debug\XCLNetTools.xml
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\obj\Debug\BaseForm.csprojResolveAssemblyReference.cache
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\obj\Debug\BaseForm.BaseFormClass.resources
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\obj\Debug\BaseForm.csproj.GenerateResource.Cache
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\obj\Debug\BaseForm.dll
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\obj\Debug\BaseForm.pdb

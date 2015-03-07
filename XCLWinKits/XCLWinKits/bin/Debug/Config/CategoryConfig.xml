@@ -29,7 +29,8 @@
             </Category>
             <Category Name="编码转换" Sort="0">
                 <CategoryItemList>
-                    <CategoryItem Sort="0" Name="" AssemblyName=""></CategoryItem>
+                    <CategoryItem Sort="0" Name="字符编码转换" AssemblyName="CodingConvert"></CategoryItem>
+                    <CategoryItem Sort="0" Name="Url编码解码" AssemblyName="UrlCodeConvert"></CategoryItem>
                 </CategoryItemList>
             </Category>
             <Category Name="域名IP" Sort="0">

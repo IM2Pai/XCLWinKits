@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCLWinKits", "XCLWinKits\XCLWinKits.csproj", "{90E85D5B-1C5C-4B96-A25C-D81B1BFEED5E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCLRegexpTool", "XCLRegexpTool\XCLRegexpTool.csproj", "{08D8B67F-D665-4122-92AA-259F9DB72895}"
@@ -27,45 +29,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingConvert", "CodingConv
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "编码转换", "编码转换", "{5B67FFDB-762A-4B73-8699-590A97357720}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlCodeConvert", "UrlCodeConvert\UrlCodeConvert.csproj", "{F74CA7A1-69F4-42BC-998E-60687042D928}"
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 10
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://xcl-pc:8080/tfs/xclwork
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = CommonHelper\\CommonHelper.csproj
-		SccProjectName1 = CommonHelper
-		SccLocalPath1 = CommonHelper
-		SccProjectUniqueName2 = DllFiles\\DllFiles.csproj
-		SccProjectName2 = DllFiles
-		SccLocalPath2 = DllFiles
-		SccProjectUniqueName3 = XCLNetFileReplace\\XCLNetFileReplace.csproj
-		SccProjectTopLevelParentUniqueName3 = XCLWinKits.sln
-		SccProjectName3 = XCLNetFileReplace
-		SccLocalPath3 = XCLNetFileReplace
-		SccProjectUniqueName4 = XCLRegexpTool\\XCLRegexpTool.csproj
-		SccProjectTopLevelParentUniqueName4 = XCLWinKits.sln
-		SccProjectName4 = XCLRegexpTool
-		SccLocalPath4 = XCLRegexpTool
-		SccProjectUniqueName5 = XCLWinKits\\XCLWinKits.csproj
-		SccProjectName5 = XCLWinKits
-		SccLocalPath5 = XCLWinKits
-		SccProjectUniqueName6 = BaseForm\\BaseForm.csproj
-		SccProjectName6 = BaseForm
-		SccLocalPath6 = BaseForm
-		SccProjectUniqueName7 = MD5Tool\\MD5Tool.csproj
-		SccProjectTopLevelParentUniqueName7 = XCLWinKits.sln
-		SccProjectName7 = MD5Tool
-		SccLocalPath7 = MD5Tool
-		SccProjectUniqueName8 = CommonEncrypt\\CommonEncrypt.csproj
-		SccProjectTopLevelParentUniqueName8 = XCLWinKits.sln
-		SccProjectName8 = CommonEncrypt
-		SccLocalPath8 = CommonEncrypt
-		SccProjectUniqueName9 = CodingConvert\\CodingConvert.csproj
-		SccProjectTopLevelParentUniqueName9 = XCLWinKits.sln
-		SccProjectName9 = CodingConvert
-		SccLocalPath9 = CodingConvert
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -167,6 +133,16 @@ Global
 		{52201412-1598-40A3-9898-CB4E320AD5EC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{52201412-1598-40A3-9898-CB4E320AD5EC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{52201412-1598-40A3-9898-CB4E320AD5EC}.Release|x86.ActiveCfg = Release|Any CPU
+		{F74CA7A1-69F4-42BC-998E-60687042D928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F74CA7A1-69F4-42BC-998E-60687042D928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F74CA7A1-69F4-42BC-998E-60687042D928}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F74CA7A1-69F4-42BC-998E-60687042D928}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F74CA7A1-69F4-42BC-998E-60687042D928}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F74CA7A1-69F4-42BC-998E-60687042D928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F74CA7A1-69F4-42BC-998E-60687042D928}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F74CA7A1-69F4-42BC-998E-60687042D928}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F74CA7A1-69F4-42BC-998E-60687042D928}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F74CA7A1-69F4-42BC-998E-60687042D928}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -177,5 +153,6 @@ Global
 		{A6C35F83-3EC8-4C84-BE1E-C20D6E707436} = {D552FDA2-D6CD-4FB6-A823-B425D1451F08}
 		{1A48E205-7F23-464F-AAB4-298356852C28} = {D552FDA2-D6CD-4FB6-A823-B425D1451F08}
 		{52201412-1598-40A3-9898-CB4E320AD5EC} = {5B67FFDB-762A-4B73-8699-590A97357720}
+		{F74CA7A1-69F4-42BC-998E-60687042D928} = {5B67FFDB-762A-4B73-8699-590A97357720}
 	EndGlobalSection
 EndGlobal

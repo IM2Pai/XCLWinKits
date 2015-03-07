@@ -124,6 +124,10 @@
       <Project>{A6C35F83-3EC8-4C84-BE1E-C20D6E707436}</Project>
       <Name>MD5Tool</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UrlCodeConvert\UrlCodeConvert.csproj">
+      <Project>{f74ca7a1-69f4-42bc-998e-60687042d928}</Project>
+      <Name>UrlCodeConvert</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XCLNetFileReplace\XCLNetFileReplace.csproj">
       <Project>{5100B375-4C25-4AA8-BCDF-1AFA355A5F93}</Project>
       <Name>XCLNetFileReplace</Name>
