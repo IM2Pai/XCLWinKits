@@ -38,6 +38,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtInputString = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.ckIgnoreCase = new System.Windows.Forms.CheckBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.ckAnyTime = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -45,7 +46,6 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.txtFindResult = new System.Windows.Forms.TextBox();
             this.lbMsg = new System.Windows.Forms.Label();
-            this.ckIgnoreCase = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -125,9 +125,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Location = new System.Drawing.Point(18, 30);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 29);
@@ -171,6 +169,16 @@
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "选项";
+            // 
+            // ckIgnoreCase
+            // 
+            this.ckIgnoreCase.AutoSize = true;
+            this.ckIgnoreCase.Location = new System.Drawing.Point(98, 22);
+            this.ckIgnoreCase.Name = "ckIgnoreCase";
+            this.ckIgnoreCase.Size = new System.Drawing.Size(96, 16);
+            this.ckIgnoreCase.TabIndex = 7;
+            this.ckIgnoreCase.Text = "不区分大小写";
+            this.ckIgnoreCase.UseVisualStyleBackColor = true;
             // 
             // btnOK
             // 
@@ -245,16 +253,6 @@
             this.lbMsg.TabIndex = 6;
             this.lbMsg.Text = "label1";
             // 
-            // ckIgnoreCase
-            // 
-            this.ckIgnoreCase.AutoSize = true;
-            this.ckIgnoreCase.Location = new System.Drawing.Point(98, 22);
-            this.ckIgnoreCase.Name = "ckIgnoreCase";
-            this.ckIgnoreCase.Size = new System.Drawing.Size(96, 16);
-            this.ckIgnoreCase.TabIndex = 7;
-            this.ckIgnoreCase.Text = "不区分大小写";
-            this.ckIgnoreCase.UseVisualStyleBackColor = true;
-            // 
             // Index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -269,7 +267,6 @@
             this.Controls.Add(this.groupBox1);
             this.MinimumSize = new System.Drawing.Size(800, 550);
             this.Name = "Index";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "XCLWinKits——Windows软件工具箱   1.0.1.0，Copyright ©2014 by:XCL qq:80213876 ";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

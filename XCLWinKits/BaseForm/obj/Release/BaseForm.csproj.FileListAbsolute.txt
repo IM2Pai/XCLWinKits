@@ -20,3 +20,14 @@ D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\obj\Release\BaseForm.BaseFormC
 D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\obj\Release\BaseForm.csproj.GenerateResource.Cache
 D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\obj\Release\BaseForm.dll
 D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\obj\Release\BaseForm.pdb
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\bin\Release\BaseForm.dll
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\bin\Release\BaseForm.pdb
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\bin\Release\CommonHelper.dll
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\bin\Release\XCLNetTools.dll
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\bin\Release\CommonHelper.pdb
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\bin\Release\XCLNetTools.xml
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\obj\Release\BaseForm.csprojResolveAssemblyReference.cache
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\obj\Release\BaseForm.BaseFormClass.resources
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\obj\Release\BaseForm.csproj.GenerateResource.Cache
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\obj\Release\BaseForm.dll
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\BaseForm\obj\Release\BaseForm.pdb

@@ -11,3 +11,10 @@ D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\CommonHelper\bin\Release\XCLNetTools.dl
 D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\CommonHelper\bin\Release\XCLNetTools.xml
 D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\CommonHelper\obj\Release\CommonHelper.dll
 D:\Work\Git\GitHub\XCLWinKits\XCLWinKits\CommonHelper\obj\Release\CommonHelper.pdb
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CommonHelper\bin\Release\CommonHelper.dll
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CommonHelper\bin\Release\CommonHelper.pdb
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CommonHelper\bin\Release\XCLNetTools.dll
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CommonHelper\bin\Release\XCLNetTools.xml
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CommonHelper\obj\Release\CommonHelper.csprojResolveAssemblyReference.cache
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CommonHelper\obj\Release\CommonHelper.dll
+D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CommonHelper\obj\Release\CommonHelper.pdb
