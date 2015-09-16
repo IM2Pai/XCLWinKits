@@ -60,3 +60,6 @@ D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\obj\x86\Debug\XCLWinKits.A
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\obj\x86\Debug\XCLWinKits.Index.resources
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\obj\x86\Debug\XCLWinKits.Properties.Resources.resources
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\obj\x86\Debug\XCLWinKits.csproj.GenerateResource.Cache
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\XCLWinKits.exe.config
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\obj\x86\Debug\XCLWinKits.exe
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\obj\x86\Debug\XCLWinKits.pdb
