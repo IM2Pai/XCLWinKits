@@ -24,3 +24,16 @@ D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\MD5Tool\obj\Debug\MD5Tool.Index.resou
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\MD5Tool\obj\Debug\MD5Tool.csproj.GenerateResource.Cache
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\MD5Tool\obj\Debug\MD5Tool.dll
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\MD5Tool\obj\Debug\MD5Tool.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\bin\Debug\MD5Tool.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\bin\Debug\MD5Tool.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\bin\Debug\BaseForm.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\bin\Debug\XCLNetTools.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\bin\Debug\CommonHelper.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\bin\Debug\BaseForm.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\bin\Debug\XCLNetTools.xml
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\bin\Debug\CommonHelper.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\obj\Debug\MD5Tool.csprojResolveAssemblyReference.cache
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\obj\Debug\MD5Tool.Index.resources
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\obj\Debug\MD5Tool.csproj.GenerateResource.Cache
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\obj\Debug\MD5Tool.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\obj\Debug\MD5Tool.pdb
