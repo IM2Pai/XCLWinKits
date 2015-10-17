@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -16,9 +14,12 @@ namespace XCLNetFileReplace
     {
         private string openFileFolderPath = string.Empty;//打开的文件所在的公共目录,如"C:\XCL\"
         private object lockObject = new object();
-        delegate void Delegate_UpdateStatus(Model.DoState doState);
-        delegate DataGridViewRow Delegate_DoIt(DataGridViewRow dr);
-        delegate void Delegate_VoidMethod();
+
+        private delegate void Delegate_UpdateStatus(Model.DoState doState);
+
+        private delegate DataGridViewRow Delegate_DoIt(DataGridViewRow dr);
+
+        private delegate void Delegate_VoidMethod();
 
         public Index()
         {
@@ -30,7 +31,9 @@ namespace XCLNetFileReplace
         private void InitData()
         {
             #region 匿名方法：当正则表达式选择后，禁用掉【全字匹配】
-            Delegate_VoidMethod checkWholeReplace = new Delegate_VoidMethod(delegate(){
+
+            Delegate_VoidMethod checkWholeReplace = new Delegate_VoidMethod(delegate ()
+            {
                 if (this.ckIsRegexp.Checked)
                 {
                     this.ckIsWhole.Checked = false;
@@ -45,13 +48,15 @@ namespace XCLNetFileReplace
             {
                 checkWholeReplace.Invoke();
             });
-            #endregion
+
+            #endregion 匿名方法：当正则表达式选择后，禁用掉【全字匹配】
 
             #region 初始化选项
+
             string searchOptions = CommonHelper.ConfigHelper.GetBaseConfigStringValue(this.SubAssemblyName, "SearchOptions");
             if (!string.IsNullOrEmpty(searchOptions))
             {
-                string[] so=searchOptions.Split(',');
+                string[] so = searchOptions.Split(',');
                 if (so.Contains(this.ckIsContent.Text))
                 {
                     this.ckIsContent.Checked = true;
@@ -76,10 +81,12 @@ namespace XCLNetFileReplace
             }
 
             this.txtOutPutPath.Text = CommonHelper.ConfigHelper.GetBaseConfigStringValue(this.SubAssemblyName, "OutPutPath");
-            #endregion
+
+            #endregion 初始化选项
         }
 
         #region 导航菜单
+
         private void 打开文件ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
@@ -131,11 +138,11 @@ namespace XCLNetFileReplace
             openFolder.Description = "请选择要存放的目录！";
             if (openFolder.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                string folderPath=openFolder.SelectedPath.TrimEnd('\\');
+                string folderPath = openFolder.SelectedPath.TrimEnd('\\');
                 Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
                 List<Model.FileInfo> lst = this.dgFiles.DataSource as List<Model.FileInfo>;
-                wb.Worksheets[0].Cells.ImportDataTable(XCLNetTools.Generic.ListHelper<Model.FileInfo>.ToDataTable((IList<Model.FileInfo>)lst), true, 0, 0);
-                string filePath=string.Format(@"{0}\XCLNetFileRelace_{1:yyyyMMddHHmmssfff}.xlsx", folderPath,DateTime.Now);
+                wb.Worksheets[0].Cells.ImportDataTable(XCLNetTools.Generic.ListHelper.ToDataTable((IList<Model.FileInfo>)lst), true, 0, 0);
+                string filePath = string.Format(@"{0}\XCLNetFileRelace_{1:yyyyMMddHHmmssfff}.xlsx", folderPath, DateTime.Now);
                 wb.Save(filePath, Aspose.Cells.SaveFormat.Xlsx);
                 if (MessageBox.Show("导出成功，是否打开该文件？", "系统提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                 {
@@ -149,7 +156,13 @@ namespace XCLNetFileReplace
             this.Close();
         }
 
-        #endregion
+        private void 规则配置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RuleConfig fm = new RuleConfig();
+            fm.ShowDialog();
+        }
+
+        #endregion 导航菜单
 
         /// <summary>
         /// 执行
@@ -163,6 +176,7 @@ namespace XCLNetFileReplace
             bool isWhole = this.ckIsWhole.Checked;
 
             #region 合法性验证
+
             if (null == this.dgFiles.DataSource)
             {
                 MessageBox.Show("请先选择待处理的文件！");
@@ -195,9 +209,11 @@ namespace XCLNetFileReplace
                     return;
                 }
             }
-            #endregion
+
+            #endregion 合法性验证
 
             #region 将选项保存至配置文件中
+
             List<string> searchOptions = new List<string>();
             if (this.ckIsRegexp.Checked)
             {
@@ -221,9 +237,11 @@ namespace XCLNetFileReplace
             }
             CommonHelper.ConfigHelper.SetBaseConfigValue(this.SubAssemblyName, "SearchOptions", string.Join(",", searchOptions.ToArray()));
             CommonHelper.ConfigHelper.SetBaseConfigValue(this.SubAssemblyName, "OutPutPath", this.txtOutPutPath.Text);
-            #endregion
+
+            #endregion 将选项保存至配置文件中
 
             #region 任务处理
+
             this.SetControlEnable(false);
             Model.DoState doState = new Model.DoState();
             doState.SumCount = this.dgFiles.Rows.Count;
@@ -232,8 +250,9 @@ namespace XCLNetFileReplace
                 DataGridViewRow dr = this.dgFiles.Rows[i];
                 Delegate_DoIt dg = new Delegate_DoIt(DoIt);
                 IAsyncResult result = dg.BeginInvoke(dr, new AsyncCallback(this.GetResultCallBack), doState);
-            } 
-            #endregion
+            }
+
+            #endregion 任务处理
         }
 
         /// <summary>
@@ -247,8 +266,9 @@ namespace XCLNetFileReplace
             try
             {
                 #region 验证扩展名及是否为文本文件
+
                 string currentExt = dr.Cells["扩展名"].Value.ToString();
-                string[] defaultExt = { "xls", "xlsx","csv" , "doc", "docx"/*, "ppt", "pptx","pdf"*/ };//这些格式由aspose去处理
+                string[] defaultExt = { "xls", "xlsx", "csv", "doc", "docx"/*, "ppt", "pptx","pdf"*/ };//这些格式由aspose去处理
                 string[] excelExt = { "xls", "xlsx", "csv" };
                 string[] docExt = { "doc", "docx" };
                 //string[] pptExt = { "ppt", "pptx" };
@@ -268,34 +288,40 @@ namespace XCLNetFileReplace
                     dr.DefaultCellStyle.ForeColor = System.Drawing.Color.Red;
                     return dr;
                 }
-                #endregion
+
+                #endregion 验证扩展名及是否为文本文件
 
                 Regex reg = null;
 
                 #region 是否启用正则替换
+
                 if (this.ckIsRegexp.Checked)
                 {
-                    reg = this.ckIsNotIgnoreLowerCase.Checked?new Regex(this.txtOldValue.Text):new Regex(this.txtOldValue.Text, RegexOptions.IgnoreCase);
+                    reg = this.ckIsNotIgnoreLowerCase.Checked ? new Regex(this.txtOldValue.Text) : new Regex(this.txtOldValue.Text, RegexOptions.IgnoreCase);
                 }
                 else
                 {
-                    string newExpStr = this.ckIsWhole.Checked ? string.Format(@"\b{0}\b",Regex.Escape(this.txtOldValue.Text)) :Regex.Escape(this.txtOldValue.Text);
+                    string newExpStr = this.ckIsWhole.Checked ? string.Format(@"\b{0}\b", Regex.Escape(this.txtOldValue.Text)) : Regex.Escape(this.txtOldValue.Text);
                     reg = this.ckIsNotIgnoreLowerCase.Checked ? new Regex(newExpStr) : new Regex(newExpStr, RegexOptions.IgnoreCase);
                 }
-                #endregion
+
+                #endregion 是否启用正则替换
 
                 #region 复制到输出目录并判断是否替换文件名
+
                 string filePath = dr.Cells["路径"].Value.ToString();
                 filePath = filePath.Replace(this.openFileFolderPath.TrimEnd('\\'), this.txtOutPutPath.Text.TrimEnd('\\'));
                 string filetitle = XCLNetTools.FileHandler.ComFile.GetFileName(filePath, false);
 
                 #region 是否替换文件名
+
                 if (this.ckIsFileName.Checked)
                 {
                     strRemark.AppendFormat("文件名替换【{0}】处；", reg.Matches(filetitle).Count);
                     filetitle = reg.Replace(filetitle, this.txtNew.Text);
                 }
-                #endregion
+
+                #endregion 是否替换文件名
 
                 filetitle = string.Format("{0}{1}{2}", this.txtFileFirstName.Text, filetitle, this.txtFileLastName.Text);
                 filePath = XCLNetTools.FileHandler.ComFile.GetFileFolderPath(filePath) + "\\" + filetitle + "." + XCLNetTools.FileHandler.ComFile.GetExtName(filePath);
@@ -308,9 +334,11 @@ namespace XCLNetFileReplace
                     dr.DefaultCellStyle.ForeColor = System.Drawing.Color.Red;
                     return dr;
                 }
-                #endregion
+
+                #endregion 复制到输出目录并判断是否替换文件名
 
                 #region 开始替换文件内容
+
                 if (this.ckIsContent.Checked)
                 {
                     int replaceCount = 0;
@@ -319,13 +347,14 @@ namespace XCLNetFileReplace
                         if (isExcelExt)
                         {
                             #region 处理excel文件
+
                             Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook(filePath);
                             for (int i = 0; i < wb.Worksheets.Count; i++)
                             {
                                 Aspose.Cells.Cells sheetCells = wb.Worksheets[i].Cells;
-                                for (int cellsRowIndex = 0; cellsRowIndex < sheetCells.MaxDataRow+1; cellsRowIndex++)
+                                for (int cellsRowIndex = 0; cellsRowIndex < sheetCells.MaxDataRow + 1; cellsRowIndex++)
                                 {
-                                    for (int cellsColumn = 0; cellsColumn < sheetCells.MaxDataColumn+1; cellsColumn++)
+                                    for (int cellsColumn = 0; cellsColumn < sheetCells.MaxDataColumn + 1; cellsColumn++)
                                     {
                                         Aspose.Cells.Cell currentCell = sheetCells[cellsRowIndex, cellsColumn];
                                         string cellValue = Convert.ToString(currentCell.Value);
@@ -342,16 +371,19 @@ namespace XCLNetFileReplace
                             {
                                 wb.Save(filePath);
                             }
-                            #endregion
+
+                            #endregion 处理excel文件
                         }
                         else if (isDocExt)
                         {
                             #region 处理word
+
                             //正则无法使用特殊正则，如\s带\的。
                             Aspose.Words.Document wordDocument = new Aspose.Words.Document(filePath);
-                            replaceCount= wordDocument.Range.Replace(reg, this.txtNew.Text);
+                            replaceCount = wordDocument.Range.Replace(reg, this.txtNew.Text);
                             wordDocument.Save(filePath);
-                            #endregion
+
+                            #endregion 处理word
                         }
                         //else if (isPPTExt)
                         //{
@@ -372,15 +404,18 @@ namespace XCLNetFileReplace
                     else
                     {
                         #region 处理文本文件
+
                         string fileContent = System.IO.File.ReadAllText(filePath, System.Text.Encoding.Default);
                         replaceCount = reg.Matches(fileContent).Count;
                         fileContent = reg.Replace(fileContent, this.txtNew.Text);
-                        System.IO.File.WriteAllText(filePath, fileContent, System.Text.Encoding.Default); 
-                        #endregion
+                        System.IO.File.WriteAllText(filePath, fileContent, System.Text.Encoding.Default);
+
+                        #endregion 处理文本文件
                     }
                     strRemark.AppendFormat("文件内容替换【{0}】处；", replaceCount);
                 }
-                #endregion
+
+                #endregion 开始替换文件内容
 
                 if (strRemark.Length > 0)
                 {
@@ -389,14 +424,14 @@ namespace XCLNetFileReplace
                 dr.Cells["是否处理成功"].Value = "是";
                 dr.DefaultCellStyle.ForeColor = System.Drawing.Color.Green;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 dr.Cells["是否处理成功"].Value = "否";
                 dr.DefaultCellStyle.ForeColor = System.Drawing.Color.Red;
                 dr.Cells["备注"].Value = e.Message;
             }
             DateTime dtEnd = DateTime.Now;
-            dr.Cells["处理用时"].Value =Math.Round((decimal)(dtEnd.Subtract(dtStart).TotalMilliseconds/1000.0),1);
+            dr.Cells["处理用时"].Value = Math.Round((decimal)(dtEnd.Subtract(dtStart).TotalMilliseconds / 1000.0), 1);
             return dr;
         }
 
@@ -410,7 +445,7 @@ namespace XCLNetFileReplace
                 Model.DoState doState = asyncResult.AsyncState as Model.DoState;
                 AsyncResult result = (AsyncResult)asyncResult;
                 Delegate_DoIt delegateDoit = (Delegate_DoIt)result.AsyncDelegate;
-                DataGridViewRow dr=delegateDoit.EndInvoke(asyncResult);
+                DataGridViewRow dr = delegateDoit.EndInvoke(asyncResult);
                 doState.CurrentCount += 1;
                 if (dr.Cells["是否处理成功"].Value.ToString() == "是")
                 {
@@ -471,7 +506,7 @@ namespace XCLNetFileReplace
         /// </summary>
         private void InitFiles(string[] files)
         {
-            if (null != files&&files.Length>0)
+            if (null != files && files.Length > 0)
             {
                 List<Model.FileInfo> lst = new List<Model.FileInfo>();
                 for (int i = 0; i < files.Length; i++)
@@ -487,8 +522,7 @@ namespace XCLNetFileReplace
                         lst.Add(model);
                     }
                     catch
-                    { 
-                        
+                    {
                     }
                 }
                 this.dgFiles.DataSource = lst;
@@ -574,6 +608,6 @@ namespace XCLNetFileReplace
         public override string SubAssemblyName
         {
             get { return Assembly.GetExecutingAssembly().GetName().Name; }
-        } 
+        }
     }
 }

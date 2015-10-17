@@ -43,3 +43,7 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\obj\Debug\XCLNetF
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\obj\Debug\XCLNetFileReplace.csproj.GenerateResource.Cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\obj\Debug\XCLNetFileReplace.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\obj\Debug\XCLNetFileReplace.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\obj\Debug\XCLNetFileReplace.RuleConfig.resources
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\bin\Debug\XCLNetFileReplace.dll.config
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\bin\Debug\DataLayer.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\bin\Debug\DataLayer.pdb

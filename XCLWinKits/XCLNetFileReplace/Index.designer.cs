@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Index));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.打开文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,6 +79,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.规则配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox_FileInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgFiles)).BeginInit();
@@ -98,7 +99,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.文件ToolStripMenuItem});
+            this.文件ToolStripMenuItem,
+            this.设置ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(897, 25);
@@ -119,28 +121,28 @@
             // 打开文件ToolStripMenuItem
             // 
             this.打开文件ToolStripMenuItem.Name = "打开文件ToolStripMenuItem";
-            this.打开文件ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.打开文件ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.打开文件ToolStripMenuItem.Text = "打开文件";
             this.打开文件ToolStripMenuItem.Click += new System.EventHandler(this.打开文件ToolStripMenuItem_Click);
             // 
             // 打开文件夹ToolStripMenuItem
             // 
             this.打开文件夹ToolStripMenuItem.Name = "打开文件夹ToolStripMenuItem";
-            this.打开文件夹ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.打开文件夹ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.打开文件夹ToolStripMenuItem.Text = "打开文件夹";
             this.打开文件夹ToolStripMenuItem.Click += new System.EventHandler(this.打开文件夹ToolStripMenuItem_Click);
             // 
             // 导出ToolStripMenuItem
             // 
             this.导出ToolStripMenuItem.Name = "导出ToolStripMenuItem";
-            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.导出ToolStripMenuItem.Text = "导出";
             this.导出ToolStripMenuItem.Click += new System.EventHandler(this.导出ToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -163,14 +165,14 @@
             this.dgFiles.AllowUserToDeleteRows = false;
             this.dgFiles.AllowUserToOrderColumns = true;
             this.dgFiles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgFiles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgFiles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgFiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.文件名,
@@ -180,26 +182,26 @@
             this.是否处理成功,
             this.处理用时,
             this.备注});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgFiles.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgFiles.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgFiles.Location = new System.Drawing.Point(3, 17);
             this.dgFiles.Name = "dgFiles";
             this.dgFiles.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgFiles.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgFiles.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgFiles.RowTemplate.Height = 23;
             this.dgFiles.Size = new System.Drawing.Size(867, 160);
             this.dgFiles.TabIndex = 2;
@@ -285,7 +287,7 @@
             this.groupBox_Search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.groupBox_Search.Location = new System.Drawing.Point(3, 3);
             this.groupBox_Search.Name = "groupBox_Search";
-            this.groupBox_Search.Size = new System.Drawing.Size(432, 132);
+            this.groupBox_Search.Size = new System.Drawing.Size(432, 128);
             this.groupBox_Search.TabIndex = 2;
             this.groupBox_Search.TabStop = false;
             this.groupBox_Search.Text = "查找内容：";
@@ -307,7 +309,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(426, 112);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(426, 108);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // panel2
@@ -318,9 +320,9 @@
             this.panel2.Controls.Add(this.ckIsNotIgnoreLowerCase);
             this.panel2.Controls.Add(this.ckIsRegexp);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 78);
+            this.panel2.Location = new System.Drawing.Point(3, 75);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(420, 31);
+            this.panel2.Size = new System.Drawing.Size(420, 30);
             this.panel2.TabIndex = 0;
             // 
             // ckIsContent
@@ -382,7 +384,7 @@
             this.txtOldValue.Multiline = true;
             this.txtOldValue.Name = "txtOldValue";
             this.txtOldValue.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtOldValue.Size = new System.Drawing.Size(420, 69);
+            this.txtOldValue.Size = new System.Drawing.Size(420, 66);
             this.txtOldValue.TabIndex = 6;
             // 
             // groupBox_Replace
@@ -392,7 +394,7 @@
             this.groupBox_Replace.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.groupBox_Replace.Location = new System.Drawing.Point(441, 3);
             this.groupBox_Replace.Name = "groupBox_Replace";
-            this.groupBox_Replace.Size = new System.Drawing.Size(432, 132);
+            this.groupBox_Replace.Size = new System.Drawing.Size(432, 128);
             this.groupBox_Replace.TabIndex = 3;
             this.groupBox_Replace.TabStop = false;
             this.groupBox_Replace.Text = "替换内容：";
@@ -404,7 +406,7 @@
             this.txtNew.Multiline = true;
             this.txtNew.Name = "txtNew";
             this.txtNew.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtNew.Size = new System.Drawing.Size(426, 112);
+            this.txtNew.Size = new System.Drawing.Size(426, 108);
             this.txtNew.TabIndex = 0;
             // 
             // btnSave
@@ -511,7 +513,7 @@
             this.toolStripStatusLabel1,
             this.toolStripProgressBar1,
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 441);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 437);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(897, 22);
             this.statusStrip1.TabIndex = 7;
@@ -548,7 +550,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(876, 138);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(876, 134);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
             // tableLayoutPanel2
@@ -560,7 +562,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0692F));
             this.tableLayoutPanel2.Controls.Add(this.groupBox_OutPut, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel1, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(9, 358);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(9, 354);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -576,11 +578,26 @@
             this.panel1.Size = new System.Drawing.Size(170, 68);
             this.panel1.TabIndex = 7;
             // 
+            // 设置ToolStripMenuItem
+            // 
+            this.设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.规则配置ToolStripMenuItem});
+            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.设置ToolStripMenuItem.Text = "设置";
+            // 
+            // 规则配置ToolStripMenuItem
+            // 
+            this.规则配置ToolStripMenuItem.Name = "规则配置ToolStripMenuItem";
+            this.规则配置ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.规则配置ToolStripMenuItem.Text = "规则配置";
+            this.规则配置ToolStripMenuItem.Click += new System.EventHandler(this.规则配置ToolStripMenuItem_Click);
+            // 
             // Index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 463);
+            this.ClientSize = new System.Drawing.Size(897, 459);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
@@ -589,7 +606,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(913, 483);
             this.Name = "Index";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " XCLWinKits——Windows软件工具箱  1.0.1.0，Copyright ©2014 by:XCL qq:80213876 ";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -664,9 +680,8 @@
         private System.Windows.Forms.CheckBox ckIsNotIgnoreLowerCase;
         private System.Windows.Forms.CheckBox ckIsRegexp;
         private System.Windows.Forms.TextBox txtOldValue;
-
-
-
+        private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 规则配置ToolStripMenuItem;
     }
 }
 
