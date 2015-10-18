@@ -43,6 +43,10 @@
       <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -63,14 +67,23 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="XCLNetTools">
+      <HintPath>..\DllFiles\XCLNetTools.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\FileReplace_File.cs" />
     <Compile Include="BLL\FileReplace_RuleConfig.cs" />
+    <Compile Include="BLL\UserSetting.cs" />
+    <Compile Include="Common\DataEnum.cs" />
     <Compile Include="DAL\MyContext.cs" />
+    <Compile Include="Model\FileReplace_File.cs" />
     <Compile Include="Model\FileReplace_RuleConfig.cs" />
+    <Compile Include="Model\UserSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

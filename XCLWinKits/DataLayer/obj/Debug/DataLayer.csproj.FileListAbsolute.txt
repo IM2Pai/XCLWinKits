@@ -10,3 +10,8 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\bin\Debug\EntityFramework
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\bin\Debug\System.Data.SQLite.xml
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\obj\Debug\DataLayer.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\obj\Debug\DataLayer.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\bin\Debug\DataLayer.dll.config
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\bin\Debug\Newtonsoft.Json.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\bin\Debug\XCLNetTools.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\bin\Debug\Newtonsoft.Json.xml
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\bin\Debug\XCLNetTools.xml
