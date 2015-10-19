@@ -36,10 +36,12 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\bin\Debug\Aspose.
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\bin\Debug\BaseForm.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\bin\Debug\CommonHelper.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\bin\Debug\DataLayer.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\bin\Debug\Newtonsoft.Json.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\bin\Debug\XCLNetTools.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\bin\Debug\BaseForm.pdb
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\bin\Debug\CommonHelper.pdb
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\bin\Debug\DataLayer.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\bin\Debug\Newtonsoft.Json.xml
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\bin\Debug\XCLNetTools.xml
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\obj\Debug\XCLNetFileReplace.csprojResolveAssemblyReference.cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\obj\Debug\XCLNetFileReplace.Index.resources
@@ -48,5 +50,3 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\obj\Debug\XCLNetF
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\obj\Debug\XCLNetFileReplace.csproj.GenerateResource.Cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\obj\Debug\XCLNetFileReplace.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\obj\Debug\XCLNetFileReplace.pdb
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\bin\Debug\Newtonsoft.Json.dll
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\bin\Debug\Newtonsoft.Json.xml

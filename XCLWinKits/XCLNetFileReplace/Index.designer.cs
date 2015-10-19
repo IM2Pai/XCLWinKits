@@ -68,7 +68,7 @@
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtLog = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridRuleConfig = new System.Windows.Forms.DataGridView();
             this.grid_RuleConfigID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,6 +93,7 @@
             this.txtFileFirstName = new System.Windows.Forms.TextBox();
             this.txtFileLastName = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox_FileInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgFiles)).BeginInit();
@@ -171,7 +172,8 @@
             // 
             // groupBox_FileInfo
             // 
-            this.groupBox_FileInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox_FileInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox_FileInfo.Controls.Add(this.dgFiles);
             this.groupBox_FileInfo.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -325,7 +327,7 @@
             this.toolStripStatusLabel1,
             this.toolStripProgressBar1,
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 581);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 608);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(897, 22);
             this.statusStrip1.TabIndex = 7;
@@ -350,35 +352,36 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(372, 462);
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.txtLog);
+            this.groupBox1.Location = new System.Drawing.Point(372, 468);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(347, 113);
+            this.groupBox1.Size = new System.Drawing.Size(377, 134);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "当前处理日志：";
             // 
-            // textBox1
+            // txtLog
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.ForeColor = System.Drawing.Color.LimeGreen;
-            this.textBox1.Location = new System.Drawing.Point(3, 17);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(341, 93);
-            this.textBox1.TabIndex = 0;
+            this.txtLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLog.ForeColor = System.Drawing.Color.LimeGreen;
+            this.txtLog.Location = new System.Drawing.Point(3, 17);
+            this.txtLog.Multiline = true;
+            this.txtLog.Name = "txtLog";
+            this.txtLog.ReadOnly = true;
+            this.txtLog.Size = new System.Drawing.Size(371, 114);
+            this.txtLog.TabIndex = 0;
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.dataGridRuleConfig);
             this.groupBox3.Controls.Add(this.btnSelectRule);
             this.groupBox3.Location = new System.Drawing.Point(9, 246);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(876, 208);
+            this.groupBox3.Size = new System.Drawing.Size(876, 216);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "当前处理要应用的规则：";
@@ -426,7 +429,7 @@
             dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridRuleConfig.RowHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridRuleConfig.RowTemplate.Height = 23;
-            this.dataGridRuleConfig.Size = new System.Drawing.Size(864, 154);
+            this.dataGridRuleConfig.Size = new System.Drawing.Size(864, 157);
             this.dataGridRuleConfig.TabIndex = 3;
             this.dataGridRuleConfig.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridRuleConfig_RowPostPaint);
             // 
@@ -533,7 +536,7 @@
             // btnSelectRule
             // 
             this.btnSelectRule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectRule.Location = new System.Drawing.Point(795, 179);
+            this.btnSelectRule.Location = new System.Drawing.Point(795, 182);
             this.btnSelectRule.Name = "btnSelectRule";
             this.btnSelectRule.Size = new System.Drawing.Size(75, 23);
             this.btnSelectRule.TabIndex = 1;
@@ -545,12 +548,13 @@
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(755, 499);
+            this.btnSave.Location = new System.Drawing.Point(758, 524);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(127, 44);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "开 始 处 理";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.EnabledChanged += new System.EventHandler(this.btnSave_EnabledChanged);
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtOutPutPath
@@ -593,7 +597,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 53);
+            this.label2.Location = new System.Drawing.Point(8, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 12);
             this.label2.TabIndex = 4;
@@ -602,7 +606,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 83);
+            this.label3.Location = new System.Drawing.Point(8, 103);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 12);
             this.label3.TabIndex = 5;
@@ -610,14 +614,14 @@
             // 
             // txtFileFirstName
             // 
-            this.txtFileFirstName.Location = new System.Drawing.Point(86, 49);
+            this.txtFileFirstName.Location = new System.Drawing.Point(86, 69);
             this.txtFileFirstName.Name = "txtFileFirstName";
             this.txtFileFirstName.Size = new System.Drawing.Size(248, 21);
             this.txtFileFirstName.TabIndex = 6;
             // 
             // txtFileLastName
             // 
-            this.txtFileLastName.Location = new System.Drawing.Point(86, 76);
+            this.txtFileLastName.Location = new System.Drawing.Point(86, 96);
             this.txtFileLastName.Name = "txtFileLastName";
             this.txtFileLastName.Size = new System.Drawing.Size(248, 21);
             this.txtFileLastName.TabIndex = 7;
@@ -625,6 +629,7 @@
             // groupBox4
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.txtOutPutPath);
             this.groupBox4.Controls.Add(this.txtFileLastName);
@@ -633,18 +638,28 @@
             this.groupBox4.Controls.Add(this.btnOpenOutPath);
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Location = new System.Drawing.Point(9, 462);
+            this.groupBox4.Location = new System.Drawing.Point(9, 468);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(345, 113);
+            this.groupBox4.Size = new System.Drawing.Size(345, 134);
             this.groupBox4.TabIndex = 13;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "输出选项：";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(7, 47);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(245, 12);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "若不指定输出目录，则在原文件上直接操作！";
             // 
             // Index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 603);
+            this.ClientSize = new System.Drawing.Size(897, 630);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox3);
@@ -653,7 +668,7 @@
             this.Controls.Add(this.groupBox_FileInfo);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(913, 642);
+            this.MinimumSize = new System.Drawing.Size(913, 669);
             this.Name = "Index";
             this.Text = " XCLWinKits——Windows软件工具箱  1.0.1.0，Copyright ©2014 by:XCL qq:80213876 ";
             this.menuStrip1.ResumeLayout(false);
@@ -695,7 +710,7 @@
         private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 规则配置ToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtLog;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnSelectRule;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_FileID;
@@ -729,6 +744,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn grid_IsFileContent;
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_CreateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_UpdateTime;
+        private System.Windows.Forms.Label label4;
     }
 }
 
