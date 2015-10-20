@@ -80,6 +80,7 @@ namespace XCLNetFileReplace
 
         private void InitData()
         {
+            fileBLL.Clear();
             this.InitCurrentRuleList();
             //初始化用户默认配置
             if (null != this.ReplaceSetting)
@@ -249,15 +250,44 @@ namespace XCLNetFileReplace
             Regex reg = null;
             List<string> strRemark = new List<string>();
             model.IsDone = true;
+
+            bool isDefaultExt = defaultExt.Contains(model.ExtensionName);
+            bool isExcelExt = excelExt.Contains(model.ExtensionName);
+            bool isDocExt = docExt.Contains(model.ExtensionName);
+            //bool isPPTExt = pptExt.Contains(model.ExtensionName);
+            //bool isPdfExt = pdfExt.Contains(model.ExtensionName);
+            bool isTxtFile = XCLNetTools.FileHandler.ComFile.IsTextFile(model.Path);
+            bool isNeedCopy = !string.IsNullOrEmpty(this.txtOutPutPath.Text);
+            string realPath = model.Path;//被操作的文件实际路径，如果没有指定输出目录，则为原路径，如果指定了输出目录，则为copy到输出目录中后的路径
+
+            if (!System.IO.File.Exists(model.Path))
+            {
+                model.Remark = "文件不存在！";
+                model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.无需处理;
+                return model;
+            }
+
+            if (string.IsNullOrEmpty(model.ExtensionName))
+            {
+                model.Remark = "无法确认文件类型！";
+                model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.无需处理;
+                return model;
+            }
+
             try
             {
-                bool isDefaultExt = defaultExt.Contains(model.ExtensionName);
-                bool isExcelExt = excelExt.Contains(model.ExtensionName);
-                bool isDocExt = docExt.Contains(model.ExtensionName);
-                //bool isPPTExt = pptExt.Contains(model.ExtensionName);
-                //bool isPdfExt = pdfExt.Contains(model.ExtensionName);
-                bool isTxtFile = XCLNetTools.FileHandler.ComFile.IsTextFile(model.Path);
-                bool isNeedCopy = !string.IsNullOrEmpty(this.txtOutPutPath.Text);
+                //先复制文件到输出目录
+                if (isNeedCopy)
+                {
+                    realPath = model.Path.Replace(this.openFileFolderPath.TrimEnd('\\'), this.txtOutPutPath.Text.TrimEnd('\\'));
+                    XCLNetTools.FileHandler.ComFile.CopyFile(model.Path, realPath);
+                    if (!System.IO.File.Exists(realPath))
+                    {
+                        model.Remark = "复制到输出目前执行失败！";
+                        model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理失败;
+                        return model;
+                    }
+                }
 
                 //循环应用已选规则
                 for (int ruleIndex = 0; ruleIndex < this.dataGridRuleConfig.Rows.Count; ruleIndex++)
@@ -293,15 +323,9 @@ namespace XCLNetFileReplace
 
                     #endregion 是否启用正则替换
 
-                    #region 复制到输出目录并判断是否替换文件名
+                    #region 判断是否替换文件名
 
-                    string filePath = model.Path;
-                    if (isNeedCopy)
-                    {
-                        filePath = filePath.Replace(this.openFileFolderPath.TrimEnd('\\'), this.txtOutPutPath.Text.TrimEnd('\\'));
-                    }
-
-                    string filetitle = XCLNetTools.FileHandler.ComFile.GetFileName(filePath, false);
+                    string filetitle = XCLNetTools.FileHandler.ComFile.GetFileName(realPath, false);
 
                     #region 是否替换文件名
 
@@ -314,24 +338,12 @@ namespace XCLNetFileReplace
                     #endregion 是否替换文件名
 
                     filetitle = string.Format("{0}{1}{2}", this.txtFileFirstName.Text, filetitle, this.txtFileLastName.Text);
-                    filePath = XCLNetTools.FileHandler.ComFile.GetFileFolderPath(filePath) + "\\" + filetitle + "." + XCLNetTools.FileHandler.ComFile.GetExtName(filePath);
 
-                    if (isNeedCopy)
-                    {
-                        XCLNetTools.FileHandler.ComFile.CopyFile(model.Path, filePath);
-                        if (!System.IO.File.Exists(filePath))
-                        {
-                            model.Remark = "输出目录中的文件未找到！";
-                            model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理失败;
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        this.pc.FileSystem.RenameFile(model.Path, filetitle);
-                    }
+                    this.pc.FileSystem.RenameFile(realPath, filetitle + "." + model.ExtensionName);
+                    
+                    realPath = XCLNetTools.FileHandler.ComFile.GetFileFolderPath(realPath) + "\\" + filetitle + "." + XCLNetTools.FileHandler.ComFile.GetExtName(realPath);
 
-                    #endregion 复制到输出目录并判断是否替换文件名
+                    #endregion 判断是否替换文件名
 
                     #region 开始替换文件内容
 
@@ -344,7 +356,7 @@ namespace XCLNetFileReplace
                             {
                                 #region 处理excel文件
 
-                                Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook(filePath);
+                                Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook(realPath);
                                 for (int i = 0; i < wb.Worksheets.Count; i++)
                                 {
                                     Aspose.Cells.Cells sheetCells = wb.Worksheets[i].Cells;
@@ -365,7 +377,7 @@ namespace XCLNetFileReplace
                                 }
                                 if (replaceCount > 0)
                                 {
-                                    wb.Save(filePath);
+                                    wb.Save(realPath);
                                 }
 
                                 #endregion 处理excel文件
@@ -375,25 +387,25 @@ namespace XCLNetFileReplace
                                 #region 处理word
 
                                 //正则无法使用特殊正则，如\s带\的。
-                                Aspose.Words.Document wordDocument = new Aspose.Words.Document(filePath);
+                                Aspose.Words.Document wordDocument = new Aspose.Words.Document(realPath);
                                 replaceCount = wordDocument.Range.Replace(reg, ruleModel.NewContent);
-                                wordDocument.Save(filePath);
+                                wordDocument.Save(realPath);
 
                                 #endregion 处理word
                             }
                             //else if (isPPTExt)
                             //{
                             //    #region 处理PPT
-                            //    Aspose.Slides.Pptx.PresentationEx pptPres = new Aspose.Slides.Pptx.PresentationEx(filePath);
+                            //    Aspose.Slides.Pptx.PresentationEx pptPres = new Aspose.Slides.Pptx.PresentationEx(realPath);
                             //    #endregion
                             //}
                             //else if (isPdfExt)
                             //{
                             //    #region 处理pdf文件
                             //    Aspose.Pdf.Kit.PdfContentEditor pdfEditor = new Aspose.Pdf.Kit.PdfContentEditor();
-                            //    pdfEditor.BindPdf(filePath);
+                            //    pdfEditor.BindPdf(realPath);
                             //    pdfEditor.ReplaceText(this.txtOldValue.Text, this.txtNew.Text);
-                            //    pdfEditor.Save(filePath);
+                            //    pdfEditor.Save(realPath);
                             //    #endregion
                             //}
                         }
@@ -401,10 +413,10 @@ namespace XCLNetFileReplace
                         {
                             #region 处理文本文件
 
-                            string fileContent = System.IO.File.ReadAllText(filePath, System.Text.Encoding.Default);
+                            string fileContent = System.IO.File.ReadAllText(realPath, System.Text.Encoding.Default);
                             replaceCount = reg.Matches(fileContent).Count;
                             fileContent = reg.Replace(fileContent, ruleModel.NewContent);
-                            System.IO.File.WriteAllText(filePath, fileContent, System.Text.Encoding.Default);
+                            System.IO.File.WriteAllText(realPath, fileContent, System.Text.Encoding.Default);
 
                             #endregion 处理文本文件
                         }
@@ -413,7 +425,7 @@ namespace XCLNetFileReplace
 
                     #endregion 开始替换文件内容
 
-                    this.txtLog.AppendText(string.Format("正在处理文件【{0}】，应用规则【{1}】"+ Environment.NewLine, model.FileName,ruleModel.Name));
+                    this.txtLog.AppendText(string.Format("正在处理文件【{0}】，应用规则【{1}】" + Environment.NewLine, model.FileName, ruleModel.Name));
                 }
 
                 if (strRemark.Count > 0)
@@ -479,6 +491,7 @@ namespace XCLNetFileReplace
             if (doState.CurrentCount == doState.SumCount)
             {
                 this.btnSave.Enabled = true;
+                this.txtLog.AppendText("文件已全部处理完毕！"+Environment.NewLine);
             }
         }
 
@@ -620,6 +633,7 @@ namespace XCLNetFileReplace
             this.打开文件ToolStripMenuItem.Enabled = state;
             this.打开文件夹ToolStripMenuItem.Enabled = state;
             this.导出ToolStripMenuItem.Enabled = state;
+            this.规则配置ToolStripMenuItem.Enabled = state;
         }
     }
 }
