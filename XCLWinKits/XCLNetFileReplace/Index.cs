@@ -297,6 +297,7 @@ namespace XCLNetFileReplace
                     {
                         continue;
                     }
+                    int replaceCount = 0;
 
                     #region 验证扩展名及是否为文本文件
 
@@ -331,7 +332,8 @@ namespace XCLNetFileReplace
 
                     if (ruleModel.IsFileName)
                     {
-                        strRemark.Add(string.Format("规则【{0}】文件名替换【{1}】处；", ruleModel.Name, reg.Matches(filetitle).Count));
+                        replaceCount = reg.Matches(filetitle).Count;
+                        strRemark.Add(string.Format("规则【{0}】文件名替换【{1}】处；", ruleModel.Name, replaceCount));
                         filetitle = reg.Replace(filetitle, ruleModel.NewContent);
                     }
 
@@ -340,7 +342,7 @@ namespace XCLNetFileReplace
                     filetitle = string.Format("{0}{1}{2}", this.txtFileFirstName.Text, filetitle, this.txtFileLastName.Text);
 
                     this.pc.FileSystem.RenameFile(realPath, filetitle + "." + model.ExtensionName);
-                    
+
                     realPath = XCLNetTools.FileHandler.ComFile.GetFileFolderPath(realPath) + "\\" + filetitle + "." + XCLNetTools.FileHandler.ComFile.GetExtName(realPath);
 
                     #endregion 判断是否替换文件名
@@ -349,7 +351,6 @@ namespace XCLNetFileReplace
 
                     if (ruleModel.IsFileContent)
                     {
-                        int replaceCount = 0;
                         if (isDefaultExt)
                         {
                             if (isExcelExt)
@@ -426,12 +427,15 @@ namespace XCLNetFileReplace
                     #endregion 开始替换文件内容
 
                     this.txtLog.AppendText(string.Format("正在处理文件【{0}】，应用规则【{1}】" + Environment.NewLine, model.FileName, ruleModel.Name));
+
+                    model.ProcessBlockCount += replaceCount;
                 }
 
                 if (strRemark.Count > 0)
                 {
                     model.Remark = string.Join("；", strRemark.ToArray());
                 }
+
                 model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理成功;
             }
             catch (Exception e)
@@ -470,6 +474,9 @@ namespace XCLNetFileReplace
                 {
                     doState.FailCount += 1;
                 }
+                //更新model
+                this.fileBLL.Update(model);
+
                 if (this.InvokeRequired)
                 {
                     this.Invoke(new Delegate_UpdateStatus(this.UpdateStatus), new object[] { doState });
@@ -491,7 +498,8 @@ namespace XCLNetFileReplace
             if (doState.CurrentCount == doState.SumCount)
             {
                 this.btnSave.Enabled = true;
-                this.txtLog.AppendText("文件已全部处理完毕！"+Environment.NewLine);
+                this.txtLog.AppendText("文件已全部处理完毕！" + Environment.NewLine);
+                this.dgFiles.DataSource = fileBLL.GetAllList();
             }
         }
 
@@ -624,6 +632,7 @@ namespace XCLNetFileReplace
         {
             bool state = this.btnSave.Enabled;
             this.btnOutPutPath.Enabled = state;
+            this.btnOpenOutPath.Enabled = state;
             this.btnSave.Enabled = state;
             this.btnSelectRule.Enabled = state;
 

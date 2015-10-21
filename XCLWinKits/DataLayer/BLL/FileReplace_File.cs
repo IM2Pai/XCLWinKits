@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DataLayer.BLL
@@ -15,6 +16,17 @@ namespace DataLayer.BLL
                     context.FileReplace_File.AddRange(lst);
                     context.SaveChanges();
                 }
+            }
+        }
+
+        public void Update(DataLayer.Model.FileReplace_File model)
+        {
+            using (var context = new DataLayer.DAL.MyDBContext())
+            {
+                model.UpdateTime = DateTime.Now;
+                context.FileReplace_File.Attach(model);
+                context.Entry(model).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
             }
         }
 
