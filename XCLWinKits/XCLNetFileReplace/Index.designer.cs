@@ -59,6 +59,8 @@
             this.dgFiles_ProcessDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgFiles_ProcessBlockCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgFiles_Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip_LBoxWait = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.全选ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -189,6 +191,7 @@
             this.dgFiles.AllowUserToAddRows = false;
             this.dgFiles.AllowUserToDeleteRows = false;
             this.dgFiles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgFiles.BackgroundColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -207,7 +210,9 @@
             this.dgFiles_ProcessState,
             this.dgFiles_ProcessDuration,
             this.dgFiles_ProcessBlockCount,
-            this.dgFiles_Remark});
+            this.dgFiles_Remark,
+            this.CreateTime,
+            this.UpdateTime});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -296,6 +301,22 @@
             this.dgFiles_Remark.HeaderText = "备注";
             this.dgFiles_Remark.Name = "dgFiles_Remark";
             this.dgFiles_Remark.ReadOnly = true;
+            // 
+            // CreateTime
+            // 
+            this.CreateTime.DataPropertyName = "CreateTime";
+            this.CreateTime.HeaderText = "CreateTime";
+            this.CreateTime.Name = "CreateTime";
+            this.CreateTime.ReadOnly = true;
+            this.CreateTime.Visible = false;
+            // 
+            // UpdateTime
+            // 
+            this.UpdateTime.DataPropertyName = "UpdateTime";
+            this.UpdateTime.HeaderText = "UpdateTime";
+            this.UpdateTime.Name = "UpdateTime";
+            this.UpdateTime.ReadOnly = true;
+            this.UpdateTime.Visible = false;
             // 
             // contextMenuStrip_LBoxWait
             // 
@@ -715,15 +736,6 @@
         private System.Windows.Forms.TextBox txtLog;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnSelectRule;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_FileID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_FileName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_Path;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_ExtensionName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_IsDone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_ProcessState;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_ProcessDuration;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_ProcessBlockCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_Remark;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtOutPutPath;
         private System.Windows.Forms.Button btnOutPutPath;
@@ -747,6 +759,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_CreateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_UpdateTime;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_FileID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_FileName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_Path;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_ExtensionName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_IsDone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_ProcessState;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_ProcessDuration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_ProcessBlockCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_Remark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UpdateTime;
     }
 }
 

@@ -6,8 +6,8 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\bin\Debug\XCLNetTools
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\bin\Debug\BaseForm.pdb
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\bin\Debug\CommonHelper.pdb
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\bin\Debug\XCLNetTools.xml
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Debug\CodingConvert.csprojResolveAssemblyReference.cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Debug\CodingConvert.Index.resources
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Debug\CodingConvert.csproj.GenerateResource.Cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Debug\CodingConvert.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Debug\CodingConvert.pdb
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Debug\CodingConvert.csprojResolveAssemblyReference.cache
