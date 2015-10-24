@@ -55,13 +55,10 @@
     <Compile Include="CommonEnum.cs" />
     <Compile Include="CommonEvent.cs" />
     <Compile Include="ConfigHelper.cs" />
-    <Compile Include="Model\CategoryConfig\Category.cs" />
-    <Compile Include="Model\CategoryConfig\CategoryItem.cs" />
+    <Compile Include="Model\Category.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\BaseConfig\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

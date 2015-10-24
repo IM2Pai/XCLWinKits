@@ -16,19 +16,14 @@ namespace XCLNetFileReplace
         private Computer pc = new Computer();
         private string openFileFolderPath = string.Empty;//打开的文件所在的公共目录,如"C:\XCL\"
         private object lockObject = new object();
-
         private delegate void Delegate_UpdateStatus(Model.DoState doState);
-
         private delegate DataLayer.Model.FileReplace_File Delegate_DoIt(DataLayer.Model.FileReplace_File model);
-
         private delegate void Delegate_VoidMethod();
-
         private DataLayer.BLL.FileReplace_File fileBLL = new DataLayer.BLL.FileReplace_File();
         private DataLayer.BLL.UserSetting userSettingBLL = new DataLayer.BLL.UserSetting();
         private DataLayer.BLL.FileReplace_RuleConfig ruleConfigBLL = new DataLayer.BLL.FileReplace_RuleConfig();
         private DataLayer.Model.FileReplaceSetting _replaceSetting = null;
         private List<DataLayer.Model.FileReplace_RuleConfig> _selectedRules = null;
-
         private string[] defaultExt = { "xls", "xlsx", "csv", "doc", "docx"/*, "ppt", "pptx","pdf"*/ };//这些格式由aspose去处理
         private string[] excelExt = { "xls", "xlsx", "csv" };
         private string[] docExt = { "doc", "docx" };
@@ -71,6 +66,9 @@ namespace XCLNetFileReplace
             }
         }
 
+        /// <summary>
+        /// 构造方法
+        /// </summary>
         public Index()
         {
             InitializeComponent();
@@ -78,6 +76,9 @@ namespace XCLNetFileReplace
             this.InitData();
         }
 
+        /// <summary>
+        /// 初始化基本数据
+        /// </summary>
         private void InitData()
         {
             fileBLL.Clear();
@@ -604,6 +605,9 @@ namespace XCLNetFileReplace
             }
         }
 
+        /// <summary>
+        /// 重写标题
+        /// </summary>
         public override string SubAssemblyName
         {
             get { return Assembly.GetExecutingAssembly().GetName().Name; }
@@ -618,6 +622,9 @@ namespace XCLNetFileReplace
             fm.ShowDialog();
         }
 
+        /// <summary>
+        /// 生成规则配置 的行号
+        /// </summary>
         private void dataGridRuleConfig_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             var dgv = sender as DataGridView;
@@ -628,6 +635,9 @@ namespace XCLNetFileReplace
             }
         }
 
+        /// <summary>
+        /// 【执行】按钮切换可用/不可用状态事件
+        /// </summary>
         private void btnSave_EnabledChanged(object sender, EventArgs e)
         {
             bool state = this.btnSave.Enabled;

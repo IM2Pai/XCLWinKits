@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("XCLWinKits——Windows软件工具箱")]
-[assembly: AssemblyDescription("http://blog.csdn.net/luoyeyu1989")]
+[assembly: AssemblyDescription("https://github.com/xucongli1989/XCLWinKits")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("by:XCL qq:80213876")]
+[assembly: AssemblyCompany("by:XCL Email:80213876@qq.com")]
 [assembly: AssemblyProduct("XCLWinKits——Windows软件工具箱")]
-[assembly: AssemblyCopyright("Copyright ©2014 by:XCL qq:80213876")]
+[assembly: AssemblyCopyright("Copyright ©2015 by:XCL Email:80213876@qq.com")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -26,11 +26,12 @@ using System.Runtime.InteropServices;
 //
 //      主版本
 //      次版本 
-//      内部版本号
+//      生成号
 //      修订号
 //
-// 可以指定所有这些值，也可以使用“内部版本号”和“修订号”的默认值，
+// 可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值，
 // 方法是按如下所示使用“*”:
 // [assembly: AssemblyVersion("1.0.*")]
 //[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyVersion("1.0.1")]
+[assembly: AssemblyVersion("1.1.*")]
+[assembly: AssemblyFileVersion("1.1")]

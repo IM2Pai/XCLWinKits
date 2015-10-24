@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
-using System.Reflection;
 
 namespace BaseForm
 {
-    public class BaseFormClass:System.Windows.Forms.Form
+    public class BaseFormClass : System.Windows.Forms.Form
     {
+        private string _getRemark = string.Empty;
+
         public BaseFormClass()
         {
             InitializeComponent();
@@ -21,16 +21,20 @@ namespace BaseForm
         {
             get
             {
-                StringBuilder str = new StringBuilder();
-                Assembly asm = Assembly.GetExecutingAssembly();
-                System.Diagnostics.FileVersionInfo fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(asm.Location);
-                string subName = string.Empty;
-                if (!string.IsNullOrEmpty(this.SubAssemblyName))
+                if (string.IsNullOrEmpty(this._getRemark))
                 {
-                    subName = string.Format("【{0}】", CommonHelper.ConfigHelper.GetCategoryNameInfo(this.SubAssemblyName));
+                    StringBuilder str = new StringBuilder();
+                    Assembly asm = Assembly.GetExecutingAssembly();
+                    System.Diagnostics.FileVersionInfo fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(asm.Location);
+                    string subName = string.Empty;
+                    if (!string.IsNullOrEmpty(this.SubAssemblyName))
+                    {
+                        subName = string.Format("【{0}】", CommonHelper.ConfigHelper.GetCategoryNameInfo(this.SubAssemblyName));
+                    }
+                    str.AppendFormat("{0} {1}  {2}，{3} ", fvi.FileDescription, subName, fvi.FileVersion, fvi.LegalCopyright);
+                    this._getRemark = str.ToString();
                 }
-                str.AppendFormat("{0} {1}  {2}，{3} ", fvi.FileDescription, subName, fvi.FileVersion, fvi.LegalCopyright);
-                return str.ToString();
+                return this._getRemark;
             }
         }
 
@@ -62,14 +66,9 @@ namespace BaseForm
             set;
         }
 
-        public System.Xml.XmlNodeList CurrentAssemblyBaseConfigList
-        {
-            get { return CommonHelper.ConfigHelper.GetAssemblyBaseConfigNodeList(this.SubAssemblyName); }
-        }
-
         private void LoopControls(Control parent)
         {
-            if(parent.Controls.Count>0)
+            if (parent.Controls.Count > 0)
             {
                 foreach (Control m in parent.Controls)
                 {

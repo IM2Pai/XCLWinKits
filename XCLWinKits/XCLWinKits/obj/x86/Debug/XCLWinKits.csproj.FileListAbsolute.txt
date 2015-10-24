@@ -41,8 +41,7 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\obj\x86\Debug\XCLWinKits
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\obj\x86\Debug\XCLWinKits.exe
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\obj\x86\Debug\XCLWinKits.pdb
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\App_Data\XCLWinKits.db
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\Config\BaseConfig.xml
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\Config\CategoryConfig.xml
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\Res\RegexFiles\regex0.html
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\XCLWinKits.exe.config
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\XCLWinKits.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\Config\Config.xml
