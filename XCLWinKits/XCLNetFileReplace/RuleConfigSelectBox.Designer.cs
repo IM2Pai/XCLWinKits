@@ -50,6 +50,10 @@
             this.grid_UpdateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnSelectAll = new System.Windows.Forms.Button();
+            this.btnSelectNone = new System.Windows.Forms.Button();
+            this.btnSelectInverse = new System.Windows.Forms.Button();
+            this.btnSelectOK = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRuleConfig)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +62,9 @@
             // 
             this.dataGridRuleConfig.AllowUserToAddRows = false;
             this.dataGridRuleConfig.AllowUserToDeleteRows = false;
+            this.dataGridRuleConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridRuleConfig.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridRuleConfig.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridRuleConfig.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
@@ -82,7 +89,6 @@
             this.grid_IsFileContent,
             this.grid_CreateTime,
             this.grid_UpdateTime});
-            this.dataGridRuleConfig.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridRuleConfig.Location = new System.Drawing.Point(0, 0);
             this.dataGridRuleConfig.Name = "dataGridRuleConfig";
             this.dataGridRuleConfig.ReadOnly = true;
@@ -96,7 +102,7 @@
             this.dataGridRuleConfig.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridRuleConfig.RowTemplate.Height = 23;
             this.dataGridRuleConfig.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridRuleConfig.Size = new System.Drawing.Size(825, 388);
+            this.dataGridRuleConfig.Size = new System.Drawing.Size(825, 337);
             this.dataGridRuleConfig.TabIndex = 1;
             this.dataGridRuleConfig.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridRuleConfig_DataBindingComplete);
             this.dataGridRuleConfig.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridRuleConfig_RowPostPaint);
@@ -217,16 +223,63 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(160, 17);
             this.toolStripStatusLabel1.Text = "说明：按Ctrl键可进行多选！";
             // 
+            // btnSelectAll
+            // 
+            this.btnSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelectAll.Location = new System.Drawing.Point(464, 340);
+            this.btnSelectAll.Name = "btnSelectAll";
+            this.btnSelectAll.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectAll.TabIndex = 3;
+            this.btnSelectAll.Text = "全选";
+            this.btnSelectAll.UseVisualStyleBackColor = true;
+            this.btnSelectAll.Click += new System.EventHandler(this.btnSelectAll_Click);
+            // 
+            // btnSelectNone
+            // 
+            this.btnSelectNone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelectNone.Location = new System.Drawing.Point(648, 340);
+            this.btnSelectNone.Name = "btnSelectNone";
+            this.btnSelectNone.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectNone.TabIndex = 4;
+            this.btnSelectNone.Text = "全不选";
+            this.btnSelectNone.UseVisualStyleBackColor = true;
+            this.btnSelectNone.Click += new System.EventHandler(this.btnSelectNone_Click);
+            // 
+            // btnSelectInverse
+            // 
+            this.btnSelectInverse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelectInverse.Location = new System.Drawing.Point(556, 341);
+            this.btnSelectInverse.Name = "btnSelectInverse";
+            this.btnSelectInverse.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectInverse.TabIndex = 5;
+            this.btnSelectInverse.Text = "反选";
+            this.btnSelectInverse.UseVisualStyleBackColor = true;
+            this.btnSelectInverse.Click += new System.EventHandler(this.btnSelectInverse_Click);
+            // 
+            // btnSelectOK
+            // 
+            this.btnSelectOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelectOK.Location = new System.Drawing.Point(740, 341);
+            this.btnSelectOK.Name = "btnSelectOK";
+            this.btnSelectOK.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectOK.TabIndex = 6;
+            this.btnSelectOK.Text = "选好了";
+            this.btnSelectOK.UseVisualStyleBackColor = true;
+            this.btnSelectOK.Click += new System.EventHandler(this.btnSelectOK_Click);
+            // 
             // RuleConfigSelectBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(825, 388);
+            this.Controls.Add(this.btnSelectOK);
+            this.Controls.Add(this.btnSelectInverse);
+            this.Controls.Add(this.btnSelectNone);
+            this.Controls.Add(this.btnSelectAll);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.dataGridRuleConfig);
             this.Name = "RuleConfigSelectBox";
             this.Text = "RuleConfigSelectBox";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RuleConfigSelectBox_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRuleConfig)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -251,5 +304,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_UpdateTime;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Button btnSelectAll;
+        private System.Windows.Forms.Button btnSelectNone;
+        private System.Windows.Forms.Button btnSelectInverse;
+        private System.Windows.Forms.Button btnSelectOK;
     }
 }

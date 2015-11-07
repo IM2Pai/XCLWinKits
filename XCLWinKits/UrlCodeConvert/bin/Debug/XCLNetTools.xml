@@ -2859,15 +2859,12 @@
             <param name="path">文件路径(如果为绝对路径，则直接返回，否则，转为绝对路径)</param>
             <returns>文件物理路径</returns>
         </member>
-        <member name="M:XCLNetTools.FileHandler.ComFile.GetFileName(System.String)">
-            <summary>
-            获取文件名（包含扩展名）
-            </summary>
-        </member>
         <member name="M:XCLNetTools.FileHandler.ComFile.GetFileName(System.String,System.Boolean)">
             <summary>
             获取文件名
             </summary>
+            <param name="fileName">路径（相对或绝对均可）</param>
+            <param name="isWithExt">是否包含扩展名</param>
         </member>
         <member name="M:XCLNetTools.FileHandler.ComFile.GetRandomFileName(System.String)">
              <summary>

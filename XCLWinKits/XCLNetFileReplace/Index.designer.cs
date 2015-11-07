@@ -72,6 +72,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtLog = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.dataGridRuleConfig = new System.Windows.Forms.DataGridView();
             this.grid_RuleConfigID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grid_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,7 +98,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnNotNeedOutPutPath = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox_FileInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgFiles)).BeginInit();
@@ -365,13 +365,12 @@
             // toolStripProgressBar1
             // 
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(400, 16);
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(250, 16);
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(346, 17);
-            this.toolStripStatusLabel2.Text = "已完成0%，0成功，0失败，正在处理第[0]个文件，共[0]个文件";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(0, 17);
             // 
             // groupBox1
             // 
@@ -412,6 +411,16 @@
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "当前处理要应用的规则：";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label5.Location = new System.Drawing.Point(6, 184);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(197, 12);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "说明：多个规则从上至下依次匹配。";
             // 
             // dataGridRuleConfig
             // 
@@ -691,17 +700,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(245, 12);
             this.label4.TabIndex = 8;
-            this.label4.Text = "若不指定输出目录，则在原文件上直接操作！";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label5.Location = new System.Drawing.Point(6, 184);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(197, 12);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "说明：多个规则从上至下依次匹配。";
+            this.label4.Text = "若不指定输出目录，则在源文件上直接操作！";
             // 
             // Index
             // 

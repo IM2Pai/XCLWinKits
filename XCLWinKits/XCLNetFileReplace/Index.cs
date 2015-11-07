@@ -28,8 +28,8 @@ namespace XCLNetFileReplace
         private DataLayer.BLL.FileReplace_RuleConfig ruleConfigBLL = new DataLayer.BLL.FileReplace_RuleConfig();
         private DataLayer.Model.FileReplaceSetting _replaceSetting = null;
         private List<DataLayer.Model.FileReplace_RuleConfig> _selectedRules = null;
-        private string[] defaultExt = { "xls", "xlsx", "csv", "doc", "docx"/*, "ppt", "pptx","pdf"*/ };//这些格式由aspose去处理
-        private string[] excelExt = { "xls", "xlsx", "csv" };
+        private string[] defaultExt = { "xls", "xlsx", "csv", "xlt", "doc", "docx"/*, "ppt", "pptx","pdf"*/ };//这些格式由aspose去处理
+        private string[] excelExt = { "xls", "xlsx", "csv", "xlt" };
         private string[] docExt = { "doc", "docx" };
         //private string[] pptExt = { "ppt", "pptx" };
         //private string[] pdfExt = { "pdf"};
@@ -76,7 +76,7 @@ namespace XCLNetFileReplace
         public Index()
         {
             InitializeComponent();
-            this.groupBox_FileInfo.Text = "待处理文件：（支持xls、xlsx、csv、doc、docx及其它文本文件[如：txt、html等]），无需安装Office！";
+            this.groupBox_FileInfo.Text = "待处理文件：（支持xls、xlsx、xlt、csv、doc、docx及其它文本文件[如：txt、html等]），无需安装Office！";
             this.InitData();
         }
 
@@ -94,6 +94,7 @@ namespace XCLNetFileReplace
                 this.txtFileFirstName.Text = this.ReplaceSetting.PrefixName;
                 this.txtFileLastName.Text = this.ReplaceSetting.SuffixName;
             }
+            this.toolStripStatusLabel2.Text = new Model.DoState().ToString();
         }
 
         /// <summary>
@@ -139,7 +140,7 @@ namespace XCLNetFileReplace
                     this.InitFiles(files);
                     this.openFileFolderPath = openFolder.SelectedPath;
                 }
-                catch
+                catch(Exception ex)
                 {
                     MessageBox.Show("系统错误，请重新打开有效文件夹！");
                 }
@@ -323,6 +324,7 @@ namespace XCLNetFileReplace
                     replaceCount = reg.Matches(filetitle).Count;
                     strRemark.Add(string.Format("规则【{0}】文件名替换【{1}】处；", ruleModel.Name, replaceCount));
                     filetitle = reg.Replace(filetitle, ruleModel.NewContent);
+                    model.ProcessBlockCount += replaceCount;
 
                     #endregion 判断是否替换文件名
                 }
@@ -526,14 +528,20 @@ namespace XCLNetFileReplace
                 AsyncResult result = (AsyncResult)asyncResult;
                 Delegate_DoIt delegateDoit = (Delegate_DoIt)result.AsyncDelegate;
                 var model = delegateDoit.EndInvoke(asyncResult);
-                doState.CurrentCount += 1;
-                if (model.ProcessState == DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理成功)
+
+                switch (model.ProcessState)
                 {
-                    doState.SuccessCount += 1;
-                }
-                else
-                {
-                    doState.FailCount += 1;
+                    case DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理失败:
+                        doState.FailCount += 1;
+                        break;
+
+                    case DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理成功:
+                        doState.SuccessCount += 1;
+                        break;
+
+                    case DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.无需处理:
+                        doState.IgnoreCount += 1;
+                        break;
                 }
                 //更新model
                 this.fileBLL.Update(model);
@@ -599,6 +607,12 @@ namespace XCLNetFileReplace
                     var model = new DataLayer.Model.FileReplace_File();
                     model.CreateTime = model.UpdateTime = DateTime.Now;
                     model.ExtensionName = (XCLNetTools.FileHandler.ComFile.GetExtName(files[i]) ?? "").ToLower();
+
+                    if (string.IsNullOrEmpty(model.ExtensionName))
+                    {
+                        continue;
+                    }
+
                     model.FileName = XCLNetTools.FileHandler.ComFile.GetFileName(files[i]);
                     model.IsDone = false;
                     model.Path = files[i];

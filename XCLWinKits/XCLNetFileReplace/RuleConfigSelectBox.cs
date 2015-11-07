@@ -40,10 +40,28 @@ namespace XCLNetFileReplace
             TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(), dataGridRuleConfig.RowHeadersDefaultCellStyle.Font, rectangle, dataGridRuleConfig.RowHeadersDefaultCellStyle.ForeColor, TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
         }
 
-        /// <summary>
-        /// 关闭窗口时，保存已选项
-        /// </summary>
-        private void RuleConfigSelectBox_FormClosing(object sender, FormClosingEventArgs e)
+        private void dataGridRuleConfig_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            //选中默认项
+            this.dataGridRuleConfig.ClearSelection();
+            var fileReplaceSetting = userSettingBLL.GetFileReplaceSetting();
+            if (null != fileReplaceSetting && null != fileReplaceSetting.RuleConfigIds && fileReplaceSetting.RuleConfigIds.Count > 0)
+            {
+                for (int i = 0; i < this.dataGridRuleConfig.Rows.Count; i++)
+                {
+                    var currentModel = this.dataGridRuleConfig.Rows[i].DataBoundItem as DataLayer.Model.FileReplace_RuleConfig;
+                    if (null != currentModel)
+                    {
+                        if (fileReplaceSetting.RuleConfigIds.Contains(currentModel.RuleConfigID))
+                        {
+                            this.dataGridRuleConfig.Rows[i].Selected = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnSelectOK_Click(object sender, System.EventArgs e)
         {
             var model = userSettingBLL.GetFirstModel();
             if (null == model)
@@ -80,27 +98,26 @@ namespace XCLNetFileReplace
             {
                 _mainForm.InitCurrentRuleList();
             }
+            this.Close();
         }
 
-        private void dataGridRuleConfig_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        private void btnSelectNone_Click(object sender, System.EventArgs e)
         {
-            //选中默认项
             this.dataGridRuleConfig.ClearSelection();
-            var fileReplaceSetting = userSettingBLL.GetFileReplaceSetting();
-            if (null != fileReplaceSetting && null != fileReplaceSetting.RuleConfigIds && fileReplaceSetting.RuleConfigIds.Count > 0)
+        }
+
+        private void btnSelectInverse_Click(object sender, System.EventArgs e)
+        {
+            for (int i = 0; i < this.dataGridRuleConfig.Rows.Count; i++)
             {
-                for (int i = 0; i < this.dataGridRuleConfig.Rows.Count; i++)
-                {
-                    var currentModel = this.dataGridRuleConfig.Rows[i].DataBoundItem as DataLayer.Model.FileReplace_RuleConfig;
-                    if (null != currentModel)
-                    {
-                        if (fileReplaceSetting.RuleConfigIds.Contains(currentModel.RuleConfigID))
-                        {
-                            this.dataGridRuleConfig.Rows[i].Selected = true;
-                        }
-                    }
-                }
+                var m = this.dataGridRuleConfig.Rows[i];
+                m.Selected = !m.Selected;
             }
+        }
+
+        private void btnSelectAll_Click(object sender, System.EventArgs e)
+        {
+            this.dataGridRuleConfig.SelectAll();
         }
 
         #endregion 事件
