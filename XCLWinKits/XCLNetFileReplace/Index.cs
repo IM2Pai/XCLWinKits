@@ -16,9 +16,13 @@ namespace XCLNetFileReplace
         private Computer pc = new Computer();
         private string openFileFolderPath = string.Empty;//打开的文件所在的公共目录,如"C:\XCL\"
         private object lockObject = new object();
+
         private delegate void Delegate_UpdateStatus(Model.DoState doState);
+
         private delegate DataLayer.Model.FileReplace_File Delegate_DoIt(DataLayer.Model.FileReplace_File model);
+
         private delegate void Delegate_VoidMethod();
+
         private DataLayer.BLL.FileReplace_File fileBLL = new DataLayer.BLL.FileReplace_File();
         private DataLayer.BLL.UserSetting userSettingBLL = new DataLayer.BLL.UserSetting();
         private DataLayer.BLL.FileReplace_RuleConfig ruleConfigBLL = new DataLayer.BLL.FileReplace_RuleConfig();
@@ -173,7 +177,7 @@ namespace XCLNetFileReplace
 
         private void 规则配置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RuleConfig fm = new RuleConfig();
+            RuleConfig fm = new RuleConfig(this);
             fm.ShowDialog();
         }
 
@@ -196,7 +200,18 @@ namespace XCLNetFileReplace
 
             if (!string.IsNullOrEmpty(this.txtOutPutPath.Text))
             {
-                if (!XCLNetTools.FileHandler.FileDirectory.DirectoryExists(this.txtOutPutPath.Text))
+                if (XCLNetTools.FileHandler.FileDirectory.DirectoryExists(this.txtOutPutPath.Text))
+                {
+                    //检查是否有文件
+                    if (!XCLNetTools.FileHandler.FileDirectory.IsEmpty(this.txtOutPutPath.Text))
+                    {
+                        if (MessageBox.Show("您指定的输出目录不是空目录，是否继续？", "系统提示", MessageBoxButtons.YesNo) == DialogResult.No)
+                        {
+                            return;
+                        }
+                    }
+                }
+                else
                 {
                     if (!XCLNetTools.FileHandler.FileDirectory.MakeDirectory(this.txtOutPutPath.Text))
                     {
@@ -248,6 +263,7 @@ namespace XCLNetFileReplace
             Stopwatch sw = new Stopwatch();
             sw.Start();
 
+            int replaceCount = 0;
             Regex reg = null;
             List<string> strRemark = new List<string>();
             model.IsDone = true;
@@ -260,6 +276,7 @@ namespace XCLNetFileReplace
             bool isTxtFile = XCLNetTools.FileHandler.ComFile.IsTextFile(model.Path);
             bool isNeedCopy = !string.IsNullOrEmpty(this.txtOutPutPath.Text);
             string realPath = model.Path;//被操作的文件实际路径，如果没有指定输出目录，则为原路径，如果指定了输出目录，则为copy到输出目录中后的路径
+            string filetitle = XCLNetTools.FileHandler.ComFile.GetFileName(model.Path, false);//文件名，不含扩展名
 
             if (!System.IO.File.Exists(model.Path))
             {
@@ -277,34 +294,83 @@ namespace XCLNetFileReplace
 
             try
             {
-                //先复制文件到输出目录
-                if (isNeedCopy)
-                {
-                    realPath = model.Path.Replace(this.openFileFolderPath.TrimEnd('\\'), this.txtOutPutPath.Text.TrimEnd('\\'));
-                    XCLNetTools.FileHandler.ComFile.CopyFile(model.Path, realPath);
-                    if (!System.IO.File.Exists(realPath))
-                    {
-                        model.Remark = "复制到输出目前执行失败！";
-                        model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理失败;
-                        return model;
-                    }
-                }
+                #region 先处理替换文件名
 
-                //循环应用已选规则
                 for (int ruleIndex = 0; ruleIndex < this.dataGridRuleConfig.Rows.Count; ruleIndex++)
                 {
                     var ruleModel = dataGridRuleConfig.Rows[ruleIndex].DataBoundItem as DataLayer.Model.FileReplace_RuleConfig;
-                    if (null == ruleModel)
+                    if (null == ruleModel || !ruleModel.IsFileName)
                     {
                         continue;
                     }
-                    int replaceCount = 0;
+
+                    #region 是否启用正则替换
+
+                    if (ruleModel.IsRegex)
+                    {
+                        reg = ruleModel.IsIgnoreCase ? new Regex(ruleModel.OldContent, RegexOptions.IgnoreCase) : new Regex(ruleModel.OldContent);
+                    }
+                    else
+                    {
+                        string newExpStr = ruleModel.IsWholeMatch ? string.Format(@"\b{0}\b", Regex.Escape(ruleModel.OldContent)) : Regex.Escape(ruleModel.OldContent);
+                        reg = ruleModel.IsIgnoreCase ? new Regex(newExpStr, RegexOptions.IgnoreCase) : new Regex(newExpStr);
+                    }
+
+                    #endregion 是否启用正则替换
+
+                    #region 判断是否替换文件名
+
+                    replaceCount = reg.Matches(filetitle).Count;
+                    strRemark.Add(string.Format("规则【{0}】文件名替换【{1}】处；", ruleModel.Name, replaceCount));
+                    filetitle = reg.Replace(filetitle, ruleModel.NewContent);
+
+                    #endregion 判断是否替换文件名
+                }
+
+                filetitle = string.Format("{0}{1}{2}", this.txtFileFirstName.Text, filetitle, this.txtFileLastName.Text);
+
+                if (!string.Equals(XCLNetTools.FileHandler.ComFile.GetFileName(model.Path, false), filetitle))
+                {
+                    realPath = XCLNetTools.FileHandler.ComFile.GetFileFolderPath(model.Path) + "\\" + filetitle + "." + model.ExtensionName;
+
+                    if (isNeedCopy)
+                    {
+                        realPath = realPath.Replace(this.openFileFolderPath.TrimEnd('\\'), this.txtOutPutPath.Text.TrimEnd('\\'));
+                        XCLNetTools.FileHandler.ComFile.CopyFile(model.Path, realPath);
+                        if (!System.IO.File.Exists(realPath))
+                        {
+                            model.Remark = "复制到输出目录执行失败！";
+                            model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理失败;
+                            return model;
+                        }
+                    }
+                    else
+                    {
+                        this.pc.FileSystem.RenameFile(model.Path, filetitle + "." + model.ExtensionName);
+                    }
+                }
+
+                #endregion 先处理替换文件名
+
+                #region 替换文件内容
+
+                Aspose.Cells.Workbook wb = null;
+                Aspose.Words.Document wordDocument = null;
+                string textContent = null;
+
+                for (int ruleIndex = 0; ruleIndex < this.dataGridRuleConfig.Rows.Count; ruleIndex++)
+                {
+                    var ruleModel = dataGridRuleConfig.Rows[ruleIndex].DataBoundItem as DataLayer.Model.FileReplace_RuleConfig;
+                    if (null == ruleModel || !ruleModel.IsFileContent)
+                    {
+                        continue;
+                    }
 
                     #region 验证扩展名及是否为文本文件
 
                     if (!isDefaultExt && !isTxtFile && ruleModel.IsFileContent)
                     {
-                        //非aspose能处理的文件，且非文本文件，则不能替换内容，只能替换文件名！
+                        //非aspose能处理的文件，且非文本文件，则不能替换内容！
                         strRemark.Add(string.Format("规则【{0}】不支持替换该文件的内容！", ruleModel.Name));
                         continue;
                     }
@@ -315,122 +381,116 @@ namespace XCLNetFileReplace
 
                     if (ruleModel.IsRegex)
                     {
-                        reg = !ruleModel.IsIgnoreCase ? new Regex(ruleModel.OldContent) : new Regex(ruleModel.OldContent, RegexOptions.IgnoreCase);
+                        reg = ruleModel.IsIgnoreCase ? new Regex(ruleModel.OldContent, RegexOptions.IgnoreCase) : new Regex(ruleModel.OldContent);
                     }
                     else
                     {
                         string newExpStr = ruleModel.IsWholeMatch ? string.Format(@"\b{0}\b", Regex.Escape(ruleModel.OldContent)) : Regex.Escape(ruleModel.OldContent);
-                        reg = !ruleModel.IsIgnoreCase ? new Regex(newExpStr) : new Regex(newExpStr, RegexOptions.IgnoreCase);
+                        reg = ruleModel.IsIgnoreCase ? new Regex(newExpStr, RegexOptions.IgnoreCase) : new Regex(newExpStr);
                     }
 
                     #endregion 是否启用正则替换
 
-                    #region 判断是否替换文件名
-
-                    string filetitle = XCLNetTools.FileHandler.ComFile.GetFileName(realPath, false);
-
-                    #region 是否替换文件名
-
-                    if (ruleModel.IsFileName)
-                    {
-                        replaceCount = reg.Matches(filetitle).Count;
-                        strRemark.Add(string.Format("规则【{0}】文件名替换【{1}】处；", ruleModel.Name, replaceCount));
-                        filetitle = reg.Replace(filetitle, ruleModel.NewContent);
-                    }
-
-                    #endregion 是否替换文件名
-
-                    filetitle = string.Format("{0}{1}{2}", this.txtFileFirstName.Text, filetitle, this.txtFileLastName.Text);
-
-                    this.pc.FileSystem.RenameFile(realPath, filetitle + "." + model.ExtensionName);
-
-                    realPath = XCLNetTools.FileHandler.ComFile.GetFileFolderPath(realPath) + "\\" + filetitle + "." + XCLNetTools.FileHandler.ComFile.GetExtName(realPath);
-
-                    #endregion 判断是否替换文件名
-
                     #region 开始替换文件内容
 
-                    if (ruleModel.IsFileContent)
+                    if (isDefaultExt)
                     {
-                        if (isDefaultExt)
+                        if (isExcelExt)
                         {
-                            if (isExcelExt)
-                            {
-                                #region 处理excel文件
+                            #region 处理excel文件
 
-                                Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook(realPath);
-                                for (int i = 0; i < wb.Worksheets.Count; i++)
+                            if (null == wb)
+                            {
+                                wb = new Aspose.Cells.Workbook(realPath);
+                            }
+
+                            for (int i = 0; i < wb.Worksheets.Count; i++)
+                            {
+                                Aspose.Cells.Cells sheetCells = wb.Worksheets[i].Cells;
+                                for (int cellsRowIndex = 0; cellsRowIndex < sheetCells.MaxDataRow + 1; cellsRowIndex++)
                                 {
-                                    Aspose.Cells.Cells sheetCells = wb.Worksheets[i].Cells;
-                                    for (int cellsRowIndex = 0; cellsRowIndex < sheetCells.MaxDataRow + 1; cellsRowIndex++)
+                                    for (int cellsColumn = 0; cellsColumn < sheetCells.MaxDataColumn + 1; cellsColumn++)
                                     {
-                                        for (int cellsColumn = 0; cellsColumn < sheetCells.MaxDataColumn + 1; cellsColumn++)
+                                        Aspose.Cells.Cell currentCell = sheetCells[cellsRowIndex, cellsColumn];
+                                        string cellValue = Convert.ToString(currentCell.Value);
+                                        if (!string.IsNullOrEmpty(cellValue))
                                         {
-                                            Aspose.Cells.Cell currentCell = sheetCells[cellsRowIndex, cellsColumn];
-                                            string cellValue = Convert.ToString(currentCell.Value);
-                                            if (!string.IsNullOrEmpty(cellValue))
-                                            {
-                                                replaceCount += reg.Matches(cellValue).Count;
-                                                cellValue = reg.Replace(cellValue, ruleModel.NewContent);
-                                                currentCell.PutValue(cellValue);
-                                            }
+                                            replaceCount += reg.Matches(cellValue).Count;
+                                            cellValue = reg.Replace(cellValue, ruleModel.NewContent);
+                                            currentCell.PutValue(cellValue);
                                         }
                                     }
                                 }
-                                if (replaceCount > 0)
-                                {
-                                    wb.Save(realPath);
-                                }
-
-                                #endregion 处理excel文件
                             }
-                            else if (isDocExt)
-                            {
-                                #region 处理word
 
-                                //正则无法使用特殊正则，如\s带\的。
-                                Aspose.Words.Document wordDocument = new Aspose.Words.Document(realPath);
-                                replaceCount = wordDocument.Range.Replace(reg, ruleModel.NewContent);
-                                wordDocument.Save(realPath);
-
-                                #endregion 处理word
-                            }
-                            //else if (isPPTExt)
-                            //{
-                            //    #region 处理PPT
-                            //    Aspose.Slides.Pptx.PresentationEx pptPres = new Aspose.Slides.Pptx.PresentationEx(realPath);
-                            //    #endregion
-                            //}
-                            //else if (isPdfExt)
-                            //{
-                            //    #region 处理pdf文件
-                            //    Aspose.Pdf.Kit.PdfContentEditor pdfEditor = new Aspose.Pdf.Kit.PdfContentEditor();
-                            //    pdfEditor.BindPdf(realPath);
-                            //    pdfEditor.ReplaceText(this.txtOldValue.Text, this.txtNew.Text);
-                            //    pdfEditor.Save(realPath);
-                            //    #endregion
-                            //}
+                            #endregion 处理excel文件
                         }
-                        else
+                        else if (isDocExt)
                         {
-                            #region 处理文本文件
+                            #region 处理word
 
-                            string fileContent = System.IO.File.ReadAllText(realPath, System.Text.Encoding.Default);
-                            replaceCount = reg.Matches(fileContent).Count;
-                            fileContent = reg.Replace(fileContent, ruleModel.NewContent);
-                            System.IO.File.WriteAllText(realPath, fileContent, System.Text.Encoding.Default);
+                            if (null == wordDocument)
+                            {
+                                //正则无法使用特殊正则，如\s带\的。
+                                wordDocument = new Aspose.Words.Document(realPath);
+                            }
 
-                            #endregion 处理文本文件
+                            replaceCount = wordDocument.Range.Replace(reg, ruleModel.NewContent);
+
+                            #endregion 处理word
                         }
-                        strRemark.Add(string.Format("规则【{0}】文件内容替换【{1}】处；", ruleModel.Name, replaceCount));
+                        //else if (isPPTExt)
+                        //{
+                        //    #region 处理PPT
+                        //    Aspose.Slides.Pptx.PresentationEx pptPres = new Aspose.Slides.Pptx.PresentationEx(realPath);
+                        //    #endregion
+                        //}
+                        //else if (isPdfExt)
+                        //{
+                        //    #region 处理pdf文件
+                        //    Aspose.Pdf.Kit.PdfContentEditor pdfEditor = new Aspose.Pdf.Kit.PdfContentEditor();
+                        //    pdfEditor.BindPdf(realPath);
+                        //    pdfEditor.ReplaceText(this.txtOldValue.Text, this.txtNew.Text);
+                        //    pdfEditor.Save(realPath);
+                        //    #endregion
+                        //}
                     }
+                    else
+                    {
+                        #region 处理文本文件
+
+                        if (null == textContent)
+                        {
+                            textContent = System.IO.File.ReadAllText(realPath, System.Text.Encoding.Default) ?? "";
+                        }
+                        replaceCount = reg.Matches(textContent).Count;
+                        textContent = reg.Replace(textContent, ruleModel.NewContent);
+
+                        #endregion 处理文本文件
+                    }
+                    strRemark.Add(string.Format("规则【{0}】文件内容替换【{1}】处；", ruleModel.Name, replaceCount));
 
                     #endregion 开始替换文件内容
 
-                    this.txtLog.AppendText(string.Format("正在处理文件【{0}】，应用规则【{1}】" + Environment.NewLine, model.FileName, ruleModel.Name));
+                    this.SetTextLogValue(string.Format("正在处理文件【{0}】，应用规则【{1}】" + Environment.NewLine, model.FileName, ruleModel.Name));
 
                     model.ProcessBlockCount += replaceCount;
                 }
+
+                if (null != wb)
+                {
+                    wb.Save(realPath);
+                }
+                if (null != wordDocument)
+                {
+                    wordDocument.Save(realPath);
+                }
+                if (null != textContent)
+                {
+                    System.IO.File.WriteAllText(realPath, textContent, System.Text.Encoding.Default);
+                }
+
+                #endregion 替换文件内容
 
                 if (strRemark.Count > 0)
                 {
@@ -450,7 +510,7 @@ namespace XCLNetFileReplace
                 model.ProcessDuration = (int)sw.Elapsed.TotalSeconds;
             }
 
-            this.txtLog.AppendText(string.Format("文件【{0}】处理完毕（{1}）" + Environment.NewLine, model.FileName, model.Remark));
+            this.SetTextLogValue(string.Format("文件【{0}】处理完毕（{1}）" + Environment.NewLine, model.FileName, model.Remark));
 
             return model;
         }
@@ -606,6 +666,14 @@ namespace XCLNetFileReplace
         }
 
         /// <summary>
+        /// 无需输出目录
+        /// </summary>
+        private void btnNotNeedOutPutPath_Click(object sender, EventArgs e)
+        {
+            this.txtOutPutPath.Text = "";
+        }
+
+        /// <summary>
         /// 重写标题
         /// </summary>
         public override string SubAssemblyName
@@ -643,6 +711,7 @@ namespace XCLNetFileReplace
             bool state = this.btnSave.Enabled;
             this.btnOutPutPath.Enabled = state;
             this.btnOpenOutPath.Enabled = state;
+            this.btnNotNeedOutPutPath.Enabled = state;
             this.btnSave.Enabled = state;
             this.btnSelectRule.Enabled = state;
 
@@ -653,6 +722,24 @@ namespace XCLNetFileReplace
             this.打开文件夹ToolStripMenuItem.Enabled = state;
             this.导出ToolStripMenuItem.Enabled = state;
             this.规则配置ToolStripMenuItem.Enabled = state;
+        }
+
+        /// <summary>
+        /// 设置日志文本框的值
+        /// </summary>
+        public void SetTextLogValue(string logMsg)
+        {
+            if (this.txtLog.InvokeRequired)
+            {
+                this.txtLog.Invoke(new Action<string>((txt) =>
+                {
+                    this.txtLog.AppendText(txt);
+                }), new object[] { logMsg });
+            }
+            else
+            {
+                this.txtLog.AppendText(logMsg);
+            }
         }
     }
 }

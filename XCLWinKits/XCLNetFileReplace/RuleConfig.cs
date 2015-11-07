@@ -8,12 +8,17 @@ namespace XCLNetFileReplace
     public partial class RuleConfig : BaseForm.BaseFormClass
     {
         private DataLayer.BLL.FileReplace_RuleConfig bll = new DataLayer.BLL.FileReplace_RuleConfig();
+        private static Index _mainForm = null;
 
-        public RuleConfig()
+        public RuleConfig(Index mainForm = null)
         {
+            _mainForm = mainForm;
+
             InitializeComponent();
 
             this.InitRuleConfigGrid();
+
+            this.ckIsFileName.Checked = true;
         }
 
         /// <summary>
@@ -56,6 +61,11 @@ namespace XCLNetFileReplace
             {
                 this.ckIsWholeMatch.Enabled = true;
             }
+
+            if (!this.ckIsFileName.Checked && !this.ckIsFileContent.Checked)
+            {
+                this.ckIsFileName.Checked = true;
+            }
         }
 
         public override string SubAssemblyName
@@ -91,12 +101,6 @@ namespace XCLNetFileReplace
             if (string.IsNullOrEmpty(model.OldContent))
             {
                 MessageBox.Show("请输入要查找的内容！");
-                return;
-            }
-
-            if (!model.IsFileName && !model.IsFileContent)
-            {
-                MessageBox.Show("查找内容中的【文件名】和【文件内容】至少选一个！");
                 return;
             }
 
@@ -158,11 +162,34 @@ namespace XCLNetFileReplace
         /// <summary>
         /// 选择【是否整字匹配】
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ckIsWholeMatch_CheckedChanged(object sender, EventArgs e)
         {
             this.ControlValid();
+        }
+
+        /// <summary>
+        /// 选择【文件名】
+        /// </summary>
+        private void ckIsFileName_CheckedChanged(object sender, EventArgs e)
+        {
+            this.ControlValid();
+        }
+
+        /// <summary>
+        /// 选择【文件内容】
+        /// </summary>
+        private void ckIsFileContent_CheckedChanged(object sender, EventArgs e)
+        {
+            this.ControlValid();
+        }
+
+        private void RuleConfig_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //刷新父窗体数据
+            if (null != _mainForm)
+            {
+                _mainForm.InitCurrentRuleList();
+            }
         }
 
         #endregion 事件

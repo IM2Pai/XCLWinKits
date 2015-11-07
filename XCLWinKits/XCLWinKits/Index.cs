@@ -51,6 +51,15 @@ namespace XCLWinKits
 
         private void bt_Click(object sender, EventArgs e)
         {
+            foreach (Form fm in Application.OpenForms)
+            {
+                if (fm.GetType().Namespace == "XCLNetFileReplace")
+                {
+                    fm.Activate();
+                    return;
+                }
+            }
+
             Button bt = (Button)sender;
             try
             {
@@ -59,7 +68,7 @@ namespace XCLWinKits
             }
             catch
             {
-                MessageBox.Show(string.Format("打开失败，程序集{0}.Index未找到！", bt.Name));
+                MessageBox.Show(string.Format("打开失败，程序集{0}.Index还未开发完成！", bt.Name));
             }
         }
 
