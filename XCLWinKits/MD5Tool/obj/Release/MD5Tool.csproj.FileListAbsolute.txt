@@ -37,3 +37,16 @@ D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\MD5Tool\obj\Release\MD5Tool.Index.res
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\MD5Tool\obj\Release\MD5Tool.csproj.GenerateResource.Cache
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\MD5Tool\obj\Release\MD5Tool.dll
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\MD5Tool\obj\Release\MD5Tool.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\bin\Release\MD5Tool.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\bin\Release\MD5Tool.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\bin\Release\BaseForm.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\bin\Release\XCLNetTools.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\bin\Release\CommonHelper.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\bin\Release\BaseForm.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\bin\Release\XCLNetTools.xml
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\bin\Release\CommonHelper.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\obj\Release\MD5Tool.csprojResolveAssemblyReference.cache
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\obj\Release\MD5Tool.Index.resources
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\obj\Release\MD5Tool.csproj.GenerateResource.Cache
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\obj\Release\MD5Tool.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\MD5Tool\obj\Release\MD5Tool.pdb
