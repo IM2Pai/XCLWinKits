@@ -32,8 +32,8 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\bin\Debug\XCLNetTools
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\bin\Debug\BaseForm.pdb
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\bin\Debug\CommonHelper.pdb
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\bin\Debug\XCLNetTools.xml
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Debug\XCLRegexpTool.csprojResolveAssemblyReference.cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Debug\XCLRegexpTool.Index.resources
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Debug\XCLRegexpTool.csproj.GenerateResource.Cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Debug\XCLRegexpTool.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Debug\XCLRegexpTool.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Debug\XCLRegexpTool.csprojResolveAssemblyReference.cache

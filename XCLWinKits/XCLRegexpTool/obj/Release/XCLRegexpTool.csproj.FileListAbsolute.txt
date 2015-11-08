@@ -37,3 +37,16 @@ D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Release\XCLRegexpTo
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Release\XCLRegexpTool.csproj.GenerateResource.Cache
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Release\XCLRegexpTool.dll
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Release\XCLRegexpTool.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\bin\Release\XCLRegexpTool.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\bin\Release\XCLRegexpTool.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\bin\Release\BaseForm.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\bin\Release\CommonHelper.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\bin\Release\XCLNetTools.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\bin\Release\BaseForm.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\bin\Release\CommonHelper.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\bin\Release\XCLNetTools.xml
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Release\XCLRegexpTool.csprojResolveAssemblyReference.cache
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Release\XCLRegexpTool.Index.resources
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Release\XCLRegexpTool.csproj.GenerateResource.Cache
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Release\XCLRegexpTool.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Release\XCLRegexpTool.pdb

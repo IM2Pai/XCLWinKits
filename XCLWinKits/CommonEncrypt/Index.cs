@@ -22,7 +22,7 @@ namespace CommonEncrypt
 
         private void InitData()
         {
-            var encryptLst = XCLNetTools.Enum.EnumObj.GetList(typeof(CommonHelper.CommonEnum.EncryptEnum));
+            var encryptLst = XCLNetTools.Enum.EnumHelper.GetList(typeof(CommonHelper.CommonEnum.EncryptEnum));
             this.comboxEncryptType.DisplayMember = "Text";
             this.comboxEncryptType.ValueMember = "Text";
             this.comboxEncryptType.DataSource = encryptLst;
@@ -67,7 +67,7 @@ namespace CommonEncrypt
                 switch (encryptEnum)
                 {
                     case CommonHelper.CommonEnum.EncryptEnum.AES:
-                        XCLNetTools.StringHander.AESEncrypt aes = new XCLNetTools.StringHander.AESEncrypt(this.ckContainKey.Checked);
+                        XCLNetTools.Encrypt.AESEncrypt aes = new XCLNetTools.Encrypt.AESEncrypt(this.ckContainKey.Checked);
                         if (string.IsNullOrEmpty(this.txtKey.Text))
                         {
                             result = isEncrypt ? aes.Encrypt(this.txtInput.Text) : aes.Decrypt(this.txtResult.Text);
@@ -78,16 +78,16 @@ namespace CommonEncrypt
                         }
                         break;
                     case CommonHelper.CommonEnum.EncryptEnum.Base64:
-                        result = isEncrypt ? XCLNetTools.StringHander.StringUtil.Base64Code(str) : XCLNetTools.StringHander.StringUtil.Base64Decode(str);
+                        result = isEncrypt ? XCLNetTools.Encode.Base64.Base64Code(str) : XCLNetTools.Encode.Base64.Base64Decode(str);
                         break;
                     case CommonHelper.CommonEnum.EncryptEnum.DES:
                         if (string.IsNullOrEmpty(this.txtKey.Text))
                         {
-                            result = isEncrypt ? XCLNetTools.StringHander.DESEncrypt.Encrypt(this.txtInput.Text) : XCLNetTools.StringHander.DESEncrypt.Decrypt(this.txtResult.Text);
+                            result = isEncrypt ? XCLNetTools.Encrypt.DESEncrypt.Encrypt(this.txtInput.Text) : XCLNetTools.Encrypt.DESEncrypt.Decrypt(this.txtResult.Text);
                         }
                         else
                         {
-                            result = isEncrypt ? XCLNetTools.StringHander.DESEncrypt.Encrypt(this.txtInput.Text, this.txtKey.Text) : XCLNetTools.StringHander.DESEncrypt.Decrypt(this.txtResult.Text, this.txtKey.Text);
+                            result = isEncrypt ? XCLNetTools.Encrypt.DESEncrypt.Encrypt(this.txtInput.Text, this.txtKey.Text) : XCLNetTools.Encrypt.DESEncrypt.Decrypt(this.txtResult.Text, this.txtKey.Text);
                         }
                         break;
                 }

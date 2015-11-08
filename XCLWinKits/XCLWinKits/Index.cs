@@ -16,35 +16,32 @@ namespace XCLWinKits
         {
             #region 生成按钮
 
-            if (null != CommonHelper.ConfigHelper.CategoryList && CommonHelper.ConfigHelper.CategoryList.Count > 0)
+            foreach (var m in CommonHelper.ConfigHelper.Config.CategoryConfig.CategoryList)
             {
-                foreach (var m in CommonHelper.ConfigHelper.CategoryList)
+                TabPage tab = new TabPage(m.Name);
+                FlowLayoutPanel flowPanel = new FlowLayoutPanel();
+                flowPanel.Dock = DockStyle.Fill;
+                if (null != m.CategoryItemList && m.CategoryItemList.Count > 0)
                 {
-                    TabPage tab = new TabPage(m.Name);
-                    FlowLayoutPanel flowPanel = new FlowLayoutPanel();
-                    flowPanel.Dock = DockStyle.Fill;
-                    if (null != m.CategoryItemList && m.CategoryItemList.Count > 0)
+                    for (int k = 0; k < m.CategoryItemList.Count; k++)
                     {
-                        for (int k = 0; k < m.CategoryItemList.Count; k++)
-                        {
-                            var model = m.CategoryItemList[k];
-                            Button bt = new Button();
-                            bt.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-                            bt.Name = model.AssemblyName;
-                            bt.Text = model.Name;
-                            bt.AutoSize = true;
-                            bt.Height = 25;
-                            bt.Margin = new System.Windows.Forms.Padding(5);
-                            bt.Padding = new System.Windows.Forms.Padding(3);
-                            bt.Click += new EventHandler(bt_Click);
-                            bt.MouseEnter += new EventHandler(bt_MouseEnter);
-                            bt.MouseLeave += new EventHandler(bt_MouseLeave);
-                            flowPanel.Controls.Add(bt);
-                        }
+                        var model = m.CategoryItemList[k];
+                        Button bt = new Button();
+                        bt.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+                        bt.Name = model.AssemblyName;
+                        bt.Text = model.Name;
+                        bt.AutoSize = true;
+                        bt.Height = 25;
+                        bt.Margin = new System.Windows.Forms.Padding(5);
+                        bt.Padding = new System.Windows.Forms.Padding(3);
+                        bt.Click += new EventHandler(bt_Click);
+                        bt.MouseEnter += new EventHandler(bt_MouseEnter);
+                        bt.MouseLeave += new EventHandler(bt_MouseLeave);
+                        flowPanel.Controls.Add(bt);
                     }
-                    tab.Controls.Add(flowPanel);
-                    this.tabMenu.TabPages.Add(tab);
                 }
+                tab.Controls.Add(flowPanel);
+                this.tabMenu.TabPages.Add(tab);
             }
 
             #endregion 生成按钮
@@ -54,6 +51,15 @@ namespace XCLWinKits
 
         private void bt_Click(object sender, EventArgs e)
         {
+            foreach (Form fm in Application.OpenForms)
+            {
+                if (fm.GetType().Namespace == "XCLNetFileReplace")
+                {
+                    fm.Activate();
+                    return;
+                }
+            }
+
             Button bt = (Button)sender;
             try
             {
@@ -62,7 +68,7 @@ namespace XCLWinKits
             }
             catch
             {
-                MessageBox.Show(string.Format("打开失败，程序集{0}.Index未找到！", bt.Name));
+                MessageBox.Show(string.Format("打开失败，程序集{0}.Index还未开发完成！", bt.Name));
             }
         }
 
@@ -84,7 +90,7 @@ namespace XCLWinKits
 
         private void 检查更新ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://blog.csdn.net/luoyeyu1989/article/category/1829023");
+            System.Diagnostics.Process.Start("https://github.com/xucongli1989/XCLWinKits/releases");
         }
 
         private void 关于本软件ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -115,6 +121,11 @@ namespace XCLWinKits
         private void 我的云导航ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.wdydh.com");
+        }
+
+        private void GitHubToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/xucongli1989");
         }
 
         #endregion 菜单

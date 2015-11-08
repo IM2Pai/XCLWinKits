@@ -17,3 +17,9 @@ D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CommonHelper\bin\Release\XCLNetTools.
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CommonHelper\bin\Release\XCLNetTools.xml
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CommonHelper\obj\Release\CommonHelper.dll
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CommonHelper\obj\Release\CommonHelper.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonHelper\bin\Release\CommonHelper.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonHelper\bin\Release\CommonHelper.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonHelper\bin\Release\XCLNetTools.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonHelper\bin\Release\XCLNetTools.xml
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonHelper\obj\Release\CommonHelper.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonHelper\obj\Release\CommonHelper.pdb

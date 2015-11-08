@@ -10,4 +10,3 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Debug\CodingConve
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Debug\CodingConvert.csproj.GenerateResource.Cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Debug\CodingConvert.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Debug\CodingConvert.pdb
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Debug\CodingConvert.csprojResolveAssemblyReference.cache

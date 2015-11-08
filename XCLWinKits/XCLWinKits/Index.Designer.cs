@@ -31,6 +31,7 @@
             this.tabMenu = new System.Windows.Forms.TabControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.GitHubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.作者博客ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.正则表达式语法简明参考ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,6 +69,7 @@
             // 帮助ToolStripMenuItem
             // 
             this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.GitHubToolStripMenuItem,
             this.作者博客ToolStripMenuItem,
             this.资料ToolStripMenuItem,
             this.淘宝小店ToolStripMenuItem,
@@ -77,6 +79,13 @@
             this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
             this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.帮助ToolStripMenuItem.Text = "帮助";
+            // 
+            // GitHubToolStripMenuItem
+            // 
+            this.GitHubToolStripMenuItem.Name = "GitHubToolStripMenuItem";
+            this.GitHubToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.GitHubToolStripMenuItem.Text = "GitHub";
+            this.GitHubToolStripMenuItem.Click += new System.EventHandler(this.GitHubToolStripMenuItem_Click);
             // 
             // 作者博客ToolStripMenuItem
             // 
@@ -165,5 +174,6 @@
         private System.Windows.Forms.ToolStripMenuItem 正则表达式语法简明参考ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 我的云导航ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem GitHubToolStripMenuItem;
     }
 }

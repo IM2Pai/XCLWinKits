@@ -1,12 +1,11 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Devices;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Remoting.Messaging;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -14,72 +13,100 @@ namespace XCLNetFileReplace
 {
     public partial class Index : BaseForm.BaseFormClass
     {
+        private Computer pc = new Computer();
         private string openFileFolderPath = string.Empty;//打开的文件所在的公共目录,如"C:\XCL\"
         private object lockObject = new object();
-        delegate void Delegate_UpdateStatus(Model.DoState doState);
-        delegate DataGridViewRow Delegate_DoIt(DataGridViewRow dr);
-        delegate void Delegate_VoidMethod();
 
-        public Index()
-        {
-            InitializeComponent();
-            this.groupBox_FileInfo.Text = "待处理文件：（支持xls、xlsx、csv、doc、docx及其它文本文件[如：txt、html等]），无需安装Office！";
-            this.InitData();
-        }
+        private delegate void Delegate_UpdateStatus(Model.DoState doState);
 
-        private void InitData()
+        private delegate DataLayer.Model.FileReplace_File Delegate_DoIt(DataLayer.Model.FileReplace_File model);
+
+        private delegate void Delegate_VoidMethod();
+
+        private DataLayer.BLL.FileReplace_File fileBLL = new DataLayer.BLL.FileReplace_File();
+        private DataLayer.BLL.UserSetting userSettingBLL = new DataLayer.BLL.UserSetting();
+        private DataLayer.BLL.FileReplace_RuleConfig ruleConfigBLL = new DataLayer.BLL.FileReplace_RuleConfig();
+        private DataLayer.Model.FileReplaceSetting _replaceSetting = null;
+        private List<DataLayer.Model.FileReplace_RuleConfig> _selectedRules = null;
+        private string[] defaultExt = { "xls", "xlsx", "csv", "xlt", "doc", "docx"/*, "ppt", "pptx","pdf"*/ };//这些格式由aspose去处理
+        private string[] excelExt = { "xls", "xlsx", "csv", "xlt" };
+        private string[] docExt = { "doc", "docx" };
+        //private string[] pptExt = { "ppt", "pptx" };
+        //private string[] pdfExt = { "pdf"};
+
+        /// <summary>
+        /// 当前已选规则
+        /// </summary>
+        private List<DataLayer.Model.FileReplace_RuleConfig> SelectedRules
         {
-            #region 匿名方法：当正则表达式选择后，禁用掉【全字匹配】
-            Delegate_VoidMethod checkWholeReplace = new Delegate_VoidMethod(delegate(){
-                if (this.ckIsRegexp.Checked)
+            get
+            {
+                var settings = this.userSettingBLL.GetFileReplaceSetting();
+                if (null != settings)
                 {
-                    this.ckIsWhole.Checked = false;
-                    this.ckIsWhole.Enabled = false;
+                    this._selectedRules = ruleConfigBLL.GetAllList().Where(k => settings.RuleConfigIds.Contains(k.RuleConfigID)).ToList();
                 }
                 else
                 {
-                    this.ckIsWhole.Enabled = true;
+                    this._selectedRules = null;
                 }
-            });
-            this.ckIsRegexp.Click += new EventHandler(delegate
-            {
-                checkWholeReplace.Invoke();
-            });
-            #endregion
-
-            #region 初始化选项
-            string searchOptions = CommonHelper.ConfigHelper.GetBaseConfigStringValue(this.SubAssemblyName, "SearchOptions");
-            if (!string.IsNullOrEmpty(searchOptions))
-            {
-                string[] so=searchOptions.Split(',');
-                if (so.Contains(this.ckIsContent.Text))
-                {
-                    this.ckIsContent.Checked = true;
-                }
-                if (so.Contains(this.ckIsFileName.Text))
-                {
-                    this.ckIsFileName.Checked = true;
-                }
-                if (so.Contains(this.ckIsNotIgnoreLowerCase.Text))
-                {
-                    this.ckIsNotIgnoreLowerCase.Checked = true;
-                }
-                if (so.Contains(this.ckIsRegexp.Text))
-                {
-                    this.ckIsRegexp.Checked = true;
-                }
-                if (so.Contains(this.ckIsWhole.Text))
-                {
-                    this.ckIsWhole.Checked = true;
-                }
-                checkWholeReplace.Invoke();
+                return this._selectedRules;
             }
+        }
 
-            this.txtOutPutPath.Text = CommonHelper.ConfigHelper.GetBaseConfigStringValue(this.SubAssemblyName, "OutPutPath");
-            #endregion
+        /// <summary>
+        /// 当前用户配置
+        /// </summary>
+        private DataLayer.Model.FileReplaceSetting ReplaceSetting
+        {
+            get
+            {
+                this._replaceSetting = this.userSettingBLL.GetFileReplaceSetting();
+                return this._replaceSetting;
+            }
+            set
+            {
+                this._replaceSetting = value;
+            }
+        }
+
+        /// <summary>
+        /// 构造方法
+        /// </summary>
+        public Index()
+        {
+            InitializeComponent();
+            this.groupBox_FileInfo.Text = "待处理文件：（支持xls、xlsx、xlt、csv、doc、docx及其它文本文件[如：txt、html等]），无需安装Office！";
+            this.InitData();
+        }
+
+        /// <summary>
+        /// 初始化基本数据
+        /// </summary>
+        private void InitData()
+        {
+            fileBLL.Clear();
+            this.InitCurrentRuleList();
+            //初始化用户默认配置
+            if (null != this.ReplaceSetting)
+            {
+                this.txtOutPutPath.Text = this.ReplaceSetting.OutPutPath;
+                this.txtFileFirstName.Text = this.ReplaceSetting.PrefixName;
+                this.txtFileLastName.Text = this.ReplaceSetting.SuffixName;
+            }
+            this.toolStripStatusLabel2.Text = new Model.DoState().ToString();
+        }
+
+        /// <summary>
+        /// 初始化已选配置
+        /// </summary>
+        public void InitCurrentRuleList()
+        {
+            this.dataGridRuleConfig.DataSource = this.SelectedRules;
         }
 
         #region 导航菜单
+
         private void 打开文件ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
@@ -95,7 +122,7 @@ namespace XCLNetFileReplace
                         this.openFileFolderPath = openFile.FileNames[0].Replace(fName, "");
                     }
                 }
-                catch (Exception exp)
+                catch
                 {
                     MessageBox.Show("系统错误，请重新打开有效文件！");
                 }
@@ -113,7 +140,7 @@ namespace XCLNetFileReplace
                     this.InitFiles(files);
                     this.openFileFolderPath = openFolder.SelectedPath;
                 }
-                catch (Exception exp)
+                catch(Exception ex)
                 {
                     MessageBox.Show("系统错误，请重新打开有效文件夹！");
                 }
@@ -122,7 +149,8 @@ namespace XCLNetFileReplace
 
         private void 导出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (null == this.dgFiles.DataSource)
+            var lst = fileBLL.GetAllList();
+            if (null == lst || lst.Count == 0)
             {
                 MessageBox.Show("当前没有任何数据可供导出！");
                 return;
@@ -131,11 +159,10 @@ namespace XCLNetFileReplace
             openFolder.Description = "请选择要存放的目录！";
             if (openFolder.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                string folderPath=openFolder.SelectedPath.TrimEnd('\\');
+                string folderPath = openFolder.SelectedPath.TrimEnd('\\');
                 Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
-                List<Model.FileInfo> lst = this.dgFiles.DataSource as List<Model.FileInfo>;
-                wb.Worksheets[0].Cells.ImportDataTable(XCLNetTools.Generic.ListHelper<Model.FileInfo>.ToDataTable((IList<Model.FileInfo>)lst), true, 0, 0);
-                string filePath=string.Format(@"{0}\XCLNetFileRelace_{1:yyyyMMddHHmmssfff}.xlsx", folderPath,DateTime.Now);
+                wb.Worksheets[0].Cells.ImportDataTable(XCLNetTools.Generic.ListHelper.ToDataTable((IList<DataLayer.Model.FileReplace_File>)lst), true, 0, 0);
+                string filePath = string.Format(@"{0}\XCLNetFileRelace_{1:yyyyMMddHHmmssfff}.xlsx", folderPath, DateTime.Now);
                 wb.Save(filePath, Aspose.Cells.SaveFormat.Xlsx);
                 if (MessageBox.Show("导出成功，是否打开该文件？", "系统提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                 {
@@ -149,255 +176,345 @@ namespace XCLNetFileReplace
             this.Close();
         }
 
-        #endregion
+        private void 规则配置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RuleConfig fm = new RuleConfig(this);
+            fm.ShowDialog();
+        }
+
+        #endregion 导航菜单
 
         /// <summary>
         /// 执行
         /// </summary>
         private void btnSave_Click(object sender, EventArgs e)
         {
-            bool isRegexp = this.ckIsRegexp.Checked;
-            bool isContent = this.ckIsContent.Checked;
-            bool isFileName = this.ckIsFileName.Checked;
-            bool isNotIgnoreLowerCase = this.ckIsNotIgnoreLowerCase.Checked;
-            bool isWhole = this.ckIsWhole.Checked;
+            var lst = this.fileBLL.GetAllList();
 
             #region 合法性验证
-            if (null == this.dgFiles.DataSource)
+
+            if (null == lst || lst.Count == 0)
             {
                 MessageBox.Show("请先选择待处理的文件！");
                 return;
             }
-            if (!isFileName && !isContent)
+
+            if (!string.IsNullOrEmpty(this.txtOutPutPath.Text))
             {
-                MessageBox.Show("查找内容中的【文件名】和【文件内容】至少选一个！");
-                return;
-            }
-            if (string.IsNullOrEmpty(this.txtOldValue.Text))
-            {
-                MessageBox.Show("查找内容不能为空！");
-                return;
-            }
-            if (!XCLNetTools.FileHandler.FileDirectory.DirectoryExists(this.txtOutPutPath.Text))
-            {
-                if (!XCLNetTools.FileHandler.FileDirectory.MakeDirectory(this.txtOutPutPath.Text))
+                if (XCLNetTools.FileHandler.FileDirectory.DirectoryExists(this.txtOutPutPath.Text))
                 {
-                    MessageBox.Show("输出目录不存在，请选择有效的输出目录！");
-                    return;
+                    //检查是否有文件
+                    if (!XCLNetTools.FileHandler.FileDirectory.IsEmpty(this.txtOutPutPath.Text))
+                    {
+                        if (MessageBox.Show("您指定的输出目录不是空目录，是否继续？", "系统提示", MessageBoxButtons.YesNo) == DialogResult.No)
+                        {
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    if (!XCLNetTools.FileHandler.FileDirectory.MakeDirectory(this.txtOutPutPath.Text))
+                    {
+                        MessageBox.Show("输出目录不存在，请选择有效的输出目录！");
+                        return;
+                    }
                 }
             }
-            List<Model.FileInfo> lstFiles = this.dgFiles.DataSource as List<Model.FileInfo>;
-            if (null != lstFiles && lstFiles.Count > 0)
+
+            if (!lst.Exists(k => !k.IsDone))
             {
-                if (!lstFiles.Exists(k => k.是否已处理 == "否"))
-                {
-                    MessageBox.Show("文件都已处理，请重新打开要处理的文件！");
-                    return;
-                }
+                MessageBox.Show("文件都已处理，请重新打开要处理的文件！");
+                return;
             }
-            #endregion
+
+            #endregion 合法性验证
 
             #region 将选项保存至配置文件中
-            List<string> searchOptions = new List<string>();
-            if (this.ckIsRegexp.Checked)
-            {
-                searchOptions.Add(this.ckIsRegexp.Text);
-            }
-            if (this.ckIsContent.Checked)
-            {
-                searchOptions.Add(this.ckIsContent.Text);
-            }
-            if (this.ckIsFileName.Checked)
-            {
-                searchOptions.Add(this.ckIsFileName.Text);
-            }
-            if (this.ckIsNotIgnoreLowerCase.Checked)
-            {
-                searchOptions.Add(this.ckIsNotIgnoreLowerCase.Text);
-            }
-            if (this.ckIsWhole.Checked)
-            {
-                searchOptions.Add(this.ckIsWhole.Text);
-            }
-            CommonHelper.ConfigHelper.SetBaseConfigValue(this.SubAssemblyName, "SearchOptions", string.Join(",", searchOptions.ToArray()));
-            CommonHelper.ConfigHelper.SetBaseConfigValue(this.SubAssemblyName, "OutPutPath", this.txtOutPutPath.Text);
-            #endregion
+
+            var config = this.userSettingBLL.GetFirstModel() ?? new DataLayer.Model.UserSetting();
+            this.ReplaceSetting = this.ReplaceSetting ?? new DataLayer.Model.FileReplaceSetting();
+            this.ReplaceSetting.OutPutPath = this.txtOutPutPath.Text;
+            this.ReplaceSetting.PrefixName = this.txtFileFirstName.Text;
+            this.ReplaceSetting.SuffixName = this.txtFileLastName.Text;
+            config.FileReplaceSetting = XCLNetTools.Serialize.JSON.Serialize(this.ReplaceSetting);
+            this.userSettingBLL.Add(config);
+
+            #endregion 将选项保存至配置文件中
 
             #region 任务处理
-            this.SetControlEnable(false);
+
+            this.btnSave.Enabled = false;
             Model.DoState doState = new Model.DoState();
-            doState.SumCount = this.dgFiles.Rows.Count;
-            for (int i = 0; i < this.dgFiles.Rows.Count; i++)
+            doState.SumCount = lst.Count;
+            foreach (var m in lst)
             {
-                DataGridViewRow dr = this.dgFiles.Rows[i];
-                Delegate_DoIt dg = new Delegate_DoIt(DoIt);
-                IAsyncResult result = dg.BeginInvoke(dr, new AsyncCallback(this.GetResultCallBack), doState);
-            } 
-            #endregion
+                Delegate_DoIt dg = new Delegate_DoIt(this.DoIt);
+                IAsyncResult result = dg.BeginInvoke(m, new AsyncCallback(this.GetResultCallBack), doState);
+            }
+
+            #endregion 任务处理
         }
 
         /// <summary>
         /// 开始处理文件
         /// </summary>
-        private DataGridViewRow DoIt(DataGridViewRow dr)
+        private DataLayer.Model.FileReplace_File DoIt(DataLayer.Model.FileReplace_File model)
         {
-            DateTime dtStart = DateTime.Now;
-            StringBuilder strRemark = new StringBuilder();
-            dr.Cells["是否已处理"].Value = "是";
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+            int replaceCount = 0;
+            Regex reg = null;
+            List<string> strRemark = new List<string>();
+            model.IsDone = true;
+
+            bool isDefaultExt = defaultExt.Contains(model.ExtensionName);
+            bool isExcelExt = excelExt.Contains(model.ExtensionName);
+            bool isDocExt = docExt.Contains(model.ExtensionName);
+            //bool isPPTExt = pptExt.Contains(model.ExtensionName);
+            //bool isPdfExt = pdfExt.Contains(model.ExtensionName);
+            bool isTxtFile = XCLNetTools.FileHandler.ComFile.IsTextFile(model.Path);
+            bool isNeedCopy = !string.IsNullOrEmpty(this.txtOutPutPath.Text);
+            string realPath = model.Path;//被操作的文件实际路径，如果没有指定输出目录，则为原路径，如果指定了输出目录，则为copy到输出目录中后的路径
+            string filetitle = XCLNetTools.FileHandler.ComFile.GetFileName(model.Path, false);//文件名，不含扩展名
+
+            if (!System.IO.File.Exists(model.Path))
+            {
+                model.Remark = "文件不存在！";
+                model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.无需处理;
+                return model;
+            }
+
+            if (string.IsNullOrEmpty(model.ExtensionName))
+            {
+                model.Remark = "无法确认文件类型！";
+                model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.无需处理;
+                return model;
+            }
+
             try
             {
-                #region 验证扩展名及是否为文本文件
-                string currentExt = dr.Cells["扩展名"].Value.ToString();
-                string[] defaultExt = { "xls", "xlsx","csv" , "doc", "docx"/*, "ppt", "pptx","pdf"*/ };//这些格式由aspose去处理
-                string[] excelExt = { "xls", "xlsx", "csv" };
-                string[] docExt = { "doc", "docx" };
-                //string[] pptExt = { "ppt", "pptx" };
-                //string[] pdfExt = { "pdf"};
-                bool isDefaultExt = defaultExt.Contains(currentExt);
-                bool isExcelExt = excelExt.Contains(currentExt);
-                bool isDocExt = docExt.Contains(currentExt);
-                //bool isPPTExt = pptExt.Contains(currentExt);
-                //bool isPdfExt = pdfExt.Contains(currentExt);
-                bool isTxtFile = XCLNetTools.FileHandler.ComFile.IsTextFile(dr.Cells["路径"].Value.ToString());
+                #region 先处理替换文件名
 
-                if (!isDefaultExt && !isTxtFile && this.ckIsContent.Checked)
+                for (int ruleIndex = 0; ruleIndex < this.dataGridRuleConfig.Rows.Count; ruleIndex++)
                 {
-                    //非aspose能处理的文件，且非文本文件，则不能替换内容，只能替换文件名！
-                    dr.Cells["备注"].Value = "不支持替换该文件的内容！";
-                    dr.Cells["是否处理成功"].Value = "否";
-                    dr.DefaultCellStyle.ForeColor = System.Drawing.Color.Red;
-                    return dr;
-                }
-                #endregion
+                    var ruleModel = dataGridRuleConfig.Rows[ruleIndex].DataBoundItem as DataLayer.Model.FileReplace_RuleConfig;
+                    if (null == ruleModel || !ruleModel.IsFileName)
+                    {
+                        continue;
+                    }
 
-                Regex reg = null;
+                    #region 是否启用正则替换
 
-                #region 是否启用正则替换
-                if (this.ckIsRegexp.Checked)
-                {
-                    reg = this.ckIsNotIgnoreLowerCase.Checked?new Regex(this.txtOldValue.Text):new Regex(this.txtOldValue.Text, RegexOptions.IgnoreCase);
-                }
-                else
-                {
-                    string newExpStr = this.ckIsWhole.Checked ? string.Format(@"\b{0}\b",Regex.Escape(this.txtOldValue.Text)) :Regex.Escape(this.txtOldValue.Text);
-                    reg = this.ckIsNotIgnoreLowerCase.Checked ? new Regex(newExpStr) : new Regex(newExpStr, RegexOptions.IgnoreCase);
-                }
-                #endregion
+                    if (ruleModel.IsRegex)
+                    {
+                        reg = ruleModel.IsIgnoreCase ? new Regex(ruleModel.OldContent, RegexOptions.IgnoreCase) : new Regex(ruleModel.OldContent);
+                    }
+                    else
+                    {
+                        string newExpStr = ruleModel.IsWholeMatch ? string.Format(@"\b{0}\b", Regex.Escape(ruleModel.OldContent)) : Regex.Escape(ruleModel.OldContent);
+                        reg = ruleModel.IsIgnoreCase ? new Regex(newExpStr, RegexOptions.IgnoreCase) : new Regex(newExpStr);
+                    }
 
-                #region 复制到输出目录并判断是否替换文件名
-                string filePath = dr.Cells["路径"].Value.ToString();
-                filePath = filePath.Replace(this.openFileFolderPath.TrimEnd('\\'), this.txtOutPutPath.Text.TrimEnd('\\'));
-                string filetitle = XCLNetTools.FileHandler.ComFile.GetFileName(filePath, false);
+                    #endregion 是否启用正则替换
 
-                #region 是否替换文件名
-                if (this.ckIsFileName.Checked)
-                {
-                    strRemark.AppendFormat("文件名替换【{0}】处；", reg.Matches(filetitle).Count);
-                    filetitle = reg.Replace(filetitle, this.txtNew.Text);
+                    #region 判断是否替换文件名
+
+                    replaceCount = reg.Matches(filetitle).Count;
+                    strRemark.Add(string.Format("规则【{0}】文件名替换【{1}】处；", ruleModel.Name, replaceCount));
+                    filetitle = reg.Replace(filetitle, ruleModel.NewContent);
+                    model.ProcessBlockCount += replaceCount;
+
+                    #endregion 判断是否替换文件名
                 }
-                #endregion
 
                 filetitle = string.Format("{0}{1}{2}", this.txtFileFirstName.Text, filetitle, this.txtFileLastName.Text);
-                filePath = XCLNetTools.FileHandler.ComFile.GetFileFolderPath(filePath) + "\\" + filetitle + "." + XCLNetTools.FileHandler.ComFile.GetExtName(filePath);
 
-                XCLNetTools.FileHandler.ComFile.CopyFile(dr.Cells["路径"].Value.ToString(), filePath);
-                if (!System.IO.File.Exists(filePath))
+                if (!string.Equals(XCLNetTools.FileHandler.ComFile.GetFileName(model.Path, false), filetitle))
                 {
-                    dr.Cells["备注"].Value = "输出目录中的文件未找到！";
-                    dr.Cells["是否处理成功"].Value = "否";
-                    dr.DefaultCellStyle.ForeColor = System.Drawing.Color.Red;
-                    return dr;
+                    realPath = XCLNetTools.FileHandler.ComFile.GetFileFolderPath(model.Path) + "\\" + filetitle + "." + model.ExtensionName;
+
+                    if (isNeedCopy)
+                    {
+                        realPath = realPath.Replace(this.openFileFolderPath.TrimEnd('\\'), this.txtOutPutPath.Text.TrimEnd('\\'));
+                        XCLNetTools.FileHandler.ComFile.CopyFile(model.Path, realPath);
+                        if (!System.IO.File.Exists(realPath))
+                        {
+                            model.Remark = "复制到输出目录执行失败！";
+                            model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理失败;
+                            return model;
+                        }
+                    }
+                    else
+                    {
+                        this.pc.FileSystem.RenameFile(model.Path, filetitle + "." + model.ExtensionName);
+                    }
                 }
-                #endregion
 
-                #region 开始替换文件内容
-                if (this.ckIsContent.Checked)
+                #endregion 先处理替换文件名
+
+                #region 替换文件内容
+
+                Aspose.Cells.Workbook wb = null;
+                Aspose.Words.Document wordDocument = null;
+                string textContent = null;
+
+                for (int ruleIndex = 0; ruleIndex < this.dataGridRuleConfig.Rows.Count; ruleIndex++)
                 {
-                    int replaceCount = 0;
+                    var ruleModel = dataGridRuleConfig.Rows[ruleIndex].DataBoundItem as DataLayer.Model.FileReplace_RuleConfig;
+                    if (null == ruleModel || !ruleModel.IsFileContent)
+                    {
+                        continue;
+                    }
+
+                    #region 验证扩展名及是否为文本文件
+
+                    if (!isDefaultExt && !isTxtFile && ruleModel.IsFileContent)
+                    {
+                        //非aspose能处理的文件，且非文本文件，则不能替换内容！
+                        strRemark.Add(string.Format("规则【{0}】不支持替换该文件的内容！", ruleModel.Name));
+                        continue;
+                    }
+
+                    #endregion 验证扩展名及是否为文本文件
+
+                    #region 是否启用正则替换
+
+                    if (ruleModel.IsRegex)
+                    {
+                        reg = ruleModel.IsIgnoreCase ? new Regex(ruleModel.OldContent, RegexOptions.IgnoreCase) : new Regex(ruleModel.OldContent);
+                    }
+                    else
+                    {
+                        string newExpStr = ruleModel.IsWholeMatch ? string.Format(@"\b{0}\b", Regex.Escape(ruleModel.OldContent)) : Regex.Escape(ruleModel.OldContent);
+                        reg = ruleModel.IsIgnoreCase ? new Regex(newExpStr, RegexOptions.IgnoreCase) : new Regex(newExpStr);
+                    }
+
+                    #endregion 是否启用正则替换
+
+                    #region 开始替换文件内容
+
                     if (isDefaultExt)
                     {
                         if (isExcelExt)
                         {
                             #region 处理excel文件
-                            Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook(filePath);
+
+                            if (null == wb)
+                            {
+                                wb = new Aspose.Cells.Workbook(realPath);
+                            }
+
                             for (int i = 0; i < wb.Worksheets.Count; i++)
                             {
                                 Aspose.Cells.Cells sheetCells = wb.Worksheets[i].Cells;
-                                for (int cellsRowIndex = 0; cellsRowIndex < sheetCells.MaxDataRow+1; cellsRowIndex++)
+                                for (int cellsRowIndex = 0; cellsRowIndex < sheetCells.MaxDataRow + 1; cellsRowIndex++)
                                 {
-                                    for (int cellsColumn = 0; cellsColumn < sheetCells.MaxDataColumn+1; cellsColumn++)
+                                    for (int cellsColumn = 0; cellsColumn < sheetCells.MaxDataColumn + 1; cellsColumn++)
                                     {
                                         Aspose.Cells.Cell currentCell = sheetCells[cellsRowIndex, cellsColumn];
                                         string cellValue = Convert.ToString(currentCell.Value);
                                         if (!string.IsNullOrEmpty(cellValue))
                                         {
                                             replaceCount += reg.Matches(cellValue).Count;
-                                            cellValue = reg.Replace(cellValue, this.txtNew.Text);
+                                            cellValue = reg.Replace(cellValue, ruleModel.NewContent);
                                             currentCell.PutValue(cellValue);
                                         }
                                     }
                                 }
                             }
-                            if (replaceCount > 0)
-                            {
-                                wb.Save(filePath);
-                            }
-                            #endregion
+
+                            #endregion 处理excel文件
                         }
                         else if (isDocExt)
                         {
                             #region 处理word
-                            //正则无法使用特殊正则，如\s带\的。
-                            Aspose.Words.Document wordDocument = new Aspose.Words.Document(filePath);
-                            replaceCount= wordDocument.Range.Replace(reg, this.txtNew.Text);
-                            wordDocument.Save(filePath);
-                            #endregion
+
+                            if (null == wordDocument)
+                            {
+                                //正则无法使用特殊正则，如\s带\的。
+                                wordDocument = new Aspose.Words.Document(realPath);
+                            }
+
+                            replaceCount = wordDocument.Range.Replace(reg, ruleModel.NewContent);
+
+                            #endregion 处理word
                         }
                         //else if (isPPTExt)
                         //{
                         //    #region 处理PPT
-                        //    Aspose.Slides.Pptx.PresentationEx pptPres = new Aspose.Slides.Pptx.PresentationEx(filePath);
+                        //    Aspose.Slides.Pptx.PresentationEx pptPres = new Aspose.Slides.Pptx.PresentationEx(realPath);
                         //    #endregion
                         //}
                         //else if (isPdfExt)
                         //{
                         //    #region 处理pdf文件
                         //    Aspose.Pdf.Kit.PdfContentEditor pdfEditor = new Aspose.Pdf.Kit.PdfContentEditor();
-                        //    pdfEditor.BindPdf(filePath);
+                        //    pdfEditor.BindPdf(realPath);
                         //    pdfEditor.ReplaceText(this.txtOldValue.Text, this.txtNew.Text);
-                        //    pdfEditor.Save(filePath);
+                        //    pdfEditor.Save(realPath);
                         //    #endregion
                         //}
                     }
                     else
                     {
                         #region 处理文本文件
-                        string fileContent = System.IO.File.ReadAllText(filePath, System.Text.Encoding.Default);
-                        replaceCount = reg.Matches(fileContent).Count;
-                        fileContent = reg.Replace(fileContent, this.txtNew.Text);
-                        System.IO.File.WriteAllText(filePath, fileContent, System.Text.Encoding.Default); 
-                        #endregion
-                    }
-                    strRemark.AppendFormat("文件内容替换【{0}】处；", replaceCount);
-                }
-                #endregion
 
-                if (strRemark.Length > 0)
-                {
-                    dr.Cells["备注"].Value = strRemark.ToString();
+                        if (null == textContent)
+                        {
+                            textContent = System.IO.File.ReadAllText(realPath, System.Text.Encoding.Default) ?? "";
+                        }
+                        replaceCount = reg.Matches(textContent).Count;
+                        textContent = reg.Replace(textContent, ruleModel.NewContent);
+
+                        #endregion 处理文本文件
+                    }
+                    strRemark.Add(string.Format("规则【{0}】文件内容替换【{1}】处；", ruleModel.Name, replaceCount));
+
+                    #endregion 开始替换文件内容
+
+                    this.SetTextLogValue(string.Format("正在处理文件【{0}】，应用规则【{1}】" + Environment.NewLine, model.FileName, ruleModel.Name));
+
+                    model.ProcessBlockCount += replaceCount;
                 }
-                dr.Cells["是否处理成功"].Value = "是";
-                dr.DefaultCellStyle.ForeColor = System.Drawing.Color.Green;
+
+                if (null != wb)
+                {
+                    wb.Save(realPath);
+                }
+                if (null != wordDocument)
+                {
+                    wordDocument.Save(realPath);
+                }
+                if (null != textContent)
+                {
+                    System.IO.File.WriteAllText(realPath, textContent, System.Text.Encoding.Default);
+                }
+
+                #endregion 替换文件内容
+
+                if (strRemark.Count > 0)
+                {
+                    model.Remark = string.Join("；", strRemark.ToArray());
+                }
+
+                model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理成功;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                dr.Cells["是否处理成功"].Value = "否";
-                dr.DefaultCellStyle.ForeColor = System.Drawing.Color.Red;
-                dr.Cells["备注"].Value = e.Message;
+                model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理失败;
+                model.Remark = e.Message;
             }
-            DateTime dtEnd = DateTime.Now;
-            dr.Cells["处理用时"].Value =Math.Round((decimal)(dtEnd.Subtract(dtStart).TotalMilliseconds/1000.0),1);
-            return dr;
+            finally
+            {
+                sw.Stop();
+                model.ProcessDuration = (int)sw.Elapsed.TotalSeconds;
+            }
+
+            this.SetTextLogValue(string.Format("文件【{0}】处理完毕（{1}）" + Environment.NewLine, model.FileName, model.Remark));
+
+            return model;
         }
 
         /// <summary>
@@ -410,16 +527,25 @@ namespace XCLNetFileReplace
                 Model.DoState doState = asyncResult.AsyncState as Model.DoState;
                 AsyncResult result = (AsyncResult)asyncResult;
                 Delegate_DoIt delegateDoit = (Delegate_DoIt)result.AsyncDelegate;
-                DataGridViewRow dr=delegateDoit.EndInvoke(asyncResult);
-                doState.CurrentCount += 1;
-                if (dr.Cells["是否处理成功"].Value.ToString() == "是")
+                var model = delegateDoit.EndInvoke(asyncResult);
+
+                switch (model.ProcessState)
                 {
-                    doState.SuccessCount += 1;
+                    case DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理失败:
+                        doState.FailCount += 1;
+                        break;
+
+                    case DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理成功:
+                        doState.SuccessCount += 1;
+                        break;
+
+                    case DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.无需处理:
+                        doState.IgnoreCount += 1;
+                        break;
                 }
-                else
-                {
-                    doState.FailCount += 1;
-                }
+                //更新model
+                this.fileBLL.Update(model);
+
                 if (this.InvokeRequired)
                 {
                     this.Invoke(new Delegate_UpdateStatus(this.UpdateStatus), new object[] { doState });
@@ -440,7 +566,9 @@ namespace XCLNetFileReplace
             this.toolStripProgressBar1.Value = (int)doState.DoPercent;
             if (doState.CurrentCount == doState.SumCount)
             {
-                this.SetControlEnable(true);
+                this.btnSave.Enabled = true;
+                this.txtLog.AppendText("文件已全部处理完毕！" + Environment.NewLine);
+                this.dgFiles.DataSource = fileBLL.GetAllList();
             }
         }
 
@@ -471,26 +599,36 @@ namespace XCLNetFileReplace
         /// </summary>
         private void InitFiles(string[] files)
         {
-            if (null != files&&files.Length>0)
+            if (null != files && files.Length > 0)
             {
-                List<Model.FileInfo> lst = new List<Model.FileInfo>();
+                List<DataLayer.Model.FileReplace_File> lst = new List<DataLayer.Model.FileReplace_File>();
                 for (int i = 0; i < files.Length; i++)
                 {
-                    try
+                    var model = new DataLayer.Model.FileReplace_File();
+                    model.CreateTime = model.UpdateTime = DateTime.Now;
+                    model.ExtensionName = (XCLNetTools.FileHandler.ComFile.GetExtName(files[i]) ?? "").ToLower();
+
+                    if (string.IsNullOrEmpty(model.ExtensionName))
                     {
-                        Model.FileInfo model = new Model.FileInfo();
-                        model.路径 = files[i];
-                        model.扩展名 = XCLNetTools.FileHandler.ComFile.GetExtName(files[i]);
-                        model.文件名 = XCLNetTools.FileHandler.ComFile.GetFileName(files[i]);
-                        model.是否已处理 = "否";
-                        model.是否处理成功 = "";
-                        lst.Add(model);
+                        continue;
                     }
-                    catch
-                    { 
-                        
+
+                    model.FileName = XCLNetTools.FileHandler.ComFile.GetFileName(files[i]);
+                    model.IsDone = false;
+                    model.Path = files[i];
+                    if (!string.IsNullOrEmpty(model.Path))
+                    {
+                        //将扩展名转为小写
+                        model.Path = string.Format("{0}.{1}", model.Path.Substring(0, model.Path.LastIndexOf('.')), XCLNetTools.FileHandler.ComFile.GetExtName(model.Path).ToLower());
                     }
+                    model.ProcessBlockCount = 0;
+                    model.ProcessDuration = 0;
+                    model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.等待处理;
+                    model.Remark = "";
+                    lst.Add(model);
                 }
+                fileBLL.Add(lst);
+
                 this.dgFiles.DataSource = lst;
                 this.InitStatus();
             }
@@ -507,36 +645,6 @@ namespace XCLNetFileReplace
                 Rectangle rect = new Rectangle(e.RowBounds.Location.X, e.RowBounds.Location.Y, dgv.RowHeadersWidth - 4, e.RowBounds.Height);
                 TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(), dgv.RowHeadersDefaultCellStyle.Font, rect, dgv.RowHeadersDefaultCellStyle.ForeColor, TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
             }
-        }
-
-        /// <summary>
-        /// 设置控件是否可用
-        /// </summary>
-        private void SetControlEnable(bool enable)
-        {
-            this.btnOutPutPath.Enabled = enable;
-            this.btnSave.Enabled = enable;
-
-            this.txtNew.ReadOnly = !enable;
-            this.txtOldValue.ReadOnly = !enable;
-
-            this.ckIsContent.Enabled = enable;
-            this.ckIsFileName.Enabled = enable;
-            this.ckIsNotIgnoreLowerCase.Enabled = enable;
-            this.ckIsRegexp.Enabled = enable;
-            this.ckIsWhole.Enabled = enable;
-            if (this.ckIsRegexp.Checked)
-            {
-                this.ckIsWhole.Enabled = false;
-                this.ckIsWhole.Checked = false;
-            }
-
-            this.txtFileFirstName.Enabled = enable;
-            this.txtFileLastName.Enabled = enable;
-
-            this.打开文件ToolStripMenuItem.Enabled = enable;
-            this.打开文件夹ToolStripMenuItem.Enabled = enable;
-            this.导出ToolStripMenuItem.Enabled = enable;
         }
 
         /// <summary>
@@ -571,9 +679,81 @@ namespace XCLNetFileReplace
             }
         }
 
+        /// <summary>
+        /// 无需输出目录
+        /// </summary>
+        private void btnNotNeedOutPutPath_Click(object sender, EventArgs e)
+        {
+            this.txtOutPutPath.Text = "";
+        }
+
+        /// <summary>
+        /// 重写标题
+        /// </summary>
         public override string SubAssemblyName
         {
             get { return Assembly.GetExecutingAssembly().GetName().Name; }
-        } 
+        }
+
+        /// <summary>
+        /// 选择规则
+        /// </summary>
+        private void btnSelectRule_Click(object sender, EventArgs e)
+        {
+            XCLNetFileReplace.RuleConfigSelectBox fm = new RuleConfigSelectBox(this);
+            fm.ShowDialog();
+        }
+
+        /// <summary>
+        /// 生成规则配置 的行号
+        /// </summary>
+        private void dataGridRuleConfig_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            var dgv = sender as DataGridView;
+            if (dgv != null)
+            {
+                Rectangle rect = new Rectangle(e.RowBounds.Location.X, e.RowBounds.Location.Y, dgv.RowHeadersWidth - 4, e.RowBounds.Height);
+                TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(), dgv.RowHeadersDefaultCellStyle.Font, rect, dgv.RowHeadersDefaultCellStyle.ForeColor, TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
+            }
+        }
+
+        /// <summary>
+        /// 【执行】按钮切换可用/不可用状态事件
+        /// </summary>
+        private void btnSave_EnabledChanged(object sender, EventArgs e)
+        {
+            bool state = this.btnSave.Enabled;
+            this.btnOutPutPath.Enabled = state;
+            this.btnOpenOutPath.Enabled = state;
+            this.btnNotNeedOutPutPath.Enabled = state;
+            this.btnSave.Enabled = state;
+            this.btnSelectRule.Enabled = state;
+
+            this.txtFileFirstName.Enabled = state;
+            this.txtFileLastName.Enabled = state;
+
+            this.打开文件ToolStripMenuItem.Enabled = state;
+            this.打开文件夹ToolStripMenuItem.Enabled = state;
+            this.导出ToolStripMenuItem.Enabled = state;
+            this.规则配置ToolStripMenuItem.Enabled = state;
+        }
+
+        /// <summary>
+        /// 设置日志文本框的值
+        /// </summary>
+        public void SetTextLogValue(string logMsg)
+        {
+            if (this.txtLog.InvokeRequired)
+            {
+                this.txtLog.Invoke(new Action<string>((txt) =>
+                {
+                    this.txtLog.AppendText(txt);
+                }), new object[] { logMsg });
+            }
+            else
+            {
+                this.txtLog.AppendText(logMsg);
+            }
+        }
     }
 }
