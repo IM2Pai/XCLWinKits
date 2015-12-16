@@ -7,3 +7,8 @@ D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\DllFiles\bin\Release\DllFiles.dll
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\DllFiles\bin\Release\DllFiles.pdb
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\DllFiles\obj\Release\DllFiles.dll
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\DllFiles\obj\Release\DllFiles.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DllFiles\bin\Release\DllFiles.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DllFiles\bin\Release\DllFiles.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DllFiles\obj\Release\DllFiles.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DllFiles\obj\Release\DllFiles.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DllFiles\obj\Release\DllFiles.csprojResolveAssemblyReference.cache

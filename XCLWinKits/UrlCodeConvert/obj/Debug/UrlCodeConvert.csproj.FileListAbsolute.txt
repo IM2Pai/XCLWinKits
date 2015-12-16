@@ -6,8 +6,8 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\bin\Debug\XCLNetTool
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\bin\Debug\BaseForm.pdb
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\bin\Debug\CommonHelper.pdb
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\bin\Debug\XCLNetTools.xml
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\obj\Debug\UrlCodeConvert.csprojResolveAssemblyReference.cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\obj\Debug\UrlCodeConvert.Index.resources
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\obj\Debug\UrlCodeConvert.csproj.GenerateResource.Cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\obj\Debug\UrlCodeConvert.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\obj\Debug\UrlCodeConvert.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\obj\Debug\UrlCodeConvert.csprojResolveAssemblyReference.cache

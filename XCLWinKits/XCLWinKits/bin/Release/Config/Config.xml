@@ -23,6 +23,11 @@
           <CategoryItem Sort="0" Name="其它加密解密" AssemblyName="CommonEncrypt"></CategoryItem>
         </CategoryItemList>
       </Category>
+      <Category Name="其它" Sort="0">
+        <CategoryItemList>
+          <CategoryItem Sort="0" Name="时间日期差" AssemblyName="DateTimeDIFF"></CategoryItem>
+        </CategoryItemList>
+      </Category>      
       <!--<Category Name="随机数" Sort="0">
         <CategoryItemList>
           <CategoryItem Sort="0" Name="" AssemblyName=""></CategoryItem>

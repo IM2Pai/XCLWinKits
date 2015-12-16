@@ -23,3 +23,4 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonHelper\bin\Release\XCLNetTool
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonHelper\bin\Release\XCLNetTools.xml
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonHelper\obj\Release\CommonHelper.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonHelper\obj\Release\CommonHelper.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonHelper\obj\Release\CommonHelper.csprojResolveAssemblyReference.cache

@@ -15,3 +15,4 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\bin\Release\System.Data.S
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\bin\Release\XCLNetTools.xml
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\obj\Release\DataLayer.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\obj\Release\DataLayer.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\obj\Release\DataLayer.csprojResolveAssemblyReference.cache

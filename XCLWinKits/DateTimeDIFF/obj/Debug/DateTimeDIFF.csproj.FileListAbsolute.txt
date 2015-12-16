@@ -1,0 +1,14 @@
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DateTimeDIFF\bin\Debug\DateTimeDIFF.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DateTimeDIFF\bin\Debug\DateTimeDIFF.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DateTimeDIFF\bin\Debug\BaseForm.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DateTimeDIFF\bin\Debug\CommonHelper.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DateTimeDIFF\bin\Debug\XCLNetTools.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DateTimeDIFF\bin\Debug\BaseForm.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DateTimeDIFF\bin\Debug\CommonHelper.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DateTimeDIFF\bin\Debug\XCLNetTools.xml
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DateTimeDIFF\obj\Debug\DateTimeDIFF.csprojResolveAssemblyReference.cache
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DateTimeDIFF\obj\Debug\DateTimeDIFF.Index.resources
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DateTimeDIFF\obj\Debug\DateTimeDIFF.Properties.Resources.resources
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DateTimeDIFF\obj\Debug\DateTimeDIFF.csproj.GenerateResource.Cache
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DateTimeDIFF\obj\Debug\DateTimeDIFF.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DateTimeDIFF\obj\Debug\DateTimeDIFF.pdb
