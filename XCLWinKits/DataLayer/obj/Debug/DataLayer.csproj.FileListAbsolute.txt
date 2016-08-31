@@ -32,4 +32,3 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\bin\Debug\zh-Hans\System.
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\obj\Debug\DataLayer.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\obj\Debug\DataLayer.pdb
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache

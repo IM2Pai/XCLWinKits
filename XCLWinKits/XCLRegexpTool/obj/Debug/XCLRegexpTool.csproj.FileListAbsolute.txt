@@ -50,8 +50,8 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\bin\Debug\zh-Hans\Sys
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Debug\XCLRegexpTool.csprojResolveAssemblyReference.cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Debug\XCLRegexpTool.Index.resources
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Debug\XCLRegexpTool.csproj.GenerateResource.Cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Debug\XCLRegexpTool.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Debug\XCLRegexpTool.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLRegexpTool\obj\Debug\XCLRegexpTool.csprojResolveAssemblyReference.cache

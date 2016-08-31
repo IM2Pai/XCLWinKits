@@ -408,17 +408,77 @@ namespace XCLNetFileReplace
                             for (int i = 0; i < wb.Worksheets.Count; i++)
                             {
                                 Aspose.Cells.Cells sheetCells = wb.Worksheets[i].Cells;
+                                Aspose.Cells.Cell currentCell = null;
+                                string cellValue = string.Empty;
+                                bool tempBool;
+                                int tempInt;
+                                double tempDouble;
+                                DateTime tempDateTime;
+                                bool isCellReplaced = false;
+                                int cellMatchCount;
                                 for (int cellsRowIndex = 0; cellsRowIndex < sheetCells.MaxDataRow + 1; cellsRowIndex++)
                                 {
                                     for (int cellsColumn = 0; cellsColumn < sheetCells.MaxDataColumn + 1; cellsColumn++)
                                     {
-                                        Aspose.Cells.Cell currentCell = sheetCells[cellsRowIndex, cellsColumn];
-                                        string cellValue = Convert.ToString(currentCell.Value);
-                                        if (!string.IsNullOrEmpty(cellValue))
+                                        currentCell = sheetCells[cellsRowIndex, cellsColumn];
+                                        cellValue = Convert.ToString(currentCell.Value);
+                                        if (string.IsNullOrEmpty(cellValue))
+                                        {
+                                            continue;
+                                        }
+
+                                        cellMatchCount = reg.Matches(cellValue).Count;
+
+                                        if (cellMatchCount == 0)
+                                        {
+                                            continue;
+                                        }
+
+                                        cellValue = reg.Replace(cellValue, ruleModel.NewContent);
+
+                                        switch (currentCell.Type)
+                                        {
+                                            case Aspose.Cells.CellValueType.IsBool:
+                                                if (bool.TryParse(cellValue, out tempBool))
+                                                {
+                                                    currentCell.PutValue(tempBool);
+                                                    isCellReplaced = true;
+                                                }
+                                                break;
+
+                                            case Aspose.Cells.CellValueType.IsDateTime:
+                                                if (DateTime.TryParse(cellValue, out tempDateTime))
+                                                {
+                                                    currentCell.PutValue(tempDateTime);
+                                                    isCellReplaced = true;
+                                                }
+                                                break;
+
+                                            case Aspose.Cells.CellValueType.IsNumeric:
+                                                if (int.TryParse(cellValue, out tempInt))
+                                                {
+                                                    currentCell.PutValue(tempInt);
+                                                    isCellReplaced = true;
+                                                }
+                                                else
+                                                {
+                                                    if (double.TryParse(cellValue, out tempDouble))
+                                                    {
+                                                        currentCell.PutValue(tempDouble);
+                                                        isCellReplaced = true;
+                                                    }
+                                                }
+                                                break;
+
+                                            default:
+                                                currentCell.PutValue(cellValue);
+                                                isCellReplaced = true;
+                                                break;
+                                        }
+
+                                        if (isCellReplaced)
                                         {
                                             replaceCount += reg.Matches(cellValue).Count;
-                                            cellValue = reg.Replace(cellValue, ruleModel.NewContent);
-                                            currentCell.PutValue(cellValue);
                                         }
                                     }
                                 }

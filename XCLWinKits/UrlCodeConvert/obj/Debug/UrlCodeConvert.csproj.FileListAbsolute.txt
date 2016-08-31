@@ -24,8 +24,8 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\bin\Debug\zh-Hans\Sy
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\obj\Debug\UrlCodeConvert.csprojResolveAssemblyReference.cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\obj\Debug\UrlCodeConvert.Index.resources
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\obj\Debug\UrlCodeConvert.csproj.GenerateResource.Cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\obj\Debug\UrlCodeConvert.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\obj\Debug\UrlCodeConvert.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\UrlCodeConvert\obj\Debug\UrlCodeConvert.csprojResolveAssemblyReference.cache
