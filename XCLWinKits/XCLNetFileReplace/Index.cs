@@ -140,7 +140,7 @@ namespace XCLNetFileReplace
                     this.InitFiles(files);
                     this.openFileFolderPath = openFolder.SelectedPath;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("系统错误，请重新打开有效文件夹！");
                 }
@@ -331,25 +331,24 @@ namespace XCLNetFileReplace
 
                 filetitle = string.Format("{0}{1}{2}", this.txtFileFirstName.Text, filetitle, this.txtFileLastName.Text);
 
-                if (!string.Equals(XCLNetTools.FileHandler.ComFile.GetFileName(model.Path, false), filetitle))
+                if (isNeedCopy)
                 {
-                    realPath = XCLNetTools.FileHandler.ComFile.GetFileFolderPath(model.Path) + "\\" + filetitle + "." + model.ExtensionName;
-
-                    if (isNeedCopy)
+                    if (!string.Equals(XCLNetTools.FileHandler.ComFile.GetFileName(model.Path, false), filetitle))
                     {
-                        realPath = realPath.Replace(this.openFileFolderPath.TrimEnd('\\'), this.txtOutPutPath.Text.TrimEnd('\\'));
-                        XCLNetTools.FileHandler.ComFile.CopyFile(model.Path, realPath);
-                        if (!System.IO.File.Exists(realPath))
-                        {
-                            model.Remark = "复制到输出目录执行失败！";
-                            model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理失败;
-                            return model;
-                        }
+                        realPath = XCLNetTools.FileHandler.ComFile.GetFileFolderPath(model.Path) + "\\" + filetitle + "." + model.ExtensionName;
                     }
-                    else
+                    realPath = realPath.Replace(this.openFileFolderPath.TrimEnd('\\'), this.txtOutPutPath.Text.TrimEnd('\\'));
+                    XCLNetTools.FileHandler.ComFile.CopyFile(model.Path, realPath);
+                    if (!System.IO.File.Exists(realPath))
                     {
-                        this.pc.FileSystem.RenameFile(model.Path, filetitle + "." + model.ExtensionName);
+                        model.Remark = "复制到输出目录执行失败！";
+                        model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理失败;
+                        return model;
                     }
+                }
+                else
+                {
+                    this.pc.FileSystem.RenameFile(model.Path, filetitle + "." + model.ExtensionName);
                 }
 
                 #endregion 先处理替换文件名
