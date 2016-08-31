@@ -33,7 +33,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtResult = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listBoxTypes = new System.Windows.Forms.ListBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -89,7 +88,6 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.listBoxTypes);
             this.groupBox2.Controls.Add(this.btnOK);
             this.groupBox2.Location = new System.Drawing.Point(461, 186);
             this.groupBox2.Name = "groupBox2";
@@ -98,19 +96,9 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "操作：";
             // 
-            // listBoxTypes
-            // 
-            this.listBoxTypes.FormattingEnabled = true;
-            this.listBoxTypes.ItemHeight = 12;
-            this.listBoxTypes.Location = new System.Drawing.Point(7, 21);
-            this.listBoxTypes.Name = "listBoxTypes";
-            this.listBoxTypes.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBoxTypes.Size = new System.Drawing.Size(187, 88);
-            this.listBoxTypes.TabIndex = 1;
-            // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(48, 137);
+            this.btnOK.Location = new System.Drawing.Point(45, 82);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(105, 34);
             this.btnOK.TabIndex = 0;
@@ -146,6 +134,5 @@
         private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.ListBox listBoxTypes;
     }
 }
