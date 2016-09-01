@@ -64,3 +64,4 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\obj\x86\Debug\XCLWinKits
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\obj\x86\Debug\XCLWinKits.csproj.GenerateResource.Cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\obj\x86\Debug\XCLWinKits.exe
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\obj\x86\Debug\XCLWinKits.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\Aspose.Cells.xml

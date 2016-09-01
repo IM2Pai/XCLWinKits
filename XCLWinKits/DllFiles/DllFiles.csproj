@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Aspose\Aspose.Cells.dll" />
+    <Content Include="Aspose\Aspose.Cells.xml" />
     <Content Include="Aspose\Aspose.Pdf.Kit.dll" />
     <Content Include="Aspose\Aspose.Slides.dll" />
     <Content Include="Aspose\Aspose.Words.dll" />

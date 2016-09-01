@@ -118,9 +118,9 @@ namespace XCLWinKits
             this.Close();
         }
 
-        private void 我的云导航ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 我的ABCToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.wdydh.com");
+            System.Diagnostics.Process.Start("http://www.wodeabc.com");
         }
 
         private void GitHubToolStripMenuItem_Click(object sender, EventArgs e)

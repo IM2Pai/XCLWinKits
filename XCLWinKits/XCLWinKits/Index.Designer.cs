@@ -39,7 +39,7 @@
             this.检查更新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于本软件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.我的云导航ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.我的ABCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +59,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.帮助ToolStripMenuItem,
-            this.我的云导航ToolStripMenuItem});
+            this.我的ABCToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(673, 25);
@@ -83,14 +83,14 @@
             // GitHubToolStripMenuItem
             // 
             this.GitHubToolStripMenuItem.Name = "GitHubToolStripMenuItem";
-            this.GitHubToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.GitHubToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.GitHubToolStripMenuItem.Text = "GitHub";
             this.GitHubToolStripMenuItem.Click += new System.EventHandler(this.GitHubToolStripMenuItem_Click);
             // 
             // 作者博客ToolStripMenuItem
             // 
             this.作者博客ToolStripMenuItem.Name = "作者博客ToolStripMenuItem";
-            this.作者博客ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.作者博客ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.作者博客ToolStripMenuItem.Text = "作者博客";
             this.作者博客ToolStripMenuItem.Click += new System.EventHandler(this.作者博客ToolStripMenuItem_Click);
             // 
@@ -99,7 +99,7 @@
             this.资料ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.正则表达式语法简明参考ToolStripMenuItem});
             this.资料ToolStripMenuItem.Name = "资料ToolStripMenuItem";
-            this.资料ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.资料ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.资料ToolStripMenuItem.Text = "资料";
             // 
             // 正则表达式语法简明参考ToolStripMenuItem
@@ -112,37 +112,37 @@
             // 淘宝小店ToolStripMenuItem
             // 
             this.淘宝小店ToolStripMenuItem.Name = "淘宝小店ToolStripMenuItem";
-            this.淘宝小店ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.淘宝小店ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.淘宝小店ToolStripMenuItem.Text = "淘宝小店";
             this.淘宝小店ToolStripMenuItem.Click += new System.EventHandler(this.淘宝小店ToolStripMenuItem_Click);
             // 
             // 检查更新ToolStripMenuItem
             // 
             this.检查更新ToolStripMenuItem.Name = "检查更新ToolStripMenuItem";
-            this.检查更新ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.检查更新ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.检查更新ToolStripMenuItem.Text = "检查更新";
             this.检查更新ToolStripMenuItem.Click += new System.EventHandler(this.检查更新ToolStripMenuItem_Click);
             // 
             // 关于本软件ToolStripMenuItem
             // 
             this.关于本软件ToolStripMenuItem.Name = "关于本软件ToolStripMenuItem";
-            this.关于本软件ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.关于本软件ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.关于本软件ToolStripMenuItem.Text = "关于本软件";
             this.关于本软件ToolStripMenuItem.Click += new System.EventHandler(this.关于本软件ToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
-            // 我的云导航ToolStripMenuItem
+            // 我的ABCToolStripMenuItem
             // 
-            this.我的云导航ToolStripMenuItem.Name = "我的云导航ToolStripMenuItem";
-            this.我的云导航ToolStripMenuItem.Size = new System.Drawing.Size(80, 21);
-            this.我的云导航ToolStripMenuItem.Text = "我的云导航";
-            this.我的云导航ToolStripMenuItem.Click += new System.EventHandler(this.我的云导航ToolStripMenuItem_Click);
+            this.我的ABCToolStripMenuItem.Name = "我的ABCToolStripMenuItem";
+            this.我的ABCToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.我的ABCToolStripMenuItem.Text = "我的ABC";
+            this.我的ABCToolStripMenuItem.Click += new System.EventHandler(this.我的ABCToolStripMenuItem_Click);
             // 
             // Index
             // 
@@ -173,7 +173,7 @@
         private System.Windows.Forms.ToolStripMenuItem 淘宝小店ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 正则表达式语法简明参考ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 我的云导航ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 我的ABCToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem GitHubToolStripMenuItem;
     }
 }

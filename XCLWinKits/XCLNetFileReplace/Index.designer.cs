@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.打开文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,8 +96,12 @@
             this.txtFileFirstName = new System.Windows.Forms.TextBox();
             this.txtFileLastName = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnNotNeedOutPutPath = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageBaseOption = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnNotNeedOutPutPath = new System.Windows.Forms.Button();
+            this.tabPageExcelOption = new System.Windows.Forms.TabPage();
+            this.ckExcelOptionIsKeepDataFormat = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox_FileInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgFiles)).BeginInit();
@@ -107,6 +111,9 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRuleConfig)).BeginInit();
             this.groupBox4.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPageBaseOption.SuspendLayout();
+            this.tabPageExcelOption.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -182,9 +189,9 @@
             this.groupBox_FileInfo.Controls.Add(this.dgFiles);
             this.groupBox_FileInfo.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox_FileInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.groupBox_FileInfo.Location = new System.Drawing.Point(12, 28);
+            this.groupBox_FileInfo.Location = new System.Drawing.Point(6, 28);
             this.groupBox_FileInfo.Name = "groupBox_FileInfo";
-            this.groupBox_FileInfo.Size = new System.Drawing.Size(873, 212);
+            this.groupBox_FileInfo.Size = new System.Drawing.Size(885, 181);
             this.groupBox_FileInfo.TabIndex = 1;
             this.groupBox_FileInfo.TabStop = false;
             // 
@@ -194,14 +201,14 @@
             this.dgFiles.AllowUserToDeleteRows = false;
             this.dgFiles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgFiles.BackgroundColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgFiles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgFiles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgFiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgFiles_FileID,
@@ -215,28 +222,28 @@
             this.dgFiles_Remark,
             this.CreateTime,
             this.UpdateTime});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgFiles.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgFiles.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgFiles.Location = new System.Drawing.Point(3, 17);
             this.dgFiles.Name = "dgFiles";
             this.dgFiles.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgFiles.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgFiles.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgFiles.RowTemplate.Height = 23;
-            this.dgFiles.Size = new System.Drawing.Size(867, 192);
+            this.dgFiles.Size = new System.Drawing.Size(879, 161);
             this.dgFiles.TabIndex = 2;
             this.dgFiles.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgFiles_RowPostPaint);
             // 
@@ -377,9 +384,10 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.txtLog);
-            this.groupBox1.Location = new System.Drawing.Point(372, 468);
+            this.groupBox1.ForeColor = System.Drawing.Color.Green;
+            this.groupBox1.Location = new System.Drawing.Point(403, 412);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(377, 134);
+            this.groupBox1.Size = new System.Drawing.Size(355, 193);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "当前处理日志：";
@@ -395,7 +403,7 @@
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLog.Size = new System.Drawing.Size(371, 114);
+            this.txtLog.Size = new System.Drawing.Size(349, 173);
             this.txtLog.TabIndex = 0;
             this.txtLog.WordWrap = false;
             // 
@@ -406,9 +414,10 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.dataGridRuleConfig);
             this.groupBox3.Controls.Add(this.btnSelectRule);
-            this.groupBox3.Location = new System.Drawing.Point(9, 246);
+            this.groupBox3.ForeColor = System.Drawing.Color.Green;
+            this.groupBox3.Location = new System.Drawing.Point(6, 215);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(876, 216);
+            this.groupBox3.Size = new System.Drawing.Size(885, 191);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "当前处理要应用的规则：";
@@ -417,7 +426,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label5.Location = new System.Drawing.Point(6, 184);
+            this.label5.Location = new System.Drawing.Point(6, 171);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(197, 12);
             this.label5.TabIndex = 4;
@@ -433,14 +442,14 @@
             this.dataGridRuleConfig.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridRuleConfig.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridRuleConfig.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridRuleConfig.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridRuleConfig.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridRuleConfig.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridRuleConfig.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.grid_RuleConfigID,
@@ -457,24 +466,24 @@
             this.dataGridRuleConfig.Location = new System.Drawing.Point(6, 20);
             this.dataGridRuleConfig.Name = "dataGridRuleConfig";
             this.dataGridRuleConfig.ReadOnly = true;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridRuleConfig.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridRuleConfig.RowHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridRuleConfig.RowTemplate.Height = 23;
-            this.dataGridRuleConfig.Size = new System.Drawing.Size(864, 157);
+            this.dataGridRuleConfig.Size = new System.Drawing.Size(873, 144);
             this.dataGridRuleConfig.TabIndex = 3;
             this.dataGridRuleConfig.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridRuleConfig_RowPostPaint);
             // 
             // grid_RuleConfigID
             // 
             this.grid_RuleConfigID.DataPropertyName = "RuleConfigID";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_RuleConfigID.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_RuleConfigID.DefaultCellStyle = dataGridViewCellStyle16;
             this.grid_RuleConfigID.HeaderText = "ID";
             this.grid_RuleConfigID.Name = "grid_RuleConfigID";
             this.grid_RuleConfigID.ReadOnly = true;
@@ -483,8 +492,8 @@
             // grid_Name
             // 
             this.grid_Name.DataPropertyName = "Name";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_Name.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_Name.DefaultCellStyle = dataGridViewCellStyle17;
             this.grid_Name.HeaderText = "名称";
             this.grid_Name.Name = "grid_Name";
             this.grid_Name.ReadOnly = true;
@@ -492,8 +501,8 @@
             // grid_OldContent
             // 
             this.grid_OldContent.DataPropertyName = "OldContent";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_OldContent.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_OldContent.DefaultCellStyle = dataGridViewCellStyle18;
             this.grid_OldContent.HeaderText = "查找内容";
             this.grid_OldContent.Name = "grid_OldContent";
             this.grid_OldContent.ReadOnly = true;
@@ -501,8 +510,8 @@
             // grid_NewContent
             // 
             this.grid_NewContent.DataPropertyName = "NewContent";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_NewContent.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_NewContent.DefaultCellStyle = dataGridViewCellStyle19;
             this.grid_NewContent.HeaderText = "替换内容";
             this.grid_NewContent.Name = "grid_NewContent";
             this.grid_NewContent.ReadOnly = true;
@@ -555,8 +564,8 @@
             // grid_CreateTime
             // 
             this.grid_CreateTime.DataPropertyName = "CreateTime";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_CreateTime.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_CreateTime.DefaultCellStyle = dataGridViewCellStyle20;
             this.grid_CreateTime.HeaderText = "创建时间";
             this.grid_CreateTime.Name = "grid_CreateTime";
             this.grid_CreateTime.ReadOnly = true;
@@ -564,8 +573,8 @@
             // grid_UpdateTime
             // 
             this.grid_UpdateTime.DataPropertyName = "UpdateTime";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_UpdateTime.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_UpdateTime.DefaultCellStyle = dataGridViewCellStyle21;
             this.grid_UpdateTime.HeaderText = "更新时间";
             this.grid_UpdateTime.Name = "grid_UpdateTime";
             this.grid_UpdateTime.ReadOnly = true;
@@ -573,7 +582,7 @@
             // btnSelectRule
             // 
             this.btnSelectRule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectRule.Location = new System.Drawing.Point(795, 182);
+            this.btnSelectRule.Location = new System.Drawing.Point(805, 165);
             this.btnSelectRule.Name = "btnSelectRule";
             this.btnSelectRule.Size = new System.Drawing.Size(75, 23);
             this.btnSelectRule.TabIndex = 1;
@@ -585,7 +594,7 @@
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(758, 524);
+            this.btnSave.Location = new System.Drawing.Point(764, 497);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(127, 44);
             this.btnSave.TabIndex = 4;
@@ -596,7 +605,7 @@
             // 
             // txtOutPutPath
             // 
-            this.txtOutPutPath.Location = new System.Drawing.Point(86, 20);
+            this.txtOutPutPath.Location = new System.Drawing.Point(97, 12);
             this.txtOutPutPath.Name = "txtOutPutPath";
             this.txtOutPutPath.ReadOnly = true;
             this.txtOutPutPath.Size = new System.Drawing.Size(105, 21);
@@ -604,7 +613,7 @@
             // 
             // btnOutPutPath
             // 
-            this.btnOutPutPath.Location = new System.Drawing.Point(195, 19);
+            this.btnOutPutPath.Location = new System.Drawing.Point(206, 11);
             this.btnOutPutPath.Name = "btnOutPutPath";
             this.btnOutPutPath.Size = new System.Drawing.Size(45, 23);
             this.btnOutPutPath.TabIndex = 1;
@@ -614,7 +623,7 @@
             // 
             // btnOpenOutPath
             // 
-            this.btnOpenOutPath.Location = new System.Drawing.Point(246, 19);
+            this.btnOpenOutPath.Location = new System.Drawing.Point(257, 11);
             this.btnOpenOutPath.Name = "btnOpenOutPath";
             this.btnOpenOutPath.Size = new System.Drawing.Size(45, 23);
             this.btnOpenOutPath.TabIndex = 2;
@@ -625,7 +634,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 24);
+            this.label1.Location = new System.Drawing.Point(19, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 3;
@@ -634,7 +643,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 73);
+            this.label2.Location = new System.Drawing.Point(19, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 12);
             this.label2.TabIndex = 4;
@@ -643,7 +652,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 103);
+            this.label3.Location = new System.Drawing.Point(19, 95);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 12);
             this.label3.TabIndex = 5;
@@ -651,14 +660,14 @@
             // 
             // txtFileFirstName
             // 
-            this.txtFileFirstName.Location = new System.Drawing.Point(86, 69);
+            this.txtFileFirstName.Location = new System.Drawing.Point(97, 61);
             this.txtFileFirstName.Name = "txtFileFirstName";
             this.txtFileFirstName.Size = new System.Drawing.Size(248, 21);
             this.txtFileFirstName.TabIndex = 6;
             // 
             // txtFileLastName
             // 
-            this.txtFileLastName.Location = new System.Drawing.Point(86, 96);
+            this.txtFileLastName.Location = new System.Drawing.Point(97, 88);
             this.txtFileLastName.Name = "txtFileLastName";
             this.txtFileLastName.Size = new System.Drawing.Size(248, 21);
             this.txtFileLastName.TabIndex = 7;
@@ -666,26 +675,60 @@
             // groupBox4
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox4.Controls.Add(this.btnNotNeedOutPutPath);
-            this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Controls.Add(this.txtOutPutPath);
-            this.groupBox4.Controls.Add(this.txtFileLastName);
-            this.groupBox4.Controls.Add(this.btnOutPutPath);
-            this.groupBox4.Controls.Add(this.txtFileFirstName);
-            this.groupBox4.Controls.Add(this.btnOpenOutPath);
-            this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Location = new System.Drawing.Point(9, 468);
+            this.groupBox4.Controls.Add(this.tabControl1);
+            this.groupBox4.ForeColor = System.Drawing.Color.Green;
+            this.groupBox4.Location = new System.Drawing.Point(3, 412);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(345, 134);
+            this.groupBox4.Size = new System.Drawing.Size(394, 193);
             this.groupBox4.TabIndex = 13;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "输出选项：";
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tabControl1.Controls.Add(this.tabPageBaseOption);
+            this.tabControl1.Controls.Add(this.tabPageExcelOption);
+            this.tabControl1.Location = new System.Drawing.Point(3, 17);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(381, 173);
+            this.tabControl1.TabIndex = 10;
+            // 
+            // tabPageBaseOption
+            // 
+            this.tabPageBaseOption.Controls.Add(this.label4);
+            this.tabPageBaseOption.Controls.Add(this.btnNotNeedOutPutPath);
+            this.tabPageBaseOption.Controls.Add(this.label3);
+            this.tabPageBaseOption.Controls.Add(this.label1);
+            this.tabPageBaseOption.Controls.Add(this.label2);
+            this.tabPageBaseOption.Controls.Add(this.btnOpenOutPath);
+            this.tabPageBaseOption.Controls.Add(this.txtOutPutPath);
+            this.tabPageBaseOption.Controls.Add(this.txtFileFirstName);
+            this.tabPageBaseOption.Controls.Add(this.txtFileLastName);
+            this.tabPageBaseOption.Controls.Add(this.btnOutPutPath);
+            this.tabPageBaseOption.Location = new System.Drawing.Point(4, 22);
+            this.tabPageBaseOption.Name = "tabPageBaseOption";
+            this.tabPageBaseOption.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageBaseOption.Size = new System.Drawing.Size(373, 147);
+            this.tabPageBaseOption.TabIndex = 0;
+            this.tabPageBaseOption.Text = "基本选项";
+            this.tabPageBaseOption.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(18, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(245, 12);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "若不指定输出目录，则在源文件上直接操作！";
+            // 
             // btnNotNeedOutPutPath
             // 
-            this.btnNotNeedOutPutPath.Location = new System.Drawing.Point(297, 19);
+            this.btnNotNeedOutPutPath.Location = new System.Drawing.Point(308, 11);
             this.btnNotNeedOutPutPath.Name = "btnNotNeedOutPutPath";
             this.btnNotNeedOutPutPath.Size = new System.Drawing.Size(45, 23);
             this.btnNotNeedOutPutPath.TabIndex = 9;
@@ -693,25 +736,36 @@
             this.btnNotNeedOutPutPath.UseVisualStyleBackColor = true;
             this.btnNotNeedOutPutPath.Click += new System.EventHandler(this.btnNotNeedOutPutPath_Click);
             // 
-            // label4
+            // tabPageExcelOption
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(7, 47);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(245, 12);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "若不指定输出目录，则在源文件上直接操作！";
+            this.tabPageExcelOption.Controls.Add(this.ckExcelOptionIsKeepDataFormat);
+            this.tabPageExcelOption.Location = new System.Drawing.Point(4, 22);
+            this.tabPageExcelOption.Name = "tabPageExcelOption";
+            this.tabPageExcelOption.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageExcelOption.Size = new System.Drawing.Size(373, 147);
+            this.tabPageExcelOption.TabIndex = 1;
+            this.tabPageExcelOption.Text = "Excel选项";
+            this.tabPageExcelOption.UseVisualStyleBackColor = true;
+            // 
+            // ckExcelOptionIsKeepDataFormat
+            // 
+            this.ckExcelOptionIsKeepDataFormat.AutoSize = true;
+            this.ckExcelOptionIsKeepDataFormat.Location = new System.Drawing.Point(16, 15);
+            this.ckExcelOptionIsKeepDataFormat.Name = "ckExcelOptionIsKeepDataFormat";
+            this.ckExcelOptionIsKeepDataFormat.Size = new System.Drawing.Size(312, 16);
+            this.ckExcelOptionIsKeepDataFormat.TabIndex = 0;
+            this.ckExcelOptionIsKeepDataFormat.Text = "保留数据格式，若新值无法转为该格式，则忽略该替换";
+            this.ckExcelOptionIsKeepDataFormat.UseVisualStyleBackColor = true;
             // 
             // Index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 630);
-            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox_FileInfo);
             this.Controls.Add(this.menuStrip1);
@@ -732,7 +786,11 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRuleConfig)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPageBaseOption.ResumeLayout(false);
+            this.tabPageBaseOption.PerformLayout();
+            this.tabPageExcelOption.ResumeLayout(false);
+            this.tabPageExcelOption.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -798,6 +856,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UpdateTime;
         private System.Windows.Forms.Button btnNotNeedOutPutPath;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPageBaseOption;
+        private System.Windows.Forms.TabPage tabPageExcelOption;
+        private System.Windows.Forms.CheckBox ckExcelOptionIsKeepDataFormat;
     }
 }
 
