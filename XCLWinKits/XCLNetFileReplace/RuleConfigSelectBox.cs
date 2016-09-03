@@ -50,7 +50,7 @@ namespace XCLNetFileReplace
             {
                 for (int i = 0; i < this.dataGridRuleConfig.Rows.Count; i++)
                 {
-                    var currentModel = this.dataGridRuleConfig.Rows[i].DataBoundItem as DataLayer.Model.FileReplace_RuleConfig;
+                    var currentModel = this.dataGridRuleConfig.Rows[i].DataBoundItem as DataLayer.Model.v_FileReplace_RuleConfig;
                     if (null != currentModel)
                     {
                         if (fileReplaceSetting.RuleConfigIds.Contains(currentModel.RuleConfigID))
@@ -88,7 +88,7 @@ namespace XCLNetFileReplace
             {
                 for (int i = 0; i < selectedRows.Count; i++)
                 {
-                    var currentData = selectedRows[i].DataBoundItem as DataLayer.Model.FileReplace_RuleConfig;
+                    var currentData = selectedRows[i].DataBoundItem as DataLayer.Model.v_FileReplace_RuleConfig;
                     if (null != currentData)
                     {
                         setting.RuleConfigIds.Add(currentData.RuleConfigID);

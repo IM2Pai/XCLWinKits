@@ -29,49 +29,12 @@ namespace XCLNetFileReplace
         private DataLayer.BLL.FileReplace_RuleConfig ruleConfigBLL = new DataLayer.BLL.FileReplace_RuleConfig();
         private DataLayer.BLL.v_FileReplace_RuleConfig v_ruleConfigBLL = new DataLayer.BLL.v_FileReplace_RuleConfig();
 
-        private DataLayer.Model.FileReplaceSetting _replaceSetting = null;
-        private List<DataLayer.Model.v_FileReplace_RuleConfig> _selectedRules = null;
+        private DataLayer.Model.FileReplaceSetting replaceSetting = null;
         private string[] defaultExt = { "xls", "xlsx", "csv", "xlt", "doc", "docx"/*, "ppt", "pptx","pdf"*/ };//这些格式由aspose去处理
         private string[] excelExt = { "xls", "xlsx", "csv", "xlt" };
         private string[] docExt = { "doc", "docx" };
         //private string[] pptExt = { "ppt", "pptx" };
         //private string[] pdfExt = { "pdf"};
-
-        /// <summary>
-        /// 当前已选规则
-        /// </summary>
-        private List<DataLayer.Model.v_FileReplace_RuleConfig> SelectedRules
-        {
-            get
-            {
-                var settings = this.userSettingBLL.GetFileReplaceSetting();
-                if (null != settings)
-                {
-                    this._selectedRules = this.v_ruleConfigBLL.GetAllList().Where(k => settings.RuleConfigIds.Contains(k.RuleConfigID)).ToList();
-                }
-                else
-                {
-                    this._selectedRules = null;
-                }
-                return this._selectedRules;
-            }
-        }
-
-        /// <summary>
-        /// 当前用户配置
-        /// </summary>
-        private DataLayer.Model.FileReplaceSetting ReplaceSetting
-        {
-            get
-            {
-                this._replaceSetting = this.userSettingBLL.GetFileReplaceSetting();
-                return this._replaceSetting;
-            }
-            set
-            {
-                this._replaceSetting = value;
-            }
-        }
 
         /// <summary>
         /// 构造方法
@@ -87,16 +50,18 @@ namespace XCLNetFileReplace
         /// </summary>
         private void InitData()
         {
+            this.replaceSetting = userSettingBLL.GetFileReplaceSetting();
             this.dgFiles.AutoGenerateColumns = false;
             this.dataGridRuleConfig.AutoGenerateColumns = false;
             fileBLL.Clear();
             this.InitCurrentRuleList();
             //初始化用户默认配置
-            if (null != this.ReplaceSetting)
+            if (null != this.replaceSetting)
             {
-                this.txtOutPutPath.Text = this.ReplaceSetting.OutPutPath;
-                this.txtFileFirstName.Text = this.ReplaceSetting.PrefixName;
-                this.txtFileLastName.Text = this.ReplaceSetting.SuffixName;
+                this.txtOutPutPath.Text = this.replaceSetting.OutPutPath;
+                this.txtFileFirstName.Text = this.replaceSetting.PrefixName;
+                this.txtFileLastName.Text = this.replaceSetting.SuffixName;
+                this.ckExcelOptionIsKeepDataFormat.Checked = this.replaceSetting.IsKeepDataFormat;
             }
             this.toolStripStatusLabel2.Text = new Model.DoState().ToString();
         }
@@ -106,7 +71,13 @@ namespace XCLNetFileReplace
         /// </summary>
         public void InitCurrentRuleList()
         {
-            this.dataGridRuleConfig.DataSource = this.SelectedRules;
+            List<DataLayer.Model.v_FileReplace_RuleConfig> ruleLst = null;
+            var settings = this.userSettingBLL.GetFileReplaceSetting();
+            if (null != settings && null != settings.RuleConfigIds && settings.RuleConfigIds.Count > 0)
+            {
+                ruleLst = this.v_ruleConfigBLL.GetAllList().Where(k => settings.RuleConfigIds.Contains(k.RuleConfigID)).ToList();
+            }
+            this.dataGridRuleConfig.DataSource = ruleLst;
         }
 
         #region 导航菜单
@@ -115,45 +86,47 @@ namespace XCLNetFileReplace
         {
             OpenFileDialog openFile = new OpenFileDialog();
             openFile.Multiselect = true;
-            if (openFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFile.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             {
-                try
+                return;
+            }
+            try
+            {
+                this.InitFiles(openFile.FileNames);
+                if (null != openFile.FileNames && openFile.FileNames.Length > 0)
                 {
-                    this.InitFiles(openFile.FileNames);
-                    if (null != openFile.FileNames && openFile.FileNames.Length > 0)
-                    {
-                        string fName = XCLNetTools.FileHandler.ComFile.GetFileName(openFile.FileNames[0]);
-                        this.openFileFolderPath = openFile.FileNames[0].Replace(fName, "");
-                    }
+                    string fName = XCLNetTools.FileHandler.ComFile.GetFileName(openFile.FileNames[0]);
+                    this.openFileFolderPath = openFile.FileNames[0].Replace(fName, "");
                 }
-                catch
-                {
-                    MessageBox.Show("系统错误，请重新打开有效文件！", "系统提示");
-                }
+            }
+            catch
+            {
+                MessageBox.Show("系统错误，请重新打开有效文件！", "系统提示");
             }
         }
 
         private void 打开文件夹ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog openFolder = new FolderBrowserDialog();
-            if (openFolder.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFolder.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             {
-                try
-                {
-                    string[] files = XCLNetTools.FileHandler.ComFile.GetFolderFilesByRecursion(openFolder.SelectedPath);
-                    this.InitFiles(files);
-                    this.openFileFolderPath = openFolder.SelectedPath;
-                }
-                catch
-                {
-                    MessageBox.Show("系统错误，请重新打开有效文件夹！", "系统提示");
-                }
+                return;
+            }
+            try
+            {
+                string[] files = XCLNetTools.FileHandler.ComFile.GetFolderFilesByRecursion(openFolder.SelectedPath);
+                this.InitFiles(files);
+                this.openFileFolderPath = openFolder.SelectedPath;
+            }
+            catch
+            {
+                MessageBox.Show("系统错误，请重新打开有效文件夹！", "系统提示");
             }
         }
 
         private void 导出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var lst = fileBLL.GetAllList();
+            var lst = this.v_fileBLL.GetAllList();
             if (null == lst || lst.Count == 0)
             {
                 MessageBox.Show("当前没有任何数据可供导出！", "系统提示");
@@ -161,17 +134,18 @@ namespace XCLNetFileReplace
             }
             FolderBrowserDialog openFolder = new FolderBrowserDialog();
             openFolder.Description = "请选择要存放的目录！";
-            if (openFolder.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFolder.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             {
-                string folderPath = openFolder.SelectedPath.TrimEnd('\\');
-                Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
-                wb.Worksheets[0].Cells.ImportDataTable(XCLNetTools.Generic.ListHelper.ToDataTable((IList<DataLayer.Model.FileReplace_File>)lst), true, 0, 0);
-                string filePath = string.Format(@"{0}\XCLNetFileRelace_{1:yyyyMMddHHmmssfff}.xlsx", folderPath, DateTime.Now);
-                wb.Save(filePath, Aspose.Cells.SaveFormat.Xlsx);
-                if (MessageBox.Show("导出成功，是否打开该文件？", "系统提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                {
-                    System.Diagnostics.Process.Start(filePath);
-                }
+                return;
+            }
+            string folderPath = openFolder.SelectedPath.TrimEnd('\\');
+            Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
+            wb.Worksheets[0].Cells.ImportDataTable(XCLNetTools.Generic.ListHelper.ToDataTable(lst), true, 0, 0);
+            string filePath = string.Format(@"{0}\XCLNetFileRelace_{1:yyyyMMddHHmmssfff}.xlsx", folderPath, DateTime.Now);
+            wb.Save(filePath, Aspose.Cells.SaveFormat.Xlsx);
+            if (MessageBox.Show("导出成功，是否打开该文件？", "系统提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(filePath);
             }
         }
 
@@ -231,11 +205,13 @@ namespace XCLNetFileReplace
             #region 将选项保存至配置文件中
 
             var config = this.userSettingBLL.GetFirstModel() ?? new DataLayer.Model.UserSetting();
-            this.ReplaceSetting = this.ReplaceSetting ?? new DataLayer.Model.FileReplaceSetting();
-            this.ReplaceSetting.OutPutPath = this.txtOutPutPath.Text;
-            this.ReplaceSetting.PrefixName = this.txtFileFirstName.Text;
-            this.ReplaceSetting.SuffixName = this.txtFileLastName.Text;
-            config.FileReplaceSetting = XCLNetTools.Serialize.JSON.Serialize(this.ReplaceSetting);
+            config.FileReplaceSetting = XCLNetTools.Serialize.JSON.Serialize(new DataLayer.Model.FileReplaceSetting()
+            {
+                OutPutPath = this.txtOutPutPath.Text,
+                PrefixName = this.txtFileFirstName.Text,
+                SuffixName = this.txtFileLastName.Text,
+                IsKeepDataFormat = this.ckExcelOptionIsKeepDataFormat.Checked
+            });
             this.userSettingBLL.Add(config);
 
             #endregion 将选项保存至配置文件中
@@ -266,6 +242,16 @@ namespace XCLNetFileReplace
             Regex reg = null;
             List<string> strRemark = new List<string>();
             model.IsDone = true;
+
+            Aspose.Cells.Cell currentCell = null;
+            Aspose.Cells.CellValueType currentCellType = Aspose.Cells.CellValueType.IsString;
+            string cellValue = string.Empty;
+            bool tempBool;
+            int tempInt;
+            double tempDouble;
+            DateTime tempDateTime;
+            bool isCellReplaced = false;
+            int cellMatchCount;
 
             bool isDefaultExt = defaultExt.Contains(model.ExtensionName);
             bool isExcelExt = excelExt.Contains(model.ExtensionName);
@@ -406,14 +392,7 @@ namespace XCLNetFileReplace
                             for (int i = 0; i < wb.Worksheets.Count; i++)
                             {
                                 Aspose.Cells.Cells sheetCells = wb.Worksheets[i].Cells;
-                                Aspose.Cells.Cell currentCell = null;
-                                string cellValue = string.Empty;
-                                bool tempBool;
-                                int tempInt;
-                                double tempDouble;
-                                DateTime tempDateTime;
-                                bool isCellReplaced = false;
-                                int cellMatchCount;
+
                                 for (int cellsRowIndex = 0; cellsRowIndex < sheetCells.MaxDataRow + 1; cellsRowIndex++)
                                 {
                                     for (int cellsColumn = 0; cellsColumn < sheetCells.MaxDataColumn + 1; cellsColumn++)
@@ -434,7 +413,9 @@ namespace XCLNetFileReplace
 
                                         cellValue = reg.Replace(cellValue, ruleModel.NewContent);
 
-                                        switch (currentCell.Type)
+                                        currentCellType = this.ckExcelOptionIsKeepDataFormat.Checked ? Aspose.Cells.CellValueType.IsString : currentCell.Type;
+
+                                        switch (currentCellType)
                                         {
                                             case Aspose.Cells.CellValueType.IsBool:
                                                 if (bool.TryParse(cellValue, out tempBool))
@@ -656,39 +637,38 @@ namespace XCLNetFileReplace
         /// </summary>
         private void InitFiles(string[] files)
         {
-            if (null != files && files.Length > 0)
+            if (null == files || files.Length == 0)
             {
-                List<DataLayer.Model.FileReplace_File> lst = new List<DataLayer.Model.FileReplace_File>();
-                for (int i = 0; i < files.Length; i++)
-                {
-                    var model = new DataLayer.Model.FileReplace_File();
-                    model.CreateTime = model.UpdateTime = DateTime.Now;
-                    model.ExtensionName = (XCLNetTools.FileHandler.ComFile.GetExtName(files[i]) ?? "").ToLower();
-
-                    if (string.IsNullOrEmpty(model.ExtensionName))
-                    {
-                        continue;
-                    }
-
-                    model.FileName = XCLNetTools.FileHandler.ComFile.GetFileName(files[i]);
-                    model.IsDone = false;
-                    model.Path = files[i];
-                    if (!string.IsNullOrEmpty(model.Path))
-                    {
-                        //将扩展名转为小写
-                        model.Path = string.Format("{0}.{1}", model.Path.Substring(0, model.Path.LastIndexOf('.')), XCLNetTools.FileHandler.ComFile.GetExtName(model.Path).ToLower());
-                    }
-                    model.ProcessBlockCount = 0;
-                    model.ProcessDuration = 0;
-                    model.ProcessState = (int)DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.等待处理;
-                    model.Remark = "";
-                    lst.Add(model);
-                }
-                fileBLL.Add(lst);
-
-                this.dgFiles.DataSource = this.v_fileBLL.GetAllList();
-                this.InitStatus();
+                return;
             }
+
+            List<DataLayer.Model.FileReplace_File> lst = new List<DataLayer.Model.FileReplace_File>();
+            for (int i = 0; i < files.Length; i++)
+            {
+                var model = new DataLayer.Model.FileReplace_File();
+                model.CreateTime = model.UpdateTime = DateTime.Now;
+                model.ExtensionName = (XCLNetTools.FileHandler.ComFile.GetExtName(files[i]) ?? "").ToLower();
+                if (string.IsNullOrEmpty(model.ExtensionName))
+                {
+                    continue;
+                }
+                model.FileName = XCLNetTools.FileHandler.ComFile.GetFileName(files[i]);
+                model.IsDone = false;
+                model.Path = files[i];
+                if (!string.IsNullOrEmpty(model.Path))
+                {
+                    model.Path = string.Format("{0}.{1}", model.Path.Substring(0, model.Path.LastIndexOf('.')), XCLNetTools.FileHandler.ComFile.GetExtName(model.Path).ToLower());
+                }
+                model.ProcessBlockCount = 0;
+                model.ProcessDuration = 0;
+                model.ProcessState = (int)DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.等待处理;
+                model.Remark = "";
+                lst.Add(model);
+            }
+            fileBLL.Add(lst);
+
+            this.dgFiles.DataSource = this.v_fileBLL.GetAllList();
+            this.InitStatus();
         }
 
         /// <summary>

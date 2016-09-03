@@ -24,8 +24,8 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\bin\Debug\zh-Hans\Sys
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Debug\CodingConvert.csprojResolveAssemblyReference.cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Debug\CodingConvert.Index.resources
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Debug\CodingConvert.csproj.GenerateResource.Cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Debug\CodingConvert.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Debug\CodingConvert.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Debug\CodingConvert.csprojResolveAssemblyReference.cache
