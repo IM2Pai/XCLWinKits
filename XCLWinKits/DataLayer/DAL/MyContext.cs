@@ -37,6 +37,11 @@ namespace DataLayer.DAL
         public DbSet<DataLayer.Model.v_FileReplace_File> v_FileReplace_File { get; set; }
 
         /// <summary>
+        /// 文件替换列表视图（用于导出）
+        /// </summary>
+        public DbSet<DataLayer.Model.v_FileReplace_File_ForExport> v_FileReplace_File_ForExport { get; set; }
+
+        /// <summary>
         /// 用户设置
         /// </summary>
         public DbSet<DataLayer.Model.UserSetting> UserSetting { get; set; }

@@ -126,7 +126,7 @@ namespace XCLNetFileReplace
 
         private void 导出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var lst = this.v_fileBLL.GetAllList();
+            var lst = new DataLayer.BLL.v_FileReplace_File_ForExport().GetAllList();
             if (null == lst || lst.Count == 0)
             {
                 MessageBox.Show("当前没有任何数据可供导出！", "系统提示");
