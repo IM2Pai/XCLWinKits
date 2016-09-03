@@ -75,11 +75,15 @@
     <Compile Include="BLL\FileReplace_File.cs" />
     <Compile Include="BLL\FileReplace_RuleConfig.cs" />
     <Compile Include="BLL\UserSetting.cs" />
+    <Compile Include="BLL\v_FileReplace_File.cs" />
+    <Compile Include="BLL\v_FileReplace_RuleConfig.cs" />
     <Compile Include="Common\DataEnum.cs" />
     <Compile Include="DAL\MyContext.cs" />
     <Compile Include="Model\FileReplace_File.cs" />
     <Compile Include="Model\FileReplace_RuleConfig.cs" />
     <Compile Include="Model\UserSetting.cs" />
+    <Compile Include="Model\v_FileReplace_File.cs" />
+    <Compile Include="Model\v_FileReplace_RuleConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

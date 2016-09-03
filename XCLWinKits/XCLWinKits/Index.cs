@@ -66,9 +66,9 @@ namespace XCLWinKits
                 Form form = Assembly.Load(bt.Name).CreateInstance(string.Format("{0}.Index", bt.Name)) as System.Windows.Forms.Form;
                 form.Show();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show(string.Format("打开失败，程序集{0}.Index还未开发完成！", bt.Name));
+                MessageBox.Show(string.Format("打开失败，程序集{0}.Index还未开发完成！{1}（{2}）", bt.Name, Environment.NewLine, ex.Message), "系统提示");
             }
         }
 

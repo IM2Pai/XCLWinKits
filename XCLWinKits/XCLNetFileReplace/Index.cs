@@ -23,11 +23,14 @@ namespace XCLNetFileReplace
 
         private delegate void Delegate_VoidMethod();
 
+        private DataLayer.BLL.v_FileReplace_File v_fileBLL = new DataLayer.BLL.v_FileReplace_File();
         private DataLayer.BLL.FileReplace_File fileBLL = new DataLayer.BLL.FileReplace_File();
         private DataLayer.BLL.UserSetting userSettingBLL = new DataLayer.BLL.UserSetting();
         private DataLayer.BLL.FileReplace_RuleConfig ruleConfigBLL = new DataLayer.BLL.FileReplace_RuleConfig();
+        private DataLayer.BLL.v_FileReplace_RuleConfig v_ruleConfigBLL = new DataLayer.BLL.v_FileReplace_RuleConfig();
+
         private DataLayer.Model.FileReplaceSetting _replaceSetting = null;
-        private List<DataLayer.Model.FileReplace_RuleConfig> _selectedRules = null;
+        private List<DataLayer.Model.v_FileReplace_RuleConfig> _selectedRules = null;
         private string[] defaultExt = { "xls", "xlsx", "csv", "xlt", "doc", "docx"/*, "ppt", "pptx","pdf"*/ };//这些格式由aspose去处理
         private string[] excelExt = { "xls", "xlsx", "csv", "xlt" };
         private string[] docExt = { "doc", "docx" };
@@ -37,14 +40,14 @@ namespace XCLNetFileReplace
         /// <summary>
         /// 当前已选规则
         /// </summary>
-        private List<DataLayer.Model.FileReplace_RuleConfig> SelectedRules
+        private List<DataLayer.Model.v_FileReplace_RuleConfig> SelectedRules
         {
             get
             {
                 var settings = this.userSettingBLL.GetFileReplaceSetting();
                 if (null != settings)
                 {
-                    this._selectedRules = ruleConfigBLL.GetAllList().Where(k => settings.RuleConfigIds.Contains(k.RuleConfigID)).ToList();
+                    this._selectedRules = this.v_ruleConfigBLL.GetAllList().Where(k => settings.RuleConfigIds.Contains(k.RuleConfigID)).ToList();
                 }
                 else
                 {
@@ -76,7 +79,6 @@ namespace XCLNetFileReplace
         public Index()
         {
             InitializeComponent();
-            this.groupBox_FileInfo.Text = "待处理文件：（支持xls、xlsx、xlt、csv、doc、docx及其它文本文件[如：txt、html等]），无需安装Office！";
             this.InitData();
         }
 
@@ -85,6 +87,8 @@ namespace XCLNetFileReplace
         /// </summary>
         private void InitData()
         {
+            this.dgFiles.AutoGenerateColumns = false;
+            this.dataGridRuleConfig.AutoGenerateColumns = false;
             fileBLL.Clear();
             this.InitCurrentRuleList();
             //初始化用户默认配置
@@ -124,7 +128,7 @@ namespace XCLNetFileReplace
                 }
                 catch
                 {
-                    MessageBox.Show("系统错误，请重新打开有效文件！");
+                    MessageBox.Show("系统错误，请重新打开有效文件！", "系统提示");
                 }
             }
         }
@@ -140,9 +144,9 @@ namespace XCLNetFileReplace
                     this.InitFiles(files);
                     this.openFileFolderPath = openFolder.SelectedPath;
                 }
-                catch (Exception ex)
+                catch
                 {
-                    MessageBox.Show("系统错误，请重新打开有效文件夹！");
+                    MessageBox.Show("系统错误，请重新打开有效文件夹！", "系统提示");
                 }
             }
         }
@@ -152,7 +156,7 @@ namespace XCLNetFileReplace
             var lst = fileBLL.GetAllList();
             if (null == lst || lst.Count == 0)
             {
-                MessageBox.Show("当前没有任何数据可供导出！");
+                MessageBox.Show("当前没有任何数据可供导出！", "系统提示");
                 return;
             }
             FolderBrowserDialog openFolder = new FolderBrowserDialog();
@@ -195,7 +199,7 @@ namespace XCLNetFileReplace
 
             if (null == lst || lst.Count == 0)
             {
-                MessageBox.Show("请先选择待处理的文件！");
+                MessageBox.Show("请先选择待处理的文件！", "系统提示");
                 return;
             }
 
@@ -216,7 +220,7 @@ namespace XCLNetFileReplace
                 {
                     if (!XCLNetTools.FileHandler.FileDirectory.MakeDirectory(this.txtOutPutPath.Text))
                     {
-                        MessageBox.Show("输出目录不存在，请选择有效的输出目录！");
+                        MessageBox.Show("输出目录不存在，请选择有效的输出目录！", "系统提示");
                         return;
                     }
                 }
@@ -224,7 +228,7 @@ namespace XCLNetFileReplace
 
             if (!lst.Exists(k => !k.IsDone))
             {
-                MessageBox.Show("文件都已处理，请重新打开要处理的文件！");
+                MessageBox.Show("文件都已处理，请重新打开要处理的文件！", "系统提示");
                 return;
             }
 
@@ -282,14 +286,14 @@ namespace XCLNetFileReplace
             if (!System.IO.File.Exists(model.Path))
             {
                 model.Remark = "文件不存在！";
-                model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.无需处理;
+                model.ProcessState = (int)DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.无需处理;
                 return model;
             }
 
             if (string.IsNullOrEmpty(model.ExtensionName))
             {
                 model.Remark = "无法确认文件类型！";
-                model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.无需处理;
+                model.ProcessState = (int)DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.无需处理;
                 return model;
             }
 
@@ -299,7 +303,7 @@ namespace XCLNetFileReplace
 
                 for (int ruleIndex = 0; ruleIndex < this.dataGridRuleConfig.Rows.Count; ruleIndex++)
                 {
-                    var ruleModel = dataGridRuleConfig.Rows[ruleIndex].DataBoundItem as DataLayer.Model.FileReplace_RuleConfig;
+                    var ruleModel = dataGridRuleConfig.Rows[ruleIndex].DataBoundItem as DataLayer.Model.v_FileReplace_RuleConfig;
                     if (null == ruleModel || !ruleModel.IsFileName)
                     {
                         continue;
@@ -342,7 +346,7 @@ namespace XCLNetFileReplace
                     if (!System.IO.File.Exists(realPath))
                     {
                         model.Remark = "复制到输出目录执行失败！";
-                        model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理失败;
+                        model.ProcessState = (int)DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理失败;
                         return model;
                     }
                 }
@@ -361,7 +365,7 @@ namespace XCLNetFileReplace
 
                 for (int ruleIndex = 0; ruleIndex < this.dataGridRuleConfig.Rows.Count; ruleIndex++)
                 {
-                    var ruleModel = dataGridRuleConfig.Rows[ruleIndex].DataBoundItem as DataLayer.Model.FileReplace_RuleConfig;
+                    var ruleModel = dataGridRuleConfig.Rows[ruleIndex].DataBoundItem as DataLayer.Model.v_FileReplace_RuleConfig;
                     if (null == ruleModel || !ruleModel.IsFileContent)
                     {
                         continue;
@@ -558,11 +562,11 @@ namespace XCLNetFileReplace
                     model.Remark = string.Join("；", strRemark.ToArray());
                 }
 
-                model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理成功;
+                model.ProcessState = (int)DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理成功;
             }
             catch (Exception e)
             {
-                model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理失败;
+                model.ProcessState = (int)DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理失败;
                 model.Remark = e.Message;
             }
             finally
@@ -590,15 +594,15 @@ namespace XCLNetFileReplace
 
                 switch (model.ProcessState)
                 {
-                    case DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理失败:
+                    case (int)DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理失败:
                         doState.FailCount += 1;
                         break;
 
-                    case DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理成功:
+                    case (int)DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.处理成功:
                         doState.SuccessCount += 1;
                         break;
 
-                    case DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.无需处理:
+                    case (int)DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.无需处理:
                         doState.IgnoreCount += 1;
                         break;
                 }
@@ -627,7 +631,7 @@ namespace XCLNetFileReplace
             {
                 this.btnSave.Enabled = true;
                 this.txtLog.AppendText("文件已全部处理完毕！" + Environment.NewLine);
-                this.dgFiles.DataSource = fileBLL.GetAllList();
+                this.dgFiles.DataSource = this.v_fileBLL.GetAllList();
             }
         }
 
@@ -682,13 +686,13 @@ namespace XCLNetFileReplace
                     }
                     model.ProcessBlockCount = 0;
                     model.ProcessDuration = 0;
-                    model.ProcessState = DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.等待处理;
+                    model.ProcessState = (int)DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.等待处理;
                     model.Remark = "";
                     lst.Add(model);
                 }
                 fileBLL.Add(lst);
 
-                this.dgFiles.DataSource = lst;
+                this.dgFiles.DataSource = this.v_fileBLL.GetAllList();
                 this.InitStatus();
             }
         }
@@ -719,22 +723,22 @@ namespace XCLNetFileReplace
                 }
                 else
                 {
-                    if (MessageBox.Show("该目录不存在，是否要创建？", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                    if (MessageBox.Show("该目录不存在，是否要创建？", "系统提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                     {
                         if (XCLNetTools.FileHandler.FileDirectory.MakeDirectory(this.txtOutPutPath.Text))
                         {
-                            MessageBox.Show("目录创建成功！");
+                            MessageBox.Show("目录创建成功！", "系统提示");
                         }
                         else
                         {
-                            MessageBox.Show("目录创建失败，请手动选择有效目录！");
+                            MessageBox.Show("目录创建失败，请手动选择有效目录！", "系统提示");
                         }
                     }
                 }
             }
             else
             {
-                MessageBox.Show("请先选择输出目录！");
+                MessageBox.Show("请先选择输出目录！", "系统提示");
             }
         }
 

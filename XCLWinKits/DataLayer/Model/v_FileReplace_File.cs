@@ -3,8 +3,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DataLayer.Model
 {
-    public class FileReplace_File
+    /// <summary>
+    /// v_FileReplace_File:实体类(属性说明自动提取数据库字段的描述信息)
+    /// </summary>
+    [Serializable]
+    public partial class v_FileReplace_File
     {
+        public v_FileReplace_File()
+        { }
+
         /// <summary>
         /// 文件ID
         /// </summary>
@@ -60,5 +67,15 @@ namespace DataLayer.Model
         /// 更新时间
         /// </summary>
         public DateTime UpdateTime { get; set; }
+
+        public string IsDone_Text
+        {
+            get; set;
+        }
+
+        public string ProcessState_Text
+        {
+            get; set;
+        }
     }
 }
