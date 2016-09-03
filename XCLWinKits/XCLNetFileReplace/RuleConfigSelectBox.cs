@@ -10,6 +10,7 @@ namespace XCLNetFileReplace
         private DataLayer.BLL.FileReplace_RuleConfig bll = new DataLayer.BLL.FileReplace_RuleConfig();
         private DataLayer.BLL.v_FileReplace_RuleConfig vbll = new DataLayer.BLL.v_FileReplace_RuleConfig();
         private DataLayer.BLL.UserSetting userSettingBLL = new DataLayer.BLL.UserSetting();
+        private DataLayer.Model.FileReplaceSetting fileReplaceSetting = null;
         private static Index _mainForm = null;
 
         public RuleConfigSelectBox(Index mainForm = null)
@@ -19,6 +20,7 @@ namespace XCLNetFileReplace
             this.InitRuleConfigGrid();
             this.ckIsFileName.Checked = true;
             this.tabPageAdd.Parent = null;
+            this.fileReplaceSetting = userSettingBLL.GetFileReplaceSetting();
         }
 
         #region 规则选择TabPage
@@ -41,11 +43,12 @@ namespace XCLNetFileReplace
             TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(), dataGridRuleConfig.RowHeadersDefaultCellStyle.Font, rectangle, dataGridRuleConfig.RowHeadersDefaultCellStyle.ForeColor, TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
         }
 
+        /// <summary>
+        /// 选中默认项
+        /// </summary>
         private void dataGridRuleConfig_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            //选中默认项
             this.dataGridRuleConfig.ClearSelection();
-            var fileReplaceSetting = userSettingBLL.GetFileReplaceSetting();
             if (null != fileReplaceSetting && null != fileReplaceSetting.RuleConfigIds && fileReplaceSetting.RuleConfigIds.Count > 0)
             {
                 for (int i = 0; i < this.dataGridRuleConfig.Rows.Count; i++)

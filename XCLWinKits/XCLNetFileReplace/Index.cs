@@ -171,6 +171,12 @@ namespace XCLNetFileReplace
                 return;
             }
 
+            if ((null == this.dataGridRuleConfig.Rows || this.dataGridRuleConfig.Rows.Count == 0) && string.IsNullOrEmpty(this.txtFileFirstName.Text) && string.IsNullOrEmpty(this.txtFileLastName.Text))
+            {
+                MessageBox.Show("当前不需要处理任何文件，请先配置相关信息！", "系统提示");
+                return;
+            }
+
             if (!string.IsNullOrEmpty(this.txtOutPutPath.Text))
             {
                 if (XCLNetTools.FileHandler.FileDirectory.DirectoryExists(this.txtOutPutPath.Text))
@@ -204,14 +210,24 @@ namespace XCLNetFileReplace
 
             #region 将选项保存至配置文件中
 
+            var ruleIdLst = new List<int>();
             var config = this.userSettingBLL.GetFirstModel() ?? new DataLayer.Model.UserSetting();
+            if (null != this.dataGridRuleConfig.Rows && this.dataGridRuleConfig.Rows.Count > 0)
+            {
+                for (var i = 0; i < this.dataGridRuleConfig.Rows.Count; i++)
+                {
+                    ruleIdLst.Add(XCLNetTools.StringHander.Common.GetInt(this.dataGridRuleConfig.Rows[i].Cells["grid_RuleConfigID"].Value));
+                }
+            }
             config.FileReplaceSetting = XCLNetTools.Serialize.JSON.Serialize(new DataLayer.Model.FileReplaceSetting()
             {
                 OutPutPath = this.txtOutPutPath.Text,
                 PrefixName = this.txtFileFirstName.Text,
                 SuffixName = this.txtFileLastName.Text,
-                IsKeepDataFormat = this.ckExcelOptionIsKeepDataFormat.Checked
+                IsKeepDataFormat = this.ckExcelOptionIsKeepDataFormat.Checked,
+                RuleConfigIds = ruleIdLst
             });
+
             this.userSettingBLL.Add(config);
 
             #endregion 将选项保存至配置文件中
@@ -223,6 +239,7 @@ namespace XCLNetFileReplace
             doState.SumCount = lst.Count;
             foreach (var m in lst)
             {
+                this.SetTextLogValue(string.Format("正在处理文件：{0}", m.FileName));
                 Delegate_DoIt dg = new Delegate_DoIt(this.DoIt);
                 IAsyncResult result = dg.BeginInvoke(m, new AsyncCallback(this.GetResultCallBack), doState);
             }
@@ -512,7 +529,7 @@ namespace XCLNetFileReplace
 
                     #endregion 开始替换文件内容
 
-                    this.SetTextLogValue(string.Format("正在处理文件【{0}】，应用规则【{1}】" + Environment.NewLine, model.FileName, ruleModel.Name));
+                    this.SetTextLogValue(string.Format("正在处理文件【{0}】，应用规则【{1}】", model.FileName, ruleModel.Name));
 
                     model.ProcessBlockCount += replaceCount;
                 }
@@ -550,7 +567,7 @@ namespace XCLNetFileReplace
                 model.ProcessDuration = (int)sw.Elapsed.TotalSeconds;
             }
 
-            this.SetTextLogValue(string.Format("文件【{0}】处理完毕（{1}）" + Environment.NewLine, model.FileName, model.Remark));
+            this.SetTextLogValue(string.Format("文件【{0}】处理完毕（{1}）" , model.FileName, model.Remark));
 
             return model;
         }
@@ -779,6 +796,7 @@ namespace XCLNetFileReplace
         /// </summary>
         public void SetTextLogValue(string logMsg)
         {
+            logMsg += Environment.NewLine;
             if (this.txtLog.InvokeRequired)
             {
                 this.txtLog.Invoke(new Action<string>((txt) =>

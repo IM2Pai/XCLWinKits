@@ -54,7 +54,7 @@ namespace XCLNetFileReplace.Model
 
         public override string ToString()
         {
-            return string.Format("已完成{0}%，{1}成功，{2}失败，{3}无需处理，正在处理第[{4}]个文件，共[{5}]个文件", this.DoPercent, this.SuccessCount, this.FailCount, this.IgnoreCount, this.CurrentCount, this.SumCount); ;
+            return string.Format("已完成{0}%，{1}成功，{2}失败，{3}无需处理，已处理[{4}]个文件，共[{5}]个文件", this.DoPercent, this.SuccessCount, this.FailCount, this.IgnoreCount, this.CurrentCount, this.SumCount); ;
         }
     }
 }
