@@ -180,12 +180,6 @@ namespace XCLNetFileReplace
             this.Close();
         }
 
-        private void 规则配置ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RuleConfig fm = new RuleConfig(this);
-            fm.ShowDialog();
-        }
-
         #endregion 导航菜单
 
         /// <summary>
@@ -798,7 +792,6 @@ namespace XCLNetFileReplace
             this.打开文件ToolStripMenuItem.Enabled = state;
             this.打开文件夹ToolStripMenuItem.Enabled = state;
             this.导出ToolStripMenuItem.Enabled = state;
-            this.规则配置ToolStripMenuItem.Enabled = state;
         }
 
         /// <summary>

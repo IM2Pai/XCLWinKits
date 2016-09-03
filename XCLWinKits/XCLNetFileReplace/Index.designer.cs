@@ -30,26 +30,38 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.打开文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.打开文件夹ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.规则配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox_FileInfo = new System.Windows.Forms.GroupBox();
             this.dgFiles = new System.Windows.Forms.DataGridView();
+            this.dgFiles_FileID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgFiles_FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgFiles_Path = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgFiles_ExtensionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgFiles_IsDone_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgFiles_ProcessState_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgFiles_ProcessDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgFiles_ProcessBlockCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgFiles_Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip_LBoxWait = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.全选ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,6 +75,17 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridRuleConfig = new System.Windows.Forms.DataGridView();
+            this.grid_RuleConfigID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_OldContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_NewContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_IsRegex_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_IsIgnoreCase_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_IsWholeMatch_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_IsFileName_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_IsFileContent_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_CreateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_UpdateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSelectRule = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtOutPutPath = new System.Windows.Forms.TextBox();
@@ -80,26 +103,6 @@
             this.btnNotNeedOutPutPath = new System.Windows.Forms.Button();
             this.tabPageExcelOption = new System.Windows.Forms.TabPage();
             this.ckExcelOptionIsKeepDataFormat = new System.Windows.Forms.CheckBox();
-            this.dgFiles_FileID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgFiles_FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgFiles_Path = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgFiles_ExtensionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgFiles_IsDone_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgFiles_ProcessState_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgFiles_ProcessDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgFiles_ProcessBlockCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgFiles_Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_RuleConfigID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_OldContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_NewContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_IsRegex_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_IsIgnoreCase_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_IsWholeMatch_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_IsFileName_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_IsFileContent_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_CreateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_UpdateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox_FileInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgFiles)).BeginInit();
@@ -117,8 +120,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.文件ToolStripMenuItem,
-            this.设置ToolStripMenuItem});
+            this.文件ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(897, 25);
@@ -139,45 +141,30 @@
             // 打开文件ToolStripMenuItem
             // 
             this.打开文件ToolStripMenuItem.Name = "打开文件ToolStripMenuItem";
-            this.打开文件ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.打开文件ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.打开文件ToolStripMenuItem.Text = "打开文件";
             this.打开文件ToolStripMenuItem.Click += new System.EventHandler(this.打开文件ToolStripMenuItem_Click);
             // 
             // 打开文件夹ToolStripMenuItem
             // 
             this.打开文件夹ToolStripMenuItem.Name = "打开文件夹ToolStripMenuItem";
-            this.打开文件夹ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.打开文件夹ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.打开文件夹ToolStripMenuItem.Text = "打开文件夹";
             this.打开文件夹ToolStripMenuItem.Click += new System.EventHandler(this.打开文件夹ToolStripMenuItem_Click);
             // 
             // 导出ToolStripMenuItem
             // 
             this.导出ToolStripMenuItem.Name = "导出ToolStripMenuItem";
-            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.导出ToolStripMenuItem.Text = "导出";
             this.导出ToolStripMenuItem.Click += new System.EventHandler(this.导出ToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
-            // 
-            // 设置ToolStripMenuItem
-            // 
-            this.设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.规则配置ToolStripMenuItem});
-            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.设置ToolStripMenuItem.Text = "设置";
-            // 
-            // 规则配置ToolStripMenuItem
-            // 
-            this.规则配置ToolStripMenuItem.Name = "规则配置ToolStripMenuItem";
-            this.规则配置ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.规则配置ToolStripMenuItem.Text = "规则配置";
-            this.规则配置ToolStripMenuItem.Click += new System.EventHandler(this.规则配置ToolStripMenuItem_Click);
             // 
             // groupBox_FileInfo
             // 
@@ -219,30 +206,104 @@
             this.dgFiles_ProcessDuration,
             this.dgFiles_ProcessBlockCount,
             this.dgFiles_Remark});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgFiles.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgFiles.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgFiles.Location = new System.Drawing.Point(3, 17);
             this.dgFiles.Name = "dgFiles";
             this.dgFiles.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgFiles.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgFiles.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgFiles.RowTemplate.Height = 23;
             this.dgFiles.Size = new System.Drawing.Size(879, 161);
             this.dgFiles.TabIndex = 2;
             this.dgFiles.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgFiles_RowPostPaint);
+            // 
+            // dgFiles_FileID
+            // 
+            this.dgFiles_FileID.DataPropertyName = "FileID";
+            this.dgFiles_FileID.HeaderText = "FileID";
+            this.dgFiles_FileID.Name = "dgFiles_FileID";
+            this.dgFiles_FileID.ReadOnly = true;
+            this.dgFiles_FileID.Visible = false;
+            // 
+            // dgFiles_FileName
+            // 
+            this.dgFiles_FileName.DataPropertyName = "FileName";
+            this.dgFiles_FileName.HeaderText = "文件名";
+            this.dgFiles_FileName.Name = "dgFiles_FileName";
+            this.dgFiles_FileName.ReadOnly = true;
+            // 
+            // dgFiles_Path
+            // 
+            this.dgFiles_Path.DataPropertyName = "Path";
+            this.dgFiles_Path.HeaderText = "路径";
+            this.dgFiles_Path.Name = "dgFiles_Path";
+            this.dgFiles_Path.ReadOnly = true;
+            // 
+            // dgFiles_ExtensionName
+            // 
+            this.dgFiles_ExtensionName.DataPropertyName = "ExtensionName";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgFiles_ExtensionName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgFiles_ExtensionName.HeaderText = "扩展名";
+            this.dgFiles_ExtensionName.Name = "dgFiles_ExtensionName";
+            this.dgFiles_ExtensionName.ReadOnly = true;
+            // 
+            // dgFiles_IsDone_Text
+            // 
+            this.dgFiles_IsDone_Text.DataPropertyName = "IsDone_Text";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgFiles_IsDone_Text.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgFiles_IsDone_Text.HeaderText = "是否已处理";
+            this.dgFiles_IsDone_Text.Name = "dgFiles_IsDone_Text";
+            this.dgFiles_IsDone_Text.ReadOnly = true;
+            // 
+            // dgFiles_ProcessState_Text
+            // 
+            this.dgFiles_ProcessState_Text.DataPropertyName = "ProcessState_Text";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgFiles_ProcessState_Text.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgFiles_ProcessState_Text.HeaderText = "处理结果";
+            this.dgFiles_ProcessState_Text.Name = "dgFiles_ProcessState_Text";
+            this.dgFiles_ProcessState_Text.ReadOnly = true;
+            // 
+            // dgFiles_ProcessDuration
+            // 
+            this.dgFiles_ProcessDuration.DataPropertyName = "ProcessDuration";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgFiles_ProcessDuration.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgFiles_ProcessDuration.HeaderText = "处理用时（秒）";
+            this.dgFiles_ProcessDuration.Name = "dgFiles_ProcessDuration";
+            this.dgFiles_ProcessDuration.ReadOnly = true;
+            // 
+            // dgFiles_ProcessBlockCount
+            // 
+            this.dgFiles_ProcessBlockCount.DataPropertyName = "ProcessBlockCount";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgFiles_ProcessBlockCount.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgFiles_ProcessBlockCount.HeaderText = "处理数量";
+            this.dgFiles_ProcessBlockCount.Name = "dgFiles_ProcessBlockCount";
+            this.dgFiles_ProcessBlockCount.ReadOnly = true;
+            // 
+            // dgFiles_Remark
+            // 
+            this.dgFiles_Remark.DataPropertyName = "Remark";
+            this.dgFiles_Remark.HeaderText = "备注";
+            this.dgFiles_Remark.Name = "dgFiles_Remark";
+            this.dgFiles_Remark.ReadOnly = true;
             // 
             // contextMenuStrip_LBoxWait
             // 
@@ -359,14 +420,14 @@
             this.dataGridRuleConfig.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridRuleConfig.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridRuleConfig.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridRuleConfig.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridRuleConfig.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridRuleConfig.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridRuleConfig.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.grid_RuleConfigID,
@@ -383,18 +444,113 @@
             this.dataGridRuleConfig.Location = new System.Drawing.Point(6, 20);
             this.dataGridRuleConfig.Name = "dataGridRuleConfig";
             this.dataGridRuleConfig.ReadOnly = true;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridRuleConfig.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridRuleConfig.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridRuleConfig.RowTemplate.Height = 23;
             this.dataGridRuleConfig.Size = new System.Drawing.Size(873, 144);
             this.dataGridRuleConfig.TabIndex = 3;
             this.dataGridRuleConfig.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridRuleConfig_RowPostPaint);
+            // 
+            // grid_RuleConfigID
+            // 
+            this.grid_RuleConfigID.DataPropertyName = "RuleConfigID";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_RuleConfigID.DefaultCellStyle = dataGridViewCellStyle10;
+            this.grid_RuleConfigID.HeaderText = "RuleConfigID";
+            this.grid_RuleConfigID.Name = "grid_RuleConfigID";
+            this.grid_RuleConfigID.ReadOnly = true;
+            this.grid_RuleConfigID.Visible = false;
+            // 
+            // grid_Name
+            // 
+            this.grid_Name.DataPropertyName = "Name";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_Name.DefaultCellStyle = dataGridViewCellStyle11;
+            this.grid_Name.HeaderText = "名称";
+            this.grid_Name.Name = "grid_Name";
+            this.grid_Name.ReadOnly = true;
+            // 
+            // grid_OldContent
+            // 
+            this.grid_OldContent.DataPropertyName = "OldContent";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_OldContent.DefaultCellStyle = dataGridViewCellStyle12;
+            this.grid_OldContent.HeaderText = "查找内容";
+            this.grid_OldContent.Name = "grid_OldContent";
+            this.grid_OldContent.ReadOnly = true;
+            // 
+            // grid_NewContent
+            // 
+            this.grid_NewContent.DataPropertyName = "NewContent";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_NewContent.DefaultCellStyle = dataGridViewCellStyle13;
+            this.grid_NewContent.HeaderText = "替换内容";
+            this.grid_NewContent.Name = "grid_NewContent";
+            this.grid_NewContent.ReadOnly = true;
+            // 
+            // grid_IsRegex_Text
+            // 
+            this.grid_IsRegex_Text.DataPropertyName = "IsRegex_Text";
+            this.grid_IsRegex_Text.HeaderText = "是否为正则表达式";
+            this.grid_IsRegex_Text.Name = "grid_IsRegex_Text";
+            this.grid_IsRegex_Text.ReadOnly = true;
+            this.grid_IsRegex_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // grid_IsIgnoreCase_Text
+            // 
+            this.grid_IsIgnoreCase_Text.DataPropertyName = "IsIgnoreCase_Text";
+            this.grid_IsIgnoreCase_Text.HeaderText = "是否区分大小写";
+            this.grid_IsIgnoreCase_Text.Name = "grid_IsIgnoreCase_Text";
+            this.grid_IsIgnoreCase_Text.ReadOnly = true;
+            this.grid_IsIgnoreCase_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // grid_IsWholeMatch_Text
+            // 
+            this.grid_IsWholeMatch_Text.DataPropertyName = "IsWholeMatch_Text";
+            this.grid_IsWholeMatch_Text.HeaderText = "是否整字匹配";
+            this.grid_IsWholeMatch_Text.Name = "grid_IsWholeMatch_Text";
+            this.grid_IsWholeMatch_Text.ReadOnly = true;
+            this.grid_IsWholeMatch_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // grid_IsFileName_Text
+            // 
+            this.grid_IsFileName_Text.DataPropertyName = "IsFileName_Text";
+            this.grid_IsFileName_Text.HeaderText = "是否匹配文件名";
+            this.grid_IsFileName_Text.Name = "grid_IsFileName_Text";
+            this.grid_IsFileName_Text.ReadOnly = true;
+            this.grid_IsFileName_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // grid_IsFileContent_Text
+            // 
+            this.grid_IsFileContent_Text.DataPropertyName = "IsFileContent_Text";
+            this.grid_IsFileContent_Text.HeaderText = "是否匹配文件内容";
+            this.grid_IsFileContent_Text.Name = "grid_IsFileContent_Text";
+            this.grid_IsFileContent_Text.ReadOnly = true;
+            this.grid_IsFileContent_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // grid_CreateTime
+            // 
+            this.grid_CreateTime.DataPropertyName = "CreateTime";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_CreateTime.DefaultCellStyle = dataGridViewCellStyle14;
+            this.grid_CreateTime.HeaderText = "创建时间";
+            this.grid_CreateTime.Name = "grid_CreateTime";
+            this.grid_CreateTime.ReadOnly = true;
+            // 
+            // grid_UpdateTime
+            // 
+            this.grid_UpdateTime.DataPropertyName = "UpdateTime";
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_UpdateTime.DefaultCellStyle = dataGridViewCellStyle15;
+            this.grid_UpdateTime.HeaderText = "更新时间";
+            this.grid_UpdateTime.Name = "grid_UpdateTime";
+            this.grid_UpdateTime.ReadOnly = true;
             // 
             // btnSelectRule
             // 
@@ -574,165 +730,6 @@
             this.ckExcelOptionIsKeepDataFormat.Text = "保留数据格式，若新值无法转为该格式，则忽略该替换";
             this.ckExcelOptionIsKeepDataFormat.UseVisualStyleBackColor = true;
             // 
-            // dgFiles_FileID
-            // 
-            this.dgFiles_FileID.DataPropertyName = "FileID";
-            this.dgFiles_FileID.HeaderText = "FileID";
-            this.dgFiles_FileID.Name = "dgFiles_FileID";
-            this.dgFiles_FileID.ReadOnly = true;
-            this.dgFiles_FileID.Visible = false;
-            // 
-            // dgFiles_FileName
-            // 
-            this.dgFiles_FileName.DataPropertyName = "FileName";
-            this.dgFiles_FileName.HeaderText = "文件名";
-            this.dgFiles_FileName.Name = "dgFiles_FileName";
-            this.dgFiles_FileName.ReadOnly = true;
-            // 
-            // dgFiles_Path
-            // 
-            this.dgFiles_Path.DataPropertyName = "Path";
-            this.dgFiles_Path.HeaderText = "路径";
-            this.dgFiles_Path.Name = "dgFiles_Path";
-            this.dgFiles_Path.ReadOnly = true;
-            // 
-            // dgFiles_ExtensionName
-            // 
-            this.dgFiles_ExtensionName.DataPropertyName = "ExtensionName";
-            this.dgFiles_ExtensionName.HeaderText = "扩展名";
-            this.dgFiles_ExtensionName.Name = "dgFiles_ExtensionName";
-            this.dgFiles_ExtensionName.ReadOnly = true;
-            // 
-            // dgFiles_IsDone_Text
-            // 
-            this.dgFiles_IsDone_Text.DataPropertyName = "IsDone_Text";
-            this.dgFiles_IsDone_Text.HeaderText = "是否已处理";
-            this.dgFiles_IsDone_Text.Name = "dgFiles_IsDone_Text";
-            this.dgFiles_IsDone_Text.ReadOnly = true;
-            // 
-            // dgFiles_ProcessState_Text
-            // 
-            this.dgFiles_ProcessState_Text.DataPropertyName = "ProcessState_Text";
-            this.dgFiles_ProcessState_Text.HeaderText = "处理结果";
-            this.dgFiles_ProcessState_Text.Name = "dgFiles_ProcessState_Text";
-            this.dgFiles_ProcessState_Text.ReadOnly = true;
-            // 
-            // dgFiles_ProcessDuration
-            // 
-            this.dgFiles_ProcessDuration.DataPropertyName = "ProcessDuration";
-            this.dgFiles_ProcessDuration.HeaderText = "处理用时（秒）";
-            this.dgFiles_ProcessDuration.Name = "dgFiles_ProcessDuration";
-            this.dgFiles_ProcessDuration.ReadOnly = true;
-            // 
-            // dgFiles_ProcessBlockCount
-            // 
-            this.dgFiles_ProcessBlockCount.DataPropertyName = "ProcessBlockCount";
-            this.dgFiles_ProcessBlockCount.HeaderText = "处理数量";
-            this.dgFiles_ProcessBlockCount.Name = "dgFiles_ProcessBlockCount";
-            this.dgFiles_ProcessBlockCount.ReadOnly = true;
-            // 
-            // dgFiles_Remark
-            // 
-            this.dgFiles_Remark.DataPropertyName = "Remark";
-            this.dgFiles_Remark.HeaderText = "备注";
-            this.dgFiles_Remark.Name = "dgFiles_Remark";
-            this.dgFiles_Remark.ReadOnly = true;
-            // 
-            // grid_RuleConfigID
-            // 
-            this.grid_RuleConfigID.DataPropertyName = "RuleConfigID";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_RuleConfigID.DefaultCellStyle = dataGridViewCellStyle5;
-            this.grid_RuleConfigID.HeaderText = "RuleConfigID";
-            this.grid_RuleConfigID.Name = "grid_RuleConfigID";
-            this.grid_RuleConfigID.ReadOnly = true;
-            this.grid_RuleConfigID.Visible = false;
-            // 
-            // grid_Name
-            // 
-            this.grid_Name.DataPropertyName = "Name";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_Name.DefaultCellStyle = dataGridViewCellStyle6;
-            this.grid_Name.HeaderText = "名称";
-            this.grid_Name.Name = "grid_Name";
-            this.grid_Name.ReadOnly = true;
-            // 
-            // grid_OldContent
-            // 
-            this.grid_OldContent.DataPropertyName = "OldContent";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_OldContent.DefaultCellStyle = dataGridViewCellStyle7;
-            this.grid_OldContent.HeaderText = "查找内容";
-            this.grid_OldContent.Name = "grid_OldContent";
-            this.grid_OldContent.ReadOnly = true;
-            // 
-            // grid_NewContent
-            // 
-            this.grid_NewContent.DataPropertyName = "NewContent";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_NewContent.DefaultCellStyle = dataGridViewCellStyle8;
-            this.grid_NewContent.HeaderText = "替换内容";
-            this.grid_NewContent.Name = "grid_NewContent";
-            this.grid_NewContent.ReadOnly = true;
-            // 
-            // grid_IsRegex_Text
-            // 
-            this.grid_IsRegex_Text.DataPropertyName = "IsRegex_Text";
-            this.grid_IsRegex_Text.HeaderText = "是否为正则表达式";
-            this.grid_IsRegex_Text.Name = "grid_IsRegex_Text";
-            this.grid_IsRegex_Text.ReadOnly = true;
-            this.grid_IsRegex_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // grid_IsIgnoreCase_Text
-            // 
-            this.grid_IsIgnoreCase_Text.DataPropertyName = "IsIgnoreCase_Text";
-            this.grid_IsIgnoreCase_Text.HeaderText = "是否区分大小写";
-            this.grid_IsIgnoreCase_Text.Name = "grid_IsIgnoreCase_Text";
-            this.grid_IsIgnoreCase_Text.ReadOnly = true;
-            this.grid_IsIgnoreCase_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // grid_IsWholeMatch_Text
-            // 
-            this.grid_IsWholeMatch_Text.DataPropertyName = "IsWholeMatch_Text";
-            this.grid_IsWholeMatch_Text.HeaderText = "是否整字匹配";
-            this.grid_IsWholeMatch_Text.Name = "grid_IsWholeMatch_Text";
-            this.grid_IsWholeMatch_Text.ReadOnly = true;
-            this.grid_IsWholeMatch_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // grid_IsFileName_Text
-            // 
-            this.grid_IsFileName_Text.DataPropertyName = "IsFileName_Text";
-            this.grid_IsFileName_Text.HeaderText = "是否匹配文件名";
-            this.grid_IsFileName_Text.Name = "grid_IsFileName_Text";
-            this.grid_IsFileName_Text.ReadOnly = true;
-            this.grid_IsFileName_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // grid_IsFileContent_Text
-            // 
-            this.grid_IsFileContent_Text.DataPropertyName = "IsFileContent_Text";
-            this.grid_IsFileContent_Text.HeaderText = "是否匹配文件内容";
-            this.grid_IsFileContent_Text.Name = "grid_IsFileContent_Text";
-            this.grid_IsFileContent_Text.ReadOnly = true;
-            this.grid_IsFileContent_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // grid_CreateTime
-            // 
-            this.grid_CreateTime.DataPropertyName = "CreateTime";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_CreateTime.DefaultCellStyle = dataGridViewCellStyle9;
-            this.grid_CreateTime.HeaderText = "创建时间";
-            this.grid_CreateTime.Name = "grid_CreateTime";
-            this.grid_CreateTime.ReadOnly = true;
-            // 
-            // grid_UpdateTime
-            // 
-            this.grid_UpdateTime.DataPropertyName = "UpdateTime";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_UpdateTime.DefaultCellStyle = dataGridViewCellStyle10;
-            this.grid_UpdateTime.HeaderText = "更新时间";
-            this.grid_UpdateTime.Name = "grid_UpdateTime";
-            this.grid_UpdateTime.ReadOnly = true;
-            // 
             // Index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -790,8 +787,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.DataGridView dgFiles;
         private System.Windows.Forms.ToolStripMenuItem 导出ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 规则配置ToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtLog;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -814,15 +809,6 @@
         private System.Windows.Forms.TabPage tabPageBaseOption;
         private System.Windows.Forms.TabPage tabPageExcelOption;
         private System.Windows.Forms.CheckBox ckExcelOptionIsKeepDataFormat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_FileID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_FileName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_Path;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_ExtensionName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_IsDone_Text;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_ProcessState_Text;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_ProcessDuration;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_ProcessBlockCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_Remark;
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_RuleConfigID;
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_OldContent;
@@ -834,6 +820,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_IsFileContent_Text;
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_CreateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_UpdateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_FileID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_FileName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_Path;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_ExtensionName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_IsDone_Text;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_ProcessState_Text;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_ProcessDuration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_ProcessBlockCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_Remark;
     }
 }
 

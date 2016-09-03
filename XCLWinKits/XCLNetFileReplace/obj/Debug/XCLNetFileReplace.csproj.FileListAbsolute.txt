@@ -62,7 +62,6 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\bin\Debug\zh-Hans
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\obj\Debug\XCLNetFileReplace.csprojResolveAssemblyReference.cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\obj\Debug\XCLNetFileReplace.Index.resources
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\obj\Debug\XCLNetFileReplace.RuleConfig.resources
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\obj\Debug\XCLNetFileReplace.RuleConfigSelectBox.resources
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\obj\Debug\XCLNetFileReplace.csproj.GenerateResource.Cache
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLNetFileReplace\obj\Debug\XCLNetFileReplace.dll
