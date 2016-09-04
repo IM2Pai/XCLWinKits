@@ -12,11 +12,6 @@
           <CategoryItem Sort="0" Name="正则表达式测试" AssemblyName="XCLRegexpTool"></CategoryItem>
         </CategoryItemList>
       </Category>
-      <!--<Category Name="搜索引擎" Sort="0">
-        <CategoryItemList>
-          <CategoryItem Sort="0" Name="" AssemblyName=""></CategoryItem>
-        </CategoryItemList>
-      </Category>-->
       <Category Name="加密解密" Sort="0">
         <CategoryItemList>
           <CategoryItem Sort="0" Name="MD5加密" AssemblyName="MD5Tool"></CategoryItem>
@@ -27,28 +22,7 @@
         <CategoryItemList>
           <CategoryItem Sort="0" Name="时间日期差" AssemblyName="DateTimeDIFF"></CategoryItem>
         </CategoryItemList>
-      </Category>      
-      <!--<Category Name="随机数" Sort="0">
-        <CategoryItemList>
-          <CategoryItem Sort="0" Name="" AssemblyName=""></CategoryItem>
-        </CategoryItemList>
       </Category>
-      <Category Name="编码转换" Sort="0">
-        <CategoryItemList>
-          <CategoryItem Sort="0" Name="字符编码转换" AssemblyName="CodingConvert"></CategoryItem>
-          <CategoryItem Sort="0" Name="Url编码解码" AssemblyName="UrlCodeConvert"></CategoryItem>
-        </CategoryItemList>
-      </Category>
-      <Category Name="域名IP" Sort="0">
-        <CategoryItemList>
-          <CategoryItem Sort="0" Name="" AssemblyName=""></CategoryItem>
-        </CategoryItemList>
-      </Category>
-      <Category Name="JS_CSS" Sort="0">
-        <CategoryItemList>
-          <CategoryItem Sort="0" Name="" AssemblyName=""></CategoryItem>
-        </CategoryItemList>
-      </Category>-->
     </CategoryList>
   </CategoryConfig>
 </Config>

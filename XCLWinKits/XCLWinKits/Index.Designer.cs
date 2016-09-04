@@ -153,7 +153,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Index";
-            this.Text = "XCLWinKits——Windows软件工具箱   1.0.1.0，Copyright ©2014 by:XCL qq:80213876 ";
+            this.Text = "XCLWinKits——Windows软件工具箱";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
