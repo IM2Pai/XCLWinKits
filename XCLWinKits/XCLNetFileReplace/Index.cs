@@ -62,6 +62,7 @@ namespace XCLNetFileReplace
                 this.txtFileFirstName.Text = this.replaceSetting.PrefixName;
                 this.txtFileLastName.Text = this.replaceSetting.SuffixName;
                 this.ckExcelOptionIsKeepDataFormat.Checked = this.replaceSetting.IsKeepDataFormat;
+                this.ckExcelOptionIsKeepFormula.Checked = this.replaceSetting.IsKeepFormula;
             }
             this.toolStripStatusLabel2.Text = new Model.DoState().ToString();
         }
@@ -225,6 +226,7 @@ namespace XCLNetFileReplace
                 PrefixName = this.txtFileFirstName.Text,
                 SuffixName = this.txtFileLastName.Text,
                 IsKeepDataFormat = this.ckExcelOptionIsKeepDataFormat.Checked,
+                IsKeepFormula = this.ckExcelOptionIsKeepFormula.Checked,
                 RuleConfigIds = ruleIdLst
             });
 
@@ -415,6 +417,12 @@ namespace XCLNetFileReplace
                                     for (int cellsColumn = 0; cellsColumn < sheetCells.MaxDataColumn + 1; cellsColumn++)
                                     {
                                         currentCell = sheetCells[cellsRowIndex, cellsColumn];
+
+                                        if (currentCell.IsFormula && this.ckExcelOptionIsKeepFormula.Checked)
+                                        {
+                                            continue;
+                                        }
+
                                         cellValue = Convert.ToString(currentCell.Value);
                                         if (string.IsNullOrEmpty(cellValue))
                                         {
@@ -536,6 +544,10 @@ namespace XCLNetFileReplace
 
                 if (null != wb)
                 {
+                    if (this.ckExcelOptionIsKeepFormula.Checked)
+                    {
+                        wb.CalculateFormula();
+                    }
                     wb.Save(realPath);
                 }
                 if (null != wordDocument)
@@ -777,14 +789,11 @@ namespace XCLNetFileReplace
         private void btnSave_EnabledChanged(object sender, EventArgs e)
         {
             bool state = this.btnSave.Enabled;
-            this.btnOutPutPath.Enabled = state;
-            this.btnOpenOutPath.Enabled = state;
-            this.btnNotNeedOutPutPath.Enabled = state;
+
+            this.tabControlOptions.Enabled = state;
+
             this.btnSave.Enabled = state;
             this.btnSelectRule.Enabled = state;
-
-            this.txtFileFirstName.Enabled = state;
-            this.txtFileLastName.Enabled = state;
 
             this.打开文件ToolStripMenuItem.Enabled = state;
             this.打开文件夹ToolStripMenuItem.Enabled = state;

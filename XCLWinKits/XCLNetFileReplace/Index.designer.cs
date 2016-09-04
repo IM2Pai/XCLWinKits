@@ -80,23 +80,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridRuleConfig = new System.Windows.Forms.DataGridView();
-            this.btnSelectRule = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.txtOutPutPath = new System.Windows.Forms.TextBox();
-            this.btnOutPutPath = new System.Windows.Forms.Button();
-            this.btnOpenOutPath = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtFileFirstName = new System.Windows.Forms.TextBox();
-            this.txtFileLastName = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageBaseOption = new System.Windows.Forms.TabPage();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnNotNeedOutPutPath = new System.Windows.Forms.Button();
-            this.tabPageExcelOption = new System.Windows.Forms.TabPage();
-            this.ckExcelOptionIsKeepDataFormat = new System.Windows.Forms.CheckBox();
             this.grid_RuleConfigID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grid_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grid_OldContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,6 +91,24 @@
             this.grid_IsFileContent_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grid_CreateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grid_UpdateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSelectRule = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.txtOutPutPath = new System.Windows.Forms.TextBox();
+            this.btnOutPutPath = new System.Windows.Forms.Button();
+            this.btnOpenOutPath = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtFileFirstName = new System.Windows.Forms.TextBox();
+            this.txtFileLastName = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.tabControlOptions = new System.Windows.Forms.TabControl();
+            this.tabPageBaseOption = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnNotNeedOutPutPath = new System.Windows.Forms.Button();
+            this.tabPageExcelOption = new System.Windows.Forms.TabPage();
+            this.ckExcelOptionIsKeepFormula = new System.Windows.Forms.CheckBox();
+            this.ckExcelOptionIsKeepDataFormat = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox_FileInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgFiles)).BeginInit();
@@ -117,7 +118,7 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRuleConfig)).BeginInit();
             this.groupBox4.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabControlOptions.SuspendLayout();
             this.tabPageBaseOption.SuspendLayout();
             this.tabPageExcelOption.SuspendLayout();
             this.SuspendLayout();
@@ -462,184 +463,6 @@
             this.dataGridRuleConfig.TabIndex = 3;
             this.dataGridRuleConfig.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridRuleConfig_RowPostPaint);
             // 
-            // btnSelectRule
-            // 
-            this.btnSelectRule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectRule.Location = new System.Drawing.Point(805, 165);
-            this.btnSelectRule.Name = "btnSelectRule";
-            this.btnSelectRule.Size = new System.Drawing.Size(75, 23);
-            this.btnSelectRule.TabIndex = 1;
-            this.btnSelectRule.Text = "选择规则";
-            this.btnSelectRule.UseVisualStyleBackColor = true;
-            this.btnSelectRule.Click += new System.EventHandler(this.btnSelectRule_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(764, 497);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(127, 44);
-            this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "开 始 处 理";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.EnabledChanged += new System.EventHandler(this.btnSave_EnabledChanged);
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // txtOutPutPath
-            // 
-            this.txtOutPutPath.Location = new System.Drawing.Point(97, 12);
-            this.txtOutPutPath.Name = "txtOutPutPath";
-            this.txtOutPutPath.ReadOnly = true;
-            this.txtOutPutPath.Size = new System.Drawing.Size(105, 21);
-            this.txtOutPutPath.TabIndex = 0;
-            // 
-            // btnOutPutPath
-            // 
-            this.btnOutPutPath.Location = new System.Drawing.Point(206, 11);
-            this.btnOutPutPath.Name = "btnOutPutPath";
-            this.btnOutPutPath.Size = new System.Drawing.Size(45, 23);
-            this.btnOutPutPath.TabIndex = 1;
-            this.btnOutPutPath.Text = "浏览";
-            this.btnOutPutPath.UseVisualStyleBackColor = true;
-            this.btnOutPutPath.Click += new System.EventHandler(this.btnOutPutPath_Click);
-            // 
-            // btnOpenOutPath
-            // 
-            this.btnOpenOutPath.Location = new System.Drawing.Point(257, 11);
-            this.btnOpenOutPath.Name = "btnOpenOutPath";
-            this.btnOpenOutPath.Size = new System.Drawing.Size(45, 23);
-            this.btnOpenOutPath.TabIndex = 2;
-            this.btnOpenOutPath.Text = "打开";
-            this.btnOpenOutPath.UseVisualStyleBackColor = true;
-            this.btnOpenOutPath.Click += new System.EventHandler(this.btnOpenOutPath_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "输出目录：";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 12);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "文件名前缀：";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 95);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 12);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "文件名后缀：";
-            // 
-            // txtFileFirstName
-            // 
-            this.txtFileFirstName.Location = new System.Drawing.Point(97, 61);
-            this.txtFileFirstName.Name = "txtFileFirstName";
-            this.txtFileFirstName.Size = new System.Drawing.Size(248, 21);
-            this.txtFileFirstName.TabIndex = 6;
-            // 
-            // txtFileLastName
-            // 
-            this.txtFileLastName.Location = new System.Drawing.Point(97, 88);
-            this.txtFileLastName.Name = "txtFileLastName";
-            this.txtFileLastName.Size = new System.Drawing.Size(248, 21);
-            this.txtFileLastName.TabIndex = 7;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox4.Controls.Add(this.tabControl1);
-            this.groupBox4.ForeColor = System.Drawing.Color.Green;
-            this.groupBox4.Location = new System.Drawing.Point(3, 412);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(394, 193);
-            this.groupBox4.TabIndex = 13;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "输出选项：";
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.tabControl1.Controls.Add(this.tabPageBaseOption);
-            this.tabControl1.Controls.Add(this.tabPageExcelOption);
-            this.tabControl1.Location = new System.Drawing.Point(3, 17);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(381, 173);
-            this.tabControl1.TabIndex = 10;
-            // 
-            // tabPageBaseOption
-            // 
-            this.tabPageBaseOption.Controls.Add(this.label4);
-            this.tabPageBaseOption.Controls.Add(this.btnNotNeedOutPutPath);
-            this.tabPageBaseOption.Controls.Add(this.label3);
-            this.tabPageBaseOption.Controls.Add(this.label1);
-            this.tabPageBaseOption.Controls.Add(this.label2);
-            this.tabPageBaseOption.Controls.Add(this.btnOpenOutPath);
-            this.tabPageBaseOption.Controls.Add(this.txtOutPutPath);
-            this.tabPageBaseOption.Controls.Add(this.txtFileFirstName);
-            this.tabPageBaseOption.Controls.Add(this.txtFileLastName);
-            this.tabPageBaseOption.Controls.Add(this.btnOutPutPath);
-            this.tabPageBaseOption.Location = new System.Drawing.Point(4, 22);
-            this.tabPageBaseOption.Name = "tabPageBaseOption";
-            this.tabPageBaseOption.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageBaseOption.Size = new System.Drawing.Size(373, 147);
-            this.tabPageBaseOption.TabIndex = 0;
-            this.tabPageBaseOption.Text = "基本选项";
-            this.tabPageBaseOption.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(18, 39);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(245, 12);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "若不指定输出目录，则在源文件上直接操作！";
-            // 
-            // btnNotNeedOutPutPath
-            // 
-            this.btnNotNeedOutPutPath.Location = new System.Drawing.Point(308, 11);
-            this.btnNotNeedOutPutPath.Name = "btnNotNeedOutPutPath";
-            this.btnNotNeedOutPutPath.Size = new System.Drawing.Size(45, 23);
-            this.btnNotNeedOutPutPath.TabIndex = 9;
-            this.btnNotNeedOutPutPath.Text = "无";
-            this.btnNotNeedOutPutPath.UseVisualStyleBackColor = true;
-            this.btnNotNeedOutPutPath.Click += new System.EventHandler(this.btnNotNeedOutPutPath_Click);
-            // 
-            // tabPageExcelOption
-            // 
-            this.tabPageExcelOption.Controls.Add(this.ckExcelOptionIsKeepDataFormat);
-            this.tabPageExcelOption.Location = new System.Drawing.Point(4, 22);
-            this.tabPageExcelOption.Name = "tabPageExcelOption";
-            this.tabPageExcelOption.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageExcelOption.Size = new System.Drawing.Size(373, 147);
-            this.tabPageExcelOption.TabIndex = 1;
-            this.tabPageExcelOption.Text = "Excel选项";
-            this.tabPageExcelOption.UseVisualStyleBackColor = true;
-            // 
-            // ckExcelOptionIsKeepDataFormat
-            // 
-            this.ckExcelOptionIsKeepDataFormat.AutoSize = true;
-            this.ckExcelOptionIsKeepDataFormat.Location = new System.Drawing.Point(16, 15);
-            this.ckExcelOptionIsKeepDataFormat.Name = "ckExcelOptionIsKeepDataFormat";
-            this.ckExcelOptionIsKeepDataFormat.Size = new System.Drawing.Size(312, 16);
-            this.ckExcelOptionIsKeepDataFormat.TabIndex = 0;
-            this.ckExcelOptionIsKeepDataFormat.Text = "保留数据格式，若新值无法转为该格式，则忽略该替换";
-            this.ckExcelOptionIsKeepDataFormat.UseVisualStyleBackColor = true;
-            // 
             // grid_RuleConfigID
             // 
             this.grid_RuleConfigID.DataPropertyName = "RuleConfigID";
@@ -745,6 +568,195 @@
             this.grid_UpdateTime.Name = "grid_UpdateTime";
             this.grid_UpdateTime.ReadOnly = true;
             // 
+            // btnSelectRule
+            // 
+            this.btnSelectRule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelectRule.Location = new System.Drawing.Point(805, 165);
+            this.btnSelectRule.Name = "btnSelectRule";
+            this.btnSelectRule.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectRule.TabIndex = 1;
+            this.btnSelectRule.Text = "选择规则";
+            this.btnSelectRule.UseVisualStyleBackColor = true;
+            this.btnSelectRule.Click += new System.EventHandler(this.btnSelectRule_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSave.Location = new System.Drawing.Point(764, 497);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(127, 44);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "开 始 处 理";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.EnabledChanged += new System.EventHandler(this.btnSave_EnabledChanged);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // txtOutPutPath
+            // 
+            this.txtOutPutPath.Location = new System.Drawing.Point(97, 12);
+            this.txtOutPutPath.Name = "txtOutPutPath";
+            this.txtOutPutPath.ReadOnly = true;
+            this.txtOutPutPath.Size = new System.Drawing.Size(105, 21);
+            this.txtOutPutPath.TabIndex = 0;
+            // 
+            // btnOutPutPath
+            // 
+            this.btnOutPutPath.Location = new System.Drawing.Point(206, 11);
+            this.btnOutPutPath.Name = "btnOutPutPath";
+            this.btnOutPutPath.Size = new System.Drawing.Size(45, 23);
+            this.btnOutPutPath.TabIndex = 1;
+            this.btnOutPutPath.Text = "浏览";
+            this.btnOutPutPath.UseVisualStyleBackColor = true;
+            this.btnOutPutPath.Click += new System.EventHandler(this.btnOutPutPath_Click);
+            // 
+            // btnOpenOutPath
+            // 
+            this.btnOpenOutPath.Location = new System.Drawing.Point(257, 11);
+            this.btnOpenOutPath.Name = "btnOpenOutPath";
+            this.btnOpenOutPath.Size = new System.Drawing.Size(45, 23);
+            this.btnOpenOutPath.TabIndex = 2;
+            this.btnOpenOutPath.Text = "打开";
+            this.btnOpenOutPath.UseVisualStyleBackColor = true;
+            this.btnOpenOutPath.Click += new System.EventHandler(this.btnOpenOutPath_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "输出目录：";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 12);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "文件名前缀：";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 95);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 12);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "文件名后缀：";
+            // 
+            // txtFileFirstName
+            // 
+            this.txtFileFirstName.Location = new System.Drawing.Point(97, 61);
+            this.txtFileFirstName.Name = "txtFileFirstName";
+            this.txtFileFirstName.Size = new System.Drawing.Size(248, 21);
+            this.txtFileFirstName.TabIndex = 6;
+            // 
+            // txtFileLastName
+            // 
+            this.txtFileLastName.Location = new System.Drawing.Point(97, 88);
+            this.txtFileLastName.Name = "txtFileLastName";
+            this.txtFileLastName.Size = new System.Drawing.Size(248, 21);
+            this.txtFileLastName.TabIndex = 7;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox4.Controls.Add(this.tabControlOptions);
+            this.groupBox4.ForeColor = System.Drawing.Color.Green;
+            this.groupBox4.Location = new System.Drawing.Point(3, 412);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(394, 193);
+            this.groupBox4.TabIndex = 13;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "输出选项：";
+            // 
+            // tabControlOptions
+            // 
+            this.tabControlOptions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tabControlOptions.Controls.Add(this.tabPageBaseOption);
+            this.tabControlOptions.Controls.Add(this.tabPageExcelOption);
+            this.tabControlOptions.Location = new System.Drawing.Point(3, 17);
+            this.tabControlOptions.Name = "tabControlOptions";
+            this.tabControlOptions.SelectedIndex = 0;
+            this.tabControlOptions.Size = new System.Drawing.Size(381, 173);
+            this.tabControlOptions.TabIndex = 10;
+            // 
+            // tabPageBaseOption
+            // 
+            this.tabPageBaseOption.Controls.Add(this.label4);
+            this.tabPageBaseOption.Controls.Add(this.btnNotNeedOutPutPath);
+            this.tabPageBaseOption.Controls.Add(this.label3);
+            this.tabPageBaseOption.Controls.Add(this.label1);
+            this.tabPageBaseOption.Controls.Add(this.label2);
+            this.tabPageBaseOption.Controls.Add(this.btnOpenOutPath);
+            this.tabPageBaseOption.Controls.Add(this.txtOutPutPath);
+            this.tabPageBaseOption.Controls.Add(this.txtFileFirstName);
+            this.tabPageBaseOption.Controls.Add(this.txtFileLastName);
+            this.tabPageBaseOption.Controls.Add(this.btnOutPutPath);
+            this.tabPageBaseOption.Location = new System.Drawing.Point(4, 22);
+            this.tabPageBaseOption.Name = "tabPageBaseOption";
+            this.tabPageBaseOption.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageBaseOption.Size = new System.Drawing.Size(373, 147);
+            this.tabPageBaseOption.TabIndex = 0;
+            this.tabPageBaseOption.Text = "基本选项";
+            this.tabPageBaseOption.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(18, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(245, 12);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "若不指定输出目录，则在源文件上直接操作！";
+            // 
+            // btnNotNeedOutPutPath
+            // 
+            this.btnNotNeedOutPutPath.Location = new System.Drawing.Point(308, 11);
+            this.btnNotNeedOutPutPath.Name = "btnNotNeedOutPutPath";
+            this.btnNotNeedOutPutPath.Size = new System.Drawing.Size(45, 23);
+            this.btnNotNeedOutPutPath.TabIndex = 9;
+            this.btnNotNeedOutPutPath.Text = "无";
+            this.btnNotNeedOutPutPath.UseVisualStyleBackColor = true;
+            this.btnNotNeedOutPutPath.Click += new System.EventHandler(this.btnNotNeedOutPutPath_Click);
+            // 
+            // tabPageExcelOption
+            // 
+            this.tabPageExcelOption.Controls.Add(this.ckExcelOptionIsKeepFormula);
+            this.tabPageExcelOption.Controls.Add(this.ckExcelOptionIsKeepDataFormat);
+            this.tabPageExcelOption.Location = new System.Drawing.Point(4, 22);
+            this.tabPageExcelOption.Name = "tabPageExcelOption";
+            this.tabPageExcelOption.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageExcelOption.Size = new System.Drawing.Size(373, 147);
+            this.tabPageExcelOption.TabIndex = 1;
+            this.tabPageExcelOption.Text = "Excel选项";
+            this.tabPageExcelOption.UseVisualStyleBackColor = true;
+            // 
+            // ckExcelOptionIsKeepFormula
+            // 
+            this.ckExcelOptionIsKeepFormula.AutoSize = true;
+            this.ckExcelOptionIsKeepFormula.Location = new System.Drawing.Point(16, 46);
+            this.ckExcelOptionIsKeepFormula.Name = "ckExcelOptionIsKeepFormula";
+            this.ckExcelOptionIsKeepFormula.Size = new System.Drawing.Size(300, 16);
+            this.ckExcelOptionIsKeepFormula.TabIndex = 1;
+            this.ckExcelOptionIsKeepFormula.Text = "保留单元格的公式（忽略替换，最后自动计算公式）";
+            this.ckExcelOptionIsKeepFormula.UseVisualStyleBackColor = true;
+            // 
+            // ckExcelOptionIsKeepDataFormat
+            // 
+            this.ckExcelOptionIsKeepDataFormat.AutoSize = true;
+            this.ckExcelOptionIsKeepDataFormat.Location = new System.Drawing.Point(16, 15);
+            this.ckExcelOptionIsKeepDataFormat.Name = "ckExcelOptionIsKeepDataFormat";
+            this.ckExcelOptionIsKeepDataFormat.Size = new System.Drawing.Size(312, 16);
+            this.ckExcelOptionIsKeepDataFormat.TabIndex = 0;
+            this.ckExcelOptionIsKeepDataFormat.Text = "保留数据格式，若新值无法转为该格式，则忽略该替换";
+            this.ckExcelOptionIsKeepDataFormat.UseVisualStyleBackColor = true;
+            // 
             // Index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -774,7 +786,7 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRuleConfig)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.tabControlOptions.ResumeLayout(false);
             this.tabPageBaseOption.ResumeLayout(false);
             this.tabPageBaseOption.PerformLayout();
             this.tabPageExcelOption.ResumeLayout(false);
@@ -820,7 +832,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnNotNeedOutPutPath;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControlOptions;
         private System.Windows.Forms.TabPage tabPageBaseOption;
         private System.Windows.Forms.TabPage tabPageExcelOption;
         private System.Windows.Forms.CheckBox ckExcelOptionIsKeepDataFormat;
@@ -844,6 +856,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_IsFileContent_Text;
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_CreateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_UpdateTime;
+        private System.Windows.Forms.CheckBox ckExcelOptionIsKeepFormula;
     }
 }
 
