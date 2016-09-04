@@ -37,16 +37,3 @@ D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Release\CodingConve
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Release\CodingConvert.csproj.GenerateResource.Cache
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Release\CodingConvert.dll
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Release\CodingConvert.pdb
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\bin\Release\CodingConvert.dll
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\bin\Release\CodingConvert.pdb
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\bin\Release\BaseForm.dll
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\bin\Release\CommonHelper.dll
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\bin\Release\XCLNetTools.dll
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\bin\Release\BaseForm.pdb
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\bin\Release\CommonHelper.pdb
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\bin\Release\XCLNetTools.xml
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Release\CodingConvert.csprojResolveAssemblyReference.cache
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Release\CodingConvert.Index.resources
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Release\CodingConvert.csproj.GenerateResource.Cache
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Release\CodingConvert.dll
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CodingConvert\obj\Release\CodingConvert.pdb

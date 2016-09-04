@@ -37,16 +37,3 @@ D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\obj\Release\CommonEncry
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\obj\Release\CommonEncrypt.csproj.GenerateResource.Cache
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\obj\Release\CommonEncrypt.dll
 D:\MyData\Git\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\obj\Release\CommonEncrypt.pdb
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\bin\Release\CommonEncrypt.dll
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\bin\Release\CommonEncrypt.pdb
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\bin\Release\BaseForm.dll
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\bin\Release\CommonHelper.dll
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\bin\Release\XCLNetTools.dll
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\bin\Release\BaseForm.pdb
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\bin\Release\CommonHelper.pdb
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\bin\Release\XCLNetTools.xml
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\obj\Release\CommonEncrypt.csprojResolveAssemblyReference.cache
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\obj\Release\CommonEncrypt.Index.resources
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\obj\Release\CommonEncrypt.csproj.GenerateResource.Cache
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\obj\Release\CommonEncrypt.dll
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\CommonEncrypt\obj\Release\CommonEncrypt.pdb
