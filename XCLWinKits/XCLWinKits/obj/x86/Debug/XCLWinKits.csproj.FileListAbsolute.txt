@@ -9,8 +9,6 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\System.Data.SQ
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\System.Data.SQLite.EF6.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\XCLNetFileReplace.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\XCLNetTools.dll
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\Aspose.Cells.dll
-D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\Aspose.Words.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\无法打开exe解决方法.txt
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\说明.txt
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\App_Data\XCLWinKits.db
@@ -18,6 +16,8 @@ D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\Config\Config.
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\Res\RegexFiles\regex0.html
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\XCLWinKits.exe.config
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\XCLWinKits.pdb
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\Aspose.Cells.dll
+D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\Aspose.Words.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\CodingConvert.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\CommonEncrypt.dll
 D:\MyData\MyGit\GitHub\XCLWinKits\XCLWinKits\XCLWinKits\bin\Debug\DateTimeDIFF.dll

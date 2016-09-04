@@ -538,6 +538,7 @@
             this.MinimumSize = new System.Drawing.Size(946, 562);
             this.Name = "RuleConfigSelectBox";
             this.Text = "RuleConfigSelectBox";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RuleConfigSelectBox_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRuleConfig)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

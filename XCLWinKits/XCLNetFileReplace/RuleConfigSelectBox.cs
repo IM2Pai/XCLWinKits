@@ -100,11 +100,6 @@ namespace XCLNetFileReplace
             }
             model.FileReplaceSetting = XCLNetTools.Serialize.JSON.Serialize(setting);
             userSettingBLL.Add(model);
-            //刷新父窗体数据
-            if (null != _mainForm)
-            {
-                _mainForm.InitCurrentRuleList();
-            }
             this.Close();
         }
 
@@ -170,6 +165,7 @@ namespace XCLNetFileReplace
         /// </summary>
         private void btnDel_Click(object sender, System.EventArgs e)
         {
+            List<int> ids = new List<int>();
             var selectedRows = this.dataGridRuleConfig.SelectedRows;
             if (null == selectedRows || selectedRows.Count == 0)
             {
@@ -186,6 +182,7 @@ namespace XCLNetFileReplace
             {
                 var id = XCLNetTools.StringHander.Common.GetInt(selectedRows[i].Cells["grid_RuleConfigID"].Value);
                 bll.Delete(id);
+                ids.Add(id);
             }
 
             this.InitRuleConfigGrid();
@@ -310,5 +307,13 @@ namespace XCLNetFileReplace
         }
 
         #endregion 添加或修改规则TabPage
+
+        private void RuleConfigSelectBox_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (null != _mainForm)
+            {
+                _mainForm.InitCurrentRuleList();
+            }
+        }
     }
 }

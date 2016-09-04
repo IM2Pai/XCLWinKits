@@ -430,7 +430,7 @@ namespace XCLNetFileReplace
 
                                         cellValue = reg.Replace(cellValue, ruleModel.NewContent);
 
-                                        currentCellType = this.ckExcelOptionIsKeepDataFormat.Checked ? Aspose.Cells.CellValueType.IsString : currentCell.Type;
+                                        currentCellType = this.ckExcelOptionIsKeepDataFormat.Checked ? currentCell.Type : Aspose.Cells.CellValueType.IsString;
 
                                         switch (currentCellType)
                                         {
@@ -474,7 +474,7 @@ namespace XCLNetFileReplace
 
                                         if (isCellReplaced)
                                         {
-                                            replaceCount += reg.Matches(cellValue).Count;
+                                            replaceCount += cellMatchCount;
                                         }
                                     }
                                 }
@@ -567,7 +567,7 @@ namespace XCLNetFileReplace
                 model.ProcessDuration = (int)sw.Elapsed.TotalSeconds;
             }
 
-            this.SetTextLogValue(string.Format("文件【{0}】处理完毕（{1}）" , model.FileName, model.Remark));
+            this.SetTextLogValue(string.Format("文件【{0}】处理完毕（{1}）", model.FileName, model.Remark));
 
             return model;
         }
