@@ -69,6 +69,7 @@ namespace XCLWinKits
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("打开失败，程序集{0}.Index还未开发完成！{1}（{2}）", bt.Name, Environment.NewLine, ex.Message), "系统提示");
+                CommonHelper.Common.WriteLog(ex);
             }
         }
 
