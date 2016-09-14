@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Text.RegularExpressions;
 using System.Reflection;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace XCLRegexpTool
 {
@@ -57,6 +52,7 @@ namespace XCLRegexpTool
         private void ReplaceWork()
         {
             #region 验证
+
             if (string.IsNullOrEmpty(this.txtInputRegexp.Text))
             {
                 this.lbMsg.Text = "请输入正则表达式！";
@@ -68,7 +64,8 @@ namespace XCLRegexpTool
                 return;
             }
             this.lbMsg.Text = "";
-            #endregion
+
+            #endregion 验证
 
             StringBuilder strFindResult = new StringBuilder();
             Regex reg = null;
@@ -92,18 +89,17 @@ namespace XCLRegexpTool
                 return;
             }
 
-
-            MatchCollection matchs = reg.Matches(this.txtInputString.Text);
-            if (null != matchs && matchs.Count > 0)
+            var match = reg.Match(this.txtInputString.Text);
+            if (null != match && null != match.Groups && match.Groups.Count > 0)
             {
-                for (int i = 0; i < matchs.Count; i++)
+                for (int i = 0; i < match.Groups.Count; i++)
                 {
-                    strFindResult.AppendFormat("{0}：{1}\r\n", i + 1, matchs[i].Value);
+                    strFindResult.AppendFormat("{0}：{1}\r\n", i + 1, match.Groups[i].Value);
                 }
             }
             this.txtFindResult.Text = strFindResult.Length > 0 ? strFindResult.ToString() : "未匹配到任何结果！";
 
-            this.txtReplaceResult.Text = Regex.Replace(this.txtInputString.Text, this.txtInputRegexp.Text, this.txtReplaceString.Text,regexOption);
+            this.txtReplaceResult.Text = Regex.Replace(this.txtInputString.Text, this.txtInputRegexp.Text, this.txtReplaceString.Text, regexOption);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -141,6 +137,6 @@ namespace XCLRegexpTool
             {
                 return Assembly.GetExecutingAssembly().GetName().Name;
             }
-        } 
+        }
     }
 }
