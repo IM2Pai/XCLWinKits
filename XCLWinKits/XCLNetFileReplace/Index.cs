@@ -334,9 +334,11 @@ namespace XCLNetFileReplace
 
                 filetitle = string.Format("{0}{1}{2}", this.txtFileFirstName.Text, filetitle, this.txtFileLastName.Text);
 
+                bool isFileNameChanged = !string.Equals(XCLNetTools.FileHandler.ComFile.GetFileName(model.Path, false), filetitle, StringComparison.OrdinalIgnoreCase);
+
                 if (isNeedCopy)
                 {
-                    if (!string.Equals(XCLNetTools.FileHandler.ComFile.GetFileName(model.Path, false), filetitle))
+                    if (isFileNameChanged)
                     {
                         realPath = XCLNetTools.FileHandler.ComFile.GetFileFolderPath(model.Path) + "\\" + filetitle + "." + model.ExtensionName;
                     }
@@ -351,7 +353,10 @@ namespace XCLNetFileReplace
                 }
                 else
                 {
-                    this.pc.FileSystem.RenameFile(model.Path, filetitle + "." + model.ExtensionName);
+                    if (isFileNameChanged)
+                    {
+                        this.pc.FileSystem.RenameFile(model.Path, filetitle + "." + model.ExtensionName);
+                    }
                 }
 
                 #endregion 先处理替换文件名
