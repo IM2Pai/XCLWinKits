@@ -22,8 +22,8 @@ namespace DateTimeDIFF
 
         private void Process()
         {
-            var start = XCLNetTools.StringHander.Common.GetDateTimeNullable(this.txtStartTime.Text);
-            var end = XCLNetTools.StringHander.Common.GetDateTimeNullable(this.txtEndTime.Text);
+            var start = XCLNetTools.Common.DataTypeConvert.ToDateTimeNull(this.txtStartTime.Text);
+            var end = XCLNetTools.Common.DataTypeConvert.ToDateTimeNull(this.txtEndTime.Text);
             if (!start.HasValue)
             {
                 MessageBox.Show("请输入有效格式的开始时间！", "系统提示");

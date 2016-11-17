@@ -141,7 +141,7 @@ namespace XCLNetFileReplace
             }
             string folderPath = openFolder.SelectedPath.TrimEnd('\\');
             Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
-            wb.Worksheets[0].Cells.ImportDataTable(XCLNetTools.Generic.ListHelper.ToDataTable(lst), true, 0, 0);
+            wb.Worksheets[0].Cells.ImportDataTable(XCLNetTools.DataSource.DataTableHelper.ToDataTable(lst), true, 0, 0);
             string filePath = string.Format(@"{0}\XCLNetFileRelace_{1:yyyyMMddHHmmssfff}.xlsx", folderPath, DateTime.Now);
             wb.Save(filePath, Aspose.Cells.SaveFormat.Xlsx);
             if (MessageBox.Show("导出成功，是否打开该文件？", "系统提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
@@ -217,7 +217,7 @@ namespace XCLNetFileReplace
             {
                 for (var i = 0; i < this.dataGridRuleConfig.Rows.Count; i++)
                 {
-                    ruleIdLst.Add(XCLNetTools.StringHander.Common.GetInt(this.dataGridRuleConfig.Rows[i].Cells["grid_RuleConfigID"].Value));
+                    ruleIdLst.Add(XCLNetTools.Common.DataTypeConvert.ToInt(this.dataGridRuleConfig.Rows[i].Cells["grid_RuleConfigID"].Value));
                 }
             }
             config.FileReplaceSetting = XCLNetTools.Serialize.JSON.Serialize(new DataLayer.Model.FileReplaceSetting()

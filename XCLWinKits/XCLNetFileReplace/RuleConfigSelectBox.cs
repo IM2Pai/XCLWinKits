@@ -153,7 +153,7 @@ namespace XCLNetFileReplace
                 MessageBox.Show("请选择一条规则进行修改！", "系统提示");
                 return;
             }
-            this.InitDataByRuleId(XCLNetTools.StringHander.Common.GetInt(selectedRows[0].Cells["grid_RuleConfigID"].Value));
+            this.InitDataByRuleId(XCLNetTools.Common.DataTypeConvert.ToInt(selectedRows[0].Cells["grid_RuleConfigID"].Value));
 
             this.tabPageAdd.Text = "修改规则";
             this.tabPageAdd.Parent = this.tabRuleConfig;
@@ -180,7 +180,7 @@ namespace XCLNetFileReplace
 
             for (var i = 0; i < selectedRows.Count; i++)
             {
-                var id = XCLNetTools.StringHander.Common.GetInt(selectedRows[i].Cells["grid_RuleConfigID"].Value);
+                var id = XCLNetTools.Common.DataTypeConvert.ToInt(selectedRows[i].Cells["grid_RuleConfigID"].Value);
                 bll.Delete(id);
                 ids.Add(id);
             }
@@ -197,7 +197,7 @@ namespace XCLNetFileReplace
         /// </summary>
         private void btnSave_Click(object sender, EventArgs e)
         {
-            int ruleId = XCLNetTools.StringHander.Common.GetInt(this.txtRuleID.Text.Trim());
+            int ruleId = XCLNetTools.Common.DataTypeConvert.ToInt(this.txtRuleID.Text.Trim());
             DataLayer.Model.FileReplace_RuleConfig model = new DataLayer.Model.FileReplace_RuleConfig();
             model.CreateTime = model.UpdateTime = DateTime.Now;
             model.IsFileContent = this.ckIsFileContent.Checked;

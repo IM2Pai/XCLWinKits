@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseForm", "BaseForm\BaseForm.csproj", "{340435C6-66FF-493F-BE51-F0DD8F0ABC7B}"
 EndProject
@@ -36,6 +36,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "其它", "其它", "{3E394F78-5F04-4ADA-9452-2A8A40E06EB2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "编码转换", "编码转换", "{BD16ECEB-2B91-4396-BD98-B91AF2F36327}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringToJsConst", "StringToJsConst\StringToJsConst.csproj", "{4B88B6BB-FDC4-4798-BFE7-462F1D9BAA9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -139,6 +141,14 @@ Global
 		{90E85D5B-1C5C-4B96-A25C-D81B1BFEED5E}.Release|Any CPU.ActiveCfg = Release|x86
 		{90E85D5B-1C5C-4B96-A25C-D81B1BFEED5E}.Release|x86.ActiveCfg = Release|x86
 		{90E85D5B-1C5C-4B96-A25C-D81B1BFEED5E}.Release|x86.Build.0 = Release|x86
+		{4B88B6BB-FDC4-4798-BFE7-462F1D9BAA9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B88B6BB-FDC4-4798-BFE7-462F1D9BAA9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B88B6BB-FDC4-4798-BFE7-462F1D9BAA9B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4B88B6BB-FDC4-4798-BFE7-462F1D9BAA9B}.Debug|x86.Build.0 = Debug|Any CPU
+		{4B88B6BB-FDC4-4798-BFE7-462F1D9BAA9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B88B6BB-FDC4-4798-BFE7-462F1D9BAA9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B88B6BB-FDC4-4798-BFE7-462F1D9BAA9B}.Release|x86.ActiveCfg = Release|Any CPU
+		{4B88B6BB-FDC4-4798-BFE7-462F1D9BAA9B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -151,5 +161,6 @@ Global
 		{F74CA7A1-69F4-42BC-998E-60687042D928} = {BD16ECEB-2B91-4396-BD98-B91AF2F36327}
 		{5100B375-4C25-4AA8-BCDF-1AFA355A5F93} = {4C4080DA-58D5-4FA3-9B5C-0167A01DEB4A}
 		{08D8B67F-D665-4122-92AA-259F9DB72895} = {FD13B6D7-33BD-4804-9BD0-DFBB2FB1FD17}
+		{4B88B6BB-FDC4-4798-BFE7-462F1D9BAA9B} = {FD13B6D7-33BD-4804-9BD0-DFBB2FB1FD17}
 	EndGlobalSection
 EndGlobal
