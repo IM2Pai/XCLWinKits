@@ -29,7 +29,7 @@ namespace XCLNetFileReplace
         private DataLayer.BLL.FileReplace_RuleConfig ruleConfigBLL = new DataLayer.BLL.FileReplace_RuleConfig();
         private DataLayer.BLL.v_FileReplace_RuleConfig v_ruleConfigBLL = new DataLayer.BLL.v_FileReplace_RuleConfig();
 
-        private DataLayer.Model.FileReplaceSetting replaceSetting = null;
+        private DataLayer.Model.FileReplaceSetting replaceSetting = new DataLayer.Model.FileReplaceSetting();
         private string[] defaultExt = { "xls", "xlsx", "csv", "xlt", "doc", "docx"/*, "ppt", "pptx","pdf"*/ };//这些格式由aspose去处理
         private string[] excelExt = { "xls", "xlsx", "csv", "xlt" };
         private string[] docExt = { "doc", "docx" };
@@ -50,19 +50,22 @@ namespace XCLNetFileReplace
         /// </summary>
         private void InitData()
         {
-            this.replaceSetting = userSettingBLL.GetFileReplaceSetting();
+            this.replaceSetting = userSettingBLL.GetFileReplaceSetting() ?? new DataLayer.Model.FileReplaceSetting();
             this.dgFiles.AutoGenerateColumns = false;
             this.dataGridRuleConfig.AutoGenerateColumns = false;
             fileBLL.Clear();
             this.InitCurrentRuleList();
             //初始化用户默认配置
-            if (null != this.replaceSetting)
+            this.txtOutPutPath.Text = this.replaceSetting.OutPutPath;
+            this.txtFileFirstName.Text = this.replaceSetting.PrefixName;
+            this.txtFileLastName.Text = this.replaceSetting.SuffixName;
+            if (this.replaceSetting.IsKeepDataFormat.HasValue)
             {
-                this.txtOutPutPath.Text = this.replaceSetting.OutPutPath;
-                this.txtFileFirstName.Text = this.replaceSetting.PrefixName;
-                this.txtFileLastName.Text = this.replaceSetting.SuffixName;
-                this.ckExcelOptionIsKeepDataFormat.Checked = this.replaceSetting.IsKeepDataFormat;
-                this.ckExcelOptionIsKeepFormula.Checked = this.replaceSetting.IsKeepFormula;
+                this.ckExcelOptionIsKeepDataFormat.Checked = this.replaceSetting.IsKeepDataFormat.Value;
+            }
+            if (this.replaceSetting.IsKeepFormula.HasValue)
+            {
+                this.ckExcelOptionIsKeepFormula.Checked = this.replaceSetting.IsKeepFormula.Value;
             }
             this.toolStripStatusLabel2.Text = new Model.DoState().ToString();
         }
@@ -87,6 +90,10 @@ namespace XCLNetFileReplace
         {
             OpenFileDialog openFile = new OpenFileDialog();
             openFile.Multiselect = true;
+            if (!string.IsNullOrWhiteSpace(this.replaceSetting.LastOpenFolderPath) && System.IO.Directory.Exists(this.replaceSetting.LastOpenFolderPath))
+            {
+                openFile.InitialDirectory = this.replaceSetting.LastOpenFolderPath;
+            }
             if (openFile.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             {
                 return;
@@ -98,6 +105,7 @@ namespace XCLNetFileReplace
                 {
                     string fName = XCLNetTools.FileHandler.ComFile.GetFileName(openFile.FileNames[0]);
                     this.openFileFolderPath = openFile.FileNames[0].Replace(fName, "");
+                    this.replaceSetting.LastOpenFolderPath = this.openFileFolderPath;
                 }
             }
             catch
@@ -109,6 +117,10 @@ namespace XCLNetFileReplace
         private void 打开文件夹ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog openFolder = new FolderBrowserDialog();
+            if (!string.IsNullOrWhiteSpace(this.replaceSetting.LastOpenFolderPath) && System.IO.Directory.Exists(this.replaceSetting.LastOpenFolderPath))
+            {
+                openFolder.SelectedPath = this.replaceSetting.LastOpenFolderPath;
+            }
             if (openFolder.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             {
                 return;
@@ -118,6 +130,7 @@ namespace XCLNetFileReplace
                 string[] files = XCLNetTools.FileHandler.ComFile.GetFolderFilesByRecursion(openFolder.SelectedPath);
                 this.InitFiles(files);
                 this.openFileFolderPath = openFolder.SelectedPath;
+                this.replaceSetting.LastOpenFolderPath = this.openFileFolderPath;
             }
             catch
             {
@@ -220,15 +233,15 @@ namespace XCLNetFileReplace
                     ruleIdLst.Add(XCLNetTools.Common.DataTypeConvert.ToInt(this.dataGridRuleConfig.Rows[i].Cells["grid_RuleConfigID"].Value));
                 }
             }
-            config.FileReplaceSetting = XCLNetTools.Serialize.JSON.Serialize(new DataLayer.Model.FileReplaceSetting()
-            {
-                OutPutPath = this.txtOutPutPath.Text,
-                PrefixName = this.txtFileFirstName.Text,
-                SuffixName = this.txtFileLastName.Text,
-                IsKeepDataFormat = this.ckExcelOptionIsKeepDataFormat.Checked,
-                IsKeepFormula = this.ckExcelOptionIsKeepFormula.Checked,
-                RuleConfigIds = ruleIdLst
-            });
+
+            this.replaceSetting.OutPutPath = this.txtOutPutPath.Text;
+            this.replaceSetting.PrefixName = this.txtFileFirstName.Text;
+            this.replaceSetting.SuffixName = this.txtFileLastName.Text;
+            this.replaceSetting.IsKeepDataFormat = this.ckExcelOptionIsKeepDataFormat.Checked;
+            this.replaceSetting.IsKeepFormula = this.ckExcelOptionIsKeepFormula.Checked;
+            this.replaceSetting.RuleConfigIds = ruleIdLst;
+
+            config.FileReplaceSetting = XCLNetTools.Serialize.JSON.Serialize(this.replaceSetting);
 
             this.userSettingBLL.Add(config);
 

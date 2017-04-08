@@ -44,11 +44,16 @@ namespace DataLayer.Model
         /// <summary>
         /// 是否保留excel原数据格式
         /// </summary>
-        public bool IsKeepDataFormat { get; set; }
+        public bool? IsKeepDataFormat { get; set; }
 
         /// <summary>
         /// 是否保留excel单元格中的公式
         /// </summary>
-        public bool IsKeepFormula { get; set; }
+        public bool? IsKeepFormula { get; set; }
+
+        /// <summary>
+        /// 最近一次的打开待处理文件的文件夹路径
+        /// </summary>
+        public string LastOpenFolderPath { get; set; }
     }
 }
