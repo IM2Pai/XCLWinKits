@@ -57,7 +57,7 @@
         </member>
         <member name="F:XCLNetTools.Common.Consts.RegHttpScheme">
             <summary>
-            http Scheme
+            http Scheme（忽略大小写）
             </summary>
         </member>
         <member name="F:XCLNetTools.Common.Consts.RegPhone">
@@ -98,6 +98,11 @@
         <member name="F:XCLNetTools.Common.Consts.RegURL">
             <summary>
             http(s)地址正则
+            </summary>
+        </member>
+        <member name="F:XCLNetTools.Common.Consts.RegMD5_32Uppercase">
+            <summary>
+            md5正则（32位大写）
             </summary>
         </member>
         <member name="F:XCLNetTools.Common.Consts.WeekName">
@@ -163,6 +168,11 @@
         <member name="F:XCLNetTools.Common.Consts.EngLowercaseAndNumberChar">
             <summary>
             小写字母+数字
+            </summary>
+        </member>
+        <member name="F:XCLNetTools.Common.Consts.NumberEngLetterChar">
+            <summary>
+            数字+大写字母
             </summary>
         </member>
         <member name="T:XCLNetTools.Common.DataTypeConvert">
@@ -488,6 +498,18 @@
             根据ip138网站反馈结果获取服务端外网ip地址
             </summary>
             <returns>ip地址</returns>
+        </member>
+        <member name="T:XCLNetTools.Common.SwitchControl">
+            <summary>
+            开关控制
+            </summary>
+        </member>
+        <member name="M:XCLNetTools.Common.SwitchControl.TFToBool(System.String)">
+            <summary>
+            将T/F转为bool值
+            </summary>
+            <param name="val">T或F</param>
+            <returns>T:true,F:false</returns>
         </member>
         <member name="T:XCLNetTools.Control.ServerControl.Lib">
             <summary>
@@ -1953,10 +1975,64 @@
             Redis帮助类
             </summary>
         </member>
+        <member name="T:XCLNetTools.DataSource.DataReaderHelper">
+            <summary>
+            DataReader帮助类
+            </summary>
+        </member>
+        <member name="M:XCLNetTools.DataSource.DataReaderHelper.DataReaderToIList``1(System.Data.IDataReader)">
+            <summary>
+            将DataReader转为list
+            </summary>
+            <param name="dr">要转换的数据</param>
+            <returns>list</returns>
+        </member>
+        <member name="M:XCLNetTools.DataSource.DataReaderHelper.DataReaderToList``1(System.Data.IDataReader)">
+            <summary>
+            将DataReader转为list
+            </summary>
+            <param name="dr">要转换的数据</param>
+            <returns>list</returns>
+        </member>
+        <member name="M:XCLNetTools.DataSource.DataReaderHelper.DataReaderToEntity``1(System.Data.IDataReader)">
+            <summary>
+            将DataReader转为实体
+            </summary>
+            <param name="dr">要转换的数据</param>
+            <returns>list</returns>
+        </member>
         <member name="T:XCLNetTools.DataSource.DataSetHelper">
             <summary>
             dataset相关
             </summary>
+        </member>
+        <member name="M:XCLNetTools.DataSource.DataSetHelper.DataSetToIList``1(System.Data.DataSet)">
+            <summary>
+            将dataset的第一个datatable转为list
+            </summary>
+            <param name="ds">要转换的数据</param>
+            <returns>list</returns>
+        </member>
+        <member name="M:XCLNetTools.DataSource.DataSetHelper.DataTableToIList``1(System.Data.DataTable)">
+            <summary>
+            将dataTable转为list
+            </summary>
+            <param name="dt">要转换的数据</param>
+            <returns>list</returns>
+        </member>
+        <member name="M:XCLNetTools.DataSource.DataSetHelper.DataSetToList``1(System.Data.DataSet)">
+            <summary>
+            将dataset的第一个datatable转为list
+            </summary>
+            <param name="ds">要转换的数据</param>
+            <returns>list</returns>
+        </member>
+        <member name="M:XCLNetTools.DataSource.DataSetHelper.DataTableToList``1(System.Data.DataTable)">
+            <summary>
+            将dataTable转为list
+            </summary>
+            <param name="dt">要转换的数据</param>
+            <returns>list</returns>
         </member>
         <member name="T:XCLNetTools.DataSource.DataTableHelper">
             <summary>
@@ -3549,6 +3625,11 @@
             <param name="key">key</param>
             <returns>是否匹配</returns>
         </member>
+        <member name="M:XCLNetTools.Encrypt.MD5.Is32MD5(System.String)">
+            <summary>
+            判断字符串是否为32位md5（不区分大小写）
+            </summary>
+        </member>
         <member name="T:XCLNetTools.Encrypt.AESEncrypt">
             <summary>
             AES加密解密类
@@ -4051,6 +4132,21 @@
             其它
             </summary>
         </member>
+        <member name="T:XCLNetTools.Enum.CommonEnum.HttpTypeEnum">
+            <summary>
+            http类型枚举
+            </summary>
+        </member>
+        <member name="F:XCLNetTools.Enum.CommonEnum.HttpTypeEnum.Http">
+            <summary>
+            http
+            </summary>
+        </member>
+        <member name="F:XCLNetTools.Enum.CommonEnum.HttpTypeEnum.Https">
+            <summary>
+            https
+            </summary>
+        </member>
         <member name="T:XCLNetTools.Enum.EnumHelper">
             <summary>
             枚举帮助类
@@ -4147,6 +4243,12 @@
             <param name="em">枚举</param>
             <param name="val">要判断的值</param>
             <returns>true：在范围内；false：已超出范围</returns>
+        </member>
+        <member name="M:XCLNetTools.Enum.EnumHelper.GetEnumJson(System.Type)">
+            <summary>
+            将指定class中的所有枚举转为json字符串
+            示例：public class Test{public enum EE{a,b,c}}  ====》  {"EE":{"a":"","b":"","c":""}}
+            </summary>
         </member>
         <member name="T:XCLNetTools.FileHandler.Bookmark">
             <summary>
@@ -4272,6 +4374,14 @@
             获取文件所在的文件夹【不带'\'】
             </summary>
         </member>
+        <member name="M:XCLNetTools.FileHandler.ComFile.ChangePathByFileName(System.String,System.String)">
+            <summary>
+            使用新的文件名，更新指定路径path中的文件名。如：（"C:\demo\a.txt","abcd.doc"）=>C:\demo\abcd.doc
+            </summary>
+            <param name="path">文件物理路径</param>
+            <param name="name">新的文件名（如：a.txt）</param>
+            <returns>新的文件物理路径</returns>
+        </member>
         <member name="M:XCLNetTools.FileHandler.ComFile.GetFileSize(System.String)">
             <summary>
             返回文件大小(字节)
@@ -4314,23 +4424,24 @@
             <summary>
             获取文件名
             </summary>
-            <param name="fileName">路径（相对或绝对均可）</param>
+            <param name="path">路径（相对或绝对均可）</param>
             <param name="isWithExt">是否包含扩展名</param>
             <returns>文件名</returns>
         </member>
         <member name="M:XCLNetTools.FileHandler.ComFile.GetRandomFileName(System.String)">
              <summary>
-            给上传的文件随机命名
+            返回随机的文件命名，如：（"C:\demo\a.exe"）=>"20170408090024LGP9JWOAO2.exe"
              </summary>
-             <param name="filename">文件名</param>
-             <returns>新的文件名</returns>
+             <param name="fileName">文件名或路径</param>
+             <returns>新的文件名（不含路径）</returns>
         </member>
-        <member name="M:XCLNetTools.FileHandler.ComFile.GetExtName(System.String)">
+        <member name="M:XCLNetTools.FileHandler.ComFile.GetExtName(System.String,System.Boolean)">
             <summary>
-            取得文件扩展名(不包含小圆点)【小写】
+            取得文件扩展名（默认不包含小圆点）【小写】
             </summary>
-            <param name="fileName">文件完整路径或文件名</param>
-            <returns>文件扩展名(不包含小圆点)</returns>
+            <param name="fileName">路径或文件名</param>
+            <param name="withDot">是否包含小圆点（默认：false）</param>
+            <returns>文件扩展名</returns>
         </member>
         <member name="T:XCLNetTools.FileHandler.FileDirectory">
             <summary>
@@ -5347,6 +5458,13 @@
             <param name="provider">提供者</param>
             <returns>对象</returns>
         </member>
+        <member name="M:XCLNetTools.Serialize.JSON.IsJSON(System.String)">
+            <summary>
+            判断字符串是否为有效的json字符串
+            </summary>
+            <param name="json">json字符串</param>
+            <returns>是、否</returns>
+        </member>
         <member name="T:XCLNetTools.Serialize.Lib">
             <summary>
             其它对象序列化相关
@@ -5545,6 +5663,11 @@
         <member name="P:XCLNetTools.Message.MessageModel.CustomObject">
             <summary>
             自定义输出对象
+            </summary>
+        </member>
+        <member name="P:XCLNetTools.Message.MessageModel.IsException">
+            <summary>
+            是否为异常
             </summary>
         </member>
         <member name="T:XCLNetTools.Message.Log">
@@ -5858,6 +5981,22 @@
             网站根Uri，如:"//www.xcl.com:2156/ or //www.xcl.com:2156/VirtualWeb/"
             注：末尾带'/'
             </summary>
+        </member>
+        <member name="M:XCLNetTools.StringHander.Common.GetRootUri(XCLNetTools.Enum.CommonEnum.HttpTypeEnum)">
+            <summary>
+            将网站根Uri转为开头带http://或https://的url地址
+            如:"http://www.xcl.com:2156/ or https://www.xcl.com:2156/VirtualWeb/"
+            </summary>
+            <param name="httpType">http类型，默认为http://</param>
+            <returns>处理后的url</returns>
+        </member>
+        <member name="M:XCLNetTools.StringHander.Common.ToHttpUrl(System.String,XCLNetTools.Enum.CommonEnum.HttpTypeEnum)">
+            <summary>
+            将http开头协议不规则的url字符串转化为指定的http://或https://形式的url
+            </summary>
+            <param name="url">要转换的url</param>
+            <param name="httpType">http类型，默认为http://</param>
+            <returns>转换后的url</returns>
         </member>
         <member name="M:XCLNetTools.StringHander.Common.GetStartEndNum(System.Int32,System.Int32,System.Int32[])">
             <summary>

@@ -281,6 +281,7 @@ namespace XCLNetFileReplace
             bool isNeedCopy = !string.IsNullOrEmpty(this.txtOutPutPath.Text);
             string realPath = model.Path;//被操作的文件实际路径，如果没有指定输出目录，则为原路径，如果指定了输出目录，则为copy到输出目录中后的路径
             string filetitle = XCLNetTools.FileHandler.ComFile.GetFileName(model.Path, false);//文件名，不含扩展名
+            string newFileTitle = string.Empty;
 
             if (!System.IO.File.Exists(model.Path))
             {
@@ -355,7 +356,9 @@ namespace XCLNetFileReplace
                 {
                     if (isFileNameChanged)
                     {
-                        this.pc.FileSystem.RenameFile(model.Path, filetitle + "." + model.ExtensionName);
+                        newFileTitle = filetitle + "." + model.ExtensionName;
+                        this.pc.FileSystem.RenameFile(model.Path, newFileTitle);
+                        realPath = XCLNetTools.FileHandler.ComFile.ChangePathByFileName(realPath, newFileTitle);
                     }
                 }
 
