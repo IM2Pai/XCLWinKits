@@ -36,6 +36,8 @@ namespace XCLRegexpTool
             {
                 this.ReplaceWork();
             });
+            this.ckIgnoreCase.Click += new EventHandler(this.DoAutoWork);
+            this.ckMutipLine.Click += new EventHandler(this.DoAutoWork);
 
             this.txtFindResult.ReadOnly = true;
             this.txtReplaceResult.ReadOnly = true;
@@ -70,9 +72,14 @@ namespace XCLRegexpTool
             StringBuilder strFindResult = new StringBuilder();
             Regex reg = null;
             RegexOptions regexOption = RegexOptions.None;
+
             if (this.ckIgnoreCase.Checked)
             {
                 regexOption = RegexOptions.IgnoreCase;
+            }
+            if (this.ckMutipLine.Checked)
+            {
+                regexOption |= RegexOptions.Multiline;
             }
 
             try
@@ -89,12 +96,19 @@ namespace XCLRegexpTool
                 return;
             }
 
-            var match = reg.Match(this.txtInputString.Text);
-            if (null != match && null != match.Groups && match.Groups.Count > 0)
+            var lineNumber = 1;
+            var matches = reg.Matches(this.txtInputString.Text);
+            if (null != matches && matches.Count > 0)
             {
-                for (int i = 0; i < match.Groups.Count; i++)
+                foreach (Match match in matches)
                 {
-                    strFindResult.AppendFormat("{0}：{1}\r\n", i + 1, match.Groups[i].Value);
+                    if (null != match && null != match.Groups && match.Groups.Count > 0)
+                    {
+                        for (int i = 0; i < match.Groups.Count; i++)
+                        {
+                            strFindResult.AppendFormat("{0}：{1}\r\n", lineNumber++, match.Groups[i].Value);
+                        }
+                    }
                 }
             }
             this.txtFindResult.Text = strFindResult.Length > 0 ? strFindResult.ToString() : "未匹配到任何结果！";
