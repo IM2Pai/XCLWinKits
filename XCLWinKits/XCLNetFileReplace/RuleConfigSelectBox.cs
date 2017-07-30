@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
+using XCLNetTools.Generic;
 
 namespace XCLNetFileReplace
 {
@@ -186,6 +188,29 @@ namespace XCLNetFileReplace
             }
 
             this.InitRuleConfigGrid();
+        }
+
+        /// <summary>
+        /// 导出规则
+        /// </summary>
+        private void btnRuleOutput_Click(object sender, EventArgs e)
+        {
+            var lst = this.dataGridRuleConfig.DataSource as List<DataLayer.Model.v_FileReplace_RuleConfig>;
+            if (lst.IsNullOrEmpty())
+            {
+                MessageBox.Show("没有任何规则数据需要导出！", "系统提示");
+                return;
+            }
+            var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop), string.Format("规则信息{0:yyyyMMddHHmmssfff}.xlsx", DateTime.Now));
+            var ds = XCLNetTools.DataSource.DataTableHelper.ToDataSet(lst);
+            XCLNetTools.Office.ExcelHandler.DataToExcel.OutPutExcel(new XCLNetTools.Entity.Office.ExcelHandler.OutPutParamClass()
+            {
+                AutoDownLoad = false,
+                ConTitle = new string[] { "规则信息" },
+                CustomFileName = path,
+                Ds = ds
+            });
+            MessageBox.Show("导出成功："+path, "系统提示");
         }
 
         #endregion 规则选择TabPage

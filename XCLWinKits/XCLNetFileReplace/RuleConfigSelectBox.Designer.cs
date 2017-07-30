@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridRuleConfig = new System.Windows.Forms.DataGridView();
             this.grid_RuleConfigID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grid_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,6 +79,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtRuleName = new System.Windows.Forms.TextBox();
             this.tabPageSelectRule = new System.Windows.Forms.TabPage();
+            this.btnRuleOutput = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRuleConfig)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.tabRuleConfig.SuspendLayout();
@@ -98,14 +99,14 @@
             this.dataGridRuleConfig.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridRuleConfig.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridRuleConfig.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridRuleConfig.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridRuleConfig.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridRuleConfig.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridRuleConfig.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.grid_RuleConfigID,
@@ -119,20 +120,21 @@
             this.grid_IsFileContent_Text,
             this.grid_CreateTime,
             this.grid_UpdateTime});
-            this.dataGridRuleConfig.Location = new System.Drawing.Point(3, 6);
+            this.dataGridRuleConfig.Location = new System.Drawing.Point(4, 8);
+            this.dataGridRuleConfig.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridRuleConfig.Name = "dataGridRuleConfig";
             this.dataGridRuleConfig.ReadOnly = true;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridRuleConfig.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridRuleConfig.RowHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridRuleConfig.RowTemplate.Height = 23;
             this.dataGridRuleConfig.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridRuleConfig.Size = new System.Drawing.Size(913, 434);
+            this.dataGridRuleConfig.Size = new System.Drawing.Size(1217, 545);
             this.dataGridRuleConfig.TabIndex = 1;
             this.dataGridRuleConfig.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridRuleConfig_DataBindingComplete);
             this.dataGridRuleConfig.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridRuleConfig_RowPostPaint);
@@ -140,8 +142,8 @@
             // grid_RuleConfigID
             // 
             this.grid_RuleConfigID.DataPropertyName = "RuleConfigID";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_RuleConfigID.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_RuleConfigID.DefaultCellStyle = dataGridViewCellStyle15;
             this.grid_RuleConfigID.HeaderText = "ID";
             this.grid_RuleConfigID.Name = "grid_RuleConfigID";
             this.grid_RuleConfigID.ReadOnly = true;
@@ -150,8 +152,8 @@
             // grid_Name
             // 
             this.grid_Name.DataPropertyName = "Name";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_Name.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_Name.DefaultCellStyle = dataGridViewCellStyle16;
             this.grid_Name.HeaderText = "名称";
             this.grid_Name.Name = "grid_Name";
             this.grid_Name.ReadOnly = true;
@@ -159,8 +161,8 @@
             // grid_OldContent
             // 
             this.grid_OldContent.DataPropertyName = "OldContent";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_OldContent.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_OldContent.DefaultCellStyle = dataGridViewCellStyle17;
             this.grid_OldContent.HeaderText = "查找内容";
             this.grid_OldContent.Name = "grid_OldContent";
             this.grid_OldContent.ReadOnly = true;
@@ -168,8 +170,8 @@
             // grid_NewContent
             // 
             this.grid_NewContent.DataPropertyName = "NewContent";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_NewContent.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_NewContent.DefaultCellStyle = dataGridViewCellStyle18;
             this.grid_NewContent.HeaderText = "替换内容";
             this.grid_NewContent.Name = "grid_NewContent";
             this.grid_NewContent.ReadOnly = true;
@@ -177,8 +179,8 @@
             // grid_IsRegex_Text
             // 
             this.grid_IsRegex_Text.DataPropertyName = "IsRegex_Text";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsRegex_Text.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_IsRegex_Text.DefaultCellStyle = dataGridViewCellStyle19;
             this.grid_IsRegex_Text.HeaderText = "是否为正则表达式";
             this.grid_IsRegex_Text.Name = "grid_IsRegex_Text";
             this.grid_IsRegex_Text.ReadOnly = true;
@@ -187,8 +189,8 @@
             // grid_IsIgnoreCase_Text
             // 
             this.grid_IsIgnoreCase_Text.DataPropertyName = "IsIgnoreCase_Text";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsIgnoreCase_Text.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_IsIgnoreCase_Text.DefaultCellStyle = dataGridViewCellStyle20;
             this.grid_IsIgnoreCase_Text.HeaderText = "是否区分大小写";
             this.grid_IsIgnoreCase_Text.Name = "grid_IsIgnoreCase_Text";
             this.grid_IsIgnoreCase_Text.ReadOnly = true;
@@ -197,8 +199,8 @@
             // grid_IsWholeMatch_Text
             // 
             this.grid_IsWholeMatch_Text.DataPropertyName = "IsWholeMatch_Text";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsWholeMatch_Text.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_IsWholeMatch_Text.DefaultCellStyle = dataGridViewCellStyle21;
             this.grid_IsWholeMatch_Text.HeaderText = "是否整字匹配";
             this.grid_IsWholeMatch_Text.Name = "grid_IsWholeMatch_Text";
             this.grid_IsWholeMatch_Text.ReadOnly = true;
@@ -207,8 +209,8 @@
             // grid_IsFileName_Text
             // 
             this.grid_IsFileName_Text.DataPropertyName = "IsFileName_Text";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsFileName_Text.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_IsFileName_Text.DefaultCellStyle = dataGridViewCellStyle22;
             this.grid_IsFileName_Text.HeaderText = "是否匹配文件名";
             this.grid_IsFileName_Text.Name = "grid_IsFileName_Text";
             this.grid_IsFileName_Text.ReadOnly = true;
@@ -217,8 +219,8 @@
             // grid_IsFileContent_Text
             // 
             this.grid_IsFileContent_Text.DataPropertyName = "IsFileContent_Text";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsFileContent_Text.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_IsFileContent_Text.DefaultCellStyle = dataGridViewCellStyle23;
             this.grid_IsFileContent_Text.HeaderText = "是否匹配文件内容";
             this.grid_IsFileContent_Text.Name = "grid_IsFileContent_Text";
             this.grid_IsFileContent_Text.ReadOnly = true;
@@ -227,8 +229,8 @@
             // grid_CreateTime
             // 
             this.grid_CreateTime.DataPropertyName = "CreateTime";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_CreateTime.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_CreateTime.DefaultCellStyle = dataGridViewCellStyle24;
             this.grid_CreateTime.HeaderText = "创建时间";
             this.grid_CreateTime.Name = "grid_CreateTime";
             this.grid_CreateTime.ReadOnly = true;
@@ -236,34 +238,37 @@
             // grid_UpdateTime
             // 
             this.grid_UpdateTime.DataPropertyName = "UpdateTime";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_UpdateTime.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_UpdateTime.DefaultCellStyle = dataGridViewCellStyle25;
             this.grid_UpdateTime.HeaderText = "更新时间";
             this.grid_UpdateTime.Name = "grid_UpdateTime";
             this.grid_UpdateTime.ReadOnly = true;
             // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 501);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 629);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(930, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1240, 25);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(160, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(200, 20);
             this.toolStripStatusLabel1.Text = "说明：按Ctrl键可进行多选！";
             // 
             // btnSelectAll
             // 
             this.btnSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectAll.Location = new System.Drawing.Point(593, 446);
+            this.btnSelectAll.Location = new System.Drawing.Point(791, 561);
+            this.btnSelectAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSelectAll.Name = "btnSelectAll";
-            this.btnSelectAll.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectAll.Size = new System.Drawing.Size(100, 29);
             this.btnSelectAll.TabIndex = 3;
             this.btnSelectAll.Text = "全选";
             this.btnSelectAll.UseVisualStyleBackColor = true;
@@ -272,9 +277,10 @@
             // btnSelectNone
             // 
             this.btnSelectNone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectNone.Location = new System.Drawing.Point(755, 446);
+            this.btnSelectNone.Location = new System.Drawing.Point(1007, 561);
+            this.btnSelectNone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSelectNone.Name = "btnSelectNone";
-            this.btnSelectNone.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectNone.Size = new System.Drawing.Size(100, 29);
             this.btnSelectNone.TabIndex = 4;
             this.btnSelectNone.Text = "全不选";
             this.btnSelectNone.UseVisualStyleBackColor = true;
@@ -283,9 +289,10 @@
             // btnSelectInverse
             // 
             this.btnSelectInverse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectInverse.Location = new System.Drawing.Point(674, 446);
+            this.btnSelectInverse.Location = new System.Drawing.Point(899, 561);
+            this.btnSelectInverse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSelectInverse.Name = "btnSelectInverse";
-            this.btnSelectInverse.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectInverse.Size = new System.Drawing.Size(100, 29);
             this.btnSelectInverse.TabIndex = 5;
             this.btnSelectInverse.Text = "反选";
             this.btnSelectInverse.UseVisualStyleBackColor = true;
@@ -294,9 +301,10 @@
             // btnSelectOK
             // 
             this.btnSelectOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectOK.Location = new System.Drawing.Point(836, 446);
+            this.btnSelectOK.Location = new System.Drawing.Point(1115, 561);
+            this.btnSelectOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSelectOK.Name = "btnSelectOK";
-            this.btnSelectOK.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectOK.Size = new System.Drawing.Size(100, 29);
             this.btnSelectOK.TabIndex = 6;
             this.btnSelectOK.Text = "选好了";
             this.btnSelectOK.UseVisualStyleBackColor = true;
@@ -305,9 +313,10 @@
             // btnAdd
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAdd.Location = new System.Drawing.Point(8, 446);
+            this.btnAdd.Location = new System.Drawing.Point(11, 561);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(100, 29);
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "添加新规则";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -316,9 +325,10 @@
             // btnUpdate
             // 
             this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnUpdate.Location = new System.Drawing.Point(89, 446);
+            this.btnUpdate.Location = new System.Drawing.Point(119, 561);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(100, 29);
             this.btnUpdate.TabIndex = 8;
             this.btnUpdate.Text = "修改规则";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -327,9 +337,10 @@
             // btnDel
             // 
             this.btnDel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDel.Location = new System.Drawing.Point(170, 446);
+            this.btnDel.Location = new System.Drawing.Point(227, 561);
+            this.btnDel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(75, 23);
+            this.btnDel.Size = new System.Drawing.Size(100, 29);
             this.btnDel.TabIndex = 9;
             this.btnDel.Text = "删除规则";
             this.btnDel.UseVisualStyleBackColor = true;
@@ -341,9 +352,10 @@
             this.tabRuleConfig.Controls.Add(this.tabPageSelectRule);
             this.tabRuleConfig.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabRuleConfig.Location = new System.Drawing.Point(0, 0);
+            this.tabRuleConfig.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabRuleConfig.Name = "tabRuleConfig";
             this.tabRuleConfig.SelectedIndex = 0;
-            this.tabRuleConfig.Size = new System.Drawing.Size(930, 501);
+            this.tabRuleConfig.Size = new System.Drawing.Size(1240, 629);
             this.tabRuleConfig.TabIndex = 10;
             // 
             // tabPageAdd
@@ -355,10 +367,11 @@
             this.tabPageAdd.Controls.Add(this.txtRuleID);
             this.tabPageAdd.Controls.Add(this.label1);
             this.tabPageAdd.Controls.Add(this.txtRuleName);
-            this.tabPageAdd.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAdd.Location = new System.Drawing.Point(4, 25);
+            this.tabPageAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageAdd.Name = "tabPageAdd";
-            this.tabPageAdd.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAdd.Size = new System.Drawing.Size(922, 475);
+            this.tabPageAdd.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageAdd.Size = new System.Drawing.Size(1232, 600);
             this.tabPageAdd.TabIndex = 1;
             this.tabPageAdd.Text = "添加或修改规则";
             this.tabPageAdd.UseVisualStyleBackColor = true;
@@ -366,9 +379,10 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(814, 429);
+            this.btnSave.Location = new System.Drawing.Point(1085, 539);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(97, 31);
+            this.btnSave.Size = new System.Drawing.Size(129, 39);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "保存规则";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -377,9 +391,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(262, 13);
+            this.label2.Location = new System.Drawing.Point(349, 16);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(68, 15);
             this.label2.TabIndex = 7;
             this.label2.Text = "规则ID：";
             // 
@@ -389,9 +404,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.txtNewContent);
-            this.groupBox4.Location = new System.Drawing.Point(10, 246);
+            this.groupBox4.Location = new System.Drawing.Point(13, 308);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(904, 167);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Size = new System.Drawing.Size(1205, 212);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "替换内容：";
@@ -399,10 +416,11 @@
             // txtNewContent
             // 
             this.txtNewContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNewContent.Location = new System.Drawing.Point(3, 17);
+            this.txtNewContent.Location = new System.Drawing.Point(4, 22);
+            this.txtNewContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNewContent.Multiline = true;
             this.txtNewContent.Name = "txtNewContent";
-            this.txtNewContent.Size = new System.Drawing.Size(898, 147);
+            this.txtNewContent.Size = new System.Drawing.Size(1197, 186);
             this.txtNewContent.TabIndex = 0;
             // 
             // groupBox3
@@ -415,9 +433,11 @@
             this.groupBox3.Controls.Add(this.ckIsIgnoreCase);
             this.groupBox3.Controls.Add(this.ckIsRegex);
             this.groupBox3.Controls.Add(this.txtOldContent);
-            this.groupBox3.Location = new System.Drawing.Point(10, 35);
+            this.groupBox3.Location = new System.Drawing.Point(13, 44);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(904, 205);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(1205, 256);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "查找内容：";
@@ -425,9 +445,10 @@
             // ckIsFileContent
             // 
             this.ckIsFileContent.AutoSize = true;
-            this.ckIsFileContent.Location = new System.Drawing.Point(98, 169);
+            this.ckIsFileContent.Location = new System.Drawing.Point(131, 211);
+            this.ckIsFileContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ckIsFileContent.Name = "ckIsFileContent";
-            this.ckIsFileContent.Size = new System.Drawing.Size(72, 16);
+            this.ckIsFileContent.Size = new System.Drawing.Size(89, 19);
             this.ckIsFileContent.TabIndex = 16;
             this.ckIsFileContent.Text = "文件内容";
             this.ckIsFileContent.UseVisualStyleBackColor = true;
@@ -436,9 +457,10 @@
             // ckIsFileName
             // 
             this.ckIsFileName.AutoSize = true;
-            this.ckIsFileName.Location = new System.Drawing.Point(7, 169);
+            this.ckIsFileName.Location = new System.Drawing.Point(9, 211);
+            this.ckIsFileName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ckIsFileName.Name = "ckIsFileName";
-            this.ckIsFileName.Size = new System.Drawing.Size(60, 16);
+            this.ckIsFileName.Size = new System.Drawing.Size(74, 19);
             this.ckIsFileName.TabIndex = 15;
             this.ckIsFileName.Text = "文件名";
             this.ckIsFileName.UseVisualStyleBackColor = true;
@@ -447,9 +469,10 @@
             // ckIsWholeMatch
             // 
             this.ckIsWholeMatch.AutoSize = true;
-            this.ckIsWholeMatch.Location = new System.Drawing.Point(189, 147);
+            this.ckIsWholeMatch.Location = new System.Drawing.Point(252, 184);
+            this.ckIsWholeMatch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ckIsWholeMatch.Name = "ckIsWholeMatch";
-            this.ckIsWholeMatch.Size = new System.Drawing.Size(72, 16);
+            this.ckIsWholeMatch.Size = new System.Drawing.Size(89, 19);
             this.ckIsWholeMatch.TabIndex = 14;
             this.ckIsWholeMatch.Text = "整字匹配";
             this.ckIsWholeMatch.UseVisualStyleBackColor = true;
@@ -458,9 +481,10 @@
             // ckIsIgnoreCase
             // 
             this.ckIsIgnoreCase.AutoSize = true;
-            this.ckIsIgnoreCase.Location = new System.Drawing.Point(98, 147);
+            this.ckIsIgnoreCase.Location = new System.Drawing.Point(131, 184);
+            this.ckIsIgnoreCase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ckIsIgnoreCase.Name = "ckIsIgnoreCase";
-            this.ckIsIgnoreCase.Size = new System.Drawing.Size(84, 16);
+            this.ckIsIgnoreCase.Size = new System.Drawing.Size(104, 19);
             this.ckIsIgnoreCase.TabIndex = 13;
             this.ckIsIgnoreCase.Text = "忽略大小写";
             this.ckIsIgnoreCase.UseVisualStyleBackColor = true;
@@ -468,9 +492,10 @@
             // ckIsRegex
             // 
             this.ckIsRegex.AutoSize = true;
-            this.ckIsRegex.Location = new System.Drawing.Point(7, 147);
+            this.ckIsRegex.Location = new System.Drawing.Point(9, 184);
+            this.ckIsRegex.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ckIsRegex.Name = "ckIsRegex";
-            this.ckIsRegex.Size = new System.Drawing.Size(84, 16);
+            this.ckIsRegex.Size = new System.Drawing.Size(104, 19);
             this.ckIsRegex.TabIndex = 12;
             this.ckIsRegex.Text = "正则表达式";
             this.ckIsRegex.UseVisualStyleBackColor = true;
@@ -480,38 +505,43 @@
             // 
             this.txtOldContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtOldContent.Location = new System.Drawing.Point(7, 20);
+            this.txtOldContent.Location = new System.Drawing.Point(9, 25);
+            this.txtOldContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtOldContent.Multiline = true;
             this.txtOldContent.Name = "txtOldContent";
-            this.txtOldContent.Size = new System.Drawing.Size(891, 121);
+            this.txtOldContent.Size = new System.Drawing.Size(1187, 150);
             this.txtOldContent.TabIndex = 0;
             // 
             // txtRuleID
             // 
             this.txtRuleID.Enabled = false;
-            this.txtRuleID.Location = new System.Drawing.Point(321, 8);
+            this.txtRuleID.Location = new System.Drawing.Point(428, 10);
+            this.txtRuleID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRuleID.Name = "txtRuleID";
-            this.txtRuleID.Size = new System.Drawing.Size(100, 21);
+            this.txtRuleID.Size = new System.Drawing.Size(132, 25);
             this.txtRuleID.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 13);
+            this.label1.Location = new System.Drawing.Point(13, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 5;
             this.label1.Text = "规则名：";
             // 
             // txtRuleName
             // 
-            this.txtRuleName.Location = new System.Drawing.Point(65, 8);
+            this.txtRuleName.Location = new System.Drawing.Point(87, 10);
+            this.txtRuleName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRuleName.Name = "txtRuleName";
-            this.txtRuleName.Size = new System.Drawing.Size(166, 21);
+            this.txtRuleName.Size = new System.Drawing.Size(220, 25);
             this.txtRuleName.TabIndex = 4;
             // 
             // tabPageSelectRule
             // 
+            this.tabPageSelectRule.Controls.Add(this.btnRuleOutput);
             this.tabPageSelectRule.Controls.Add(this.dataGridRuleConfig);
             this.tabPageSelectRule.Controls.Add(this.btnDel);
             this.tabPageSelectRule.Controls.Add(this.btnUpdate);
@@ -520,22 +550,36 @@
             this.tabPageSelectRule.Controls.Add(this.btnSelectNone);
             this.tabPageSelectRule.Controls.Add(this.btnSelectOK);
             this.tabPageSelectRule.Controls.Add(this.btnSelectInverse);
-            this.tabPageSelectRule.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSelectRule.Location = new System.Drawing.Point(4, 25);
+            this.tabPageSelectRule.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageSelectRule.Name = "tabPageSelectRule";
-            this.tabPageSelectRule.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSelectRule.Size = new System.Drawing.Size(922, 475);
+            this.tabPageSelectRule.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageSelectRule.Size = new System.Drawing.Size(1232, 600);
             this.tabPageSelectRule.TabIndex = 0;
             this.tabPageSelectRule.Text = "选择规则";
             this.tabPageSelectRule.UseVisualStyleBackColor = true;
             // 
+            // btnRuleOutput
+            // 
+            this.btnRuleOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRuleOutput.Location = new System.Drawing.Point(335, 562);
+            this.btnRuleOutput.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRuleOutput.Name = "btnRuleOutput";
+            this.btnRuleOutput.Size = new System.Drawing.Size(100, 29);
+            this.btnRuleOutput.TabIndex = 10;
+            this.btnRuleOutput.Text = "导出规则";
+            this.btnRuleOutput.UseVisualStyleBackColor = true;
+            this.btnRuleOutput.Click += new System.EventHandler(this.btnRuleOutput_Click);
+            // 
             // RuleConfigSelectBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(930, 523);
+            this.ClientSize = new System.Drawing.Size(1240, 654);
             this.Controls.Add(this.tabRuleConfig);
             this.Controls.Add(this.statusStrip1);
-            this.MinimumSize = new System.Drawing.Size(946, 562);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1255, 691);
             this.Name = "RuleConfigSelectBox";
             this.Text = "RuleConfigSelectBox";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RuleConfigSelectBox_FormClosing);
@@ -595,5 +639,6 @@
         private System.Windows.Forms.CheckBox ckIsIgnoreCase;
         private System.Windows.Forms.CheckBox ckIsRegex;
         private System.Windows.Forms.TextBox txtOldContent;
+        private System.Windows.Forms.Button btnRuleOutput;
     }
 }
