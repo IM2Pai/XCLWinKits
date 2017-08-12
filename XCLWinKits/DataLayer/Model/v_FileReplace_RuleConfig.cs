@@ -64,7 +64,7 @@ namespace DataLayer.Model
         public DateTime CreateTime { get; set; }
 
         /// <summary>
-        /// 个性时间
+        /// 修改时间
         /// </summary>
         public DateTime UpdateTime { get; set; }
 

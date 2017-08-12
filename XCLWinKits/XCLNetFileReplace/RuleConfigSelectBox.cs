@@ -208,9 +208,57 @@ namespace XCLNetFileReplace
                 AutoDownLoad = false,
                 ConTitle = new string[] { "规则信息" },
                 CustomFileName = path,
-                Ds = ds
+                Ds = ds,
+                OutPutClass = new List<XCLNetTools.Entity.Office.ExcelHandler.OutPutClass>() {
+                    new XCLNetTools.Entity.Office.ExcelHandler.OutPutClass(){
+                        Fields=new List<XCLNetTools.Entity.Office.ExcelHandler.OutPutField>(){
+                            new XCLNetTools.Entity.Office.ExcelHandler.OutPutField(){
+                                oldName="Name",
+                                newName="名称"
+                            },
+                            new XCLNetTools.Entity.Office.ExcelHandler.OutPutField(){
+                                oldName="OldContent",
+                                newName="查找内容"
+                            },
+                            new XCLNetTools.Entity.Office.ExcelHandler.OutPutField(){
+                                oldName="NewContent",
+                                newName="替换内容"
+                            },
+                            new XCLNetTools.Entity.Office.ExcelHandler.OutPutField(){
+                                oldName="IsRegex_Text",
+                                newName="是否为正则表达式"
+                            },
+                            new XCLNetTools.Entity.Office.ExcelHandler.OutPutField(){
+                                oldName="IsIgnoreCase_Text",
+                                newName="是否区分大小写"
+                            },
+                            new XCLNetTools.Entity.Office.ExcelHandler.OutPutField(){
+                                oldName="IsWholeMatch_Text",
+                                newName="是否整字匹配"
+                            },
+                            new XCLNetTools.Entity.Office.ExcelHandler.OutPutField(){
+                                oldName="IsFileName_Text",
+                                newName="是否匹配文件名"
+                            },
+                            new XCLNetTools.Entity.Office.ExcelHandler.OutPutField(){
+                                oldName="IsFileContent_Text",
+                                newName="是否匹配文件内容"
+                            },
+                            new XCLNetTools.Entity.Office.ExcelHandler.OutPutField(){
+                                oldName="CreateTime",
+                                newName="创建时间"
+                            },
+                            new XCLNetTools.Entity.Office.ExcelHandler.OutPutField(){
+                                oldName="UpdateTime",
+                                newName="更新时间"
+                            }
+                        },
+                        TableName="规则信息字段"
+                    }
+                },
+                TableName = new string[] { "规则信息字段" }
             });
-            MessageBox.Show("导出成功："+path, "系统提示");
+            MessageBox.Show("导出成功：" + path, "系统提示");
         }
 
         #endregion 规则选择TabPage
