@@ -80,6 +80,7 @@
             this.txtRuleName = new System.Windows.Forms.TextBox();
             this.tabPageSelectRule = new System.Windows.Forms.TabPage();
             this.btnRuleOutput = new System.Windows.Forms.Button();
+            this.btnInput = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRuleConfig)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.tabRuleConfig.SuspendLayout();
@@ -121,7 +122,7 @@
             this.grid_CreateTime,
             this.grid_UpdateTime});
             this.dataGridRuleConfig.Location = new System.Drawing.Point(4, 8);
-            this.dataGridRuleConfig.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridRuleConfig.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridRuleConfig.Name = "dataGridRuleConfig";
             this.dataGridRuleConfig.ReadOnly = true;
             dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -266,7 +267,7 @@
             // 
             this.btnSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelectAll.Location = new System.Drawing.Point(791, 561);
-            this.btnSelectAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelectAll.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelectAll.Name = "btnSelectAll";
             this.btnSelectAll.Size = new System.Drawing.Size(100, 29);
             this.btnSelectAll.TabIndex = 3;
@@ -278,7 +279,7 @@
             // 
             this.btnSelectNone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelectNone.Location = new System.Drawing.Point(1007, 561);
-            this.btnSelectNone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelectNone.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelectNone.Name = "btnSelectNone";
             this.btnSelectNone.Size = new System.Drawing.Size(100, 29);
             this.btnSelectNone.TabIndex = 4;
@@ -290,7 +291,7 @@
             // 
             this.btnSelectInverse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelectInverse.Location = new System.Drawing.Point(899, 561);
-            this.btnSelectInverse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelectInverse.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelectInverse.Name = "btnSelectInverse";
             this.btnSelectInverse.Size = new System.Drawing.Size(100, 29);
             this.btnSelectInverse.TabIndex = 5;
@@ -302,7 +303,7 @@
             // 
             this.btnSelectOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelectOK.Location = new System.Drawing.Point(1115, 561);
-            this.btnSelectOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelectOK.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelectOK.Name = "btnSelectOK";
             this.btnSelectOK.Size = new System.Drawing.Size(100, 29);
             this.btnSelectOK.TabIndex = 6;
@@ -314,7 +315,7 @@
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAdd.Location = new System.Drawing.Point(11, 561);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 29);
             this.btnAdd.TabIndex = 7;
@@ -326,7 +327,7 @@
             // 
             this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnUpdate.Location = new System.Drawing.Point(119, 561);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(100, 29);
             this.btnUpdate.TabIndex = 8;
@@ -338,7 +339,7 @@
             // 
             this.btnDel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDel.Location = new System.Drawing.Point(227, 561);
-            this.btnDel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDel.Margin = new System.Windows.Forms.Padding(4);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(100, 29);
             this.btnDel.TabIndex = 9;
@@ -352,7 +353,7 @@
             this.tabRuleConfig.Controls.Add(this.tabPageSelectRule);
             this.tabRuleConfig.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabRuleConfig.Location = new System.Drawing.Point(0, 0);
-            this.tabRuleConfig.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabRuleConfig.Margin = new System.Windows.Forms.Padding(4);
             this.tabRuleConfig.Name = "tabRuleConfig";
             this.tabRuleConfig.SelectedIndex = 0;
             this.tabRuleConfig.Size = new System.Drawing.Size(1240, 629);
@@ -368,9 +369,9 @@
             this.tabPageAdd.Controls.Add(this.label1);
             this.tabPageAdd.Controls.Add(this.txtRuleName);
             this.tabPageAdd.Location = new System.Drawing.Point(4, 25);
-            this.tabPageAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageAdd.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageAdd.Name = "tabPageAdd";
-            this.tabPageAdd.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageAdd.Padding = new System.Windows.Forms.Padding(4);
             this.tabPageAdd.Size = new System.Drawing.Size(1232, 600);
             this.tabPageAdd.TabIndex = 1;
             this.tabPageAdd.Text = "添加或修改规则";
@@ -380,7 +381,7 @@
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Location = new System.Drawing.Point(1085, 539);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(129, 39);
             this.btnSave.TabIndex = 2;
@@ -405,9 +406,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.txtNewContent);
             this.groupBox4.Location = new System.Drawing.Point(13, 308);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(1205, 212);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
@@ -417,7 +418,7 @@
             // 
             this.txtNewContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtNewContent.Location = new System.Drawing.Point(4, 22);
-            this.txtNewContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNewContent.Margin = new System.Windows.Forms.Padding(4);
             this.txtNewContent.Multiline = true;
             this.txtNewContent.Name = "txtNewContent";
             this.txtNewContent.Size = new System.Drawing.Size(1197, 186);
@@ -434,9 +435,9 @@
             this.groupBox3.Controls.Add(this.ckIsRegex);
             this.groupBox3.Controls.Add(this.txtOldContent);
             this.groupBox3.Location = new System.Drawing.Point(13, 44);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(1205, 256);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
@@ -446,7 +447,7 @@
             // 
             this.ckIsFileContent.AutoSize = true;
             this.ckIsFileContent.Location = new System.Drawing.Point(131, 211);
-            this.ckIsFileContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ckIsFileContent.Margin = new System.Windows.Forms.Padding(4);
             this.ckIsFileContent.Name = "ckIsFileContent";
             this.ckIsFileContent.Size = new System.Drawing.Size(89, 19);
             this.ckIsFileContent.TabIndex = 16;
@@ -458,7 +459,7 @@
             // 
             this.ckIsFileName.AutoSize = true;
             this.ckIsFileName.Location = new System.Drawing.Point(9, 211);
-            this.ckIsFileName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ckIsFileName.Margin = new System.Windows.Forms.Padding(4);
             this.ckIsFileName.Name = "ckIsFileName";
             this.ckIsFileName.Size = new System.Drawing.Size(74, 19);
             this.ckIsFileName.TabIndex = 15;
@@ -470,7 +471,7 @@
             // 
             this.ckIsWholeMatch.AutoSize = true;
             this.ckIsWholeMatch.Location = new System.Drawing.Point(252, 184);
-            this.ckIsWholeMatch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ckIsWholeMatch.Margin = new System.Windows.Forms.Padding(4);
             this.ckIsWholeMatch.Name = "ckIsWholeMatch";
             this.ckIsWholeMatch.Size = new System.Drawing.Size(89, 19);
             this.ckIsWholeMatch.TabIndex = 14;
@@ -482,7 +483,7 @@
             // 
             this.ckIsIgnoreCase.AutoSize = true;
             this.ckIsIgnoreCase.Location = new System.Drawing.Point(131, 184);
-            this.ckIsIgnoreCase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ckIsIgnoreCase.Margin = new System.Windows.Forms.Padding(4);
             this.ckIsIgnoreCase.Name = "ckIsIgnoreCase";
             this.ckIsIgnoreCase.Size = new System.Drawing.Size(104, 19);
             this.ckIsIgnoreCase.TabIndex = 13;
@@ -493,7 +494,7 @@
             // 
             this.ckIsRegex.AutoSize = true;
             this.ckIsRegex.Location = new System.Drawing.Point(9, 184);
-            this.ckIsRegex.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ckIsRegex.Margin = new System.Windows.Forms.Padding(4);
             this.ckIsRegex.Name = "ckIsRegex";
             this.ckIsRegex.Size = new System.Drawing.Size(104, 19);
             this.ckIsRegex.TabIndex = 12;
@@ -506,7 +507,7 @@
             this.txtOldContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtOldContent.Location = new System.Drawing.Point(9, 25);
-            this.txtOldContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtOldContent.Margin = new System.Windows.Forms.Padding(4);
             this.txtOldContent.Multiline = true;
             this.txtOldContent.Name = "txtOldContent";
             this.txtOldContent.Size = new System.Drawing.Size(1187, 150);
@@ -516,7 +517,7 @@
             // 
             this.txtRuleID.Enabled = false;
             this.txtRuleID.Location = new System.Drawing.Point(428, 10);
-            this.txtRuleID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRuleID.Margin = new System.Windows.Forms.Padding(4);
             this.txtRuleID.Name = "txtRuleID";
             this.txtRuleID.Size = new System.Drawing.Size(132, 25);
             this.txtRuleID.TabIndex = 6;
@@ -534,13 +535,14 @@
             // txtRuleName
             // 
             this.txtRuleName.Location = new System.Drawing.Point(87, 10);
-            this.txtRuleName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRuleName.Margin = new System.Windows.Forms.Padding(4);
             this.txtRuleName.Name = "txtRuleName";
             this.txtRuleName.Size = new System.Drawing.Size(220, 25);
             this.txtRuleName.TabIndex = 4;
             // 
             // tabPageSelectRule
             // 
+            this.tabPageSelectRule.Controls.Add(this.btnInput);
             this.tabPageSelectRule.Controls.Add(this.btnRuleOutput);
             this.tabPageSelectRule.Controls.Add(this.dataGridRuleConfig);
             this.tabPageSelectRule.Controls.Add(this.btnDel);
@@ -551,9 +553,9 @@
             this.tabPageSelectRule.Controls.Add(this.btnSelectOK);
             this.tabPageSelectRule.Controls.Add(this.btnSelectInverse);
             this.tabPageSelectRule.Location = new System.Drawing.Point(4, 25);
-            this.tabPageSelectRule.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageSelectRule.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageSelectRule.Name = "tabPageSelectRule";
-            this.tabPageSelectRule.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageSelectRule.Padding = new System.Windows.Forms.Padding(4);
             this.tabPageSelectRule.Size = new System.Drawing.Size(1232, 600);
             this.tabPageSelectRule.TabIndex = 0;
             this.tabPageSelectRule.Text = "选择规则";
@@ -571,6 +573,18 @@
             this.btnRuleOutput.UseVisualStyleBackColor = true;
             this.btnRuleOutput.Click += new System.EventHandler(this.btnRuleOutput_Click);
             // 
+            // btnInput
+            // 
+            this.btnInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnInput.Location = new System.Drawing.Point(443, 562);
+            this.btnInput.Margin = new System.Windows.Forms.Padding(4);
+            this.btnInput.Name = "btnInput";
+            this.btnInput.Size = new System.Drawing.Size(100, 29);
+            this.btnInput.TabIndex = 11;
+            this.btnInput.Text = "导入规则";
+            this.btnInput.UseVisualStyleBackColor = true;
+            this.btnInput.Click += new System.EventHandler(this.btnInput_Click);
+            // 
             // RuleConfigSelectBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -578,7 +592,7 @@
             this.ClientSize = new System.Drawing.Size(1240, 654);
             this.Controls.Add(this.tabRuleConfig);
             this.Controls.Add(this.statusStrip1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1255, 691);
             this.Name = "RuleConfigSelectBox";
             this.Text = "RuleConfigSelectBox";
@@ -640,5 +654,6 @@
         private System.Windows.Forms.CheckBox ckIsRegex;
         private System.Windows.Forms.TextBox txtOldContent;
         private System.Windows.Forms.Button btnRuleOutput;
+        private System.Windows.Forms.Button btnInput;
     }
 }

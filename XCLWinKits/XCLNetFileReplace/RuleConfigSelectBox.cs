@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -261,6 +262,51 @@ namespace XCLNetFileReplace
             MessageBox.Show("导出成功：" + path, "系统提示");
         }
 
+        /// <summary>
+        /// 导入规则
+        /// </summary>
+        private void btnInput_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Filter = "Excel文件|*.xls;*.xlsx";
+            if (openFile.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+            {
+                return;
+            }
+            try
+            {
+                var dt=XCLNetTools.Office.ExcelHandler.ExcelToData.ReadExcelToTable(openFile.FileNames[0]);
+                var nameColIndex= XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "名称");
+                var oldContentColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "查找内容");
+                var newContentColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "替换内容");
+                var isRegexColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "是否为正则表达式");
+                var isIgnoreCaseColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "是否区分大小写");
+                var isWholeMatchColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "是否整字匹配");
+                var isFileNameColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "是否匹配文件名");
+                var isFileContentColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "是否匹配文件内容");
+                var createTimeColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "创建时间");
+                var updateTimeColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "更新时间");
+
+                if (nameColIndex == -1 || oldContentColIndex == -1 || newContentColIndex == -1 || isRegexColIndex == -1 || isIgnoreCaseColIndex == -1 || isWholeMatchColIndex == -1 || isFileNameColIndex == -1 || isFileContentColIndex == -1 || createTimeColIndex == -1 || updateTimeColIndex == -1)
+                {
+                    MessageBox.Show("准备导入的文件模板缺少相关列，请确保模板是正确的（可以将导出的Excel文件作为模板）！", "系统提示");
+                    return;
+                }
+
+                foreach (DataRow m in dt.Rows)
+                {
+
+
+
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("系统错误，请重新选择有效的文件！", "系统提示");
+            }
+        }
+
         #endregion 规则选择TabPage
 
         #region 添加或修改规则TabPage
@@ -388,5 +434,7 @@ namespace XCLNetFileReplace
                 _mainForm.InitCurrentRuleList();
             }
         }
+
+
     }
 }
