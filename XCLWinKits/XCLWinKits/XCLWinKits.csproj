@@ -56,6 +56,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DllFiles\Aspose\Aspose.Words.dll</HintPath>
     </Reference>
+    <Reference Include="AutoUpdater.NET, Version=1.4.3.0, Culture=neutral, PublicKeyToken=942f95247e354701, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autoupdater.NET.Official.1.4.3\lib\net40\AutoUpdater.NET.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoUpdaterDotNET;
+using System;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -14,6 +15,8 @@ namespace XCLWinKits
 
         private void InitData()
         {
+            AutoUpdater.Start(@"http://soft.wodeabc.com/XCLWinKits/update.xml");
+
             #region 生成按钮
 
             foreach (var m in CommonHelper.ConfigHelper.Config.CategoryConfig.CategoryList)
@@ -46,6 +49,7 @@ namespace XCLWinKits
 
             #endregion 生成按钮
         }
+        
 
         #region button事件
 
