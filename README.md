@@ -1,6 +1,6 @@
-# XCLWinKits #
+# 简介 #
 
-windows小工具集合，包含文件内容批量替换、正则表达式测试工具、加密解密等。
+一个实用的windows小工具集合，里面包含了多个常用的小软件。其中的批量修改文件名及文件内容功能，可以自定义修改规则，支持规则的导入与导出。不需要安装Office软件，支持Excel/Word/Txt等文件的文件名或文件内容的批量修改操作。另外还包括正则表达式测试小工具、字符串转js常量工具、加密与解密和日期时间差等，您也可以很方便地扩展相关功能。
 
 ![](https://raw.githubusercontent.com/xucongli1989/XCLWinKits/master/XCLWinKits/XCLWinKits/imgs/1.jpg)
 
