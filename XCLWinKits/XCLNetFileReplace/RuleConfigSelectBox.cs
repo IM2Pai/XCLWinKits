@@ -319,13 +319,13 @@ namespace XCLNetFileReplace
 
                     if (string.IsNullOrWhiteSpace(model.Name))
                     {
-                        msg.Add(string.Format("第{0}行中的【名称】必填！", i + 1.ToString()));
+                        msg.Add(string.Format("第{0}行中的【名称】必填！", (i + 1).ToString()));
                         break;
                     }
 
                     if (string.IsNullOrEmpty(model.OldContent))
                     {
-                        msg.Add(string.Format("第{0}行中的【查找内容】必填！", i + 1.ToString()));
+                        msg.Add(string.Format("第{0}行中的【查找内容】必填！", (i + 1).ToString()));
                         break;
                     }
 
