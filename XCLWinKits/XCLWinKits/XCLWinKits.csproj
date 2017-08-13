@@ -198,6 +198,14 @@
     <Content Include="Config\Config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="imgs\1.jpg" />
+    <Content Include="imgs\2.jpg" />
+    <Content Include="imgs\3.jpg" />
+    <Content Include="imgs\4.jpg" />
+    <Content Include="imgs\5.jpg" />
+    <Content Include="imgs\6.jpg" />
+    <Content Include="imgs\7.jpg" />
+    <Content Include="imgs\8.jpg" />
     <Content Include="Logo.ico" />
     <Content Include="logo.jpg" />
     <Content Include="regexTool1.jpg" />
