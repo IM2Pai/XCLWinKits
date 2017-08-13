@@ -28,6 +28,15 @@ namespace DataLayer.BLL
             }
         }
 
+        public void Add(List<DataLayer.Model.FileReplace_RuleConfig> lst)
+        {
+            using (var context = new DataLayer.DAL.MyDBContext())
+            {
+                context.FileReplace_RuleConfig.AddRange(lst);
+                context.SaveChanges();
+            }
+        }
+
         public void Update(DataLayer.Model.FileReplace_RuleConfig model)
         {
             using (var context = new DataLayer.DAL.MyDBContext())

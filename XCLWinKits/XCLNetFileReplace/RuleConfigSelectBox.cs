@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -275,8 +274,8 @@ namespace XCLNetFileReplace
             }
             try
             {
-                var dt=XCLNetTools.Office.ExcelHandler.ExcelToData.ReadExcelToTable(openFile.FileNames[0]);
-                var nameColIndex= XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "名称");
+                var dt = XCLNetTools.Office.ExcelHandler.ExcelToData.ReadExcelToTable(openFile.FileNames[0]);
+                var nameColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "名称");
                 var oldContentColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "查找内容");
                 var newContentColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "替换内容");
                 var isRegexColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "是否为正则表达式");
@@ -289,17 +288,63 @@ namespace XCLNetFileReplace
 
                 if (nameColIndex == -1 || oldContentColIndex == -1 || newContentColIndex == -1 || isRegexColIndex == -1 || isIgnoreCaseColIndex == -1 || isWholeMatchColIndex == -1 || isFileNameColIndex == -1 || isFileContentColIndex == -1 || createTimeColIndex == -1 || updateTimeColIndex == -1)
                 {
-                    MessageBox.Show("准备导入的文件模板缺少相关列，请确保模板是正确的（可以将导出的Excel文件作为模板）！", "系统提示");
+                    MessageBox.Show("准备导入的文件模板缺少相关列，请确保模板是正确的（您可以将导出的Excel文件作为模板）！", "系统提示");
                     return;
                 }
 
-                foreach (DataRow m in dt.Rows)
+                if (dt.Rows.Count <= 2)
                 {
-
-
-
+                    MessageBox.Show("没有任务数据需要导入！", "系统提示");
+                    return;
                 }
 
+                var dtNow = DateTime.Now;
+                var msg = new List<string>();
+                var lst = new List<DataLayer.Model.FileReplace_RuleConfig>();
+
+                for (var i = 2; i < dt.Rows.Count; i++)
+                {
+                    var dr = dt.Rows[i];
+                    var model = new DataLayer.Model.FileReplace_RuleConfig();
+                    model.Name = (dr[nameColIndex] ?? "").ToString().Trim();
+                    model.OldContent = dr[oldContentColIndex].ToString();
+                    model.NewContent = dr[newContentColIndex].ToString();
+                    model.IsRegex = dr[isRegexColIndex].ToString() == "是";
+                    model.IsIgnoreCase = dr[isIgnoreCaseColIndex].ToString() == "是";
+                    model.IsWholeMatch = dr[isWholeMatchColIndex].ToString() == "是";
+                    model.IsFileName = dr[isFileNameColIndex].ToString() == "是";
+                    model.IsFileContent = dr[isFileContentColIndex].ToString() == "是";
+                    model.CreateTime = XCLNetTools.Common.DataTypeConvert.ToDateTime(dr[createTimeColIndex].ToString(), dtNow);
+                    model.UpdateTime = XCLNetTools.Common.DataTypeConvert.ToDateTime(dr[updateTimeColIndex].ToString(), dtNow);
+
+                    if (string.IsNullOrWhiteSpace(model.Name))
+                    {
+                        msg.Add(string.Format("第{0}行中的【名称】必填！", i + 1.ToString()));
+                        break;
+                    }
+
+                    if (string.IsNullOrEmpty(model.OldContent))
+                    {
+                        msg.Add(string.Format("第{0}行中的【查找内容】必填！", i + 1.ToString()));
+                        break;
+                    }
+
+                    lst.Add(model);
+                }
+
+                if (msg.Count > 0)
+                {
+                    MessageBox.Show(string.Join(System.Environment.NewLine, msg.ToArray()), "系统提示");
+                    return;
+                }
+
+                if (lst.Count > 0)
+                {
+                    this.bll.Add(lst);
+                    this.InitRuleConfigGrid();
+                    MessageBox.Show(string.Format("您已成功导入{0}条规则！", lst.Count.ToString()), "系统提示");
+                    return;
+                }
             }
             catch
             {
@@ -434,7 +479,5 @@ namespace XCLNetFileReplace
                 _mainForm.InitCurrentRuleList();
             }
         }
-
-
     }
 }
