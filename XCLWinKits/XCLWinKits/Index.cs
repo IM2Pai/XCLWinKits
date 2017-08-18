@@ -134,5 +134,22 @@ namespace XCLWinKits
         }
 
         #endregion 菜单
+
+        private void Index_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.ShowInTaskbar = false;
+                this.notifyIcon1.Visible = true;
+            }
+        }
+
+        private void notifyIcon1_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            this.Activate();
+            this.ShowInTaskbar = true;
+            this.notifyIcon1.Visible = false;
+        }
     }
 }
