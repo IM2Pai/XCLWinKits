@@ -39,14 +39,11 @@
             this.正则表达式语法简明参考ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.淘宝小店ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.检查更新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关于本软件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.我的ABCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.捐助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.menuStrip1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMenu
@@ -67,7 +64,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.帮助ToolStripMenuItem,
-            this.我的ABCToolStripMenuItem});
+            this.我的ABCToolStripMenuItem,
+            this.捐助ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
@@ -83,7 +81,6 @@
             this.资料ToolStripMenuItem,
             this.淘宝小店ToolStripMenuItem,
             this.检查更新ToolStripMenuItem,
-            this.关于本软件ToolStripMenuItem,
             this.退出ToolStripMenuItem});
             this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
             this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
@@ -93,7 +90,7 @@
             // 
             this.GitHubToolStripMenuItem.Name = "GitHubToolStripMenuItem";
             this.GitHubToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
-            this.GitHubToolStripMenuItem.Text = "GitHub";
+            this.GitHubToolStripMenuItem.Text = "作者代码库";
             this.GitHubToolStripMenuItem.Click += new System.EventHandler(this.GitHubToolStripMenuItem_Click);
             // 
             // 作者博客ToolStripMenuItem
@@ -129,15 +126,8 @@
             // 
             this.检查更新ToolStripMenuItem.Name = "检查更新ToolStripMenuItem";
             this.检查更新ToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
-            this.检查更新ToolStripMenuItem.Text = "检查更新";
+            this.检查更新ToolStripMenuItem.Text = "源代码";
             this.检查更新ToolStripMenuItem.Click += new System.EventHandler(this.检查更新ToolStripMenuItem_Click);
-            // 
-            // 关于本软件ToolStripMenuItem
-            // 
-            this.关于本软件ToolStripMenuItem.Name = "关于本软件ToolStripMenuItem";
-            this.关于本软件ToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
-            this.关于本软件ToolStripMenuItem.Text = "关于本软件";
-            this.关于本软件ToolStripMenuItem.Click += new System.EventHandler(this.关于本软件ToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
@@ -153,23 +143,14 @@
             this.我的ABCToolStripMenuItem.Text = "我的ABC";
             this.我的ABCToolStripMenuItem.Click += new System.EventHandler(this.我的ABCToolStripMenuItem_Click);
             // 
-            // statusStrip1
+            // 捐助ToolStripMenuItem
             // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 467);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(897, 25);
-            this.statusStrip1.TabIndex = 4;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel
-            // 
-            this.toolStripStatusLabel.ForeColor = System.Drawing.Color.Red;
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(827, 20);
-            this.toolStripStatusLabel.Text = "注意：若本软件对您有用，就捐助一下吧，支付宝：80213876@qq.com。少了您的捐助，就没有更新的动力了哦。感谢！";
+            this.捐助ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
+            this.捐助ToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
+            this.捐助ToolStripMenuItem.Name = "捐助ToolStripMenuItem";
+            this.捐助ToolStripMenuItem.Size = new System.Drawing.Size(216, 24);
+            this.捐助ToolStripMenuItem.Text = "软件好用？就请捐助一下吧！";
+            this.捐助ToolStripMenuItem.Click += new System.EventHandler(this.捐助ToolStripMenuItem_Click);
             // 
             // notifyIcon1
             // 
@@ -182,18 +163,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 492);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabMenu);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "Index";
             this.Text = "XCLWinKits——Windows软件工具箱";
             this.SizeChanged += new System.EventHandler(this.Index_SizeChanged);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,7 +184,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 检查更新ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 关于本软件ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 作者博客ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 资料ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 淘宝小店ToolStripMenuItem;
@@ -213,8 +191,7 @@
         private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 我的ABCToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem GitHubToolStripMenuItem;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ToolStripMenuItem 捐助ToolStripMenuItem;
     }
 }

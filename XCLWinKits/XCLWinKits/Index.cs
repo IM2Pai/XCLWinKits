@@ -49,7 +49,6 @@ namespace XCLWinKits
 
             #endregion 生成按钮
         }
-        
 
         #region button事件
 
@@ -95,12 +94,7 @@ namespace XCLWinKits
 
         private void 检查更新ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/xucongli1989/XCLWinKits/releases");
-        }
-
-        private void 关于本软件ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new About().ShowDialog();
+            System.Diagnostics.Process.Start("https://github.com/xucongli1989/XCLWinKits");
         }
 
         private void 作者博客ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -131,6 +125,11 @@ namespace XCLWinKits
         private void GitHubToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/xucongli1989");
+        }
+
+        private void 捐助ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Pay().ShowDialog();
         }
 
         #endregion 菜单
