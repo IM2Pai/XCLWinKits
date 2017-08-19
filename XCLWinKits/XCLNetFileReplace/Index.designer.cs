@@ -125,11 +125,13 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.文件ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(897, 25);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1196, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -141,34 +143,34 @@
             this.导出ToolStripMenuItem,
             this.退出ToolStripMenuItem});
             this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
-            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
             this.文件ToolStripMenuItem.Text = "文件";
             // 
             // 打开文件ToolStripMenuItem
             // 
             this.打开文件ToolStripMenuItem.Name = "打开文件ToolStripMenuItem";
-            this.打开文件ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.打开文件ToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.打开文件ToolStripMenuItem.Text = "打开文件";
             this.打开文件ToolStripMenuItem.Click += new System.EventHandler(this.打开文件ToolStripMenuItem_Click);
             // 
             // 打开文件夹ToolStripMenuItem
             // 
             this.打开文件夹ToolStripMenuItem.Name = "打开文件夹ToolStripMenuItem";
-            this.打开文件夹ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.打开文件夹ToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.打开文件夹ToolStripMenuItem.Text = "打开文件夹";
             this.打开文件夹ToolStripMenuItem.Click += new System.EventHandler(this.打开文件夹ToolStripMenuItem_Click);
             // 
             // 导出ToolStripMenuItem
             // 
             this.导出ToolStripMenuItem.Name = "导出ToolStripMenuItem";
-            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.导出ToolStripMenuItem.Text = "导出";
             this.导出ToolStripMenuItem.Click += new System.EventHandler(this.导出ToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -180,9 +182,11 @@
             this.groupBox_FileInfo.Controls.Add(this.dgFiles);
             this.groupBox_FileInfo.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox_FileInfo.ForeColor = System.Drawing.Color.Green;
-            this.groupBox_FileInfo.Location = new System.Drawing.Point(6, 28);
+            this.groupBox_FileInfo.Location = new System.Drawing.Point(8, 35);
+            this.groupBox_FileInfo.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox_FileInfo.Name = "groupBox_FileInfo";
-            this.groupBox_FileInfo.Size = new System.Drawing.Size(885, 181);
+            this.groupBox_FileInfo.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox_FileInfo.Size = new System.Drawing.Size(1180, 226);
             this.groupBox_FileInfo.TabIndex = 1;
             this.groupBox_FileInfo.TabStop = false;
             this.groupBox_FileInfo.Text = "待处理文件：（支持xls、xlsx、xlt、csv、doc、docx及其它文本文件[如：txt、html等]），无需安装Office！";
@@ -199,7 +203,7 @@
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgFiles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgFiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -221,7 +225,8 @@
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgFiles.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgFiles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgFiles.Location = new System.Drawing.Point(3, 17);
+            this.dgFiles.Location = new System.Drawing.Point(4, 22);
+            this.dgFiles.Margin = new System.Windows.Forms.Padding(4);
             this.dgFiles.Name = "dgFiles";
             this.dgFiles.ReadOnly = true;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -233,7 +238,8 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgFiles.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgFiles.RowTemplate.Height = 23;
-            this.dgFiles.Size = new System.Drawing.Size(879, 161);
+            this.dgFiles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgFiles.Size = new System.Drawing.Size(1172, 200);
             this.dgFiles.TabIndex = 2;
             this.dgFiles.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgFiles_RowPostPaint);
             // 
@@ -313,55 +319,58 @@
             // 
             // contextMenuStrip_LBoxWait
             // 
+            this.contextMenuStrip_LBoxWait.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip_LBoxWait.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.删除ToolStripMenuItem,
             this.全选ToolStripMenuItem,
             this.反选ToolStripMenuItem});
             this.contextMenuStrip_LBoxWait.Name = "contextMenuStrip_LBoxWait";
-            this.contextMenuStrip_LBoxWait.Size = new System.Drawing.Size(69, 70);
+            this.contextMenuStrip_LBoxWait.Size = new System.Drawing.Size(70, 70);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(68, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(69, 22);
             // 
             // 全选ToolStripMenuItem
             // 
             this.全选ToolStripMenuItem.Name = "全选ToolStripMenuItem";
-            this.全选ToolStripMenuItem.Size = new System.Drawing.Size(68, 22);
+            this.全选ToolStripMenuItem.Size = new System.Drawing.Size(69, 22);
             // 
             // 反选ToolStripMenuItem
             // 
             this.反选ToolStripMenuItem.Name = "反选ToolStripMenuItem";
-            this.反选ToolStripMenuItem.Size = new System.Drawing.Size(68, 22);
+            this.反选ToolStripMenuItem.Size = new System.Drawing.Size(69, 22);
             // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripProgressBar1,
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 608);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 762);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(897, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1196, 26);
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(68, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(84, 21);
             this.toolStripStatusLabel1.Text = "处理进度：";
             // 
             // toolStripProgressBar1
             // 
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(250, 16);
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(333, 20);
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(0, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(0, 21);
             // 
             // groupBox1
             // 
@@ -369,9 +378,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.txtLog);
             this.groupBox1.ForeColor = System.Drawing.Color.Green;
-            this.groupBox1.Location = new System.Drawing.Point(403, 412);
+            this.groupBox1.Location = new System.Drawing.Point(537, 515);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(355, 193);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(473, 241);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "当前处理日志：";
@@ -382,12 +393,13 @@
             this.txtLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLog.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtLog.ForeColor = System.Drawing.Color.LimeGreen;
-            this.txtLog.Location = new System.Drawing.Point(3, 17);
+            this.txtLog.Location = new System.Drawing.Point(4, 22);
+            this.txtLog.Margin = new System.Windows.Forms.Padding(4);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLog.Size = new System.Drawing.Size(349, 173);
+            this.txtLog.Size = new System.Drawing.Size(465, 215);
             this.txtLog.TabIndex = 0;
             this.txtLog.WordWrap = false;
             // 
@@ -399,9 +411,11 @@
             this.groupBox3.Controls.Add(this.dataGridRuleConfig);
             this.groupBox3.Controls.Add(this.btnSelectRule);
             this.groupBox3.ForeColor = System.Drawing.Color.Green;
-            this.groupBox3.Location = new System.Drawing.Point(6, 215);
+            this.groupBox3.Location = new System.Drawing.Point(8, 269);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(885, 191);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(1180, 239);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "当前处理要应用的规则：";
@@ -410,9 +424,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label5.Location = new System.Drawing.Point(6, 171);
+            this.label5.Location = new System.Drawing.Point(8, 214);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(197, 12);
+            this.label5.Size = new System.Drawing.Size(247, 15);
             this.label5.TabIndex = 4;
             this.label5.Text = "说明：多个规则从上至下依次匹配。";
             // 
@@ -432,7 +447,7 @@
             dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridRuleConfig.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridRuleConfig.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridRuleConfig.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -447,7 +462,8 @@
             this.grid_IsFileContent_Text,
             this.grid_CreateTime,
             this.grid_UpdateTime});
-            this.dataGridRuleConfig.Location = new System.Drawing.Point(6, 20);
+            this.dataGridRuleConfig.Location = new System.Drawing.Point(8, 25);
+            this.dataGridRuleConfig.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridRuleConfig.Name = "dataGridRuleConfig";
             this.dataGridRuleConfig.ReadOnly = true;
             dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -459,7 +475,8 @@
             dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridRuleConfig.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridRuleConfig.RowTemplate.Height = 23;
-            this.dataGridRuleConfig.Size = new System.Drawing.Size(873, 144);
+            this.dataGridRuleConfig.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridRuleConfig.Size = new System.Drawing.Size(1164, 180);
             this.dataGridRuleConfig.TabIndex = 3;
             this.dataGridRuleConfig.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridRuleConfig_RowPostPaint);
             // 
@@ -571,9 +588,10 @@
             // btnSelectRule
             // 
             this.btnSelectRule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectRule.Location = new System.Drawing.Point(805, 165);
+            this.btnSelectRule.Location = new System.Drawing.Point(1073, 206);
+            this.btnSelectRule.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelectRule.Name = "btnSelectRule";
-            this.btnSelectRule.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectRule.Size = new System.Drawing.Size(100, 29);
             this.btnSelectRule.TabIndex = 1;
             this.btnSelectRule.Text = "选择规则";
             this.btnSelectRule.UseVisualStyleBackColor = true;
@@ -583,9 +601,10 @@
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.Location = new System.Drawing.Point(764, 497);
+            this.btnSave.Location = new System.Drawing.Point(1019, 621);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(127, 44);
+            this.btnSave.Size = new System.Drawing.Size(169, 55);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "开 始 处 理";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -594,17 +613,19 @@
             // 
             // txtOutPutPath
             // 
-            this.txtOutPutPath.Location = new System.Drawing.Point(97, 12);
+            this.txtOutPutPath.Location = new System.Drawing.Point(129, 15);
+            this.txtOutPutPath.Margin = new System.Windows.Forms.Padding(4);
             this.txtOutPutPath.Name = "txtOutPutPath";
             this.txtOutPutPath.ReadOnly = true;
-            this.txtOutPutPath.Size = new System.Drawing.Size(105, 21);
+            this.txtOutPutPath.Size = new System.Drawing.Size(139, 25);
             this.txtOutPutPath.TabIndex = 0;
             // 
             // btnOutPutPath
             // 
-            this.btnOutPutPath.Location = new System.Drawing.Point(206, 11);
+            this.btnOutPutPath.Location = new System.Drawing.Point(275, 14);
+            this.btnOutPutPath.Margin = new System.Windows.Forms.Padding(4);
             this.btnOutPutPath.Name = "btnOutPutPath";
-            this.btnOutPutPath.Size = new System.Drawing.Size(45, 23);
+            this.btnOutPutPath.Size = new System.Drawing.Size(60, 29);
             this.btnOutPutPath.TabIndex = 1;
             this.btnOutPutPath.Text = "浏览";
             this.btnOutPutPath.UseVisualStyleBackColor = true;
@@ -612,9 +633,10 @@
             // 
             // btnOpenOutPath
             // 
-            this.btnOpenOutPath.Location = new System.Drawing.Point(257, 11);
+            this.btnOpenOutPath.Location = new System.Drawing.Point(343, 14);
+            this.btnOpenOutPath.Margin = new System.Windows.Forms.Padding(4);
             this.btnOpenOutPath.Name = "btnOpenOutPath";
-            this.btnOpenOutPath.Size = new System.Drawing.Size(45, 23);
+            this.btnOpenOutPath.Size = new System.Drawing.Size(60, 29);
             this.btnOpenOutPath.TabIndex = 2;
             this.btnOpenOutPath.Text = "打开";
             this.btnOpenOutPath.UseVisualStyleBackColor = true;
@@ -623,42 +645,47 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 16);
+            this.label1.Location = new System.Drawing.Point(25, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.Size = new System.Drawing.Size(82, 15);
             this.label1.TabIndex = 3;
             this.label1.Text = "输出目录：";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 65);
+            this.label2.Location = new System.Drawing.Point(25, 81);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 12);
+            this.label2.Size = new System.Drawing.Size(97, 15);
             this.label2.TabIndex = 4;
             this.label2.Text = "文件名前缀：";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 95);
+            this.label3.Location = new System.Drawing.Point(25, 119);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 12);
+            this.label3.Size = new System.Drawing.Size(97, 15);
             this.label3.TabIndex = 5;
             this.label3.Text = "文件名后缀：";
             // 
             // txtFileFirstName
             // 
-            this.txtFileFirstName.Location = new System.Drawing.Point(97, 61);
+            this.txtFileFirstName.Location = new System.Drawing.Point(129, 76);
+            this.txtFileFirstName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFileFirstName.Name = "txtFileFirstName";
-            this.txtFileFirstName.Size = new System.Drawing.Size(248, 21);
+            this.txtFileFirstName.Size = new System.Drawing.Size(329, 25);
             this.txtFileFirstName.TabIndex = 6;
             // 
             // txtFileLastName
             // 
-            this.txtFileLastName.Location = new System.Drawing.Point(97, 88);
+            this.txtFileLastName.Location = new System.Drawing.Point(129, 110);
+            this.txtFileLastName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFileLastName.Name = "txtFileLastName";
-            this.txtFileLastName.Size = new System.Drawing.Size(248, 21);
+            this.txtFileLastName.Size = new System.Drawing.Size(329, 25);
             this.txtFileLastName.TabIndex = 7;
             // 
             // groupBox4
@@ -666,9 +693,11 @@
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox4.Controls.Add(this.tabControlOptions);
             this.groupBox4.ForeColor = System.Drawing.Color.Green;
-            this.groupBox4.Location = new System.Drawing.Point(3, 412);
+            this.groupBox4.Location = new System.Drawing.Point(4, 515);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(394, 193);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox4.Size = new System.Drawing.Size(525, 241);
             this.groupBox4.TabIndex = 13;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "输出选项：";
@@ -679,10 +708,11 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.tabControlOptions.Controls.Add(this.tabPageBaseOption);
             this.tabControlOptions.Controls.Add(this.tabPageExcelOption);
-            this.tabControlOptions.Location = new System.Drawing.Point(3, 17);
+            this.tabControlOptions.Location = new System.Drawing.Point(4, 21);
+            this.tabControlOptions.Margin = new System.Windows.Forms.Padding(4);
             this.tabControlOptions.Name = "tabControlOptions";
             this.tabControlOptions.SelectedIndex = 0;
-            this.tabControlOptions.Size = new System.Drawing.Size(381, 173);
+            this.tabControlOptions.Size = new System.Drawing.Size(508, 216);
             this.tabControlOptions.TabIndex = 10;
             // 
             // tabPageBaseOption
@@ -697,10 +727,11 @@
             this.tabPageBaseOption.Controls.Add(this.txtFileFirstName);
             this.tabPageBaseOption.Controls.Add(this.txtFileLastName);
             this.tabPageBaseOption.Controls.Add(this.btnOutPutPath);
-            this.tabPageBaseOption.Location = new System.Drawing.Point(4, 22);
+            this.tabPageBaseOption.Location = new System.Drawing.Point(4, 25);
+            this.tabPageBaseOption.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageBaseOption.Name = "tabPageBaseOption";
-            this.tabPageBaseOption.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageBaseOption.Size = new System.Drawing.Size(373, 147);
+            this.tabPageBaseOption.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPageBaseOption.Size = new System.Drawing.Size(500, 187);
             this.tabPageBaseOption.TabIndex = 0;
             this.tabPageBaseOption.Text = "基本选项";
             this.tabPageBaseOption.UseVisualStyleBackColor = true;
@@ -709,17 +740,19 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(18, 39);
+            this.label4.Location = new System.Drawing.Point(24, 49);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(245, 12);
+            this.label4.Size = new System.Drawing.Size(307, 15);
             this.label4.TabIndex = 8;
             this.label4.Text = "若不指定输出目录，则在源文件上直接操作！";
             // 
             // btnNotNeedOutPutPath
             // 
-            this.btnNotNeedOutPutPath.Location = new System.Drawing.Point(308, 11);
+            this.btnNotNeedOutPutPath.Location = new System.Drawing.Point(411, 14);
+            this.btnNotNeedOutPutPath.Margin = new System.Windows.Forms.Padding(4);
             this.btnNotNeedOutPutPath.Name = "btnNotNeedOutPutPath";
-            this.btnNotNeedOutPutPath.Size = new System.Drawing.Size(45, 23);
+            this.btnNotNeedOutPutPath.Size = new System.Drawing.Size(60, 29);
             this.btnNotNeedOutPutPath.TabIndex = 9;
             this.btnNotNeedOutPutPath.Text = "无";
             this.btnNotNeedOutPutPath.UseVisualStyleBackColor = true;
@@ -729,10 +762,11 @@
             // 
             this.tabPageExcelOption.Controls.Add(this.ckExcelOptionIsKeepFormula);
             this.tabPageExcelOption.Controls.Add(this.ckExcelOptionIsKeepDataFormat);
-            this.tabPageExcelOption.Location = new System.Drawing.Point(4, 22);
+            this.tabPageExcelOption.Location = new System.Drawing.Point(4, 25);
+            this.tabPageExcelOption.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageExcelOption.Name = "tabPageExcelOption";
-            this.tabPageExcelOption.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageExcelOption.Size = new System.Drawing.Size(373, 147);
+            this.tabPageExcelOption.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPageExcelOption.Size = new System.Drawing.Size(500, 187);
             this.tabPageExcelOption.TabIndex = 1;
             this.tabPageExcelOption.Text = "Excel选项";
             this.tabPageExcelOption.UseVisualStyleBackColor = true;
@@ -740,9 +774,10 @@
             // ckExcelOptionIsKeepFormula
             // 
             this.ckExcelOptionIsKeepFormula.AutoSize = true;
-            this.ckExcelOptionIsKeepFormula.Location = new System.Drawing.Point(16, 46);
+            this.ckExcelOptionIsKeepFormula.Location = new System.Drawing.Point(21, 58);
+            this.ckExcelOptionIsKeepFormula.Margin = new System.Windows.Forms.Padding(4);
             this.ckExcelOptionIsKeepFormula.Name = "ckExcelOptionIsKeepFormula";
-            this.ckExcelOptionIsKeepFormula.Size = new System.Drawing.Size(300, 16);
+            this.ckExcelOptionIsKeepFormula.Size = new System.Drawing.Size(374, 19);
             this.ckExcelOptionIsKeepFormula.TabIndex = 1;
             this.ckExcelOptionIsKeepFormula.Text = "保留单元格的公式（忽略替换，最后自动计算公式）";
             this.ckExcelOptionIsKeepFormula.UseVisualStyleBackColor = true;
@@ -750,18 +785,19 @@
             // ckExcelOptionIsKeepDataFormat
             // 
             this.ckExcelOptionIsKeepDataFormat.AutoSize = true;
-            this.ckExcelOptionIsKeepDataFormat.Location = new System.Drawing.Point(16, 15);
+            this.ckExcelOptionIsKeepDataFormat.Location = new System.Drawing.Point(21, 19);
+            this.ckExcelOptionIsKeepDataFormat.Margin = new System.Windows.Forms.Padding(4);
             this.ckExcelOptionIsKeepDataFormat.Name = "ckExcelOptionIsKeepDataFormat";
-            this.ckExcelOptionIsKeepDataFormat.Size = new System.Drawing.Size(312, 16);
+            this.ckExcelOptionIsKeepDataFormat.Size = new System.Drawing.Size(389, 19);
             this.ckExcelOptionIsKeepDataFormat.TabIndex = 0;
             this.ckExcelOptionIsKeepDataFormat.Text = "保留数据格式，若新值无法转为该格式，则忽略该替换";
             this.ckExcelOptionIsKeepDataFormat.UseVisualStyleBackColor = true;
             // 
             // Index
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 630);
+            this.ClientSize = new System.Drawing.Size(1196, 788);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
@@ -770,7 +806,8 @@
             this.Controls.Add(this.groupBox_FileInfo);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(913, 669);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(1211, 825);
             this.Name = "Index";
             this.Text = " XCLWinKits——Windows软件工具箱  1.0.1.0，Copyright ©2014 by:XCL qq:80213876 ";
             this.menuStrip1.ResumeLayout(false);

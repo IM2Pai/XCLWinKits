@@ -41,8 +41,23 @@ namespace XCLNetFileReplace
         /// </summary>
         private void dataGridRuleConfig_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
+            var dgv = sender as DataGridView;
+            if (null == dgv) return;
             Rectangle rectangle = new Rectangle(e.RowBounds.Location.X, e.RowBounds.Location.Y, dataGridRuleConfig.RowHeadersWidth, e.RowBounds.Height);
             TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(), dataGridRuleConfig.RowHeadersDefaultCellStyle.Font, rectangle, dataGridRuleConfig.RowHeadersDefaultCellStyle.ForeColor, TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
+            foreach (DataGridViewRow r in dgv.Rows)
+            {
+                foreach (DataGridViewColumn c in dgv.Columns)
+                {
+                    if (c.Name == "grid_IsRegex_Text" || c.Name == "grid_IsIgnoreCase_Text" || c.Name == "grid_IsWholeMatch_Text" || c.Name == "grid_IsFileName_Text" || c.Name == "grid_IsFileContent_Text")
+                    {
+                        if (string.Equals(r.Cells[c.Name].Value, "否"))
+                        {
+                            r.Cells[c.Name].Style.ForeColor = Color.Red;
+                        }
+                    }
+                }
+            }
         }
 
         /// <summary>

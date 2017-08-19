@@ -149,7 +149,6 @@ namespace XCLWinKits
             this.WindowState = FormWindowState.Normal;
             this.Activate();
             this.ShowInTaskbar = true;
-            this.notifyIcon1.Visible = false;
         }
     }
 }

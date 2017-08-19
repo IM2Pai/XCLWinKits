@@ -797,10 +797,21 @@ namespace XCLNetFileReplace
         private void dataGridRuleConfig_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             var dgv = sender as DataGridView;
-            if (dgv != null)
+            if (null == dgv) return;
+            Rectangle rect = new Rectangle(e.RowBounds.Location.X, e.RowBounds.Location.Y, dgv.RowHeadersWidth - 4, e.RowBounds.Height);
+            TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(), dgv.RowHeadersDefaultCellStyle.Font, rect, dgv.RowHeadersDefaultCellStyle.ForeColor, TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
+            foreach (DataGridViewRow r in dgv.Rows)
             {
-                Rectangle rect = new Rectangle(e.RowBounds.Location.X, e.RowBounds.Location.Y, dgv.RowHeadersWidth - 4, e.RowBounds.Height);
-                TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(), dgv.RowHeadersDefaultCellStyle.Font, rect, dgv.RowHeadersDefaultCellStyle.ForeColor, TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
+                foreach (DataGridViewColumn c in dgv.Columns)
+                {
+                    if (c.Name == "grid_IsRegex_Text" || c.Name== "grid_IsIgnoreCase_Text" || c.Name== "grid_IsWholeMatch_Text" || c.Name== "grid_IsFileName_Text" || c.Name== "grid_IsFileContent_Text")
+                    {
+                        if (string.Equals(r.Cells[c.Name].Value, "否"))
+                        {
+                            r.Cells[c.Name].Style.ForeColor = Color.Red;
+                        }
+                    }
+                }
             }
         }
 

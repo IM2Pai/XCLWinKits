@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridRuleConfig = new System.Windows.Forms.DataGridView();
             this.grid_RuleConfigID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grid_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,8 +79,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtRuleName = new System.Windows.Forms.TextBox();
             this.tabPageSelectRule = new System.Windows.Forms.TabPage();
-            this.btnRuleOutput = new System.Windows.Forms.Button();
             this.btnInput = new System.Windows.Forms.Button();
+            this.btnRuleOutput = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRuleConfig)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.tabRuleConfig.SuspendLayout();
@@ -100,14 +100,14 @@
             this.dataGridRuleConfig.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridRuleConfig.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridRuleConfig.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridRuleConfig.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridRuleConfig.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridRuleConfig.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridRuleConfig.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.grid_RuleConfigID,
@@ -125,14 +125,14 @@
             this.dataGridRuleConfig.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridRuleConfig.Name = "dataGridRuleConfig";
             this.dataGridRuleConfig.ReadOnly = true;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridRuleConfig.RowHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridRuleConfig.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridRuleConfig.RowTemplate.Height = 23;
             this.dataGridRuleConfig.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridRuleConfig.Size = new System.Drawing.Size(1217, 545);
@@ -143,8 +143,8 @@
             // grid_RuleConfigID
             // 
             this.grid_RuleConfigID.DataPropertyName = "RuleConfigID";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_RuleConfigID.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_RuleConfigID.DefaultCellStyle = dataGridViewCellStyle2;
             this.grid_RuleConfigID.HeaderText = "ID";
             this.grid_RuleConfigID.Name = "grid_RuleConfigID";
             this.grid_RuleConfigID.ReadOnly = true;
@@ -153,8 +153,8 @@
             // grid_Name
             // 
             this.grid_Name.DataPropertyName = "Name";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_Name.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_Name.DefaultCellStyle = dataGridViewCellStyle3;
             this.grid_Name.HeaderText = "名称";
             this.grid_Name.Name = "grid_Name";
             this.grid_Name.ReadOnly = true;
@@ -162,8 +162,8 @@
             // grid_OldContent
             // 
             this.grid_OldContent.DataPropertyName = "OldContent";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_OldContent.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_OldContent.DefaultCellStyle = dataGridViewCellStyle4;
             this.grid_OldContent.HeaderText = "查找内容";
             this.grid_OldContent.Name = "grid_OldContent";
             this.grid_OldContent.ReadOnly = true;
@@ -171,8 +171,8 @@
             // grid_NewContent
             // 
             this.grid_NewContent.DataPropertyName = "NewContent";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_NewContent.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_NewContent.DefaultCellStyle = dataGridViewCellStyle5;
             this.grid_NewContent.HeaderText = "替换内容";
             this.grid_NewContent.Name = "grid_NewContent";
             this.grid_NewContent.ReadOnly = true;
@@ -180,8 +180,8 @@
             // grid_IsRegex_Text
             // 
             this.grid_IsRegex_Text.DataPropertyName = "IsRegex_Text";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsRegex_Text.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_IsRegex_Text.DefaultCellStyle = dataGridViewCellStyle6;
             this.grid_IsRegex_Text.HeaderText = "是否为正则表达式";
             this.grid_IsRegex_Text.Name = "grid_IsRegex_Text";
             this.grid_IsRegex_Text.ReadOnly = true;
@@ -190,8 +190,8 @@
             // grid_IsIgnoreCase_Text
             // 
             this.grid_IsIgnoreCase_Text.DataPropertyName = "IsIgnoreCase_Text";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsIgnoreCase_Text.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_IsIgnoreCase_Text.DefaultCellStyle = dataGridViewCellStyle7;
             this.grid_IsIgnoreCase_Text.HeaderText = "是否区分大小写";
             this.grid_IsIgnoreCase_Text.Name = "grid_IsIgnoreCase_Text";
             this.grid_IsIgnoreCase_Text.ReadOnly = true;
@@ -200,8 +200,8 @@
             // grid_IsWholeMatch_Text
             // 
             this.grid_IsWholeMatch_Text.DataPropertyName = "IsWholeMatch_Text";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsWholeMatch_Text.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_IsWholeMatch_Text.DefaultCellStyle = dataGridViewCellStyle8;
             this.grid_IsWholeMatch_Text.HeaderText = "是否整字匹配";
             this.grid_IsWholeMatch_Text.Name = "grid_IsWholeMatch_Text";
             this.grid_IsWholeMatch_Text.ReadOnly = true;
@@ -210,8 +210,8 @@
             // grid_IsFileName_Text
             // 
             this.grid_IsFileName_Text.DataPropertyName = "IsFileName_Text";
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsFileName_Text.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_IsFileName_Text.DefaultCellStyle = dataGridViewCellStyle9;
             this.grid_IsFileName_Text.HeaderText = "是否匹配文件名";
             this.grid_IsFileName_Text.Name = "grid_IsFileName_Text";
             this.grid_IsFileName_Text.ReadOnly = true;
@@ -220,8 +220,8 @@
             // grid_IsFileContent_Text
             // 
             this.grid_IsFileContent_Text.DataPropertyName = "IsFileContent_Text";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsFileContent_Text.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_IsFileContent_Text.DefaultCellStyle = dataGridViewCellStyle10;
             this.grid_IsFileContent_Text.HeaderText = "是否匹配文件内容";
             this.grid_IsFileContent_Text.Name = "grid_IsFileContent_Text";
             this.grid_IsFileContent_Text.ReadOnly = true;
@@ -230,8 +230,8 @@
             // grid_CreateTime
             // 
             this.grid_CreateTime.DataPropertyName = "CreateTime";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_CreateTime.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_CreateTime.DefaultCellStyle = dataGridViewCellStyle11;
             this.grid_CreateTime.HeaderText = "创建时间";
             this.grid_CreateTime.Name = "grid_CreateTime";
             this.grid_CreateTime.ReadOnly = true;
@@ -239,8 +239,8 @@
             // grid_UpdateTime
             // 
             this.grid_UpdateTime.DataPropertyName = "UpdateTime";
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_UpdateTime.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_UpdateTime.DefaultCellStyle = dataGridViewCellStyle12;
             this.grid_UpdateTime.HeaderText = "更新时间";
             this.grid_UpdateTime.Name = "grid_UpdateTime";
             this.grid_UpdateTime.ReadOnly = true;
@@ -561,18 +561,6 @@
             this.tabPageSelectRule.Text = "选择规则";
             this.tabPageSelectRule.UseVisualStyleBackColor = true;
             // 
-            // btnRuleOutput
-            // 
-            this.btnRuleOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRuleOutput.Location = new System.Drawing.Point(335, 562);
-            this.btnRuleOutput.Margin = new System.Windows.Forms.Padding(4);
-            this.btnRuleOutput.Name = "btnRuleOutput";
-            this.btnRuleOutput.Size = new System.Drawing.Size(100, 29);
-            this.btnRuleOutput.TabIndex = 10;
-            this.btnRuleOutput.Text = "导出规则";
-            this.btnRuleOutput.UseVisualStyleBackColor = true;
-            this.btnRuleOutput.Click += new System.EventHandler(this.btnRuleOutput_Click);
-            // 
             // btnInput
             // 
             this.btnInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -584,6 +572,18 @@
             this.btnInput.Text = "导入规则";
             this.btnInput.UseVisualStyleBackColor = true;
             this.btnInput.Click += new System.EventHandler(this.btnInput_Click);
+            // 
+            // btnRuleOutput
+            // 
+            this.btnRuleOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRuleOutput.Location = new System.Drawing.Point(335, 562);
+            this.btnRuleOutput.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRuleOutput.Name = "btnRuleOutput";
+            this.btnRuleOutput.Size = new System.Drawing.Size(100, 29);
+            this.btnRuleOutput.TabIndex = 10;
+            this.btnRuleOutput.Text = "导出规则";
+            this.btnRuleOutput.UseVisualStyleBackColor = true;
+            this.btnRuleOutput.Click += new System.EventHandler(this.btnRuleOutput_Click);
             // 
             // RuleConfigSelectBox
             // 
