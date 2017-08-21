@@ -80,17 +80,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridRuleConfig = new System.Windows.Forms.DataGridView();
-            this.grid_RuleConfigID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_OldContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_NewContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_IsRegex_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_IsIgnoreCase_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_IsWholeMatch_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_IsFileName_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_IsFileContent_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_CreateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_UpdateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSelectRule = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtOutPutPath = new System.Windows.Forms.TextBox();
@@ -109,6 +98,17 @@
             this.tabPageExcelOption = new System.Windows.Forms.TabPage();
             this.ckExcelOptionIsKeepFormula = new System.Windows.Forms.CheckBox();
             this.ckExcelOptionIsKeepDataFormat = new System.Windows.Forms.CheckBox();
+            this.grid_RuleConfigID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_OldContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_NewContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_IsRegex_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_IsIgnoreCase_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_IsWholeMatch_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_IsFileName_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_IsFileContent_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_CreateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grid_UpdateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox_FileInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgFiles)).BeginInit();
@@ -480,111 +480,6 @@
             this.dataGridRuleConfig.TabIndex = 3;
             this.dataGridRuleConfig.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridRuleConfig_RowPostPaint);
             // 
-            // grid_RuleConfigID
-            // 
-            this.grid_RuleConfigID.DataPropertyName = "RuleConfigID";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_RuleConfigID.DefaultCellStyle = dataGridViewCellStyle10;
-            this.grid_RuleConfigID.HeaderText = "RuleConfigID";
-            this.grid_RuleConfigID.Name = "grid_RuleConfigID";
-            this.grid_RuleConfigID.ReadOnly = true;
-            this.grid_RuleConfigID.Visible = false;
-            // 
-            // grid_Name
-            // 
-            this.grid_Name.DataPropertyName = "Name";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_Name.DefaultCellStyle = dataGridViewCellStyle11;
-            this.grid_Name.HeaderText = "名称";
-            this.grid_Name.Name = "grid_Name";
-            this.grid_Name.ReadOnly = true;
-            // 
-            // grid_OldContent
-            // 
-            this.grid_OldContent.DataPropertyName = "OldContent";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_OldContent.DefaultCellStyle = dataGridViewCellStyle12;
-            this.grid_OldContent.HeaderText = "查找内容";
-            this.grid_OldContent.Name = "grid_OldContent";
-            this.grid_OldContent.ReadOnly = true;
-            // 
-            // grid_NewContent
-            // 
-            this.grid_NewContent.DataPropertyName = "NewContent";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_NewContent.DefaultCellStyle = dataGridViewCellStyle13;
-            this.grid_NewContent.HeaderText = "替换内容";
-            this.grid_NewContent.Name = "grid_NewContent";
-            this.grid_NewContent.ReadOnly = true;
-            // 
-            // grid_IsRegex_Text
-            // 
-            this.grid_IsRegex_Text.DataPropertyName = "IsRegex_Text";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsRegex_Text.DefaultCellStyle = dataGridViewCellStyle14;
-            this.grid_IsRegex_Text.HeaderText = "是否为正则表达式";
-            this.grid_IsRegex_Text.Name = "grid_IsRegex_Text";
-            this.grid_IsRegex_Text.ReadOnly = true;
-            this.grid_IsRegex_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // grid_IsIgnoreCase_Text
-            // 
-            this.grid_IsIgnoreCase_Text.DataPropertyName = "IsIgnoreCase_Text";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsIgnoreCase_Text.DefaultCellStyle = dataGridViewCellStyle15;
-            this.grid_IsIgnoreCase_Text.HeaderText = "是否区分大小写";
-            this.grid_IsIgnoreCase_Text.Name = "grid_IsIgnoreCase_Text";
-            this.grid_IsIgnoreCase_Text.ReadOnly = true;
-            this.grid_IsIgnoreCase_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // grid_IsWholeMatch_Text
-            // 
-            this.grid_IsWholeMatch_Text.DataPropertyName = "IsWholeMatch_Text";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsWholeMatch_Text.DefaultCellStyle = dataGridViewCellStyle16;
-            this.grid_IsWholeMatch_Text.HeaderText = "是否整字匹配";
-            this.grid_IsWholeMatch_Text.Name = "grid_IsWholeMatch_Text";
-            this.grid_IsWholeMatch_Text.ReadOnly = true;
-            this.grid_IsWholeMatch_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // grid_IsFileName_Text
-            // 
-            this.grid_IsFileName_Text.DataPropertyName = "IsFileName_Text";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsFileName_Text.DefaultCellStyle = dataGridViewCellStyle17;
-            this.grid_IsFileName_Text.HeaderText = "是否匹配文件名";
-            this.grid_IsFileName_Text.Name = "grid_IsFileName_Text";
-            this.grid_IsFileName_Text.ReadOnly = true;
-            this.grid_IsFileName_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // grid_IsFileContent_Text
-            // 
-            this.grid_IsFileContent_Text.DataPropertyName = "IsFileContent_Text";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsFileContent_Text.DefaultCellStyle = dataGridViewCellStyle18;
-            this.grid_IsFileContent_Text.HeaderText = "是否匹配文件内容";
-            this.grid_IsFileContent_Text.Name = "grid_IsFileContent_Text";
-            this.grid_IsFileContent_Text.ReadOnly = true;
-            this.grid_IsFileContent_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // grid_CreateTime
-            // 
-            this.grid_CreateTime.DataPropertyName = "CreateTime";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_CreateTime.DefaultCellStyle = dataGridViewCellStyle19;
-            this.grid_CreateTime.HeaderText = "创建时间";
-            this.grid_CreateTime.Name = "grid_CreateTime";
-            this.grid_CreateTime.ReadOnly = true;
-            // 
-            // grid_UpdateTime
-            // 
-            this.grid_UpdateTime.DataPropertyName = "UpdateTime";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_UpdateTime.DefaultCellStyle = dataGridViewCellStyle20;
-            this.grid_UpdateTime.HeaderText = "更新时间";
-            this.grid_UpdateTime.Name = "grid_UpdateTime";
-            this.grid_UpdateTime.ReadOnly = true;
-            // 
             // btnSelectRule
             // 
             this.btnSelectRule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -793,6 +688,111 @@
             this.ckExcelOptionIsKeepDataFormat.Text = "保留数据格式，若新值无法转为该格式，则忽略该替换";
             this.ckExcelOptionIsKeepDataFormat.UseVisualStyleBackColor = true;
             // 
+            // grid_RuleConfigID
+            // 
+            this.grid_RuleConfigID.DataPropertyName = "RuleConfigID";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_RuleConfigID.DefaultCellStyle = dataGridViewCellStyle10;
+            this.grid_RuleConfigID.HeaderText = "RuleConfigID";
+            this.grid_RuleConfigID.Name = "grid_RuleConfigID";
+            this.grid_RuleConfigID.ReadOnly = true;
+            this.grid_RuleConfigID.Visible = false;
+            // 
+            // grid_Name
+            // 
+            this.grid_Name.DataPropertyName = "Name";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_Name.DefaultCellStyle = dataGridViewCellStyle11;
+            this.grid_Name.HeaderText = "名称";
+            this.grid_Name.Name = "grid_Name";
+            this.grid_Name.ReadOnly = true;
+            // 
+            // grid_OldContent
+            // 
+            this.grid_OldContent.DataPropertyName = "OldContent";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_OldContent.DefaultCellStyle = dataGridViewCellStyle12;
+            this.grid_OldContent.HeaderText = "查找内容";
+            this.grid_OldContent.Name = "grid_OldContent";
+            this.grid_OldContent.ReadOnly = true;
+            // 
+            // grid_NewContent
+            // 
+            this.grid_NewContent.DataPropertyName = "NewContent";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_NewContent.DefaultCellStyle = dataGridViewCellStyle13;
+            this.grid_NewContent.HeaderText = "替换内容";
+            this.grid_NewContent.Name = "grid_NewContent";
+            this.grid_NewContent.ReadOnly = true;
+            // 
+            // grid_IsRegex_Text
+            // 
+            this.grid_IsRegex_Text.DataPropertyName = "IsRegex_Text";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_IsRegex_Text.DefaultCellStyle = dataGridViewCellStyle14;
+            this.grid_IsRegex_Text.HeaderText = "是否为正则表达式";
+            this.grid_IsRegex_Text.Name = "grid_IsRegex_Text";
+            this.grid_IsRegex_Text.ReadOnly = true;
+            this.grid_IsRegex_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // grid_IsIgnoreCase_Text
+            // 
+            this.grid_IsIgnoreCase_Text.DataPropertyName = "IsIgnoreCase_Text";
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_IsIgnoreCase_Text.DefaultCellStyle = dataGridViewCellStyle15;
+            this.grid_IsIgnoreCase_Text.HeaderText = "是否区分大小写";
+            this.grid_IsIgnoreCase_Text.Name = "grid_IsIgnoreCase_Text";
+            this.grid_IsIgnoreCase_Text.ReadOnly = true;
+            this.grid_IsIgnoreCase_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // grid_IsWholeMatch_Text
+            // 
+            this.grid_IsWholeMatch_Text.DataPropertyName = "IsWholeMatch_Text";
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_IsWholeMatch_Text.DefaultCellStyle = dataGridViewCellStyle16;
+            this.grid_IsWholeMatch_Text.HeaderText = "是否整字匹配";
+            this.grid_IsWholeMatch_Text.Name = "grid_IsWholeMatch_Text";
+            this.grid_IsWholeMatch_Text.ReadOnly = true;
+            this.grid_IsWholeMatch_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // grid_IsFileName_Text
+            // 
+            this.grid_IsFileName_Text.DataPropertyName = "IsFileName_Text";
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_IsFileName_Text.DefaultCellStyle = dataGridViewCellStyle17;
+            this.grid_IsFileName_Text.HeaderText = "是否匹配文件名";
+            this.grid_IsFileName_Text.Name = "grid_IsFileName_Text";
+            this.grid_IsFileName_Text.ReadOnly = true;
+            this.grid_IsFileName_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // grid_IsFileContent_Text
+            // 
+            this.grid_IsFileContent_Text.DataPropertyName = "IsFileContent_Text";
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_IsFileContent_Text.DefaultCellStyle = dataGridViewCellStyle18;
+            this.grid_IsFileContent_Text.HeaderText = "是否匹配文件内容";
+            this.grid_IsFileContent_Text.Name = "grid_IsFileContent_Text";
+            this.grid_IsFileContent_Text.ReadOnly = true;
+            this.grid_IsFileContent_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // grid_CreateTime
+            // 
+            this.grid_CreateTime.DataPropertyName = "CreateTime";
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_CreateTime.DefaultCellStyle = dataGridViewCellStyle19;
+            this.grid_CreateTime.HeaderText = "创建时间";
+            this.grid_CreateTime.Name = "grid_CreateTime";
+            this.grid_CreateTime.ReadOnly = true;
+            // 
+            // grid_UpdateTime
+            // 
+            this.grid_UpdateTime.DataPropertyName = "UpdateTime";
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.grid_UpdateTime.DefaultCellStyle = dataGridViewCellStyle20;
+            this.grid_UpdateTime.HeaderText = "更新时间";
+            this.grid_UpdateTime.Name = "grid_UpdateTime";
+            this.grid_UpdateTime.ReadOnly = true;
+            // 
             // Index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -882,6 +882,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_ProcessDuration;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_ProcessBlockCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgFiles_Remark;
+        private System.Windows.Forms.CheckBox ckExcelOptionIsKeepFormula;
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_RuleConfigID;
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_OldContent;
@@ -893,7 +894,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_IsFileContent_Text;
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_CreateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn grid_UpdateTime;
-        private System.Windows.Forms.CheckBox ckExcelOptionIsKeepFormula;
     }
 }
 

@@ -81,7 +81,7 @@ namespace XCLNetFileReplace
             {
                 ruleLst = this.v_ruleConfigBLL.GetAllList().Where(k => settings.RuleConfigIds.Contains(k.RuleConfigID)).ToList();
             }
-            this.dataGridRuleConfig.DataSource = ruleLst;
+            this.dataGridRuleConfig.DataSource = XCLNetTools.DataSource.DataTableHelper.ToDataTable(ruleLst);
         }
 
         #region 导航菜单
@@ -656,7 +656,7 @@ namespace XCLNetFileReplace
             {
                 this.btnSave.Enabled = true;
                 this.txtLog.AppendText("文件已全部处理完毕！" + Environment.NewLine);
-                this.dgFiles.DataSource = this.v_fileBLL.GetAllList();
+                this.dgFiles.DataSource = XCLNetTools.DataSource.DataTableHelper.ToDataTable(this.v_fileBLL.GetAllList());
             }
         }
 
@@ -717,7 +717,7 @@ namespace XCLNetFileReplace
             }
             fileBLL.Add(lst);
 
-            this.dgFiles.DataSource = this.v_fileBLL.GetAllList();
+            this.dgFiles.DataSource = XCLNetTools.DataSource.DataTableHelper.ToDataTable(this.v_fileBLL.GetAllList());
             this.InitStatus();
         }
 
