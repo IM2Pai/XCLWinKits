@@ -33,7 +33,7 @@ namespace XCLNetFileReplace
         public void InitRuleConfigGrid()
         {
             this.dataGridRuleConfig.AutoGenerateColumns = false;
-            this.dataGridRuleConfig.DataSource = this.vbll.GetAllList();
+            this.dataGridRuleConfig.DataSource = XCLNetTools.DataSource.DataTableHelper.ToDataTable(this.vbll.GetAllList());
         }
 
         /// <summary>
@@ -210,7 +210,7 @@ namespace XCLNetFileReplace
         /// </summary>
         private void btnRuleOutput_Click(object sender, EventArgs e)
         {
-            var lst = this.dataGridRuleConfig.DataSource as List<DataLayer.Model.v_FileReplace_RuleConfig>;
+            var lst = this.vbll.GetAllList();
             if (lst.IsNullOrEmpty())
             {
                 MessageBox.Show("没有任何规则数据需要导出！", "系统提示");

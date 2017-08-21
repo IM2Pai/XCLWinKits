@@ -600,7 +600,14 @@ namespace XCLNetFileReplace
                 model.ProcessDuration = (int)sw.Elapsed.TotalSeconds;
             }
 
-            this.SetTextLogValue(string.Format("文件【{0}】处理完毕（{1}）", model.FileName, model.Remark));
+            if (string.IsNullOrWhiteSpace(model.Remark))
+            {
+                this.SetTextLogValue(string.Format("文件【{0}】处理完毕", model.FileName));
+            }
+            else
+            {
+                this.SetTextLogValue(string.Format("文件【{0}】处理完毕（{1}）", model.FileName, model.Remark));
+            }
 
             return model;
         }
@@ -804,7 +811,7 @@ namespace XCLNetFileReplace
             {
                 foreach (DataGridViewColumn c in dgv.Columns)
                 {
-                    if (c.Name == "grid_IsRegex_Text" || c.Name== "grid_IsIgnoreCase_Text" || c.Name== "grid_IsWholeMatch_Text" || c.Name== "grid_IsFileName_Text" || c.Name== "grid_IsFileContent_Text")
+                    if (c.Name == "grid_IsRegex_Text" || c.Name == "grid_IsIgnoreCase_Text" || c.Name == "grid_IsWholeMatch_Text" || c.Name == "grid_IsFileName_Text" || c.Name == "grid_IsFileContent_Text")
                     {
                         if (string.Equals(r.Cells[c.Name].Value, "否"))
                         {
