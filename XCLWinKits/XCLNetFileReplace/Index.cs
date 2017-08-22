@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic.Devices;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -316,7 +317,7 @@ namespace XCLNetFileReplace
 
                 for (int ruleIndex = 0; ruleIndex < this.dataGridRuleConfig.Rows.Count; ruleIndex++)
                 {
-                    var ruleModel = dataGridRuleConfig.Rows[ruleIndex].DataBoundItem as DataLayer.Model.v_FileReplace_RuleConfig;
+                    var ruleModel = XCLNetTools.Generic.ListHelper.DataRowToModel<DataLayer.Model.v_FileReplace_RuleConfig>(((DataRowView)dataGridRuleConfig.Rows[ruleIndex].DataBoundItem).Row);
                     if (null == ruleModel || !ruleModel.IsFileName)
                     {
                         continue;
@@ -385,7 +386,7 @@ namespace XCLNetFileReplace
 
                 for (int ruleIndex = 0; ruleIndex < this.dataGridRuleConfig.Rows.Count; ruleIndex++)
                 {
-                    var ruleModel = dataGridRuleConfig.Rows[ruleIndex].DataBoundItem as DataLayer.Model.v_FileReplace_RuleConfig;
+                    var ruleModel = XCLNetTools.Generic.ListHelper.DataRowToModel<DataLayer.Model.v_FileReplace_RuleConfig>(((DataRowView)dataGridRuleConfig.Rows[ruleIndex].DataBoundItem).Row);
                     if (null == ruleModel || !ruleModel.IsFileContent)
                     {
                         continue;
