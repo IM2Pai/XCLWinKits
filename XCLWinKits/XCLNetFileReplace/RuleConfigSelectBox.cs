@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -70,10 +71,10 @@ namespace XCLNetFileReplace
             {
                 for (int i = 0; i < this.dataGridRuleConfig.Rows.Count; i++)
                 {
-                    var currentModel = this.dataGridRuleConfig.Rows[i].DataBoundItem as DataLayer.Model.v_FileReplace_RuleConfig;
+                    var currentModel = ((DataRowView)this.dataGridRuleConfig.Rows[i].DataBoundItem).Row;
                     if (null != currentModel)
                     {
-                        if (fileReplaceSetting.RuleConfigIds.Contains(currentModel.RuleConfigID))
+                        if (fileReplaceSetting.RuleConfigIds.Contains(XCLNetTools.Common.DataTypeConvert.ToInt(currentModel["RuleConfigID"])))
                         {
                             this.dataGridRuleConfig.Rows[i].Selected = true;
                         }
@@ -108,10 +109,10 @@ namespace XCLNetFileReplace
             {
                 for (int i = 0; i < selectedRows.Count; i++)
                 {
-                    var currentData = selectedRows[i].DataBoundItem as DataLayer.Model.v_FileReplace_RuleConfig;
+                    var currentData = ((DataRowView)selectedRows[i].DataBoundItem).Row;
                     if (null != currentData)
                     {
-                        setting.RuleConfigIds.Add(currentData.RuleConfigID);
+                        setting.RuleConfigIds.Add(XCLNetTools.Common.DataTypeConvert.ToInt(currentData["RuleConfigID"]));
                     }
                 }
             }
