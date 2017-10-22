@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.Devices;
+﻿using Aspose.Words.Replacing;
+using Microsoft.VisualBasic.Devices;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -518,11 +519,10 @@ namespace XCLNetFileReplace
 
                             if (null == wordDocument)
                             {
-                                //正则无法使用特殊正则，如\s带\的。
                                 wordDocument = new Aspose.Words.Document(realPath);
                             }
-
-                            replaceCount = wordDocument.Range.Replace(reg, ruleModel.NewContent);
+                            var finder = new FindReplaceOptions();
+                            replaceCount = wordDocument.Range.Replace(reg, ruleModel.NewContent, finder);
 
                             #endregion 处理word
                         }
