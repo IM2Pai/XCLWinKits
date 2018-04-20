@@ -278,7 +278,7 @@ namespace XCLNetFileReplace
             model.IsDone = true;
 
             Aspose.Cells.Cell currentCell = null;
-            Aspose.Cells.CellValueType currentCellType = Aspose.Cells.CellValueType.IsString;
+            Aspose.Cells.CellValueType currentCellType;
             string cellValue = string.Empty;
             bool tempBool;
             int tempInt;
@@ -459,6 +459,8 @@ namespace XCLNetFileReplace
                                             continue;
                                         }
 
+                                        var cellCharacters = currentCell.GetCharacters();
+
                                         cellValue = reg.Replace(cellValue, ruleModel.NewContent);
 
                                         currentCellType = this.ckExcelOptionIsKeepDataFormat.Checked ? currentCell.Type : Aspose.Cells.CellValueType.IsString;
@@ -505,6 +507,10 @@ namespace XCLNetFileReplace
 
                                         if (isCellReplaced)
                                         {
+                                            if (null != cellCharacters && cellCharacters.Length > 0)
+                                            {
+                                                currentCell.SetCharacters(cellCharacters);
+                                            }
                                             replaceCount += cellMatchCount;
                                         }
                                     }
