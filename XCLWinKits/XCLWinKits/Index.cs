@@ -48,6 +48,14 @@ namespace XCLWinKits
             }
 
             #endregion 生成按钮
+
+            #region 生成用于统计用户访问的web控件
+
+            var wb = new WebBrowser();
+            wb.Url = new Uri("https://www.wodeabc.com/article/show/8002027?from=XCLWinKits&v=" + Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            wb.ScriptErrorsSuppressed = true;
+
+            #endregion 生成用于统计用户访问的web控件
         }
 
         #region button事件
