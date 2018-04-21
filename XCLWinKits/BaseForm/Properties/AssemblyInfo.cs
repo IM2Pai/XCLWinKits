@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("XCLWinKits——Windows软件工具箱")]
 [assembly: AssemblyDescription("https://github.com/xucongli1989/XCLWinKits")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("by:XCL Email:80213876@qq.com")]
+[assembly: AssemblyCompany("by:XCL Email:x889@foxmail.com")]
 [assembly: AssemblyProduct("XCLWinKits——Windows软件工具箱")]
-[assembly: AssemblyCopyright("Copyright ©2017 by:XCL Email:80213876@qq.com")]
+[assembly: AssemblyCopyright("Copyright ©2018 by:XCL Email:x889@foxmail.com")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

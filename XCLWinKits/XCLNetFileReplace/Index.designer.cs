@@ -149,28 +149,28 @@
             // 打开文件ToolStripMenuItem
             // 
             this.打开文件ToolStripMenuItem.Name = "打开文件ToolStripMenuItem";
-            this.打开文件ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.打开文件ToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.打开文件ToolStripMenuItem.Text = "打开文件";
             this.打开文件ToolStripMenuItem.Click += new System.EventHandler(this.打开文件ToolStripMenuItem_Click);
             // 
             // 打开文件夹ToolStripMenuItem
             // 
             this.打开文件夹ToolStripMenuItem.Name = "打开文件夹ToolStripMenuItem";
-            this.打开文件夹ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.打开文件夹ToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.打开文件夹ToolStripMenuItem.Text = "打开文件夹";
             this.打开文件夹ToolStripMenuItem.Click += new System.EventHandler(this.打开文件夹ToolStripMenuItem_Click);
             // 
             // 导出ToolStripMenuItem
             // 
             this.导出ToolStripMenuItem.Name = "导出ToolStripMenuItem";
-            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.导出ToolStripMenuItem.Text = "导出";
             this.导出ToolStripMenuItem.Click += new System.EventHandler(this.导出ToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -745,7 +745,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(307, 15);
             this.label4.TabIndex = 8;
-            this.label4.Text = "若不指定输出目录，则在源文件上直接操作！";
+            this.label4.Text = "若不指定输出目录，则在原文件上直接操作！";
             // 
             // btnNotNeedOutPutPath
             // 
@@ -809,7 +809,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1211, 825);
             this.Name = "Index";
-            this.Text = " XCLWinKits——Windows软件工具箱  1.0.1.0，Copyright ©2014 by:XCL qq:80213876 ";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox_FileInfo.ResumeLayout(false);
