@@ -102,11 +102,11 @@ namespace XCLRegexpTool
             {
                 foreach (Match match in matches)
                 {
-                    if (null != match && null != match.Groups && match.Groups.Count > 0)
+                    if (null != match && null != match.Captures && match.Captures.Count > 0)
                     {
-                        for (int i = 0; i < match.Groups.Count; i++)
+                        for (int i = 0; i < match.Captures.Count; i++)
                         {
-                            strFindResult.AppendFormat("{0}：{1}\r\n", lineNumber++, match.Groups[i].Value);
+                            strFindResult.AppendFormat("{0}：{1}\r\n", lineNumber++, match.Captures[i].Value);
                         }
                     }
                 }
