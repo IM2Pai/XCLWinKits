@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseForm", "BaseForm\BaseForm.csproj", "{340435C6-66FF-493F-BE51-F0DD8F0ABC7B}"
 EndProject
@@ -135,7 +135,7 @@ Global
 		{08D8B67F-D665-4122-92AA-259F9DB72895}.Release|Any CPU.Build.0 = Release|Any CPU
 		{08D8B67F-D665-4122-92AA-259F9DB72895}.Release|x86.ActiveCfg = Release|Any CPU
 		{08D8B67F-D665-4122-92AA-259F9DB72895}.Release|x86.Build.0 = Release|Any CPU
-		{90E85D5B-1C5C-4B96-A25C-D81B1BFEED5E}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{90E85D5B-1C5C-4B96-A25C-D81B1BFEED5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{90E85D5B-1C5C-4B96-A25C-D81B1BFEED5E}.Debug|x86.ActiveCfg = Debug|x86
 		{90E85D5B-1C5C-4B96-A25C-D81B1BFEED5E}.Debug|x86.Build.0 = Debug|x86
 		{90E85D5B-1C5C-4B96-A25C-D81B1BFEED5E}.Release|Any CPU.ActiveCfg = Release|x86
@@ -162,5 +162,8 @@ Global
 		{5100B375-4C25-4AA8-BCDF-1AFA355A5F93} = {4C4080DA-58D5-4FA3-9B5C-0167A01DEB4A}
 		{08D8B67F-D665-4122-92AA-259F9DB72895} = {FD13B6D7-33BD-4804-9BD0-DFBB2FB1FD17}
 		{4B88B6BB-FDC4-4798-BFE7-462F1D9BAA9B} = {FD13B6D7-33BD-4804-9BD0-DFBB2FB1FD17}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48A8DB5A-7B2E-48F9-9CE1-A0ECC0C3A8A2}
 	EndGlobalSection
 EndGlobal
