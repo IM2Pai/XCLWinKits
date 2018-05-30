@@ -97,16 +97,24 @@ namespace XCLRegexpTool
             }
 
             var lineNumber = 1;
+            var maxLen = 0;
             var matches = reg.Matches(this.txtInputString.Text);
             if (null != matches && matches.Count > 0)
             {
+                foreach (Match match in matches)
+                {
+                    if (null != match && null != match.Captures)
+                    {
+                        maxLen += match.Captures.Count;
+                    }
+                }
                 foreach (Match match in matches)
                 {
                     if (null != match && null != match.Captures && match.Captures.Count > 0)
                     {
                         for (int i = 0; i < match.Captures.Count; i++)
                         {
-                            strFindResult.AppendFormat("{0}：{1}\r\n", lineNumber++, match.Captures[i].Value);
+                            strFindResult.AppendFormat("{0}：{1}\r\n", (lineNumber++).ToString().PadLeft(maxLen.ToString().Length), match.Captures[i].Value);
                         }
                     }
                 }
