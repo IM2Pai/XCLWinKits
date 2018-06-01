@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace BaseForm
 {
-    public class BaseFormClass : System.Windows.Forms.Form
+    public class BaseFormClass : DevExpress.XtraEditors.XtraForm
     {
         private string _getRemark = string.Empty;
 
@@ -40,6 +40,8 @@ namespace BaseForm
 
         private void InitializeComponent()
         {
+            this.LookAndFeel.SkinName = "Office 2010 Blue";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.StartPosition = FormStartPosition.CenterScreen;
 
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseFormClass));

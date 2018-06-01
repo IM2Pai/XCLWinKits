@@ -21,7 +21,8 @@ namespace XCLWinKits
 
             foreach (var m in CommonHelper.ConfigHelper.Config.CategoryConfig.CategoryList)
             {
-                TabPage tab = new TabPage(m.Name);
+                var tab = new DevExpress.XtraTab.XtraTabPage();
+                tab.Text = m.Name;
                 FlowLayoutPanel flowPanel = new FlowLayoutPanel();
                 flowPanel.Dock = DockStyle.Fill;
                 if (null != m.CategoryItemList && m.CategoryItemList.Count > 0)
@@ -29,17 +30,15 @@ namespace XCLWinKits
                     for (int k = 0; k < m.CategoryItemList.Count; k++)
                     {
                         var model = m.CategoryItemList[k];
-                        Button bt = new Button();
-                        bt.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+                        var bt = new DevExpress.XtraEditors.BaseButton();
                         bt.Name = model.AssemblyName;
                         bt.Text = model.Name;
                         bt.AutoSize = true;
-                        bt.Height = 25;
-                        bt.Margin = new System.Windows.Forms.Padding(5);
-                        bt.Padding = new System.Windows.Forms.Padding(3);
+                        bt.Height = 40;
+                        bt.Width = 180;
+                        bt.Margin = new System.Windows.Forms.Padding(10);
+                        bt.Padding = new System.Windows.Forms.Padding(5);
                         bt.Click += new EventHandler(bt_Click);
-                        bt.MouseEnter += new EventHandler(bt_MouseEnter);
-                        bt.MouseLeave += new EventHandler(bt_MouseLeave);
                         flowPanel.Controls.Add(bt);
                     }
                 }
@@ -71,29 +70,25 @@ namespace XCLWinKits
                 }
             }
 
-            Button bt = (Button)sender;
+            var bt = (DevExpress.XtraEditors.BaseButton)sender;
             try
             {
-                Form form = Assembly.Load(bt.Name).CreateInstance(string.Format("{0}.Index", bt.Name)) as System.Windows.Forms.Form;
-                form.Show();
+                try
+                {
+                    Form form = Assembly.Load(bt.Name).CreateInstance(string.Format("{0}.Index", bt.Name)) as System.Windows.Forms.Form;
+                    form.Show();
+                }
+                catch
+                {
+                    Form form = Assembly.LoadFile(Application.StartupPath + @"\XCLWinKits.exe").CreateInstance(string.Format("{0}.Index", bt.Name)) as System.Windows.Forms.Form;
+                    form.Show();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("打开失败，程序集{0}.Index还未开发完成！{1}（{2}）", bt.Name, Environment.NewLine, ex.Message), "系统提示");
+                DevExpress.XtraEditors.XtraMessageBox.Show(string.Format("打开失败，程序集{0}.Index还未开发完成！{1}（{2}）", bt.Name, Environment.NewLine, ex.Message), "系统提示");
                 CommonHelper.Common.WriteLog(ex);
             }
-        }
-
-        private void bt_MouseEnter(object sender, EventArgs e)
-        {
-            Button bt = (Button)sender;
-            bt.ForeColor = System.Drawing.Color.Blue;
-        }
-
-        private void bt_MouseLeave(object sender, EventArgs e)
-        {
-            Button bt = (Button)sender;
-            bt.ForeColor = System.Drawing.Color.Black;
         }
 
         #endregion button事件

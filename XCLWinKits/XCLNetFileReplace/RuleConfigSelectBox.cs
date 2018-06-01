@@ -168,7 +168,7 @@ namespace XCLNetFileReplace
             var selectedRows = this.dataGridRuleConfig.SelectedRows;
             if (null == selectedRows || selectedRows.Count != 1)
             {
-                MessageBox.Show("请选择一条规则进行修改！", "系统提示");
+                DevExpress.XtraEditors.XtraMessageBox.Show("请选择一条规则进行修改！", "系统提示");
                 return;
             }
             this.InitDataByRuleId(XCLNetTools.Common.DataTypeConvert.ToInt(selectedRows[0].Cells["grid_RuleConfigID"].Value));
@@ -187,11 +187,11 @@ namespace XCLNetFileReplace
             var selectedRows = this.dataGridRuleConfig.SelectedRows;
             if (null == selectedRows || selectedRows.Count == 0)
             {
-                MessageBox.Show("请至少选择一条规则进行删除！", "系统提示");
+                DevExpress.XtraEditors.XtraMessageBox.Show("请至少选择一条规则进行删除！", "系统提示");
                 return;
             }
 
-            if (MessageBox.Show("您确定要删除这些规则？", "系统提示", MessageBoxButtons.YesNo) != System.Windows.Forms.DialogResult.Yes)
+            if (DevExpress.XtraEditors.XtraMessageBox.Show("您确定要删除这些规则？", "系统提示", MessageBoxButtons.YesNo) != System.Windows.Forms.DialogResult.Yes)
             {
                 return;
             }
@@ -214,7 +214,7 @@ namespace XCLNetFileReplace
             var lst = this.vbll.GetAllList();
             if (lst.IsNullOrEmpty())
             {
-                MessageBox.Show("没有任何规则数据需要导出！", "系统提示");
+                DevExpress.XtraEditors.XtraMessageBox.Show("没有任何规则数据需要导出！", "系统提示");
                 return;
             }
             var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop), string.Format("规则信息{0:yyyyMMddHHmmssfff}.xlsx", DateTime.Now));
@@ -274,7 +274,7 @@ namespace XCLNetFileReplace
                 },
                 TableName = new string[] { "规则信息字段" }
             });
-            MessageBox.Show("导出成功：" + path, "系统提示");
+            DevExpress.XtraEditors.XtraMessageBox.Show("导出成功：" + path, "系统提示");
         }
 
         /// <summary>
@@ -304,13 +304,13 @@ namespace XCLNetFileReplace
 
                 if (nameColIndex == -1 || oldContentColIndex == -1 || newContentColIndex == -1 || isRegexColIndex == -1 || isIgnoreCaseColIndex == -1 || isWholeMatchColIndex == -1 || isFileNameColIndex == -1 || isFileContentColIndex == -1 || createTimeColIndex == -1 || updateTimeColIndex == -1)
                 {
-                    MessageBox.Show("准备导入的文件模板缺少相关列，请确保模板是正确的（您可以将导出的Excel文件作为模板）！", "系统提示");
+                    DevExpress.XtraEditors.XtraMessageBox.Show("准备导入的文件模板缺少相关列，请确保模板是正确的（您可以将导出的Excel文件作为模板）！", "系统提示");
                     return;
                 }
 
                 if (dt.Rows.Count <= 2)
                 {
-                    MessageBox.Show("没有任务数据需要导入！", "系统提示");
+                    DevExpress.XtraEditors.XtraMessageBox.Show("没有任务数据需要导入！", "系统提示");
                     return;
                 }
 
@@ -350,7 +350,7 @@ namespace XCLNetFileReplace
 
                 if (msg.Count > 0)
                 {
-                    MessageBox.Show(string.Join(System.Environment.NewLine, msg.ToArray()), "系统提示");
+                    DevExpress.XtraEditors.XtraMessageBox.Show(string.Join(System.Environment.NewLine, msg.ToArray()), "系统提示");
                     return;
                 }
 
@@ -358,13 +358,13 @@ namespace XCLNetFileReplace
                 {
                     this.bll.Add(lst);
                     this.InitRuleConfigGrid();
-                    MessageBox.Show(string.Format("您已成功导入{0}条规则！", lst.Count.ToString()), "系统提示");
+                    DevExpress.XtraEditors.XtraMessageBox.Show(string.Format("您已成功导入{0}条规则！", lst.Count.ToString()), "系统提示");
                     return;
                 }
             }
             catch
             {
-                MessageBox.Show("系统错误，请重新选择有效的文件！", "系统提示");
+                DevExpress.XtraEditors.XtraMessageBox.Show("系统错误，请重新选择有效的文件！", "系统提示");
             }
         }
 
@@ -391,13 +391,13 @@ namespace XCLNetFileReplace
 
             if (string.IsNullOrEmpty(model.Name))
             {
-                MessageBox.Show("请输入规则名！", "系统提示");
+                DevExpress.XtraEditors.XtraMessageBox.Show("请输入规则名！", "系统提示");
                 return;
             }
 
             if (string.IsNullOrEmpty(model.OldContent))
             {
-                MessageBox.Show("请输入要查找的内容！", "系统提示");
+                DevExpress.XtraEditors.XtraMessageBox.Show("请输入要查找的内容！", "系统提示");
                 return;
             }
 

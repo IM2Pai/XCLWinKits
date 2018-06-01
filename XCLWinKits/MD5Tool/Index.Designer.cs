@@ -33,7 +33,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtResult = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnOK = new System.Windows.Forms.Button();
+            this.btnOK = new DevExpress.XtraEditors.BaseButton();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -103,7 +103,6 @@
             this.btnOK.Size = new System.Drawing.Size(105, 34);
             this.btnOK.TabIndex = 0;
             this.btnOK.Text = "执行";
-            this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // Index
@@ -133,6 +132,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnOK;
+        private DevExpress.XtraEditors.BaseButton btnOK;
     }
 }

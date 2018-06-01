@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
-using System.Windows.Forms;
 
 namespace MD5Tool
 {
@@ -18,7 +17,7 @@ namespace MD5Tool
         {
             if (string.IsNullOrEmpty(this.txtInputString.Text))
             {
-                MessageBox.Show("请输入待处理内容！");
+                DevExpress.XtraEditors.XtraMessageBox.Show("请输入待处理内容！", "系统提示");
                 return;
             }
             List<string> lstStr = new List<string>();

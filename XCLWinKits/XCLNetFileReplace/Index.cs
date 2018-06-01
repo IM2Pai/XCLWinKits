@@ -112,7 +112,7 @@ namespace XCLNetFileReplace
             }
             catch
             {
-                MessageBox.Show("系统错误，请重新打开有效文件！", "系统提示");
+                DevExpress.XtraEditors.XtraMessageBox.Show("系统错误，请重新打开有效文件！", "系统提示");
             }
         }
 
@@ -136,7 +136,7 @@ namespace XCLNetFileReplace
             }
             catch
             {
-                MessageBox.Show("系统错误，请重新打开有效文件夹！", "系统提示");
+                DevExpress.XtraEditors.XtraMessageBox.Show("系统错误，请重新打开有效文件夹！", "系统提示");
             }
         }
 
@@ -145,7 +145,7 @@ namespace XCLNetFileReplace
             var lst = new DataLayer.BLL.v_FileReplace_File_ForExport().GetAllList();
             if (null == lst || lst.Count == 0)
             {
-                MessageBox.Show("当前没有任何数据可供导出！", "系统提示");
+                DevExpress.XtraEditors.XtraMessageBox.Show("当前没有任何数据可供导出！", "系统提示");
                 return;
             }
             FolderBrowserDialog openFolder = new FolderBrowserDialog();
@@ -159,7 +159,7 @@ namespace XCLNetFileReplace
             wb.Worksheets[0].Cells.ImportDataTable(XCLNetTools.DataSource.DataTableHelper.ToDataTable(lst), true, 0, 0);
             string filePath = string.Format(@"{0}\XCLNetFileRelace_{1:yyyyMMddHHmmssfff}.xlsx", folderPath, DateTime.Now);
             wb.Save(filePath, Aspose.Cells.SaveFormat.Xlsx);
-            if (MessageBox.Show("导出成功，是否打开该文件？", "系统提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            if (DevExpress.XtraEditors.XtraMessageBox.Show("导出成功，是否打开该文件？", "系统提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
             {
                 System.Diagnostics.Process.Start(filePath);
             }
@@ -183,13 +183,13 @@ namespace XCLNetFileReplace
 
             if (null == lst || lst.Count == 0)
             {
-                MessageBox.Show("请先选择待处理的文件！", "系统提示");
+                DevExpress.XtraEditors.XtraMessageBox.Show("请先选择待处理的文件！", "系统提示");
                 return;
             }
 
             if ((null == this.dataGridRuleConfig.Rows || this.dataGridRuleConfig.Rows.Count == 0) && string.IsNullOrEmpty(this.txtFileFirstName.Text) && string.IsNullOrEmpty(this.txtFileLastName.Text))
             {
-                MessageBox.Show("当前不需要处理任何文件，请先配置相关信息！", "系统提示");
+                DevExpress.XtraEditors.XtraMessageBox.Show("当前不需要处理任何文件，请先配置相关信息！", "系统提示");
                 return;
             }
 
@@ -200,7 +200,7 @@ namespace XCLNetFileReplace
                     //检查是否有文件
                     if (!XCLNetTools.FileHandler.FileDirectory.IsEmpty(this.txtOutPutPath.Text))
                     {
-                        if (MessageBox.Show("您指定的输出目录不是空目录，是否继续？", "系统提示", MessageBoxButtons.YesNo) == DialogResult.No)
+                        if (DevExpress.XtraEditors.XtraMessageBox.Show("您指定的输出目录不是空目录，是否继续？", "系统提示", MessageBoxButtons.YesNo) == DialogResult.No)
                         {
                             return;
                         }
@@ -210,7 +210,7 @@ namespace XCLNetFileReplace
                 {
                     if (!XCLNetTools.FileHandler.FileDirectory.MakeDirectory(this.txtOutPutPath.Text))
                     {
-                        MessageBox.Show("输出目录不存在，请选择有效的输出目录！", "系统提示");
+                        DevExpress.XtraEditors.XtraMessageBox.Show("输出目录不存在，请选择有效的输出目录！", "系统提示");
                         return;
                     }
                 }
@@ -218,7 +218,7 @@ namespace XCLNetFileReplace
 
             if (!lst.Exists(k => !k.IsDone))
             {
-                MessageBox.Show("文件都已处理，请重新打开要处理的文件！", "系统提示");
+                DevExpress.XtraEditors.XtraMessageBox.Show("文件都已处理，请重新打开要处理的文件！", "系统提示");
                 return;
             }
 
@@ -761,22 +761,22 @@ namespace XCLNetFileReplace
                 }
                 else
                 {
-                    if (MessageBox.Show("该目录不存在，是否要创建？", "系统提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                    if (DevExpress.XtraEditors.XtraMessageBox.Show("该目录不存在，是否要创建？", "系统提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                     {
                         if (XCLNetTools.FileHandler.FileDirectory.MakeDirectory(this.txtOutPutPath.Text))
                         {
-                            MessageBox.Show("目录创建成功！", "系统提示");
+                            DevExpress.XtraEditors.XtraMessageBox.Show("目录创建成功！", "系统提示");
                         }
                         else
                         {
-                            MessageBox.Show("目录创建失败，请手动选择有效目录！", "系统提示");
+                            DevExpress.XtraEditors.XtraMessageBox.Show("目录创建失败，请手动选择有效目录！", "系统提示");
                         }
                     }
                 }
             }
             else
             {
-                MessageBox.Show("请先选择输出目录！", "系统提示");
+                DevExpress.XtraEditors.XtraMessageBox.Show("请先选择输出目录！", "系统提示");
             }
         }
 

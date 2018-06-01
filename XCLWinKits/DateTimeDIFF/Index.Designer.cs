@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnCount = new System.Windows.Forms.Button();
+            this.btnCount =new DevExpress.XtraEditors.BaseButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtEndTime = new System.Windows.Forms.TextBox();
@@ -61,7 +61,6 @@
             this.btnCount.Size = new System.Drawing.Size(75, 23);
             this.btnCount.TabIndex = 4;
             this.btnCount.Text = "计算";
-            this.btnCount.UseVisualStyleBackColor = true;
             this.btnCount.Click += new System.EventHandler(this.btnCount_Click);
             // 
             // label2
@@ -145,7 +144,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtEndTime;
         private System.Windows.Forms.TextBox txtStartTime;
-        private System.Windows.Forms.Button btnCount;
+        private DevExpress.XtraEditors.BaseButton btnCount;
         private System.Windows.Forms.TextBox txtResult;
     }
 }

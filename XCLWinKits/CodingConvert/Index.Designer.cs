@@ -33,8 +33,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtResult = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnDecode = new System.Windows.Forms.Button();
-            this.btnEncode = new System.Windows.Forms.Button();
+            this.btnDecode = new DevExpress.XtraEditors.BaseButton();
+            this.btnEncode = new DevExpress.XtraEditors.BaseButton();
             this.label1 = new System.Windows.Forms.Label();
             this.commboxCodingName = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
@@ -108,7 +108,6 @@
             this.btnDecode.Size = new System.Drawing.Size(75, 23);
             this.btnDecode.TabIndex = 3;
             this.btnDecode.Text = "解码";
-            this.btnDecode.UseVisualStyleBackColor = true;
             this.btnDecode.Click += new System.EventHandler(this.btnDecode_Click);
             // 
             // btnEncode
@@ -118,7 +117,6 @@
             this.btnEncode.Size = new System.Drawing.Size(75, 23);
             this.btnEncode.TabIndex = 2;
             this.btnEncode.Text = "编码";
-            this.btnEncode.UseVisualStyleBackColor = true;
             this.btnEncode.Click += new System.EventHandler(this.btnEncode_Click);
             // 
             // label1
@@ -168,7 +166,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox commboxCodingName;
-        private System.Windows.Forms.Button btnDecode;
-        private System.Windows.Forms.Button btnEncode;
+        private DevExpress.XtraEditors.BaseButton btnDecode;
+        private DevExpress.XtraEditors.BaseButton btnEncode;
     }
 }

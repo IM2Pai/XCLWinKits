@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace CommonHelper
 {
@@ -19,13 +17,14 @@ namespace CommonHelper
         }
 
         #region Config.xml
+
         /// <summary>
         /// Config.xml的路径
         /// </summary>
         /// <returns></returns>
         public static string CategoryConfigPath
         {
-            get{return string.Format(@"{0}\Config\Config.xml", RootPath);}
+            get { return string.Format(@"{0}\Config\Config.xml", RootPath); }
         }
 
         /// <summary>
@@ -49,9 +48,9 @@ namespace CommonHelper
         public static string GetCategoryNameInfo(string assemblyName)
         {
             string str = string.Empty;
-            if (null!=Config && null!=Config.CategoryConfig &&null!=Config.CategoryConfig.CategoryList&&Config.CategoryConfig.CategoryList.Count>0)
+            if (null != Config && null != Config.CategoryConfig && null != Config.CategoryConfig.CategoryList && Config.CategoryConfig.CategoryList.Count > 0)
             {
-                var model=Config.CategoryConfig.CategoryList.Where(k => k.CategoryItemList.Exists(m => string.Equals(m.AssemblyName, assemblyName, StringComparison.CurrentCultureIgnoreCase))).FirstOrDefault();
+                var model = Config.CategoryConfig.CategoryList.Where(k => k.CategoryItemList.Exists(m => string.Equals(m.AssemblyName, assemblyName, StringComparison.CurrentCultureIgnoreCase))).FirstOrDefault();
                 if (null != model)
                 {
                     str = string.Format("{0}--{1}", model.Name, model.CategoryItemList.Where(m => string.Equals(m.AssemblyName, assemblyName, StringComparison.CurrentCultureIgnoreCase)).First().Name);
@@ -59,6 +58,7 @@ namespace CommonHelper
             }
             return str;
         }
-        #endregion
+
+        #endregion Config.xml
     }
 }

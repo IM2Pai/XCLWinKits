@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Xml.Serialization;
 
 namespace CommonHelper.Model
@@ -21,26 +19,28 @@ namespace CommonHelper.Model
         public List<Category> CategoryList { get; set; }
     }
 
-
     [Serializable]
     public class Category
     {
         [XmlAttribute("Name")]
         public string Name { get; set; }
+
         [XmlAttribute("Sort")]
         public int Sort { get; set; }
+
         [XmlArray("CategoryItemList")]
         public List<CategoryItem> CategoryItemList { get; set; }
     }
-
 
     [Serializable]
     public class CategoryItem
     {
         [XmlAttribute("Sort")]
         public int Sort { get; set; }
+
         [XmlAttribute("Name")]
         public string Name { get; set; }
+
         [XmlAttribute("AssemblyName")]
         public string AssemblyName { get; set; }
     }

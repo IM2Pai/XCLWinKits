@@ -35,8 +35,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtKey = new System.Windows.Forms.TextBox();
-            this.btnDecrypt = new System.Windows.Forms.Button();
-            this.btnEncrypt = new System.Windows.Forms.Button();
+            this.btnDecrypt = new DevExpress.XtraEditors.BaseButton();
+            this.btnEncrypt = new DevExpress.XtraEditors.BaseButton();
             this.label1 = new System.Windows.Forms.Label();
             this.comboxEncryptType = new System.Windows.Forms.ComboBox();
             this.ckContainKey = new System.Windows.Forms.CheckBox();
@@ -131,7 +131,6 @@
             this.btnDecrypt.Size = new System.Drawing.Size(75, 23);
             this.btnDecrypt.TabIndex = 3;
             this.btnDecrypt.Text = "解密";
-            this.btnDecrypt.UseVisualStyleBackColor = true;
             this.btnDecrypt.Click += new System.EventHandler(this.btnDecrypt_Click);
             // 
             // btnEncrypt
@@ -141,7 +140,6 @@
             this.btnEncrypt.Size = new System.Drawing.Size(75, 23);
             this.btnEncrypt.TabIndex = 2;
             this.btnEncrypt.Text = "加密";
-            this.btnEncrypt.UseVisualStyleBackColor = true;
             this.btnEncrypt.Click += new System.EventHandler(this.btnEncrypt_Click);
             // 
             // label1
@@ -203,8 +201,8 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboxEncryptType;
-        private System.Windows.Forms.Button btnDecrypt;
-        private System.Windows.Forms.Button btnEncrypt;
+        private DevExpress.XtraEditors.BaseButton btnDecrypt;
+        private DevExpress.XtraEditors.BaseButton btnEncrypt;
         private System.Windows.Forms.TextBox txtKey;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox ckContainKey;

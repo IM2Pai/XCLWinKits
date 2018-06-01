@@ -34,12 +34,12 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtReplaceResult = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnSave = new DevExpress.XtraEditors.BaseButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtInputString = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.ckIgnoreCase = new System.Windows.Forms.CheckBox();
-            this.btnOK = new System.Windows.Forms.Button();
+            this.btnOK = new DevExpress.XtraEditors.BaseButton();
             this.ckAnyTime = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtReplaceString = new System.Windows.Forms.TextBox();
@@ -140,7 +140,6 @@
             this.btnSave.Size = new System.Drawing.Size(100, 36);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "导出结果";
-            this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // groupBox3
@@ -204,7 +203,6 @@
             this.btnOK.Size = new System.Drawing.Size(100, 29);
             this.btnOK.TabIndex = 6;
             this.btnOK.Text = "执行";
-            this.btnOK.UseVisualStyleBackColor = true;
             // 
             // ckAnyTime
             // 
@@ -338,11 +336,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TextBox txtReplaceResult;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnSave;
+        private DevExpress.XtraEditors.BaseButton btnSave;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox txtFindResult;
         private System.Windows.Forms.Label lbMsg;
-        private System.Windows.Forms.Button btnOK;
+        private DevExpress.XtraEditors.BaseButton btnOK;
         private System.Windows.Forms.CheckBox ckIgnoreCase;
         private System.Windows.Forms.CheckBox ckMutipLine;
     }

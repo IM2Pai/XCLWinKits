@@ -128,7 +128,7 @@ namespace XCLRegexpTool
         {
             if (string.IsNullOrEmpty(this.txtReplaceResult.Text))
             {
-                MessageBox.Show("当前没有任何数据可供导出！");
+                DevExpress.XtraEditors.XtraMessageBox.Show("当前没有任何数据可供导出！", "系统提示");
                 return;
             }
             FolderBrowserDialog openFolder = new FolderBrowserDialog();
@@ -140,14 +140,14 @@ namespace XCLRegexpTool
                 if (XCLNetTools.FileHandler.FileDirectory.CreateTextFile(filePath))
                 {
                     XCLNetTools.FileHandler.FileDirectory.AppendText(filePath, this.txtReplaceResult.Text);
-                    if (MessageBox.Show("导出成功，是否打开该文件？", "系统提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                    if (DevExpress.XtraEditors.XtraMessageBox.Show("导出成功，是否打开该文件？", "系统提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                     {
                         System.Diagnostics.Process.Start(filePath);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("导出失败，请重试！");
+                    DevExpress.XtraEditors.XtraMessageBox.Show("导出失败，请重试！", "系统提示");
                     return;
                 }
             }

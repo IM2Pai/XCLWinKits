@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Reflection;
 
 namespace CodingConvert
@@ -38,23 +31,23 @@ namespace CodingConvert
         {
             if (string.IsNullOrEmpty(this.txtInputString.Text))
             {
-                MessageBox.Show("请输入要编码的内容！");
+                DevExpress.XtraEditors.XtraMessageBox.Show("请输入要编码的内容！", "系统提示");
                 return;
             }
-            this.txtResult.Text = this.GetCodeString(this.txtInputString.Text,true);
+            this.txtResult.Text = this.GetCodeString(this.txtInputString.Text, true);
         }
 
         private void btnDecode_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(this.txtResult.Text))
             {
-                MessageBox.Show("请输入要解码的内容！");
+                DevExpress.XtraEditors.XtraMessageBox.Show("请输入要解码的内容！", "系统提示");
                 return;
             }
-            this.txtInputString.Text = this.GetCodeString(this.txtResult.Text,false);
+            this.txtInputString.Text = this.GetCodeString(this.txtResult.Text, false);
         }
 
-        private string GetCodeString(string str,bool isEncode)
+        private string GetCodeString(string str, bool isEncode)
         {
             if (isEncode)
             {
@@ -73,13 +66,13 @@ namespace CodingConvert
                     strResult = System.Web.HttpUtility.UrlEncode(str, coding);
                 }
                 else
-                { 
-                    strResult = System.Web.HttpUtility.UrlDecode(str,coding);
+                {
+                    strResult = System.Web.HttpUtility.UrlDecode(str, coding);
                 }
             }
             catch (Exception ex)
             {
-                strResult="处理失败！";
+                strResult = "处理失败！";
             }
             return strResult;
         }

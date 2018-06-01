@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DataLayer.Common
+﻿namespace DataLayer.Common
 {
     public class DataEnum
     {
@@ -13,10 +7,10 @@ namespace DataLayer.Common
         /// </summary>
         public enum FileReplace_File_ProcessStateEnum
         {
-            等待处理=0,
-            处理成功=1,
-            无需处理=2,
-            处理失败=3
+            等待处理 = 0,
+            处理成功 = 1,
+            无需处理 = 2,
+            处理失败 = 3
         }
     }
 }

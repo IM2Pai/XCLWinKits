@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Windows.Forms;
 
 namespace DateTimeDIFF
 {
@@ -26,12 +25,12 @@ namespace DateTimeDIFF
             var end = XCLNetTools.Common.DataTypeConvert.ToDateTimeNull(this.txtEndTime.Text);
             if (!start.HasValue)
             {
-                MessageBox.Show("请输入有效格式的开始时间！", "系统提示");
+                DevExpress.XtraEditors.XtraMessageBox.Show("请输入有效格式的开始时间！", "系统提示");
                 return;
             }
             if (!end.HasValue)
             {
-                MessageBox.Show("请输入有效格式的结束时间！", "系统提示");
+                DevExpress.XtraEditors.XtraMessageBox.Show("请输入有效格式的结束时间！", "系统提示");
                 return;
             }
 

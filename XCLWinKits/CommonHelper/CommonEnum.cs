@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace CommonHelper
 {
@@ -12,8 +8,10 @@ namespace CommonHelper
         {
             [Description("Unicode")]
             Unicode,
+
             [Description("UTF-8")]
             UTF8,
+
             [Description("GB2312")]
             GB2312
         }

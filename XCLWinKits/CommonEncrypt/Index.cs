@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Reflection;
-using System.IO;
-using System.Security.Cryptography;
 
 namespace CommonEncrypt
 {
@@ -41,25 +32,25 @@ namespace CommonEncrypt
         {
             if (string.IsNullOrEmpty(this.txtInput.Text))
             {
-                MessageBox.Show("请输入明文！");
+                DevExpress.XtraEditors.XtraMessageBox.Show("请输入明文！", "系统提示");
                 return;
             }
             var type = (CommonHelper.CommonEnum.EncryptEnum)Enum.Parse(typeof(CommonHelper.CommonEnum.EncryptEnum), this.comboxEncryptType.Text);
-            this.txtResult.Text= this.GetResult(type, this.txtInput.Text,true);
+            this.txtResult.Text = this.GetResult(type, this.txtInput.Text, true);
         }
 
         private void btnDecrypt_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(this.txtResult.Text))
             {
-                MessageBox.Show("请输入密文！");
+                DevExpress.XtraEditors.XtraMessageBox.Show("请输入密文！", "系统提示");
                 return;
             }
             var type = (CommonHelper.CommonEnum.EncryptEnum)Enum.Parse(typeof(CommonHelper.CommonEnum.EncryptEnum), this.comboxEncryptType.Text);
-            this.txtInput.Text=this.GetResult(type, this.txtResult.Text,false);
+            this.txtInput.Text = this.GetResult(type, this.txtResult.Text, false);
         }
 
-        private string GetResult(CommonHelper.CommonEnum.EncryptEnum encryptEnum, string str,bool isEncrypt)
+        private string GetResult(CommonHelper.CommonEnum.EncryptEnum encryptEnum, string str, bool isEncrypt)
         {
             string result = string.Empty;
             try
@@ -77,9 +68,11 @@ namespace CommonEncrypt
                             result = isEncrypt ? aes.Encrypt(this.txtInput.Text, this.txtKey.Text) : aes.Decrypt(this.txtResult.Text, this.txtKey.Text);
                         }
                         break;
+
                     case CommonHelper.CommonEnum.EncryptEnum.Base64:
                         result = isEncrypt ? XCLNetTools.Encode.Base64.Base64Code(str) : XCLNetTools.Encode.Base64.Base64Decode(str);
                         break;
+
                     case CommonHelper.CommonEnum.EncryptEnum.DES:
                         if (string.IsNullOrEmpty(this.txtKey.Text))
                         {
@@ -109,11 +102,13 @@ namespace CommonEncrypt
                     this.ckContainKey.Checked = false;
                     this.ckContainKey.Enabled = true;
                     break;
+
                 case CommonHelper.CommonEnum.EncryptEnum.DES:
                     this.txtKey.Enabled = true;
                     this.ckContainKey.Checked = false;
                     this.ckContainKey.Enabled = false;
                     break;
+
                 default:
                     this.txtKey.Text = "";
                     this.txtKey.Enabled = false;
