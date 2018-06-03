@@ -22,7 +22,7 @@ namespace XCLNetFileReplace
             InitializeComponent();
             this.InitRuleConfigGrid();
             this.ckIsFileName.Checked = true;
-            this.tabPageAdd.Parent = null;
+            this.tabPageAdd.PageVisible = false;
             this.fileReplaceSetting = userSettingBLL.GetFileReplaceSetting();
         }
 
@@ -156,8 +156,8 @@ namespace XCLNetFileReplace
         {
             this.InitDataByRuleId(0);
             this.tabPageAdd.Text = "添加规则";
-            this.tabPageAdd.Parent = this.tabRuleConfig;
-            this.tabRuleConfig.SelectedTab = this.tabPageAdd;
+            this.tabPageAdd.PageVisible = true;
+            this.tabRuleConfig.SelectedPage = this.tabPageAdd;
         }
 
         /// <summary>
@@ -174,8 +174,8 @@ namespace XCLNetFileReplace
             this.InitDataByRuleId(XCLNetTools.Common.DataTypeConvert.ToInt(selectedRows[0].Cells["grid_RuleConfigID"].Value));
 
             this.tabPageAdd.Text = "修改规则";
-            this.tabPageAdd.Parent = this.tabRuleConfig;
-            this.tabRuleConfig.SelectedTab = this.tabPageAdd;
+            this.tabPageAdd.PageVisible = true;
+            this.tabRuleConfig.SelectedPage = this.tabPageAdd;
         }
 
         /// <summary>
@@ -412,8 +412,8 @@ namespace XCLNetFileReplace
             }
 
             this.InitRuleConfigGrid();
-            this.tabPageAdd.Parent = null;
-            this.tabRuleConfig.SelectedTab = this.tabPageSelectRule;
+            this.tabPageAdd.PageVisible = false;
+            this.tabRuleConfig.SelectedPage = this.tabPageSelectRule;
         }
 
         /// <summary>

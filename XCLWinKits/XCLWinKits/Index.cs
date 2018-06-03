@@ -30,7 +30,7 @@ namespace XCLWinKits
                     for (int k = 0; k < m.CategoryItemList.Count; k++)
                     {
                         var model = m.CategoryItemList[k];
-                        var bt = new DevExpress.XtraEditors.BaseButton();
+                        var bt = new DevExpress.XtraEditors.SimpleButton();
                         bt.Name = model.AssemblyName;
                         bt.Text = model.Name;
                         bt.AutoSize = true;
@@ -70,7 +70,7 @@ namespace XCLWinKits
                 }
             }
 
-            var bt = (DevExpress.XtraEditors.BaseButton)sender;
+            var bt = (DevExpress.XtraEditors.SimpleButton)sender;
             try
             {
                 try

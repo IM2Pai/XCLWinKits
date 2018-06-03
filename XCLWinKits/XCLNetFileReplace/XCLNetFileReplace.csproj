@@ -87,6 +87,7 @@
     <EmbeddedResource Include="Index.resx">
       <DependentUpon>Index.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="RuleConfigSelectBox.resx">
       <DependentUpon>RuleConfigSelectBox.cs</DependentUpon>
     </EmbeddedResource>

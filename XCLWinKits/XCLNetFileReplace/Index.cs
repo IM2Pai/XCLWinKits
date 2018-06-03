@@ -86,92 +86,6 @@ namespace XCLNetFileReplace
             this.dataGridRuleConfig.DataSource = XCLNetTools.DataSource.DataTableHelper.ToDataTable(ruleLst);
         }
 
-        #region 导航菜单
-
-        private void 打开文件ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFile = new OpenFileDialog();
-            openFile.Multiselect = true;
-            if (!string.IsNullOrWhiteSpace(this.replaceSetting.LastOpenFolderPath) && System.IO.Directory.Exists(this.replaceSetting.LastOpenFolderPath))
-            {
-                openFile.InitialDirectory = this.replaceSetting.LastOpenFolderPath;
-            }
-            if (openFile.ShowDialog() != System.Windows.Forms.DialogResult.OK)
-            {
-                return;
-            }
-            try
-            {
-                this.InitFiles(openFile.FileNames);
-                if (null != openFile.FileNames && openFile.FileNames.Length > 0)
-                {
-                    string fName = XCLNetTools.FileHandler.ComFile.GetFileName(openFile.FileNames[0]);
-                    this.openFileFolderPath = openFile.FileNames[0].Replace(fName, "");
-                    this.replaceSetting.LastOpenFolderPath = this.openFileFolderPath;
-                }
-            }
-            catch
-            {
-                DevExpress.XtraEditors.XtraMessageBox.Show("系统错误，请重新打开有效文件！", "系统提示");
-            }
-        }
-
-        private void 打开文件夹ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog openFolder = new FolderBrowserDialog();
-            if (!string.IsNullOrWhiteSpace(this.replaceSetting.LastOpenFolderPath) && System.IO.Directory.Exists(this.replaceSetting.LastOpenFolderPath))
-            {
-                openFolder.SelectedPath = this.replaceSetting.LastOpenFolderPath;
-            }
-            if (openFolder.ShowDialog() != System.Windows.Forms.DialogResult.OK)
-            {
-                return;
-            }
-            try
-            {
-                string[] files = XCLNetTools.FileHandler.ComFile.GetFolderFilesByRecursion(openFolder.SelectedPath);
-                this.InitFiles(files);
-                this.openFileFolderPath = openFolder.SelectedPath;
-                this.replaceSetting.LastOpenFolderPath = this.openFileFolderPath;
-            }
-            catch
-            {
-                DevExpress.XtraEditors.XtraMessageBox.Show("系统错误，请重新打开有效文件夹！", "系统提示");
-            }
-        }
-
-        private void 导出ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var lst = new DataLayer.BLL.v_FileReplace_File_ForExport().GetAllList();
-            if (null == lst || lst.Count == 0)
-            {
-                DevExpress.XtraEditors.XtraMessageBox.Show("当前没有任何数据可供导出！", "系统提示");
-                return;
-            }
-            FolderBrowserDialog openFolder = new FolderBrowserDialog();
-            openFolder.Description = "请选择要存放的目录！";
-            if (openFolder.ShowDialog() != System.Windows.Forms.DialogResult.OK)
-            {
-                return;
-            }
-            string folderPath = openFolder.SelectedPath.TrimEnd('\\');
-            Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
-            wb.Worksheets[0].Cells.ImportDataTable(XCLNetTools.DataSource.DataTableHelper.ToDataTable(lst), true, 0, 0);
-            string filePath = string.Format(@"{0}\XCLNetFileRelace_{1:yyyyMMddHHmmssfff}.xlsx", folderPath, DateTime.Now);
-            wb.Save(filePath, Aspose.Cells.SaveFormat.Xlsx);
-            if (DevExpress.XtraEditors.XtraMessageBox.Show("导出成功，是否打开该文件？", "系统提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-            {
-                System.Diagnostics.Process.Start(filePath);
-            }
-        }
-
-        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        #endregion 导航菜单
-
         /// <summary>
         /// 执行
         /// </summary>
@@ -836,8 +750,6 @@ namespace XCLNetFileReplace
         {
             bool state = this.btnSave.Enabled;
 
-            this.tabControlOptions.Enabled = state;
-
             this.btnSave.Enabled = state;
             this.btnSelectRule.Enabled = state;
 
@@ -862,6 +774,92 @@ namespace XCLNetFileReplace
             else
             {
                 this.txtLog.AppendText(logMsg);
+            }
+        }
+
+        /// <summary>
+        /// 导出待处理文件
+        /// </summary>
+        private void btnExportWaitFile_Click(object sender, EventArgs e)
+        {
+            var lst = new DataLayer.BLL.v_FileReplace_File_ForExport().GetAllList();
+            if (null == lst || lst.Count == 0)
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show("当前没有任何数据可供导出！", "系统提示");
+                return;
+            }
+            FolderBrowserDialog openFolder = new FolderBrowserDialog();
+            openFolder.Description = "请选择要存放的目录！";
+            if (openFolder.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+            {
+                return;
+            }
+            string folderPath = openFolder.SelectedPath.TrimEnd('\\');
+            Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
+            wb.Worksheets[0].Cells.ImportDataTable(XCLNetTools.DataSource.DataTableHelper.ToDataTable(lst), true, 0, 0);
+            string filePath = string.Format(@"{0}\XCLNetFileRelace_{1:yyyyMMddHHmmssfff}.xlsx", folderPath, DateTime.Now);
+            wb.Save(filePath, Aspose.Cells.SaveFormat.Xlsx);
+            if (DevExpress.XtraEditors.XtraMessageBox.Show("导出成功，是否打开该文件？", "系统提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(filePath);
+            }
+        }
+
+        /// <summary>
+        /// 打开待处理文件
+        /// </summary>
+        private void btnOpenAWaitFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Multiselect = true;
+            if (!string.IsNullOrWhiteSpace(this.replaceSetting.LastOpenFolderPath) && System.IO.Directory.Exists(this.replaceSetting.LastOpenFolderPath))
+            {
+                openFile.InitialDirectory = this.replaceSetting.LastOpenFolderPath;
+            }
+            if (openFile.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+            {
+                return;
+            }
+            try
+            {
+                this.InitFiles(openFile.FileNames);
+                if (null != openFile.FileNames && openFile.FileNames.Length > 0)
+                {
+                    string fName = XCLNetTools.FileHandler.ComFile.GetFileName(openFile.FileNames[0]);
+                    this.openFileFolderPath = openFile.FileNames[0].Replace(fName, "");
+                    this.replaceSetting.LastOpenFolderPath = this.openFileFolderPath;
+                }
+            }
+            catch
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show("系统错误，请重新打开有效文件！", "系统提示");
+            }
+        }
+
+        /// <summary>
+        /// 打开待处理文件夹
+        /// </summary>
+        private void btnOpenFolderWaitFile_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog openFolder = new FolderBrowserDialog();
+            if (!string.IsNullOrWhiteSpace(this.replaceSetting.LastOpenFolderPath) && System.IO.Directory.Exists(this.replaceSetting.LastOpenFolderPath))
+            {
+                openFolder.SelectedPath = this.replaceSetting.LastOpenFolderPath;
+            }
+            if (openFolder.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+            {
+                return;
+            }
+            try
+            {
+                string[] files = XCLNetTools.FileHandler.ComFile.GetFolderFilesByRecursion(openFolder.SelectedPath);
+                this.InitFiles(files);
+                this.openFileFolderPath = openFolder.SelectedPath;
+                this.replaceSetting.LastOpenFolderPath = this.openFileFolderPath;
+            }
+            catch
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show("系统错误，请重新打开有效文件夹！", "系统提示");
             }
         }
     }
