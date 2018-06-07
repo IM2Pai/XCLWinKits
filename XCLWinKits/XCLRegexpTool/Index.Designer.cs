@@ -308,7 +308,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimumSize = new System.Drawing.Size(1061, 676);
             this.Name = "Index";
-            this.Text = "XCLWinKits——Windows软件工具箱   1.4.1，Copyright ©2018 by:XCL Email:x889@foxmail.com ";
+            this.Text = "XCLWinKits——Windows软件工具箱   1.4.2，Copyright ©2018 by:XCL Email:x889@foxmail.com ";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
