@@ -81,6 +81,7 @@ namespace XCLRegexpTool
             {
                 regexOption |= RegexOptions.Multiline;
             }
+            regexOption |= RegexOptions.IgnorePatternWhitespace;
 
             try
             {

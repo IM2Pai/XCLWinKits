@@ -211,7 +211,7 @@
             // btnOK
             // 
             this.btnOK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.ImageOptions.Image")));
-            this.btnOK.Location = new System.Drawing.Point(395, 22);
+            this.btnOK.Location = new System.Drawing.Point(334, 26);
             this.btnOK.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(100, 35);
