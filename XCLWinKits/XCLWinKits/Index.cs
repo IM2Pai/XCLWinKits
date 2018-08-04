@@ -122,7 +122,7 @@ namespace XCLWinKits
 
         private void 我的ABCToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.wodeabc.com");
+            System.Diagnostics.Process.Start("https://www.wodeabc.com/article/show/8002027");
         }
 
         private void GitHubToolStripMenuItem_Click(object sender, EventArgs e)

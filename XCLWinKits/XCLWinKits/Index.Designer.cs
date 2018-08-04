@@ -224,7 +224,7 @@
             this.barButtonItem8.AllowDrawArrow = false;
             this.barButtonItem8.AllowDrawArrowInMenu = false;
             this.barButtonItem8.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            this.barButtonItem8.Caption = "我的ABC";
+            this.barButtonItem8.Caption = "官网";
             this.barButtonItem8.DropDownControl = this.popupMenu2;
             this.barButtonItem8.Hint = null;
             this.barButtonItem8.Id = 8;

@@ -23,8 +23,6 @@ namespace XCLNetFileReplace
 
         private delegate DataLayer.Model.FileReplace_File Delegate_DoIt(DataLayer.Model.FileReplace_File model);
 
-        private delegate void Delegate_VoidMethod();
-
         private DataLayer.BLL.v_FileReplace_File v_fileBLL = new DataLayer.BLL.v_FileReplace_File();
         private DataLayer.BLL.FileReplace_File fileBLL = new DataLayer.BLL.FileReplace_File();
         private DataLayer.BLL.UserSetting userSettingBLL = new DataLayer.BLL.UserSetting();
@@ -53,8 +51,6 @@ namespace XCLNetFileReplace
         private void InitData()
         {
             this.replaceSetting = userSettingBLL.GetFileReplaceSetting() ?? new DataLayer.Model.FileReplaceSetting();
-            this.dgFiles.AutoGenerateColumns = false;
-            this.dataGridRuleConfig.AutoGenerateColumns = false;
             fileBLL.Clear();
             this.InitCurrentRuleList();
             //初始化用户默认配置
@@ -83,7 +79,7 @@ namespace XCLNetFileReplace
             {
                 ruleLst = this.v_ruleConfigBLL.GetAllList().Where(k => settings.RuleConfigIds.Contains(k.RuleConfigID)).ToList();
             }
-            this.dataGridRuleConfig.DataSource = XCLNetTools.DataSource.DataTableHelper.ToDataTable(ruleLst);
+            this.dataGridRuleConfig.GridControl.DataSource = XCLNetTools.DataSource.DataTableHelper.ToDataTable(ruleLst);
         }
 
         /// <summary>
@@ -101,7 +97,7 @@ namespace XCLNetFileReplace
                 return;
             }
 
-            if ((null == this.dataGridRuleConfig.Rows || this.dataGridRuleConfig.Rows.Count == 0) && string.IsNullOrEmpty(this.txtFileFirstName.Text) && string.IsNullOrEmpty(this.txtFileLastName.Text))
+            if (this.dataGridRuleConfig.RowCount == 0 && string.IsNullOrEmpty(this.txtFileFirstName.Text) && string.IsNullOrEmpty(this.txtFileLastName.Text))
             {
                 DevExpress.XtraEditors.XtraMessageBox.Show("当前不需要处理任何文件，请先配置相关信息！", "系统提示");
                 return;
@@ -136,18 +132,20 @@ namespace XCLNetFileReplace
                 return;
             }
 
+            if (DevExpress.XtraEditors.XtraMessageBox.Show("为了防止误操作，请您再次确认是否需要继续？", "系统提示", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                return;
+            }
+
             #endregion 合法性验证
 
             #region 将选项保存至配置文件中
 
             var ruleIdLst = new List<int>();
             var config = this.userSettingBLL.GetFirstModel() ?? new DataLayer.Model.UserSetting();
-            if (null != this.dataGridRuleConfig.Rows && this.dataGridRuleConfig.Rows.Count > 0)
+            for (var i = 0; i < this.dataGridRuleConfig.RowCount; i++)
             {
-                for (var i = 0; i < this.dataGridRuleConfig.Rows.Count; i++)
-                {
-                    ruleIdLst.Add(XCLNetTools.Common.DataTypeConvert.ToInt(this.dataGridRuleConfig.Rows[i].Cells["grid_RuleConfigID"].Value));
-                }
+                ruleIdLst.Add(XCLNetTools.Common.DataTypeConvert.ToInt(this.dataGridRuleConfig.GetRowCellValue(i, "RuleConfigID")));
             }
 
             this.replaceSetting.OutPutPath = this.txtOutPutPath.Text;
@@ -230,9 +228,9 @@ namespace XCLNetFileReplace
             {
                 #region 先处理替换文件名
 
-                for (int ruleIndex = 0; ruleIndex < this.dataGridRuleConfig.Rows.Count; ruleIndex++)
+                for (int ruleIndex = 0; ruleIndex < this.dataGridRuleConfig.RowCount; ruleIndex++)
                 {
-                    var ruleModel = XCLNetTools.Generic.ListHelper.DataRowToModel<DataLayer.Model.v_FileReplace_RuleConfig>(((DataRowView)dataGridRuleConfig.Rows[ruleIndex].DataBoundItem).Row);
+                    var ruleModel = XCLNetTools.Generic.ListHelper.DataRowToModel<DataLayer.Model.v_FileReplace_RuleConfig>(dataGridRuleConfig.GetDataRow(ruleIndex));
                     if (null == ruleModel || !ruleModel.IsFileName)
                     {
                         continue;
@@ -299,9 +297,9 @@ namespace XCLNetFileReplace
                 Aspose.Words.Document wordDocument = null;
                 string textContent = null;
 
-                for (int ruleIndex = 0; ruleIndex < this.dataGridRuleConfig.Rows.Count; ruleIndex++)
+                for (int ruleIndex = 0; ruleIndex < this.dataGridRuleConfig.RowCount; ruleIndex++)
                 {
-                    var ruleModel = XCLNetTools.Generic.ListHelper.DataRowToModel<DataLayer.Model.v_FileReplace_RuleConfig>(((DataRowView)dataGridRuleConfig.Rows[ruleIndex].DataBoundItem).Row);
+                    var ruleModel = XCLNetTools.Generic.ListHelper.DataRowToModel<DataLayer.Model.v_FileReplace_RuleConfig>(dataGridRuleConfig.GetDataRow(ruleIndex));
                     if (null == ruleModel || !ruleModel.IsFileContent)
                     {
                         continue;
@@ -584,7 +582,7 @@ namespace XCLNetFileReplace
             {
                 this.btnSave.Enabled = true;
                 this.txtLog.AppendText("文件已全部处理完毕！" + Environment.NewLine);
-                this.dgFiles.DataSource = XCLNetTools.DataSource.DataTableHelper.ToDataTable(this.v_fileBLL.GetAllList());
+                this.dgFiles.GridControl.DataSource = XCLNetTools.DataSource.DataTableHelper.ToDataTable(this.v_fileBLL.GetAllList());
             }
         }
 
@@ -645,21 +643,8 @@ namespace XCLNetFileReplace
             }
             fileBLL.Add(lst);
 
-            this.dgFiles.DataSource = XCLNetTools.DataSource.DataTableHelper.ToDataTable(this.v_fileBLL.GetAllList());
+            this.dgFiles.GridControl.DataSource = XCLNetTools.DataSource.DataTableHelper.ToDataTable(this.v_fileBLL.GetAllList());
             this.InitStatus();
-        }
-
-        /// <summary>
-        /// 给datagridview添加行号
-        /// </summary>
-        private void dgFiles_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            var dgv = sender as DataGridView;
-            if (dgv != null)
-            {
-                Rectangle rect = new Rectangle(e.RowBounds.Location.X, e.RowBounds.Location.Y, dgv.RowHeadersWidth - 4, e.RowBounds.Height);
-                TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(), dgv.RowHeadersDefaultCellStyle.Font, rect, dgv.RowHeadersDefaultCellStyle.ForeColor, TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
-            }
         }
 
         /// <summary>
@@ -717,30 +702,6 @@ namespace XCLNetFileReplace
         {
             XCLNetFileReplace.RuleConfigSelectBox fm = new RuleConfigSelectBox(this);
             fm.ShowDialog();
-        }
-
-        /// <summary>
-        /// 生成规则配置 的行号
-        /// </summary>
-        private void dataGridRuleConfig_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            var dgv = sender as DataGridView;
-            if (null == dgv) return;
-            Rectangle rect = new Rectangle(e.RowBounds.Location.X, e.RowBounds.Location.Y, dgv.RowHeadersWidth - 4, e.RowBounds.Height);
-            TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(), dgv.RowHeadersDefaultCellStyle.Font, rect, dgv.RowHeadersDefaultCellStyle.ForeColor, TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
-            foreach (DataGridViewRow r in dgv.Rows)
-            {
-                foreach (DataGridViewColumn c in dgv.Columns)
-                {
-                    if (c.Name == "grid_IsRegex_Text" || c.Name == "grid_IsIgnoreCase_Text" || c.Name == "grid_IsWholeMatch_Text" || c.Name == "grid_IsFileName_Text" || c.Name == "grid_IsFileContent_Text")
-                    {
-                        if (string.Equals(r.Cells[c.Name].Value, "否"))
-                        {
-                            r.Cells[c.Name].Style.ForeColor = Color.Red;
-                        }
-                    }
-                }
-            }
         }
 
         /// <summary>

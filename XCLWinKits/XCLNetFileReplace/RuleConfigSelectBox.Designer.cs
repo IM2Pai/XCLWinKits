@@ -28,32 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RuleConfigSelectBox));
-            this.dataGridRuleConfig = new System.Windows.Forms.DataGridView();
-            this.grid_RuleConfigID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_OldContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_NewContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_IsRegex_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_IsIgnoreCase_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_IsWholeMatch_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_IsFileName_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_IsFileContent_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_CreateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_UpdateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridRuleConfig = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grid_RuleConfigID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grid_Name = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grid_OldContent = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grid_NewContent = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grid_IsRegex_Text = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grid_IsIgnoreCase_Text = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grid_IsWholeMatch_Text = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grid_IsFileName_Text = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grid_IsFileContent_Text = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grid_CreateTime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grid_UpdateTime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dgRuleConfig_gridControl = new DevExpress.XtraGrid.GridControl();
             this.btnSelectAll = new DevExpress.XtraEditors.SimpleButton();
             this.btnSelectNone = new DevExpress.XtraEditors.SimpleButton();
             this.btnSelectInverse = new DevExpress.XtraEditors.SimpleButton();
@@ -80,8 +68,8 @@
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.tabPageSelectRule = new DevExpress.XtraBars.Navigation.TabNavigationPage();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRuleConfig)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgRuleConfig_gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabRuleConfig)).BeginInit();
             this.tabRuleConfig.SuspendLayout();
             this.tabPageAdd.SuspendLayout();
@@ -94,24 +82,9 @@
             // 
             // dataGridRuleConfig
             // 
-            this.dataGridRuleConfig.AllowUserToAddRows = false;
-            this.dataGridRuleConfig.AllowUserToDeleteRows = false;
-            this.dataGridRuleConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridRuleConfig.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridRuleConfig.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridRuleConfig.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 9F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridRuleConfig.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridRuleConfig.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridRuleConfig.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridRuleConfig.Appearance.HeaderPanel.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
+            this.dataGridRuleConfig.Appearance.HeaderPanel.Options.UseFont = true;
+            this.dataGridRuleConfig.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.grid_RuleConfigID,
             this.grid_Name,
             this.grid_OldContent,
@@ -123,135 +96,159 @@
             this.grid_IsFileContent_Text,
             this.grid_CreateTime,
             this.grid_UpdateTime});
-            this.dataGridRuleConfig.Location = new System.Drawing.Point(4, 5);
-            this.dataGridRuleConfig.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridRuleConfig.GridControl = this.dgRuleConfig_gridControl;
             this.dataGridRuleConfig.Name = "dataGridRuleConfig";
-            this.dataGridRuleConfig.ReadOnly = true;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Tahoma", 9F);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridRuleConfig.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
-            this.dataGridRuleConfig.RowTemplate.Height = 23;
-            this.dataGridRuleConfig.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridRuleConfig.Size = new System.Drawing.Size(1214, 480);
-            this.dataGridRuleConfig.TabIndex = 1;
-            this.dataGridRuleConfig.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridRuleConfig_DataBindingComplete);
-            this.dataGridRuleConfig.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridRuleConfig_RowPostPaint);
+            this.dataGridRuleConfig.OptionsBehavior.Editable = false;
+            this.dataGridRuleConfig.OptionsCustomization.AllowGroup = false;
+            this.dataGridRuleConfig.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.dataGridRuleConfig.OptionsSelection.MultiSelect = true;
+            this.dataGridRuleConfig.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.dataGridRuleConfig.OptionsView.ShowGroupPanel = false;
             // 
             // grid_RuleConfigID
             // 
-            this.grid_RuleConfigID.DataPropertyName = "RuleConfigID";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_RuleConfigID.DefaultCellStyle = dataGridViewCellStyle2;
-            this.grid_RuleConfigID.HeaderText = "ID";
+            this.grid_RuleConfigID.AppearanceCell.Options.UseTextOptions = true;
+            this.grid_RuleConfigID.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_RuleConfigID.AppearanceHeader.Options.UseTextOptions = true;
+            this.grid_RuleConfigID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_RuleConfigID.Caption = "编号";
+            this.grid_RuleConfigID.FieldName = "RuleConfigID";
             this.grid_RuleConfigID.Name = "grid_RuleConfigID";
-            this.grid_RuleConfigID.ReadOnly = true;
-            this.grid_RuleConfigID.Visible = false;
+            this.grid_RuleConfigID.Visible = true;
+            this.grid_RuleConfigID.VisibleIndex = 1;
             // 
             // grid_Name
             // 
-            this.grid_Name.DataPropertyName = "Name";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_Name.DefaultCellStyle = dataGridViewCellStyle3;
-            this.grid_Name.HeaderText = "名称";
+            this.grid_Name.AppearanceHeader.Options.UseTextOptions = true;
+            this.grid_Name.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_Name.Caption = "名称";
+            this.grid_Name.FieldName = "Name";
             this.grid_Name.Name = "grid_Name";
-            this.grid_Name.ReadOnly = true;
+            this.grid_Name.Visible = true;
+            this.grid_Name.VisibleIndex = 2;
             // 
             // grid_OldContent
             // 
-            this.grid_OldContent.DataPropertyName = "OldContent";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_OldContent.DefaultCellStyle = dataGridViewCellStyle4;
-            this.grid_OldContent.HeaderText = "查找内容";
+            this.grid_OldContent.AppearanceHeader.Options.UseTextOptions = true;
+            this.grid_OldContent.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_OldContent.Caption = "查找内容";
+            this.grid_OldContent.FieldName = "OldContent";
             this.grid_OldContent.Name = "grid_OldContent";
-            this.grid_OldContent.ReadOnly = true;
+            this.grid_OldContent.Visible = true;
+            this.grid_OldContent.VisibleIndex = 3;
             // 
             // grid_NewContent
             // 
-            this.grid_NewContent.DataPropertyName = "NewContent";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_NewContent.DefaultCellStyle = dataGridViewCellStyle5;
-            this.grid_NewContent.HeaderText = "替换内容";
+            this.grid_NewContent.AppearanceHeader.Options.UseTextOptions = true;
+            this.grid_NewContent.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_NewContent.Caption = "替换内容";
+            this.grid_NewContent.FieldName = "NewContent";
             this.grid_NewContent.Name = "grid_NewContent";
-            this.grid_NewContent.ReadOnly = true;
+            this.grid_NewContent.Visible = true;
+            this.grid_NewContent.VisibleIndex = 4;
             // 
             // grid_IsRegex_Text
             // 
-            this.grid_IsRegex_Text.DataPropertyName = "IsRegex_Text";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsRegex_Text.DefaultCellStyle = dataGridViewCellStyle6;
-            this.grid_IsRegex_Text.HeaderText = "是否为正则表达式";
+            this.grid_IsRegex_Text.AppearanceCell.Options.UseTextOptions = true;
+            this.grid_IsRegex_Text.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_IsRegex_Text.AppearanceHeader.Options.UseTextOptions = true;
+            this.grid_IsRegex_Text.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_IsRegex_Text.Caption = "是否为正则表达式";
+            this.grid_IsRegex_Text.FieldName = "IsRegex_Text";
             this.grid_IsRegex_Text.Name = "grid_IsRegex_Text";
-            this.grid_IsRegex_Text.ReadOnly = true;
-            this.grid_IsRegex_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid_IsRegex_Text.Visible = true;
+            this.grid_IsRegex_Text.VisibleIndex = 5;
             // 
             // grid_IsIgnoreCase_Text
             // 
-            this.grid_IsIgnoreCase_Text.DataPropertyName = "IsIgnoreCase_Text";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsIgnoreCase_Text.DefaultCellStyle = dataGridViewCellStyle7;
-            this.grid_IsIgnoreCase_Text.HeaderText = "是否区分大小写";
+            this.grid_IsIgnoreCase_Text.AppearanceCell.Options.UseTextOptions = true;
+            this.grid_IsIgnoreCase_Text.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_IsIgnoreCase_Text.AppearanceHeader.Options.UseTextOptions = true;
+            this.grid_IsIgnoreCase_Text.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_IsIgnoreCase_Text.Caption = "是否区分大小写";
+            this.grid_IsIgnoreCase_Text.FieldName = "IsIgnoreCase_Text";
             this.grid_IsIgnoreCase_Text.Name = "grid_IsIgnoreCase_Text";
-            this.grid_IsIgnoreCase_Text.ReadOnly = true;
-            this.grid_IsIgnoreCase_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid_IsIgnoreCase_Text.Visible = true;
+            this.grid_IsIgnoreCase_Text.VisibleIndex = 6;
             // 
             // grid_IsWholeMatch_Text
             // 
-            this.grid_IsWholeMatch_Text.DataPropertyName = "IsWholeMatch_Text";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsWholeMatch_Text.DefaultCellStyle = dataGridViewCellStyle8;
-            this.grid_IsWholeMatch_Text.HeaderText = "是否整字匹配";
+            this.grid_IsWholeMatch_Text.AppearanceCell.Options.UseTextOptions = true;
+            this.grid_IsWholeMatch_Text.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_IsWholeMatch_Text.AppearanceHeader.Options.UseTextOptions = true;
+            this.grid_IsWholeMatch_Text.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_IsWholeMatch_Text.Caption = "是否整字匹配";
+            this.grid_IsWholeMatch_Text.FieldName = "IsWholeMatch_Text";
             this.grid_IsWholeMatch_Text.Name = "grid_IsWholeMatch_Text";
-            this.grid_IsWholeMatch_Text.ReadOnly = true;
-            this.grid_IsWholeMatch_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid_IsWholeMatch_Text.Visible = true;
+            this.grid_IsWholeMatch_Text.VisibleIndex = 7;
             // 
             // grid_IsFileName_Text
             // 
-            this.grid_IsFileName_Text.DataPropertyName = "IsFileName_Text";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsFileName_Text.DefaultCellStyle = dataGridViewCellStyle9;
-            this.grid_IsFileName_Text.HeaderText = "是否匹配文件名";
+            this.grid_IsFileName_Text.AppearanceCell.Options.UseTextOptions = true;
+            this.grid_IsFileName_Text.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_IsFileName_Text.AppearanceHeader.Options.UseTextOptions = true;
+            this.grid_IsFileName_Text.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_IsFileName_Text.Caption = "是否匹配文件名";
+            this.grid_IsFileName_Text.FieldName = "IsFileName_Text";
             this.grid_IsFileName_Text.Name = "grid_IsFileName_Text";
-            this.grid_IsFileName_Text.ReadOnly = true;
-            this.grid_IsFileName_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid_IsFileName_Text.Visible = true;
+            this.grid_IsFileName_Text.VisibleIndex = 8;
             // 
             // grid_IsFileContent_Text
             // 
-            this.grid_IsFileContent_Text.DataPropertyName = "IsFileContent_Text";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_IsFileContent_Text.DefaultCellStyle = dataGridViewCellStyle10;
-            this.grid_IsFileContent_Text.HeaderText = "是否匹配文件内容";
+            this.grid_IsFileContent_Text.AppearanceCell.Options.UseTextOptions = true;
+            this.grid_IsFileContent_Text.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_IsFileContent_Text.AppearanceHeader.Options.UseTextOptions = true;
+            this.grid_IsFileContent_Text.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_IsFileContent_Text.Caption = "是否匹配文件内容";
+            this.grid_IsFileContent_Text.FieldName = "IsFileContent_Text";
             this.grid_IsFileContent_Text.Name = "grid_IsFileContent_Text";
-            this.grid_IsFileContent_Text.ReadOnly = true;
-            this.grid_IsFileContent_Text.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid_IsFileContent_Text.Visible = true;
+            this.grid_IsFileContent_Text.VisibleIndex = 9;
             // 
             // grid_CreateTime
             // 
-            this.grid_CreateTime.DataPropertyName = "CreateTime";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_CreateTime.DefaultCellStyle = dataGridViewCellStyle11;
-            this.grid_CreateTime.HeaderText = "创建时间";
+            this.grid_CreateTime.AppearanceCell.Options.UseTextOptions = true;
+            this.grid_CreateTime.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_CreateTime.AppearanceHeader.Options.UseTextOptions = true;
+            this.grid_CreateTime.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_CreateTime.Caption = "创建时间";
+            this.grid_CreateTime.FieldName = "CreateTime";
             this.grid_CreateTime.Name = "grid_CreateTime";
-            this.grid_CreateTime.ReadOnly = true;
+            this.grid_CreateTime.Visible = true;
+            this.grid_CreateTime.VisibleIndex = 10;
             // 
             // grid_UpdateTime
             // 
-            this.grid_UpdateTime.DataPropertyName = "UpdateTime";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.grid_UpdateTime.DefaultCellStyle = dataGridViewCellStyle12;
-            this.grid_UpdateTime.HeaderText = "更新时间";
+            this.grid_UpdateTime.AppearanceCell.Options.UseTextOptions = true;
+            this.grid_UpdateTime.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_UpdateTime.AppearanceHeader.Options.UseTextOptions = true;
+            this.grid_UpdateTime.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grid_UpdateTime.Caption = "更新时间";
+            this.grid_UpdateTime.FieldName = "UpdateTime";
             this.grid_UpdateTime.Name = "grid_UpdateTime";
-            this.grid_UpdateTime.ReadOnly = true;
+            this.grid_UpdateTime.Visible = true;
+            this.grid_UpdateTime.VisibleIndex = 11;
+            // 
+            // dgRuleConfig_gridControl
+            // 
+            this.dgRuleConfig_gridControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgRuleConfig_gridControl.Location = new System.Drawing.Point(3, 3);
+            this.dgRuleConfig_gridControl.MainView = this.dataGridRuleConfig;
+            this.dgRuleConfig_gridControl.Name = "dgRuleConfig_gridControl";
+            this.dgRuleConfig_gridControl.Size = new System.Drawing.Size(1211, 500);
+            this.dgRuleConfig_gridControl.TabIndex = 13;
+            this.dgRuleConfig_gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dataGridRuleConfig});
             // 
             // btnSelectAll
             // 
             this.btnSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelectAll.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectAll.ImageOptions.Image")));
-            this.btnSelectAll.Location = new System.Drawing.Point(790, 531);
+            this.btnSelectAll.Location = new System.Drawing.Point(790, 522);
             this.btnSelectAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSelectAll.Name = "btnSelectAll";
             this.btnSelectAll.Size = new System.Drawing.Size(100, 35);
@@ -263,7 +260,7 @@
             // 
             this.btnSelectNone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelectNone.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectNone.ImageOptions.Image")));
-            this.btnSelectNone.Location = new System.Drawing.Point(1006, 531);
+            this.btnSelectNone.Location = new System.Drawing.Point(1006, 522);
             this.btnSelectNone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSelectNone.Name = "btnSelectNone";
             this.btnSelectNone.Size = new System.Drawing.Size(100, 35);
@@ -275,7 +272,7 @@
             // 
             this.btnSelectInverse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelectInverse.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectInverse.ImageOptions.Image")));
-            this.btnSelectInverse.Location = new System.Drawing.Point(898, 531);
+            this.btnSelectInverse.Location = new System.Drawing.Point(898, 522);
             this.btnSelectInverse.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSelectInverse.Name = "btnSelectInverse";
             this.btnSelectInverse.Size = new System.Drawing.Size(100, 35);
@@ -287,7 +284,7 @@
             // 
             this.btnSelectOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelectOK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectOK.ImageOptions.Image")));
-            this.btnSelectOK.Location = new System.Drawing.Point(1114, 531);
+            this.btnSelectOK.Location = new System.Drawing.Point(1114, 522);
             this.btnSelectOK.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSelectOK.Name = "btnSelectOK";
             this.btnSelectOK.Size = new System.Drawing.Size(100, 35);
@@ -299,7 +296,7 @@
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(4, 531);
+            this.btnAdd.Location = new System.Drawing.Point(4, 522);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(120, 35);
@@ -311,7 +308,7 @@
             // 
             this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnUpdate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.ImageOptions.Image")));
-            this.btnUpdate.Location = new System.Drawing.Point(132, 531);
+            this.btnUpdate.Location = new System.Drawing.Point(132, 522);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(120, 35);
@@ -323,7 +320,7 @@
             // 
             this.btnDel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDel.ImageOptions.Image")));
-            this.btnDel.Location = new System.Drawing.Point(260, 531);
+            this.btnDel.Location = new System.Drawing.Point(260, 522);
             this.btnDel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(120, 35);
@@ -464,7 +461,7 @@
             // 
             this.btnInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnInput.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnInput.ImageOptions.Image")));
-            this.btnInput.Location = new System.Drawing.Point(516, 531);
+            this.btnInput.Location = new System.Drawing.Point(516, 522);
             this.btnInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnInput.Name = "btnInput";
             this.btnInput.Size = new System.Drawing.Size(120, 35);
@@ -476,7 +473,7 @@
             // 
             this.btnRuleOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnRuleOutput.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRuleOutput.ImageOptions.Image")));
-            this.btnRuleOutput.Location = new System.Drawing.Point(388, 531);
+            this.btnRuleOutput.Location = new System.Drawing.Point(388, 522);
             this.btnRuleOutput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRuleOutput.Name = "btnRuleOutput";
             this.btnRuleOutput.Size = new System.Drawing.Size(120, 35);
@@ -546,9 +543,8 @@
             // tabPageSelectRule
             // 
             this.tabPageSelectRule.Caption = "选择规则";
-            this.tabPageSelectRule.Controls.Add(this.label3);
             this.tabPageSelectRule.Controls.Add(this.btnInput);
-            this.tabPageSelectRule.Controls.Add(this.dataGridRuleConfig);
+            this.tabPageSelectRule.Controls.Add(this.dgRuleConfig_gridControl);
             this.tabPageSelectRule.Controls.Add(this.btnRuleOutput);
             this.tabPageSelectRule.Controls.Add(this.btnUpdate);
             this.tabPageSelectRule.Controls.Add(this.btnDel);
@@ -559,17 +555,6 @@
             this.tabPageSelectRule.Controls.Add(this.btnAdd);
             this.tabPageSelectRule.Name = "tabPageSelectRule";
             this.tabPageSelectRule.Size = new System.Drawing.Size(1218, 586);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(14, 499);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(164, 18);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "说明：按Ctrl键可多选！";
             // 
             // RuleConfigSelectBox
             // 
@@ -585,6 +570,7 @@
             this.Text = "RuleConfigSelectBox";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RuleConfigSelectBox_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRuleConfig)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgRuleConfig_gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabRuleConfig)).EndInit();
             this.tabRuleConfig.ResumeLayout(false);
             this.tabPageAdd.ResumeLayout(false);
@@ -596,29 +582,33 @@
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             this.tabPageSelectRule.ResumeLayout(false);
-            this.tabPageSelectRule.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
+        private void DataGridRuleConfig_AsyncCompleted(object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridRuleConfig;
+        private DevExpress.XtraGrid.Views.Grid.GridView dataGridRuleConfig;
         private DevExpress.XtraEditors.SimpleButton btnSelectAll;
         private DevExpress.XtraEditors.SimpleButton btnSelectNone;
         private DevExpress.XtraEditors.SimpleButton btnSelectInverse;
         private DevExpress.XtraEditors.SimpleButton btnSelectOK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grid_RuleConfigID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grid_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grid_OldContent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grid_NewContent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grid_IsRegex_Text;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grid_IsIgnoreCase_Text;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grid_IsWholeMatch_Text;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grid_IsFileName_Text;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grid_IsFileContent_Text;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grid_CreateTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grid_UpdateTime;
+        private DevExpress.XtraGrid.Columns.GridColumn grid_RuleConfigID;
+        private DevExpress.XtraGrid.Columns.GridColumn grid_Name;
+        private DevExpress.XtraGrid.Columns.GridColumn grid_OldContent;
+        private DevExpress.XtraGrid.Columns.GridColumn grid_NewContent;
+        private DevExpress.XtraGrid.Columns.GridColumn grid_IsRegex_Text;
+        private DevExpress.XtraGrid.Columns.GridColumn grid_IsIgnoreCase_Text;
+        private DevExpress.XtraGrid.Columns.GridColumn grid_IsWholeMatch_Text;
+        private DevExpress.XtraGrid.Columns.GridColumn grid_IsFileName_Text;
+        private DevExpress.XtraGrid.Columns.GridColumn grid_IsFileContent_Text;
+        private DevExpress.XtraGrid.Columns.GridColumn grid_CreateTime;
+        private DevExpress.XtraGrid.Columns.GridColumn grid_UpdateTime;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private DevExpress.XtraEditors.SimpleButton btnUpdate;
         private DevExpress.XtraEditors.SimpleButton btnDel;
@@ -641,6 +631,6 @@
         private DevExpress.XtraBars.Navigation.TabNavigationPage tabPageSelectRule;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
-        private System.Windows.Forms.Label label3;
+        private DevExpress.XtraGrid.GridControl dgRuleConfig_gridControl;
     }
 }

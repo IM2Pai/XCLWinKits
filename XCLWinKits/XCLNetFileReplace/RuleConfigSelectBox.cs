@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using XCLNetTools.Generic;
@@ -26,6 +24,24 @@ namespace XCLNetFileReplace
             this.fileReplaceSetting = userSettingBLL.GetFileReplaceSetting();
         }
 
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            //默认选中项
+            this.dataGridRuleConfig.ClearSelection();
+            if (null != fileReplaceSetting && null != fileReplaceSetting.RuleConfigIds && fileReplaceSetting.RuleConfigIds.Count > 0)
+            {
+                for (int i = 0; i < this.dataGridRuleConfig.RowCount; i++)
+                {
+                    var currentModel = this.dataGridRuleConfig.GetDataRow(i);
+                    if (fileReplaceSetting.RuleConfigIds.Contains(XCLNetTools.Common.DataTypeConvert.ToInt(currentModel["RuleConfigID"])))
+                    {
+                        this.dataGridRuleConfig.SelectRow(i);
+                    }
+                }
+            }
+        }
+
         #region 规则选择TabPage
 
         /// <summary>
@@ -33,54 +49,7 @@ namespace XCLNetFileReplace
         /// </summary>
         public void InitRuleConfigGrid()
         {
-            this.dataGridRuleConfig.AutoGenerateColumns = false;
-            this.dataGridRuleConfig.DataSource = XCLNetTools.DataSource.DataTableHelper.ToDataTable(this.vbll.GetAllList());
-        }
-
-        /// <summary>
-        /// 生成行号
-        /// </summary>
-        private void dataGridRuleConfig_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            var dgv = sender as DataGridView;
-            if (null == dgv) return;
-            Rectangle rectangle = new Rectangle(e.RowBounds.Location.X, e.RowBounds.Location.Y, dataGridRuleConfig.RowHeadersWidth, e.RowBounds.Height);
-            TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(), dataGridRuleConfig.RowHeadersDefaultCellStyle.Font, rectangle, dataGridRuleConfig.RowHeadersDefaultCellStyle.ForeColor, TextFormatFlags.VerticalCenter | TextFormatFlags.Right);
-            foreach (DataGridViewRow r in dgv.Rows)
-            {
-                foreach (DataGridViewColumn c in dgv.Columns)
-                {
-                    if (c.Name == "grid_IsRegex_Text" || c.Name == "grid_IsIgnoreCase_Text" || c.Name == "grid_IsWholeMatch_Text" || c.Name == "grid_IsFileName_Text" || c.Name == "grid_IsFileContent_Text")
-                    {
-                        if (string.Equals(r.Cells[c.Name].Value, "否"))
-                        {
-                            r.Cells[c.Name].Style.ForeColor = Color.Red;
-                        }
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// 选中默认项
-        /// </summary>
-        private void dataGridRuleConfig_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            this.dataGridRuleConfig.ClearSelection();
-            if (null != fileReplaceSetting && null != fileReplaceSetting.RuleConfigIds && fileReplaceSetting.RuleConfigIds.Count > 0)
-            {
-                for (int i = 0; i < this.dataGridRuleConfig.Rows.Count; i++)
-                {
-                    var currentModel = ((DataRowView)this.dataGridRuleConfig.Rows[i].DataBoundItem).Row;
-                    if (null != currentModel)
-                    {
-                        if (fileReplaceSetting.RuleConfigIds.Contains(XCLNetTools.Common.DataTypeConvert.ToInt(currentModel["RuleConfigID"])))
-                        {
-                            this.dataGridRuleConfig.Rows[i].Selected = true;
-                        }
-                    }
-                }
-            }
+            this.dataGridRuleConfig.GridControl.DataSource = XCLNetTools.DataSource.DataTableHelper.ToDataTable(this.vbll.GetAllList());
         }
 
         /// <summary>
@@ -104,12 +73,12 @@ namespace XCLNetFileReplace
             }
             //获取已选行
             setting.RuleConfigIds = new List<int>();
-            var selectedRows = this.dataGridRuleConfig.SelectedRows;
-            if (null != selectedRows && selectedRows.Count > 0)
+            var selectedRows = this.dataGridRuleConfig.GetSelectedRows();
+            if (null != selectedRows && selectedRows.Length > 0)
             {
-                for (int i = 0; i < selectedRows.Count; i++)
+                for (int i = 0; i < selectedRows.Length; i++)
                 {
-                    var currentData = ((DataRowView)selectedRows[i].DataBoundItem).Row;
+                    var currentData = this.dataGridRuleConfig.GetDataRow(selectedRows[i]);
                     if (null != currentData)
                     {
                         setting.RuleConfigIds.Add(XCLNetTools.Common.DataTypeConvert.ToInt(currentData["RuleConfigID"]));
@@ -134,10 +103,16 @@ namespace XCLNetFileReplace
         /// </summary>
         private void btnSelectInverse_Click(object sender, System.EventArgs e)
         {
-            for (int i = 0; i < this.dataGridRuleConfig.Rows.Count; i++)
+            for (int i = 0; i < this.dataGridRuleConfig.RowCount; i++)
             {
-                var m = this.dataGridRuleConfig.Rows[i];
-                m.Selected = !m.Selected;
+                if (this.dataGridRuleConfig.IsRowSelected(i))
+                {
+                    this.dataGridRuleConfig.UnselectRow(i);
+                }
+                else
+                {
+                    this.dataGridRuleConfig.SelectRow(i);
+                }
             }
         }
 
@@ -165,13 +140,13 @@ namespace XCLNetFileReplace
         /// </summary>
         private void btnUpdate_Click(object sender, System.EventArgs e)
         {
-            var selectedRows = this.dataGridRuleConfig.SelectedRows;
-            if (null == selectedRows || selectedRows.Count != 1)
+            var selectedRows = this.dataGridRuleConfig.GetSelectedRows();
+            if (null == selectedRows || selectedRows.Length != 1)
             {
                 DevExpress.XtraEditors.XtraMessageBox.Show("请选择一条规则进行修改！", "系统提示");
                 return;
             }
-            this.InitDataByRuleId(XCLNetTools.Common.DataTypeConvert.ToInt(selectedRows[0].Cells["grid_RuleConfigID"].Value));
+            this.InitDataByRuleId(XCLNetTools.Common.DataTypeConvert.ToInt(this.dataGridRuleConfig.GetRowCellValue(selectedRows[0], "RuleConfigID")));
 
             this.tabPageAdd.Text = "修改规则";
             this.tabPageAdd.PageVisible = true;
@@ -184,8 +159,8 @@ namespace XCLNetFileReplace
         private void btnDel_Click(object sender, System.EventArgs e)
         {
             List<int> ids = new List<int>();
-            var selectedRows = this.dataGridRuleConfig.SelectedRows;
-            if (null == selectedRows || selectedRows.Count == 0)
+            var selectedRows = this.dataGridRuleConfig.GetSelectedRows();
+            if (null == selectedRows || selectedRows.Length == 0)
             {
                 DevExpress.XtraEditors.XtraMessageBox.Show("请至少选择一条规则进行删除！", "系统提示");
                 return;
@@ -196,9 +171,9 @@ namespace XCLNetFileReplace
                 return;
             }
 
-            for (var i = 0; i < selectedRows.Count; i++)
+            for (var i = 0; i < selectedRows.Length; i++)
             {
-                var id = XCLNetTools.Common.DataTypeConvert.ToInt(selectedRows[i].Cells["grid_RuleConfigID"].Value);
+                var id = XCLNetTools.Common.DataTypeConvert.ToInt(this.dataGridRuleConfig.GetRowCellValue(selectedRows[i], "RuleConfigID"));
                 bll.Delete(id);
                 ids.Add(id);
             }
