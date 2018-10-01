@@ -168,7 +168,7 @@ namespace XCLNetFileReplace
             {
                 this.SetTextLogValue(string.Format("正在处理文件：{0}", m.FileName));
                 Delegate_DoIt dg = new Delegate_DoIt(this.DoIt);
-                IAsyncResult result = dg.BeginInvoke(m, new AsyncCallback(this.GetResultCallBack), doState);
+                dg.BeginInvoke(m, new AsyncCallback(this.GetResultCallBack), doState);
             }
 
             #endregion 任务处理
@@ -771,6 +771,7 @@ namespace XCLNetFileReplace
         {
             OpenFileDialog openFile = new OpenFileDialog();
             openFile.Multiselect = true;
+            openFile.Filter = "Excel文档|*.xlsx;*.xls|Word文档|*.docx;*.doc|文本文件|*.txt|所有文件|*.*";
             if (!string.IsNullOrWhiteSpace(this.replaceSetting.LastOpenFolderPath) && System.IO.Directory.Exists(this.replaceSetting.LastOpenFolderPath))
             {
                 openFile.InitialDirectory = this.replaceSetting.LastOpenFolderPath;
