@@ -221,7 +221,7 @@ namespace XCLNetFileReplace
                             },
                             new XCLNetTools.Entity.Office.ExcelHandler.OutPutField(){
                                 oldName="IsIgnoreCase_Text",
-                                newName="是否区分大小写"
+                                newName="是否忽略大小写"
                             },
                             new XCLNetTools.Entity.Office.ExcelHandler.OutPutField(){
                                 oldName="IsWholeMatch_Text",
@@ -270,7 +270,7 @@ namespace XCLNetFileReplace
                 var oldContentColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "查找内容");
                 var newContentColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "替换内容");
                 var isRegexColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "是否为正则表达式");
-                var isIgnoreCaseColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "是否区分大小写");
+                var isIgnoreCaseColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "是否忽略大小写");
                 var isWholeMatchColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "是否整字匹配");
                 var isFileNameColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "是否匹配文件名");
                 var isFileContentColIndex = XCLNetTools.DataSource.DataTableHelper.GetColIndex(dt, 1, "是否匹配文件内容");

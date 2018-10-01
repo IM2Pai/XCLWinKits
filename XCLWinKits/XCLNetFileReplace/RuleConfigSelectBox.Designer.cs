@@ -165,7 +165,7 @@
             this.grid_IsIgnoreCase_Text.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.grid_IsIgnoreCase_Text.AppearanceHeader.Options.UseTextOptions = true;
             this.grid_IsIgnoreCase_Text.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.grid_IsIgnoreCase_Text.Caption = "是否区分大小写";
+            this.grid_IsIgnoreCase_Text.Caption = "是否忽略大小写";
             this.grid_IsIgnoreCase_Text.FieldName = "IsIgnoreCase_Text";
             this.grid_IsIgnoreCase_Text.Name = "grid_IsIgnoreCase_Text";
             this.grid_IsIgnoreCase_Text.Visible = true;

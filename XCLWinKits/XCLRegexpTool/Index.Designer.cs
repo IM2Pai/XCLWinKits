@@ -205,7 +205,7 @@
             this.ckIgnoreCase.Name = "ckIgnoreCase";
             this.ckIgnoreCase.Size = new System.Drawing.Size(120, 22);
             this.ckIgnoreCase.TabIndex = 7;
-            this.ckIgnoreCase.Text = "不区分大小写";
+            this.ckIgnoreCase.Text = "忽略大小写";
             this.ckIgnoreCase.UseVisualStyleBackColor = true;
             // 
             // btnOK
@@ -308,7 +308,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimumSize = new System.Drawing.Size(1061, 676);
             this.Name = "Index";
-            this.Text = "XCLWinKits——Windows软件工具箱   1.4.3，Copyright ©2018 by:XCL Email:x889@foxmail.com ";
+            this.Text = "XCLWinKits——Windows软件工具箱   1.4.4，Copyright ©2018 by:XCL Email:x889@foxmail.com ";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

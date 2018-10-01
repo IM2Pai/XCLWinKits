@@ -547,7 +547,7 @@
             this.grid_IsIgnoreCase_Text.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.grid_IsIgnoreCase_Text.AppearanceHeader.Options.UseTextOptions = true;
             this.grid_IsIgnoreCase_Text.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.grid_IsIgnoreCase_Text.Caption = "是否区分大小写";
+            this.grid_IsIgnoreCase_Text.Caption = "是否忽略大小写";
             this.grid_IsIgnoreCase_Text.FieldName = "IsIgnoreCase_Text";
             this.grid_IsIgnoreCase_Text.Name = "grid_IsIgnoreCase_Text";
             this.grid_IsIgnoreCase_Text.Visible = true;
@@ -936,7 +936,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimumSize = new System.Drawing.Size(1100, 650);
             this.Name = "Index";
-            this.Text = "XCLWinKits——Windows软件工具箱   1.4.3，Copyright ©2018 by:XCL Email:x889@foxmail.com ";
+            this.Text = "XCLWinKits——Windows软件工具箱   1.4.4，Copyright ©2018 by:XCL Email:x889@foxmail.com ";
             ((System.ComponentModel.ISupportInitialize)(this.dgFiles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgFiles_gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();

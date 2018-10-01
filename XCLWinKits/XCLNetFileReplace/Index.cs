@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Remoting.Messaging;
@@ -26,7 +25,6 @@ namespace XCLNetFileReplace
         private DataLayer.BLL.v_FileReplace_File v_fileBLL = new DataLayer.BLL.v_FileReplace_File();
         private DataLayer.BLL.FileReplace_File fileBLL = new DataLayer.BLL.FileReplace_File();
         private DataLayer.BLL.UserSetting userSettingBLL = new DataLayer.BLL.UserSetting();
-        private DataLayer.BLL.FileReplace_RuleConfig ruleConfigBLL = new DataLayer.BLL.FileReplace_RuleConfig();
         private DataLayer.BLL.v_FileReplace_RuleConfig v_ruleConfigBLL = new DataLayer.BLL.v_FileReplace_RuleConfig();
 
         private DataLayer.Model.FileReplaceSetting replaceSetting = new DataLayer.Model.FileReplaceSetting();
