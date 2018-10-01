@@ -46,7 +46,7 @@
             this.groupBox1.Size = new System.Drawing.Size(430, 141);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "原字符串：";
+            this.groupBox1.Text = "原HTML字符串：";
             // 
             // txtOld
             // 
@@ -70,7 +70,7 @@
             this.groupBox2.Size = new System.Drawing.Size(429, 140);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "转换后的JS常量：";
+            this.groupBox2.Text = "转换后的JavaScript常量：";
             // 
             // txtNew
             // 

@@ -10,7 +10,7 @@
       <Category Name="文本处理" Sort="0">
         <CategoryItemList>
           <CategoryItem Sort="0" Name="正则表达式测试" AssemblyName="XCLRegexpTool"></CategoryItem>
-          <CategoryItem Sort="0" Name="字符串转JS常量" AssemblyName="StringToJsConst"></CategoryItem>
+          <CategoryItem Sort="0" Name="HTML字符串转JS常量" AssemblyName="StringToJsConst"></CategoryItem>
         </CategoryItemList>
       </Category>
       <Category Name="加密解密" Sort="0">
