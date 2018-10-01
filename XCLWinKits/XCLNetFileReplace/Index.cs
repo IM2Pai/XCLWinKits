@@ -294,6 +294,7 @@ namespace XCLNetFileReplace
                 Aspose.Cells.Workbook wb = null;
                 Aspose.Words.Document wordDocument = null;
                 string textContent = null;
+                var txtEncoding = System.Text.Encoding.Default;
 
                 for (int ruleIndex = 0; ruleIndex < this.dataGridRuleConfig.RowCount; ruleIndex++)
                 {
@@ -464,7 +465,8 @@ namespace XCLNetFileReplace
 
                         if (null == textContent)
                         {
-                            textContent = System.IO.File.ReadAllText(realPath, System.Text.Encoding.Default) ?? "";
+                            txtEncoding = XCLNetTools.FileHandler.ComFile.GetFileEncoding(realPath);
+                            textContent = System.IO.File.ReadAllText(realPath, txtEncoding) ?? "";
                         }
                         replaceCount = reg.Matches(textContent).Count;
                         textContent = reg.Replace(textContent, ruleModel.NewContent);
@@ -494,7 +496,7 @@ namespace XCLNetFileReplace
                 }
                 if (null != textContent)
                 {
-                    System.IO.File.WriteAllText(realPath, textContent, System.Text.Encoding.Default);
+                    System.IO.File.WriteAllText(realPath, textContent, txtEncoding);
                 }
 
                 #endregion 替换文件内容

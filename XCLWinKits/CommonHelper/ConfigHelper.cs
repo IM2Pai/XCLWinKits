@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace CommonHelper
 {
-    public class ConfigHelper
+    public static class ConfigHelper
     {
         private static CommonHelper.Model.Config _config = null;
 
@@ -50,10 +50,10 @@ namespace CommonHelper
             string str = string.Empty;
             if (null != Config && null != Config.CategoryConfig && null != Config.CategoryConfig.CategoryList && Config.CategoryConfig.CategoryList.Count > 0)
             {
-                var model = Config.CategoryConfig.CategoryList.Where(k => k.CategoryItemList.Exists(m => string.Equals(m.AssemblyName, assemblyName, StringComparison.CurrentCultureIgnoreCase))).FirstOrDefault();
+                var model = Config.CategoryConfig.CategoryList.FirstOrDefault(k => k.CategoryItemList.Exists(m => string.Equals(m.AssemblyName, assemblyName, StringComparison.CurrentCultureIgnoreCase)));
                 if (null != model)
                 {
-                    str = string.Format("{0}--{1}", model.Name, model.CategoryItemList.Where(m => string.Equals(m.AssemblyName, assemblyName, StringComparison.CurrentCultureIgnoreCase)).First().Name);
+                    str = string.Format("{0}--{1}", model.Name, model.CategoryItemList.FirstOrDefault(m => string.Equals(m.AssemblyName, assemblyName, StringComparison.CurrentCultureIgnoreCase)).Name);
                 }
             }
             return str;
