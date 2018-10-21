@@ -46,5 +46,51 @@ namespace CommonHelper
             }
             CommonHelper.Common.WriteLog(str.ToString());
         }
+
+        public static Aspose.Words.SaveFormat GetAsposeWordFormatEnum(string fileToFormatName)
+        {
+            if (string.Equals(fileToFormatName, CommonHelper.CommonEnum.WordFileToFormatEnum.pdf.ToString()))
+            {
+                return Aspose.Words.SaveFormat.Pdf;
+            }
+            if (string.Equals(fileToFormatName, CommonHelper.CommonEnum.WordFileToFormatEnum.html.ToString()))
+            {
+                return Aspose.Words.SaveFormat.Html;
+            }
+            if (string.Equals(fileToFormatName, CommonHelper.CommonEnum.WordFileToFormatEnum.txt.ToString()))
+            {
+                return Aspose.Words.SaveFormat.Text;
+            }
+            if (string.Equals(fileToFormatName, CommonHelper.CommonEnum.WordFileToFormatEnum.docx.ToString()))
+            {
+                return Aspose.Words.SaveFormat.Docx;
+            }
+            if (string.Equals(fileToFormatName, CommonHelper.CommonEnum.WordFileToFormatEnum.doc.ToString()))
+            {
+                return Aspose.Words.SaveFormat.Doc;
+            }
+            return Aspose.Words.SaveFormat.Unknown;
+        }
+
+        public static Aspose.Cells.SaveFormat GetAsposeCellsFormatEnum(string fileToFormatName)
+        {
+            if (string.Equals(fileToFormatName, CommonHelper.CommonEnum.ExcelFileToFormatEnum.pdf.ToString()))
+            {
+                return Aspose.Cells.SaveFormat.Pdf;
+            }
+            if (string.Equals(fileToFormatName, CommonHelper.CommonEnum.ExcelFileToFormatEnum.html.ToString()))
+            {
+                return Aspose.Cells.SaveFormat.Html;
+            }
+            if (string.Equals(fileToFormatName, CommonHelper.CommonEnum.ExcelFileToFormatEnum.xlsx.ToString()))
+            {
+                return Aspose.Cells.SaveFormat.Xlsx;
+            }
+            if (string.Equals(fileToFormatName, CommonHelper.CommonEnum.ExcelFileToFormatEnum.xls.ToString()))
+            {
+                return Aspose.Cells.SaveFormat.Excel97To2003;
+            }
+            return Aspose.Cells.SaveFormat.Unknown;
+        }
     }
 }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new DevExpress.XtraEditors.GroupControl();
             this.txtOld = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new DevExpress.XtraEditors.GroupControl();
             this.txtNew = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -103,8 +103,8 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private DevExpress.XtraEditors.GroupControl groupBox1;
+        private DevExpress.XtraEditors.GroupControl groupBox2;
         private System.Windows.Forms.TextBox txtOld;
         private System.Windows.Forms.TextBox txtNew;
     }

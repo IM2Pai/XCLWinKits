@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Index));
             this.dgFiles = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dgFiles_FileID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -40,7 +41,7 @@
             this.dgFiles_ProcessBlockCount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dgFiles_Remark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dgFiles_gridControl = new DevExpress.XtraGrid.GridControl();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -50,8 +51,8 @@
             this.导出ToolStripMenuItem = new DevExpress.XtraBars.BarButtonItem();
             this.退出ToolStripMenuItem = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu();
-            this.contextMenuStrip_LBoxWait = new System.Windows.Forms.ContextMenuStrip();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.contextMenuStrip_LBoxWait = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.全选ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.反选ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,9 +94,13 @@
             this.btnExportWaitFile = new DevExpress.XtraEditors.SimpleButton();
             this.btnOpenFolderWaitFile = new DevExpress.XtraEditors.SimpleButton();
             this.btnOpenAWaitFile = new DevExpress.XtraEditors.SimpleButton();
-            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.tabNavigationPage2 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.tabNavigationPage3 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboxExcelFileFormat = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboxWordFileFormat = new DevExpress.XtraEditors.ComboBoxEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.tabNavigationPage4 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
@@ -111,10 +116,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
             this.tabPane1.SuspendLayout();
             this.tabNavigationPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
-            this.groupControl4.SuspendLayout();
             this.tabNavigationPage2.SuspendLayout();
             this.tabNavigationPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
+            this.groupControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboxExcelFileFormat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboxWordFileFormat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -257,12 +264,14 @@
             // 
             // dgFiles_gridControl
             // 
-            this.dgFiles_gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgFiles_gridControl.Location = new System.Drawing.Point(2, 26);
+            this.dgFiles_gridControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgFiles_gridControl.Location = new System.Drawing.Point(8, 3);
             this.dgFiles_gridControl.MainView = this.dgFiles;
             this.dgFiles_gridControl.MenuManager = this.barManager1;
             this.dgFiles_gridControl.Name = "dgFiles_gridControl";
-            this.dgFiles_gridControl.Size = new System.Drawing.Size(1052, 387);
+            this.dgFiles_gridControl.Size = new System.Drawing.Size(1052, 427);
             this.dgFiles_gridControl.TabIndex = 0;
             this.dgFiles_gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgFiles});
@@ -443,7 +452,7 @@
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLog.Size = new System.Drawing.Size(1050, 372);
+            this.txtLog.Size = new System.Drawing.Size(1072, 431);
             this.txtLog.TabIndex = 0;
             this.txtLog.WordWrap = false;
             // 
@@ -452,7 +461,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(9, 479);
+            this.label5.Location = new System.Drawing.Point(9, 538);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(248, 18);
@@ -622,7 +631,7 @@
             this.dgRuleConfig_gridControl.MainView = this.dataGridRuleConfig;
             this.dgRuleConfig_gridControl.MenuManager = this.barManager1;
             this.dgRuleConfig_gridControl.Name = "dgRuleConfig_gridControl";
-            this.dgRuleConfig_gridControl.Size = new System.Drawing.Size(1056, 455);
+            this.dgRuleConfig_gridControl.Size = new System.Drawing.Size(1078, 514);
             this.dgRuleConfig_gridControl.TabIndex = 5;
             this.dgRuleConfig_gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dataGridRuleConfig});
@@ -631,7 +640,7 @@
             // 
             this.btnSelectRule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelectRule.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectRule.ImageOptions.Image")));
-            this.btnSelectRule.Location = new System.Drawing.Point(931, 466);
+            this.btnSelectRule.Location = new System.Drawing.Point(953, 525);
             this.btnSelectRule.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSelectRule.Name = "btnSelectRule";
             this.btnSelectRule.Size = new System.Drawing.Size(125, 43);
@@ -645,7 +654,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.btnSave.Location = new System.Drawing.Point(202, 21);
+            this.btnSave.Location = new System.Drawing.Point(213, 21);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(596, 66);
@@ -720,7 +729,7 @@
             this.txtFileFirstName.Location = new System.Drawing.Point(117, 86);
             this.txtFileFirstName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFileFirstName.Name = "txtFileFirstName";
-            this.txtFileFirstName.Size = new System.Drawing.Size(342, 26);
+            this.txtFileFirstName.Size = new System.Drawing.Size(468, 26);
             this.txtFileFirstName.TabIndex = 6;
             // 
             // txtFileLastName
@@ -728,7 +737,7 @@
             this.txtFileLastName.Location = new System.Drawing.Point(117, 135);
             this.txtFileLastName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFileLastName.Name = "txtFileLastName";
-            this.txtFileLastName.Size = new System.Drawing.Size(342, 26);
+            this.txtFileLastName.Size = new System.Drawing.Size(468, 26);
             this.txtFileLastName.TabIndex = 7;
             // 
             // label4
@@ -756,7 +765,7 @@
             // ckExcelOptionIsKeepFormula
             // 
             this.ckExcelOptionIsKeepFormula.AutoSize = true;
-            this.ckExcelOptionIsKeepFormula.Location = new System.Drawing.Point(15, 88);
+            this.ckExcelOptionIsKeepFormula.Location = new System.Drawing.Point(455, 41);
             this.ckExcelOptionIsKeepFormula.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ckExcelOptionIsKeepFormula.Name = "ckExcelOptionIsKeepFormula";
             this.ckExcelOptionIsKeepFormula.Size = new System.Drawing.Size(375, 22);
@@ -798,10 +807,10 @@
             // tabNavigationPage1
             // 
             this.tabNavigationPage1.Caption = "第一步，选择待处理文件";
+            this.tabNavigationPage1.Controls.Add(this.dgFiles_gridControl);
             this.tabNavigationPage1.Controls.Add(this.btnExportWaitFile);
             this.tabNavigationPage1.Controls.Add(this.btnOpenFolderWaitFile);
             this.tabNavigationPage1.Controls.Add(this.btnOpenAWaitFile);
-            this.tabNavigationPage1.Controls.Add(this.groupControl4);
             this.tabNavigationPage1.Name = "tabNavigationPage1";
             this.tabNavigationPage1.Size = new System.Drawing.Size(1060, 514);
             // 
@@ -809,7 +818,7 @@
             // 
             this.btnExportWaitFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExportWaitFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExportWaitFile.ImageOptions.Image")));
-            this.btnExportWaitFile.Location = new System.Drawing.Point(664, 433);
+            this.btnExportWaitFile.Location = new System.Drawing.Point(664, 449);
             this.btnExportWaitFile.Name = "btnExportWaitFile";
             this.btnExportWaitFile.Size = new System.Drawing.Size(125, 43);
             this.btnExportWaitFile.TabIndex = 5;
@@ -820,7 +829,7 @@
             // 
             this.btnOpenFolderWaitFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOpenFolderWaitFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenFolderWaitFile.ImageOptions.Image")));
-            this.btnOpenFolderWaitFile.Location = new System.Drawing.Point(926, 433);
+            this.btnOpenFolderWaitFile.Location = new System.Drawing.Point(926, 449);
             this.btnOpenFolderWaitFile.Name = "btnOpenFolderWaitFile";
             this.btnOpenFolderWaitFile.Size = new System.Drawing.Size(125, 43);
             this.btnOpenFolderWaitFile.TabIndex = 4;
@@ -831,52 +840,92 @@
             // 
             this.btnOpenAWaitFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOpenAWaitFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenAWaitFile.ImageOptions.Image")));
-            this.btnOpenAWaitFile.Location = new System.Drawing.Point(795, 433);
+            this.btnOpenAWaitFile.Location = new System.Drawing.Point(795, 449);
             this.btnOpenAWaitFile.Name = "btnOpenAWaitFile";
             this.btnOpenAWaitFile.Size = new System.Drawing.Size(125, 43);
             this.btnOpenAWaitFile.TabIndex = 3;
             this.btnOpenAWaitFile.Text = "导入文件";
             this.btnOpenAWaitFile.Click += new System.EventHandler(this.btnOpenAWaitFile_Click);
             // 
-            // groupControl4
-            // 
-            this.groupControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl4.Controls.Add(this.dgFiles_gridControl);
-            this.groupControl4.Location = new System.Drawing.Point(3, 3);
-            this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(1056, 415);
-            this.groupControl4.TabIndex = 2;
-            this.groupControl4.Text = "支持xls、xlsx、xlt、csv、doc、docx及其它文本文件，如：txt、html等，无需安装Office！";
-            // 
             // tabNavigationPage2
             // 
-            this.tabNavigationPage2.Caption = "第二步，选择处理规则";
+            this.tabNavigationPage2.Caption = "第二步，选择查找与替换处理规则";
             this.tabNavigationPage2.Controls.Add(this.dgRuleConfig_gridControl);
             this.tabNavigationPage2.Controls.Add(this.btnSelectRule);
             this.tabNavigationPage2.Controls.Add(this.label5);
             this.tabNavigationPage2.Name = "tabNavigationPage2";
-            this.tabNavigationPage2.Size = new System.Drawing.Size(1060, 514);
+            this.tabNavigationPage2.Size = new System.Drawing.Size(1082, 573);
             // 
             // tabNavigationPage3
             // 
-            this.tabNavigationPage3.Caption = "第三步，设置选项";
+            this.tabNavigationPage3.Caption = "第三步，设置输出选项";
+            this.tabNavigationPage3.Controls.Add(this.groupControl4);
             this.tabNavigationPage3.Controls.Add(this.groupControl2);
             this.tabNavigationPage3.Controls.Add(this.groupControl1);
             this.tabNavigationPage3.Name = "tabNavigationPage3";
-            this.tabNavigationPage3.Size = new System.Drawing.Size(1060, 514);
+            this.tabNavigationPage3.Size = new System.Drawing.Size(1082, 573);
+            // 
+            // groupControl4
+            // 
+            this.groupControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl4.Controls.Add(this.label7);
+            this.groupControl4.Controls.Add(this.comboxExcelFileFormat);
+            this.groupControl4.Controls.Add(this.label6);
+            this.groupControl4.Controls.Add(this.comboxWordFileFormat);
+            this.groupControl4.Location = new System.Drawing.Point(3, 278);
+            this.groupControl4.Name = "groupControl4";
+            this.groupControl4.Size = new System.Drawing.Size(1076, 83);
+            this.groupControl4.TabIndex = 12;
+            this.groupControl4.Text = "文件格式转换：";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(452, 39);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(206, 18);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "将处理后的Excel文件转换为：";
+            // 
+            // comboxExcelFileFormat
+            // 
+            this.comboxExcelFileFormat.Location = new System.Drawing.Point(661, 35);
+            this.comboxExcelFileFormat.Name = "comboxExcelFileFormat";
+            this.comboxExcelFileFormat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboxExcelFileFormat.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.comboxExcelFileFormat.Size = new System.Drawing.Size(110, 24);
+            this.comboxExcelFileFormat.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 40);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(208, 18);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "将处理后的Word文件转换为：";
+            // 
+            // comboxWordFileFormat
+            // 
+            this.comboxWordFileFormat.Location = new System.Drawing.Point(222, 36);
+            this.comboxWordFileFormat.Name = "comboxWordFileFormat";
+            this.comboxWordFileFormat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboxWordFileFormat.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.comboxWordFileFormat.Size = new System.Drawing.Size(110, 24);
+            this.comboxWordFileFormat.TabIndex = 0;
             // 
             // groupControl2
             // 
-            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl2.Controls.Add(this.ckExcelOptionIsKeepDataFormat);
             this.groupControl2.Controls.Add(this.ckExcelOptionIsKeepFormula);
-            this.groupControl2.Location = new System.Drawing.Point(3, 234);
+            this.groupControl2.Location = new System.Drawing.Point(3, 189);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(1054, 277);
+            this.groupControl2.Size = new System.Drawing.Size(1076, 81);
             this.groupControl2.TabIndex = 11;
             this.groupControl2.Text = "Excel处理设置：";
             // 
@@ -896,7 +945,7 @@
             this.groupControl1.Controls.Add(this.label3);
             this.groupControl1.Location = new System.Drawing.Point(3, 3);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1054, 225);
+            this.groupControl1.Size = new System.Drawing.Size(1076, 179);
             this.groupControl1.TabIndex = 10;
             this.groupControl1.Text = "基本设置：";
             // 
@@ -906,7 +955,7 @@
             this.tabNavigationPage4.Controls.Add(this.groupControl3);
             this.tabNavigationPage4.Controls.Add(this.btnSave);
             this.tabNavigationPage4.Name = "tabNavigationPage4";
-            this.tabNavigationPage4.Size = new System.Drawing.Size(1060, 514);
+            this.tabNavigationPage4.Size = new System.Drawing.Size(1082, 573);
             // 
             // groupControl3
             // 
@@ -916,7 +965,7 @@
             this.groupControl3.Controls.Add(this.txtLog);
             this.groupControl3.Location = new System.Drawing.Point(3, 111);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(1054, 400);
+            this.groupControl3.Size = new System.Drawing.Size(1076, 459);
             this.groupControl3.TabIndex = 5;
             this.groupControl3.Text = "处理日志：";
             // 
@@ -936,7 +985,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimumSize = new System.Drawing.Size(1100, 650);
             this.Name = "Index";
-            this.Text = "XCLWinKits——Windows软件工具箱   1.4.4，Copyright ©2018 by:XCL Email:x889@foxmail.com ";
+            this.Text = "XCLWinKits——Windows软件工具箱   1.4.5，Copyright ©2018 by:XCL Email:x889@foxmail.com ";
             ((System.ComponentModel.ISupportInitialize)(this.dgFiles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgFiles_gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
@@ -949,11 +998,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
             this.tabPane1.ResumeLayout(false);
             this.tabNavigationPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
-            this.groupControl4.ResumeLayout(false);
             this.tabNavigationPage2.ResumeLayout(false);
             this.tabNavigationPage2.PerformLayout();
             this.tabNavigationPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
+            this.groupControl4.ResumeLayout(false);
+            this.groupControl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboxExcelFileFormat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboxWordFileFormat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
@@ -1035,12 +1087,16 @@
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.GroupControl groupControl3;
-        private DevExpress.XtraEditors.GroupControl groupControl4;
         private DevExpress.XtraEditors.SimpleButton btnExportWaitFile;
         private DevExpress.XtraEditors.SimpleButton btnOpenFolderWaitFile;
         private DevExpress.XtraEditors.SimpleButton btnOpenAWaitFile;
         private DevExpress.XtraGrid.GridControl dgFiles_gridControl;
         private DevExpress.XtraGrid.GridControl dgRuleConfig_gridControl;
+        private DevExpress.XtraEditors.GroupControl groupControl4;
+        private System.Windows.Forms.Label label6;
+        private DevExpress.XtraEditors.ComboBoxEdit comboxWordFileFormat;
+        private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.ComboBoxEdit comboxExcelFileFormat;
     }
 }
 

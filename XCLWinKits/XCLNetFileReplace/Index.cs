@@ -64,6 +64,19 @@ namespace XCLNetFileReplace
                 this.ckExcelOptionIsKeepFormula.Checked = this.replaceSetting.IsKeepFormula.Value;
             }
             this.toolStripStatusLabel2.Text = new Model.DoState().ToString();
+            //文件选项
+            this.comboxWordFileFormat.Properties.Items.Add("默认");
+            XCLNetTools.Enum.EnumHelper.GetList(typeof(CommonHelper.CommonEnum.WordFileToFormatEnum)).ForEach(k =>
+            {
+                this.comboxWordFileFormat.Properties.Items.Add(k.Text);
+            });
+            this.comboxWordFileFormat.SelectedIndex = 0;
+            this.comboxExcelFileFormat.Properties.Items.Add("默认");
+            XCLNetTools.Enum.EnumHelper.GetList(typeof(CommonHelper.CommonEnum.ExcelFileToFormatEnum)).ForEach(k =>
+            {
+                this.comboxExcelFileFormat.Properties.Items.Add(k.Text);
+            });
+            this.comboxExcelFileFormat.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -92,12 +105,6 @@ namespace XCLNetFileReplace
             if (null == lst || lst.Count == 0)
             {
                 DevExpress.XtraEditors.XtraMessageBox.Show("请先选择待处理的文件！", "系统提示");
-                return;
-            }
-
-            if (this.dataGridRuleConfig.RowCount == 0 && string.IsNullOrEmpty(this.txtFileFirstName.Text) && string.IsNullOrEmpty(this.txtFileLastName.Text))
-            {
-                DevExpress.XtraEditors.XtraMessageBox.Show("当前不需要处理任何文件，请先配置相关信息！", "系统提示");
                 return;
             }
 
@@ -207,6 +214,8 @@ namespace XCLNetFileReplace
             string realPath = model.Path;//被操作的文件实际路径，如果没有指定输出目录，则为原路径，如果指定了输出目录，则为copy到输出目录中后的路径
             string filetitle = XCLNetTools.FileHandler.ComFile.GetFileName(model.Path, false);//文件名，不含扩展名
             string newFileTitle = string.Empty;
+            var wbSaveFormat = CommonHelper.Common.GetAsposeCellsFormatEnum(this.comboxExcelFileFormat.Text);
+            var docSaveFormat = CommonHelper.Common.GetAsposeWordFormatEnum(this.comboxWordFileFormat.Text);
 
             if (!System.IO.File.Exists(model.Path))
             {
@@ -482,17 +491,42 @@ namespace XCLNetFileReplace
                     model.ProcessBlockCount += replaceCount;
                 }
 
+                if (null == wb && isExcelExt && wbSaveFormat != Aspose.Cells.SaveFormat.Unknown)
+                {
+                    wb = new Aspose.Cells.Workbook(realPath);
+                }
+                if (null == wordDocument && isDocExt && docSaveFormat != Aspose.Words.SaveFormat.Unknown)
+                {
+                    wordDocument = new Aspose.Words.Document(realPath);
+                }
+
                 if (null != wb)
                 {
                     if (this.ckExcelOptionIsKeepFormula.Checked)
                     {
                         wb.CalculateFormula();
                     }
-                    wb.Save(realPath);
+                    if (wbSaveFormat == Aspose.Cells.SaveFormat.Unknown)
+                    {
+                        wb.Save(realPath);
+                    }
+                    else
+                    {
+                        realPath = XCLNetTools.FileHandler.ComFile.GetFilePathWithNewExt(realPath, this.comboxExcelFileFormat.Text);
+                        wb.Save(realPath, wbSaveFormat);
+                    }
                 }
                 if (null != wordDocument)
                 {
-                    wordDocument.Save(realPath);
+                    if (docSaveFormat == Aspose.Words.SaveFormat.Unknown)
+                    {
+                        wordDocument.Save(realPath);
+                    }
+                    else
+                    {
+                        realPath = XCLNetTools.FileHandler.ComFile.GetFilePathWithNewExt(realPath, this.comboxWordFileFormat.Text);
+                        wordDocument.Save(realPath, docSaveFormat);
+                    }
                 }
                 if (null != textContent)
                 {
@@ -773,7 +807,7 @@ namespace XCLNetFileReplace
         {
             OpenFileDialog openFile = new OpenFileDialog();
             openFile.Multiselect = true;
-            openFile.Filter = "Excel文档|*.xlsx;*.xls|Word文档|*.docx;*.doc|文本文件|*.txt|所有文件|*.*";
+            openFile.Filter = "所有文件|*.*|Excel文档|*.xlsx;*.xls|Word文档|*.docx;*.doc|文本文件|*.txt";
             if (!string.IsNullOrWhiteSpace(this.replaceSetting.LastOpenFolderPath) && System.IO.Directory.Exists(this.replaceSetting.LastOpenFolderPath))
             {
                 openFile.InitialDirectory = this.replaceSetting.LastOpenFolderPath;

@@ -28,5 +28,22 @@ namespace CommonHelper
             //快车地址,
             //旋风地址
         }
+
+        public enum WordFileToFormatEnum
+        {
+            pdf,
+            html,
+            txt,
+            docx,
+            doc
+        }
+
+        public enum ExcelFileToFormatEnum
+        {
+            pdf,
+            html,
+            xlsx,
+            xls
+        }
     }
 }

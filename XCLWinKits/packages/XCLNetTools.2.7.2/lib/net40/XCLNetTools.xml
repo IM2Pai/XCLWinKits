@@ -3436,6 +3436,14 @@
             <param name="withDot">是否包含小圆点（默认：false）</param>
             <returns>文件扩展名</returns>
         </member>
+        <member name="M:XCLNetTools.FileHandler.ComFile.GetFilePathWithNewExt(System.String,System.String)">
+            <summary>
+            用新的扩展名更新文件路径
+            </summary>
+            <param name="path">原文件路径</param>
+            <param name="newExt">扩展名</param>
+            <returns>新的文件路径</returns>
+        </member>
         <member name="M:XCLNetTools.FileHandler.ComFile.GetFileEncoding(System.String)">
             <summary>
             获取文件编码

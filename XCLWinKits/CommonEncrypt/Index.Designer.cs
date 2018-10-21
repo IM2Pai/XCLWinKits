@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Index));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new DevExpress.XtraEditors.GroupControl();
             this.txtInput = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new DevExpress.XtraEditors.GroupControl();
             this.txtResult = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new DevExpress.XtraEditors.GroupControl();
             this.ckContainKey = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtKey = new System.Windows.Forms.TextBox();
@@ -41,8 +41,11 @@
             this.btnEncrypt = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.comboxEncryptType = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox2)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox3)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,23 +55,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.txtInput);
             this.groupBox1.Location = new System.Drawing.Point(17, 20);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Size = new System.Drawing.Size(916, 258);
             this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
             this.groupBox1.Text = "明文：";
             // 
             // txtInput
             // 
             this.txtInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtInput.Location = new System.Drawing.Point(4, 23);
-            this.txtInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtInput.Location = new System.Drawing.Point(2, 26);
+            this.txtInput.Margin = new System.Windows.Forms.Padding(4);
             this.txtInput.Multiline = true;
             this.txtInput.Name = "txtInput";
             this.txtInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtInput.Size = new System.Drawing.Size(908, 231);
+            this.txtInput.Size = new System.Drawing.Size(912, 230);
             this.txtInput.TabIndex = 0;
             // 
             // groupBox2
@@ -78,23 +79,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.txtResult);
             this.groupBox2.Location = new System.Drawing.Point(17, 310);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Size = new System.Drawing.Size(603, 266);
             this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
             this.groupBox2.Text = "密文：";
             // 
             // txtResult
             // 
             this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtResult.Location = new System.Drawing.Point(4, 23);
-            this.txtResult.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtResult.Location = new System.Drawing.Point(2, 26);
+            this.txtResult.Margin = new System.Windows.Forms.Padding(4);
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
             this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtResult.Size = new System.Drawing.Size(595, 239);
+            this.txtResult.Size = new System.Drawing.Size(599, 238);
             this.txtResult.TabIndex = 0;
             // 
             // groupBox3
@@ -109,19 +108,17 @@
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.comboxEncryptType);
             this.groupBox3.Location = new System.Drawing.Point(625, 310);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Size = new System.Drawing.Size(308, 261);
             this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
             this.groupBox3.Text = "操作：";
             // 
             // ckContainKey
             // 
             this.ckContainKey.AutoSize = true;
-            this.ckContainKey.Location = new System.Drawing.Point(100, 162);
-            this.ckContainKey.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ckContainKey.Location = new System.Drawing.Point(96, 158);
+            this.ckContainKey.Margin = new System.Windows.Forms.Padding(4);
             this.ckContainKey.Name = "ckContainKey";
             this.ckContainKey.Size = new System.Drawing.Size(135, 22);
             this.ckContainKey.TabIndex = 6;
@@ -131,7 +128,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 111);
+            this.label2.Location = new System.Drawing.Point(45, 107);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 18);
@@ -141,7 +138,7 @@
             // txtKey
             // 
             this.txtKey.Location = new System.Drawing.Point(100, 104);
-            this.txtKey.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtKey.Margin = new System.Windows.Forms.Padding(4);
             this.txtKey.Name = "txtKey";
             this.txtKey.Size = new System.Drawing.Size(160, 26);
             this.txtKey.TabIndex = 4;
@@ -150,7 +147,7 @@
             // 
             this.btnDecrypt.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDecrypt.ImageOptions.Image")));
             this.btnDecrypt.Location = new System.Drawing.Point(161, 208);
-            this.btnDecrypt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDecrypt.Margin = new System.Windows.Forms.Padding(4);
             this.btnDecrypt.Name = "btnDecrypt";
             this.btnDecrypt.Size = new System.Drawing.Size(100, 34);
             this.btnDecrypt.TabIndex = 3;
@@ -161,7 +158,7 @@
             // 
             this.btnEncrypt.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEncrypt.ImageOptions.Image")));
             this.btnEncrypt.Location = new System.Drawing.Point(36, 208);
-            this.btnEncrypt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEncrypt.Margin = new System.Windows.Forms.Padding(4);
             this.btnEncrypt.Name = "btnEncrypt";
             this.btnEncrypt.Size = new System.Drawing.Size(100, 34);
             this.btnEncrypt.TabIndex = 2;
@@ -171,7 +168,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 54);
+            this.label1.Location = new System.Drawing.Point(5, 50);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 18);
@@ -183,7 +180,7 @@
             this.comboxEncryptType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboxEncryptType.FormattingEnabled = true;
             this.comboxEncryptType.Location = new System.Drawing.Point(100, 48);
-            this.comboxEncryptType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboxEncryptType.Margin = new System.Windows.Forms.Padding(4);
             this.comboxEncryptType.Name = "comboxEncryptType";
             this.comboxEncryptType.Size = new System.Drawing.Size(160, 26);
             this.comboxEncryptType.TabIndex = 0;
@@ -199,14 +196,17 @@
             this.Controls.Add(this.groupBox1);
             this.LookAndFeel.SkinName = "Office 2010 Blue";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(728, 434);
             this.Name = "Index";
             this.Text = "Index";
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox3)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -215,11 +215,11 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private DevExpress.XtraEditors.GroupControl groupBox1;
+        private DevExpress.XtraEditors.GroupControl groupBox2;
         private System.Windows.Forms.TextBox txtInput;
         private System.Windows.Forms.TextBox txtResult;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private DevExpress.XtraEditors.GroupControl groupBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboxEncryptType;
         private DevExpress.XtraEditors.SimpleButton btnDecrypt;

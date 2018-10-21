@@ -29,15 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Index));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new DevExpress.XtraEditors.GroupControl();
             this.btnCount = new DevExpress.XtraEditors.SimpleButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtEndTime = new System.Windows.Forms.TextBox();
             this.txtStartTime = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new DevExpress.XtraEditors.GroupControl();
             this.txtResult = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox2)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,10 +53,8 @@
             this.groupBox1.Location = new System.Drawing.Point(16, 18);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(531, 153);
             this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
             this.groupBox1.Text = "设置时间：";
             // 
             // btnCount
@@ -71,7 +71,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 99);
+            this.label2.Location = new System.Drawing.Point(35, 95);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 18);
@@ -81,7 +81,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 44);
+            this.label1.Location = new System.Drawing.Point(32, 40);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 18);
@@ -110,22 +110,20 @@
             this.groupBox2.Location = new System.Drawing.Point(16, 180);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(531, 417);
             this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
             this.groupBox2.Text = "间隔：";
             // 
             // txtResult
             // 
             this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtResult.Location = new System.Drawing.Point(4, 23);
+            this.txtResult.Location = new System.Drawing.Point(2, 26);
             this.txtResult.Margin = new System.Windows.Forms.Padding(4);
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
             this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtResult.Size = new System.Drawing.Size(523, 390);
+            this.txtResult.Size = new System.Drawing.Size(527, 389);
             this.txtResult.TabIndex = 0;
             this.txtResult.WordWrap = false;
             // 
@@ -143,8 +141,10 @@
             this.MaximizeBox = false;
             this.Name = "Index";
             this.Text = "Index";
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -153,8 +153,8 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private DevExpress.XtraEditors.GroupControl groupBox1;
+        private DevExpress.XtraEditors.GroupControl groupBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtEndTime;

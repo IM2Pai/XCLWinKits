@@ -29,32 +29,38 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Index));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new DevExpress.XtraEditors.GroupControl();
             this.txtInputRegexp = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new DevExpress.XtraEditors.GroupControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtReplaceResult = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new DevExpress.XtraEditors.GroupControl();
             this.txtInputString = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new DevExpress.XtraEditors.GroupControl();
             this.ckMutipLine = new System.Windows.Forms.CheckBox();
             this.ckIgnoreCase = new System.Windows.Forms.CheckBox();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.ckAnyTime = new System.Windows.Forms.CheckBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new DevExpress.XtraEditors.GroupControl();
             this.txtReplaceString = new System.Windows.Forms.TextBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new DevExpress.XtraEditors.GroupControl();
             this.txtFindResult = new System.Windows.Forms.TextBox();
             this.lbMsg = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox2)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox3)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox4)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox5)).BeginInit();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox6)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,21 +70,19 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 18);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Size = new System.Drawing.Size(571, 74);
             this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
             this.groupBox1.Text = "请输入正则表达式：";
             // 
             // txtInputRegexp
             // 
             this.txtInputRegexp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtInputRegexp.Location = new System.Drawing.Point(4, 24);
+            this.txtInputRegexp.Location = new System.Drawing.Point(2, 26);
             this.txtInputRegexp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtInputRegexp.Multiline = true;
             this.txtInputRegexp.Name = "txtInputRegexp";
             this.txtInputRegexp.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtInputRegexp.Size = new System.Drawing.Size(563, 45);
+            this.txtInputRegexp.Size = new System.Drawing.Size(567, 46);
             this.txtInputRegexp.TabIndex = 0;
             // 
             // groupBox2
@@ -89,10 +93,8 @@
             this.groupBox2.Location = new System.Drawing.Point(12, 577);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Size = new System.Drawing.Size(1083, 173);
             this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
             this.groupBox2.Text = "替换结果：";
             // 
             // tableLayoutPanel1
@@ -103,12 +105,12 @@
             this.tableLayoutPanel1.Controls.Add(this.txtReplaceResult, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 24);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 26);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.06061F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1075, 144);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1079, 145);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // txtReplaceResult
@@ -119,17 +121,17 @@
             this.txtReplaceResult.Multiline = true;
             this.txtReplaceResult.Name = "txtReplaceResult";
             this.txtReplaceResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtReplaceResult.Size = new System.Drawing.Size(922, 134);
+            this.txtReplaceResult.Size = new System.Drawing.Size(926, 135);
             this.txtReplaceResult.TabIndex = 3;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(934, 5);
+            this.panel1.Location = new System.Drawing.Point(938, 5);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(137, 134);
+            this.panel1.Size = new System.Drawing.Size(137, 135);
             this.panel1.TabIndex = 3;
             // 
             // btnSave
@@ -152,21 +154,19 @@
             this.groupBox3.Location = new System.Drawing.Point(12, 100);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Size = new System.Drawing.Size(1083, 191);
             this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
             this.groupBox3.Text = "待处理文本：";
             // 
             // txtInputString
             // 
             this.txtInputString.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtInputString.Location = new System.Drawing.Point(4, 24);
+            this.txtInputString.Location = new System.Drawing.Point(2, 26);
             this.txtInputString.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtInputString.Multiline = true;
             this.txtInputString.Name = "txtInputString";
             this.txtInputString.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtInputString.Size = new System.Drawing.Size(1075, 162);
+            this.txtInputString.Size = new System.Drawing.Size(1079, 163);
             this.txtInputString.TabIndex = 2;
             // 
             // groupBox4
@@ -183,7 +183,6 @@
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox4.Size = new System.Drawing.Size(504, 74);
             this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
             this.groupBox4.Text = "选项";
             // 
             // ckMutipLine
@@ -203,7 +202,7 @@
             this.ckIgnoreCase.Location = new System.Drawing.Point(116, 34);
             this.ckIgnoreCase.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ckIgnoreCase.Name = "ckIgnoreCase";
-            this.ckIgnoreCase.Size = new System.Drawing.Size(120, 22);
+            this.ckIgnoreCase.Size = new System.Drawing.Size(105, 22);
             this.ckIgnoreCase.TabIndex = 7;
             this.ckIgnoreCase.Text = "忽略大小写";
             this.ckIgnoreCase.UseVisualStyleBackColor = true;
@@ -237,21 +236,19 @@
             this.groupBox5.Location = new System.Drawing.Point(12, 297);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox5.Size = new System.Drawing.Size(1083, 113);
             this.groupBox5.TabIndex = 4;
-            this.groupBox5.TabStop = false;
             this.groupBox5.Text = "匹配的结果替换为：";
             // 
             // txtReplaceString
             // 
             this.txtReplaceString.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtReplaceString.Location = new System.Drawing.Point(4, 24);
+            this.txtReplaceString.Location = new System.Drawing.Point(2, 26);
             this.txtReplaceString.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtReplaceString.Multiline = true;
             this.txtReplaceString.Name = "txtReplaceString";
             this.txtReplaceString.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtReplaceString.Size = new System.Drawing.Size(1075, 84);
+            this.txtReplaceString.Size = new System.Drawing.Size(1079, 85);
             this.txtReplaceString.TabIndex = 1;
             // 
             // groupBox6
@@ -263,21 +260,19 @@
             this.groupBox6.Location = new System.Drawing.Point(12, 446);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox6.Size = new System.Drawing.Size(1083, 121);
             this.groupBox6.TabIndex = 5;
-            this.groupBox6.TabStop = false;
             this.groupBox6.Text = "匹配结果：";
             // 
             // txtFindResult
             // 
             this.txtFindResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtFindResult.Location = new System.Drawing.Point(4, 24);
+            this.txtFindResult.Location = new System.Drawing.Point(2, 26);
             this.txtFindResult.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFindResult.Multiline = true;
             this.txtFindResult.Name = "txtFindResult";
             this.txtFindResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtFindResult.Size = new System.Drawing.Size(1075, 92);
+            this.txtFindResult.Size = new System.Drawing.Size(1079, 93);
             this.txtFindResult.TabIndex = 0;
             // 
             // lbMsg
@@ -308,19 +303,25 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimumSize = new System.Drawing.Size(1061, 676);
             this.Name = "Index";
-            this.Text = "XCLWinKits——Windows软件工具箱   1.4.4，Copyright ©2018 by:XCL Email:x889@foxmail.com ";
+            this.Text = "XCLWinKits——Windows软件工具箱   1.4.5，Copyright ©2018 by:XCL Email:x889@foxmail.com ";
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox3)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox4)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox5)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox6)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
@@ -330,20 +331,20 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private DevExpress.XtraEditors.GroupControl groupBox1;
+        private DevExpress.XtraEditors.GroupControl groupBox2;
         private System.Windows.Forms.TextBox txtInputRegexp;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private DevExpress.XtraEditors.GroupControl groupBox3;
         private System.Windows.Forms.TextBox txtInputString;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private DevExpress.XtraEditors.GroupControl groupBox4;
         private System.Windows.Forms.CheckBox ckAnyTime;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private DevExpress.XtraEditors.GroupControl groupBox5;
         private System.Windows.Forms.TextBox txtReplaceString;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TextBox txtReplaceResult;
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.SimpleButton btnSave;
-        private System.Windows.Forms.GroupBox groupBox6;
+        private DevExpress.XtraEditors.GroupControl groupBox6;
         private System.Windows.Forms.TextBox txtFindResult;
         private System.Windows.Forms.Label lbMsg;
         private DevExpress.XtraEditors.SimpleButton btnOK;
