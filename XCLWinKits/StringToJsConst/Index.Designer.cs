@@ -32,7 +32,9 @@
             this.txtOld = new System.Windows.Forms.TextBox();
             this.groupBox2 = new DevExpress.XtraEditors.GroupControl();
             this.txtNew = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox2)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,21 +43,22 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.txtOld);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(16, 18);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(430, 141);
+            this.groupBox1.Size = new System.Drawing.Size(573, 158);
             this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
             this.groupBox1.Text = "原HTML字符串：";
             // 
             // txtOld
             // 
             this.txtOld.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtOld.Location = new System.Drawing.Point(3, 17);
+            this.txtOld.Location = new System.Drawing.Point(2, 26);
+            this.txtOld.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtOld.Multiline = true;
             this.txtOld.Name = "txtOld";
             this.txtOld.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtOld.Size = new System.Drawing.Size(424, 121);
+            this.txtOld.Size = new System.Drawing.Size(569, 130);
             this.txtOld.TabIndex = 0;
             this.txtOld.TextChanged += new System.EventHandler(this.txtOld_TextChanged);
             // 
@@ -65,36 +68,42 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.txtNew);
-            this.groupBox2.Location = new System.Drawing.Point(13, 159);
+            this.groupBox2.Location = new System.Drawing.Point(17, 188);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(429, 140);
+            this.groupBox2.Size = new System.Drawing.Size(572, 155);
             this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
             this.groupBox2.Text = "转换后的JavaScript常量：";
             // 
             // txtNew
             // 
             this.txtNew.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNew.Location = new System.Drawing.Point(3, 17);
+            this.txtNew.Location = new System.Drawing.Point(2, 26);
+            this.txtNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNew.Multiline = true;
             this.txtNew.Name = "txtNew";
             this.txtNew.ReadOnly = true;
             this.txtNew.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtNew.Size = new System.Drawing.Size(423, 120);
+            this.txtNew.Size = new System.Drawing.Size(568, 127);
             this.txtNew.TabIndex = 0;
             // 
             // Index
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 311);
+            this.ClientSize = new System.Drawing.Size(605, 347);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.MinimumSize = new System.Drawing.Size(470, 350);
+            this.LookAndFeel.SkinName = "Office 2010 Blue";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(623, 394);
             this.Name = "Index";
             this.Text = "Index";
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBox2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);

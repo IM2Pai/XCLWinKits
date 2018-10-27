@@ -53,14 +53,14 @@
             this.groupBox1.Location = new System.Drawing.Point(16, 18);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(531, 153);
+            this.groupBox1.Size = new System.Drawing.Size(466, 137);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.Text = "设置时间：";
             // 
             // btnCount
             // 
             this.btnCount.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCount.ImageOptions.Image")));
-            this.btnCount.Location = new System.Drawing.Point(404, 44);
+            this.btnCount.Location = new System.Drawing.Point(334, 54);
             this.btnCount.Margin = new System.Windows.Forms.Padding(4);
             this.btnCount.Name = "btnCount";
             this.btnCount.Size = new System.Drawing.Size(119, 50);
@@ -71,7 +71,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(35, 95);
+            this.label2.Location = new System.Drawing.Point(12, 95);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 18);
@@ -81,7 +81,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 40);
+            this.label1.Location = new System.Drawing.Point(9, 40);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 18);
@@ -90,27 +90,27 @@
             // 
             // txtEndTime
             // 
-            this.txtEndTime.Location = new System.Drawing.Point(131, 95);
+            this.txtEndTime.Location = new System.Drawing.Point(108, 95);
             this.txtEndTime.Margin = new System.Windows.Forms.Padding(4);
             this.txtEndTime.Name = "txtEndTime";
-            this.txtEndTime.Size = new System.Drawing.Size(243, 26);
+            this.txtEndTime.Size = new System.Drawing.Size(206, 26);
             this.txtEndTime.TabIndex = 1;
             // 
             // txtStartTime
             // 
-            this.txtStartTime.Location = new System.Drawing.Point(131, 39);
+            this.txtStartTime.Location = new System.Drawing.Point(108, 39);
             this.txtStartTime.Margin = new System.Windows.Forms.Padding(4);
             this.txtStartTime.Name = "txtStartTime";
-            this.txtStartTime.Size = new System.Drawing.Size(243, 26);
+            this.txtStartTime.Size = new System.Drawing.Size(206, 26);
             this.txtStartTime.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtResult);
-            this.groupBox2.Location = new System.Drawing.Point(16, 180);
+            this.groupBox2.Location = new System.Drawing.Point(16, 163);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(531, 417);
+            this.groupBox2.Size = new System.Drawing.Size(466, 198);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.Text = "间隔：";
             // 
@@ -123,7 +123,7 @@
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
             this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtResult.Size = new System.Drawing.Size(527, 389);
+            this.txtResult.Size = new System.Drawing.Size(462, 170);
             this.txtResult.TabIndex = 0;
             this.txtResult.WordWrap = false;
             // 
@@ -131,7 +131,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(563, 615);
+            this.ClientSize = new System.Drawing.Size(499, 374);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

@@ -48,11 +48,12 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.AutoSize = true;
             this.groupBox1.Controls.Add(this.txtInputString);
-            this.groupBox1.Location = new System.Drawing.Point(16, 18);
+            this.groupBox1.Location = new System.Drawing.Point(18, 13);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(877, 252);
+            this.groupBox1.Size = new System.Drawing.Size(649, 171);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.Text = "明文：";
             // 
@@ -64,7 +65,7 @@
             this.txtInputString.Multiline = true;
             this.txtInputString.Name = "txtInputString";
             this.txtInputString.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtInputString.Size = new System.Drawing.Size(873, 224);
+            this.txtInputString.Size = new System.Drawing.Size(645, 143);
             this.txtInputString.TabIndex = 0;
             // 
             // groupBox3
@@ -72,10 +73,10 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.txtResult);
-            this.groupBox3.Location = new System.Drawing.Point(16, 279);
+            this.groupBox3.Location = new System.Drawing.Point(18, 199);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(595, 290);
+            this.groupBox3.Size = new System.Drawing.Size(440, 170);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.Text = "加密后：";
             // 
@@ -88,25 +89,25 @@
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
             this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtResult.Size = new System.Drawing.Size(591, 262);
+            this.txtResult.Size = new System.Drawing.Size(436, 142);
             this.txtResult.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.btnOK);
-            this.groupBox2.Location = new System.Drawing.Point(615, 279);
+            this.groupBox2.Location = new System.Drawing.Point(466, 199);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(267, 290);
+            this.groupBox2.Size = new System.Drawing.Size(201, 170);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.Text = "操作：";
             // 
             // btnOK
             // 
             this.btnOK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.ImageOptions.Image")));
-            this.btnOK.Location = new System.Drawing.Point(60, 123);
+            this.btnOK.Location = new System.Drawing.Point(33, 64);
             this.btnOK.Margin = new System.Windows.Forms.Padding(4);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(140, 51);
@@ -118,7 +119,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(909, 586);
+            this.ClientSize = new System.Drawing.Size(680, 382);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -137,6 +138,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupBox2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

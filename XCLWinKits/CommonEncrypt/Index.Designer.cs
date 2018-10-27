@@ -51,13 +51,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.txtInput);
             this.groupBox1.Location = new System.Drawing.Point(17, 20);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(916, 258);
+            this.groupBox1.Size = new System.Drawing.Size(679, 128);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.Text = "明文：";
             // 
@@ -69,19 +70,18 @@
             this.txtInput.Multiline = true;
             this.txtInput.Name = "txtInput";
             this.txtInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtInput.Size = new System.Drawing.Size(912, 230);
+            this.txtInput.Size = new System.Drawing.Size(675, 100);
             this.txtInput.TabIndex = 0;
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.txtResult);
-            this.groupBox2.Location = new System.Drawing.Point(17, 310);
+            this.groupBox2.Location = new System.Drawing.Point(17, 157);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(603, 266);
+            this.groupBox2.Size = new System.Drawing.Size(366, 256);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.Text = "密文：";
             // 
@@ -93,13 +93,12 @@
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
             this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtResult.Size = new System.Drawing.Size(599, 238);
+            this.txtResult.Size = new System.Drawing.Size(362, 228);
             this.txtResult.TabIndex = 0;
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.ckContainKey);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.txtKey);
@@ -107,10 +106,10 @@
             this.groupBox3.Controls.Add(this.btnEncrypt);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.comboxEncryptType);
-            this.groupBox3.Location = new System.Drawing.Point(625, 310);
+            this.groupBox3.Location = new System.Drawing.Point(386, 157);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(308, 261);
+            this.groupBox3.Size = new System.Drawing.Size(308, 256);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.Text = "操作：";
             // 
@@ -190,14 +189,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(949, 594);
+            this.ClientSize = new System.Drawing.Size(712, 423);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.LookAndFeel.SkinName = "Office 2010 Blue";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(728, 434);
+            this.MinimumSize = new System.Drawing.Size(730, 470);
             this.Name = "Index";
             this.Text = "Index";
             ((System.ComponentModel.ISupportInitialize)(this.groupBox1)).EndInit();

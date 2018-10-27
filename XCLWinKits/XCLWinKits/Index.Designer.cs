@@ -65,7 +65,7 @@
             this.tabMenu.Location = new System.Drawing.Point(13, 37);
             this.tabMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabMenu.Name = "tabMenu";
-            this.tabMenu.Size = new System.Drawing.Size(756, 411);
+            this.tabMenu.Size = new System.Drawing.Size(606, 311);
             this.tabMenu.TabIndex = 2;
             // 
             // notifyIcon1
@@ -266,15 +266,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(782, 29);
+            this.barDockControlTop.Size = new System.Drawing.Size(632, 29);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 453);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 353);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(782, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(632, 0);
             // 
             // barDockControlLeft
             // 
@@ -282,21 +282,21 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 29);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 424);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 324);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(782, 29);
+            this.barDockControlRight.Location = new System.Drawing.Point(632, 29);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 424);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 324);
             // 
             // Index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 453);
+            this.ClientSize = new System.Drawing.Size(632, 353);
             this.Controls.Add(this.tabMenu);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -305,7 +305,7 @@
             this.LookAndFeel.SkinName = "Office 2010 Blue";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MinimumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(650, 400);
             this.Name = "Index";
             this.Text = "XCLWinKits——Windows软件工具箱";
             this.SizeChanged += new System.EventHandler(this.Index_SizeChanged);

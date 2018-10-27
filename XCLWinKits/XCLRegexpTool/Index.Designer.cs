@@ -36,12 +36,12 @@
             this.txtReplaceResult = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox3 = new DevExpress.XtraEditors.GroupControl();
             this.txtInputString = new System.Windows.Forms.TextBox();
             this.groupBox4 = new DevExpress.XtraEditors.GroupControl();
             this.ckMutipLine = new System.Windows.Forms.CheckBox();
             this.ckIgnoreCase = new System.Windows.Forms.CheckBox();
-            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.ckAnyTime = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new DevExpress.XtraEditors.GroupControl();
             this.txtReplaceString = new System.Windows.Forms.TextBox();
@@ -87,15 +87,16 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.AutoSize = true;
             this.groupBox2.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 577);
+            this.groupBox2.Location = new System.Drawing.Point(464, 362);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1083, 173);
+            this.groupBox2.Size = new System.Drawing.Size(514, 184);
             this.groupBox2.TabIndex = 1;
-            this.groupBox2.Text = "替换结果：";
+            this.groupBox2.Text = "替换后的结果：";
             // 
             // tableLayoutPanel1
             // 
@@ -110,7 +111,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.06061F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1079, 145);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(510, 156);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // txtReplaceResult
@@ -121,30 +122,41 @@
             this.txtReplaceResult.Multiline = true;
             this.txtReplaceResult.Name = "txtReplaceResult";
             this.txtReplaceResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtReplaceResult.Size = new System.Drawing.Size(926, 135);
+            this.txtReplaceResult.Size = new System.Drawing.Size(357, 146);
             this.txtReplaceResult.TabIndex = 3;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnSave);
+            this.panel1.Controls.Add(this.btnOK);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(938, 5);
+            this.panel1.Location = new System.Drawing.Point(369, 5);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(137, 135);
+            this.panel1.Size = new System.Drawing.Size(137, 146);
             this.panel1.TabIndex = 3;
             // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
-            this.btnSave.Location = new System.Drawing.Point(4, 45);
+            this.btnSave.Location = new System.Drawing.Point(13, 87);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(120, 43);
+            this.btnSave.Size = new System.Drawing.Size(120, 42);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "导出结果";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnOK
+            // 
+            this.btnOK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.ImageOptions.Image")));
+            this.btnOK.Location = new System.Drawing.Point(13, 22);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(120, 42);
+            this.btnOK.TabIndex = 6;
+            this.btnOK.Text = "执行";
             // 
             // groupBox3
             // 
@@ -154,7 +166,7 @@
             this.groupBox3.Location = new System.Drawing.Point(12, 100);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1083, 191);
+            this.groupBox3.Size = new System.Drawing.Size(966, 112);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.Text = "待处理文本：";
             // 
@@ -166,7 +178,7 @@
             this.txtInputString.Multiline = true;
             this.txtInputString.Name = "txtInputString";
             this.txtInputString.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtInputString.Size = new System.Drawing.Size(1079, 163);
+            this.txtInputString.Size = new System.Drawing.Size(962, 84);
             this.txtInputString.TabIndex = 2;
             // 
             // groupBox4
@@ -175,15 +187,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.ckMutipLine);
             this.groupBox4.Controls.Add(this.ckIgnoreCase);
-            this.groupBox4.Controls.Add(this.btnOK);
             this.groupBox4.Controls.Add(this.ckAnyTime);
             this.groupBox4.Location = new System.Drawing.Point(591, 18);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox4.Size = new System.Drawing.Size(504, 74);
+            this.groupBox4.Size = new System.Drawing.Size(387, 74);
             this.groupBox4.TabIndex = 3;
-            this.groupBox4.Text = "选项";
+            this.groupBox4.Text = "选项：";
             // 
             // ckMutipLine
             // 
@@ -207,16 +218,6 @@
             this.ckIgnoreCase.Text = "忽略大小写";
             this.ckIgnoreCase.UseVisualStyleBackColor = true;
             // 
-            // btnOK
-            // 
-            this.btnOK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.ImageOptions.Image")));
-            this.btnOK.Location = new System.Drawing.Point(334, 26);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(100, 35);
-            this.btnOK.TabIndex = 6;
-            this.btnOK.Text = "执行";
-            // 
             // ckAnyTime
             // 
             this.ckAnyTime.AutoSize = true;
@@ -233,12 +234,12 @@
             this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.txtReplaceString);
-            this.groupBox5.Location = new System.Drawing.Point(12, 297);
+            this.groupBox5.Location = new System.Drawing.Point(12, 221);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1083, 113);
+            this.groupBox5.Size = new System.Drawing.Size(966, 113);
             this.groupBox5.TabIndex = 4;
-            this.groupBox5.Text = "匹配的结果替换为：";
+            this.groupBox5.Text = "将匹配到的结果替换为：";
             // 
             // txtReplaceString
             // 
@@ -248,7 +249,7 @@
             this.txtReplaceString.Multiline = true;
             this.txtReplaceString.Name = "txtReplaceString";
             this.txtReplaceString.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtReplaceString.Size = new System.Drawing.Size(1079, 85);
+            this.txtReplaceString.Size = new System.Drawing.Size(962, 85);
             this.txtReplaceString.TabIndex = 1;
             // 
             // groupBox6
@@ -256,13 +257,14 @@
             this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox6.AutoSize = true;
             this.groupBox6.Controls.Add(this.txtFindResult);
-            this.groupBox6.Location = new System.Drawing.Point(12, 446);
+            this.groupBox6.Location = new System.Drawing.Point(12, 362);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(1083, 121);
+            this.groupBox6.Size = new System.Drawing.Size(444, 184);
             this.groupBox6.TabIndex = 5;
-            this.groupBox6.Text = "匹配结果：";
+            this.groupBox6.Text = "匹配项：";
             // 
             // txtFindResult
             // 
@@ -272,14 +274,14 @@
             this.txtFindResult.Multiline = true;
             this.txtFindResult.Name = "txtFindResult";
             this.txtFindResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtFindResult.Size = new System.Drawing.Size(1079, 93);
+            this.txtFindResult.Size = new System.Drawing.Size(440, 156);
             this.txtFindResult.TabIndex = 0;
             // 
             // lbMsg
             // 
             this.lbMsg.AutoSize = true;
             this.lbMsg.ForeColor = System.Drawing.Color.Red;
-            this.lbMsg.Location = new System.Drawing.Point(16, 415);
+            this.lbMsg.Location = new System.Drawing.Point(16, 339);
             this.lbMsg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMsg.Name = "lbMsg";
             this.lbMsg.Size = new System.Drawing.Size(44, 18);
@@ -290,7 +292,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1099, 768);
+            this.ClientSize = new System.Drawing.Size(982, 553);
             this.Controls.Add(this.lbMsg);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox6);
@@ -301,7 +303,7 @@
             this.LookAndFeel.SkinName = "Office 2010 Blue";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MinimumSize = new System.Drawing.Size(1061, 676);
+            this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "Index";
             this.Text = "XCLWinKits——Windows软件工具箱   1.4.5，Copyright ©2018 by:XCL Email:x889@foxmail.com ";
             ((System.ComponentModel.ISupportInitialize)(this.groupBox1)).EndInit();

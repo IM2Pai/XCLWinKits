@@ -162,8 +162,7 @@
             this.dgFiles_FileID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.dgFiles_FileID.Caption = "编号";
             this.dgFiles_FileID.FieldName = "FileID";
-            this.dgFiles_FileID.MaxWidth = 60;
-            this.dgFiles_FileID.MinWidth = 60;
+            this.dgFiles_FileID.MinWidth = 10;
             this.dgFiles_FileID.Name = "dgFiles_FileID";
             this.dgFiles_FileID.Visible = true;
             this.dgFiles_FileID.VisibleIndex = 0;
@@ -173,6 +172,7 @@
             // 
             this.dgFiles_FileName.Caption = "文件名";
             this.dgFiles_FileName.FieldName = "FileName";
+            this.dgFiles_FileName.MinWidth = 10;
             this.dgFiles_FileName.Name = "dgFiles_FileName";
             this.dgFiles_FileName.Visible = true;
             this.dgFiles_FileName.VisibleIndex = 1;
@@ -182,7 +182,7 @@
             // 
             this.dgFiles_Path.Caption = "路径";
             this.dgFiles_Path.FieldName = "Path";
-            this.dgFiles_Path.MinWidth = 150;
+            this.dgFiles_Path.MinWidth = 10;
             this.dgFiles_Path.Name = "dgFiles_Path";
             this.dgFiles_Path.Visible = true;
             this.dgFiles_Path.VisibleIndex = 2;
@@ -194,8 +194,7 @@
             this.dgFiles_ExtensionName.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.dgFiles_ExtensionName.Caption = "扩展名";
             this.dgFiles_ExtensionName.FieldName = "ExtensionName";
-            this.dgFiles_ExtensionName.MaxWidth = 120;
-            this.dgFiles_ExtensionName.MinWidth = 120;
+            this.dgFiles_ExtensionName.MinWidth = 10;
             this.dgFiles_ExtensionName.Name = "dgFiles_ExtensionName";
             this.dgFiles_ExtensionName.Visible = true;
             this.dgFiles_ExtensionName.VisibleIndex = 3;
@@ -207,8 +206,7 @@
             this.dgFiles_IsDone_Text.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.dgFiles_IsDone_Text.Caption = "是否已处理";
             this.dgFiles_IsDone_Text.FieldName = "IsDone_Text";
-            this.dgFiles_IsDone_Text.MaxWidth = 120;
-            this.dgFiles_IsDone_Text.MinWidth = 120;
+            this.dgFiles_IsDone_Text.MinWidth = 10;
             this.dgFiles_IsDone_Text.Name = "dgFiles_IsDone_Text";
             this.dgFiles_IsDone_Text.Visible = true;
             this.dgFiles_IsDone_Text.VisibleIndex = 4;
@@ -220,8 +218,7 @@
             this.dgFiles_ProcessState_Text.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.dgFiles_ProcessState_Text.Caption = "处理结果";
             this.dgFiles_ProcessState_Text.FieldName = "ProcessState_Text";
-            this.dgFiles_ProcessState_Text.MaxWidth = 120;
-            this.dgFiles_ProcessState_Text.MinWidth = 120;
+            this.dgFiles_ProcessState_Text.MinWidth = 10;
             this.dgFiles_ProcessState_Text.Name = "dgFiles_ProcessState_Text";
             this.dgFiles_ProcessState_Text.Visible = true;
             this.dgFiles_ProcessState_Text.VisibleIndex = 5;
@@ -233,8 +230,7 @@
             this.dgFiles_ProcessDuration.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.dgFiles_ProcessDuration.Caption = "处理用时（秒）";
             this.dgFiles_ProcessDuration.FieldName = "ProcessDuration";
-            this.dgFiles_ProcessDuration.MaxWidth = 120;
-            this.dgFiles_ProcessDuration.MinWidth = 120;
+            this.dgFiles_ProcessDuration.MinWidth = 10;
             this.dgFiles_ProcessDuration.Name = "dgFiles_ProcessDuration";
             this.dgFiles_ProcessDuration.Visible = true;
             this.dgFiles_ProcessDuration.VisibleIndex = 6;
@@ -246,8 +242,7 @@
             this.dgFiles_ProcessBlockCount.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.dgFiles_ProcessBlockCount.Caption = "处理数量";
             this.dgFiles_ProcessBlockCount.FieldName = "ProcessBlockCount";
-            this.dgFiles_ProcessBlockCount.MaxWidth = 110;
-            this.dgFiles_ProcessBlockCount.MinWidth = 110;
+            this.dgFiles_ProcessBlockCount.MinWidth = 10;
             this.dgFiles_ProcessBlockCount.Name = "dgFiles_ProcessBlockCount";
             this.dgFiles_ProcessBlockCount.Visible = true;
             this.dgFiles_ProcessBlockCount.VisibleIndex = 7;
@@ -257,6 +252,7 @@
             // 
             this.dgFiles_Remark.Caption = "备注";
             this.dgFiles_Remark.FieldName = "Remark";
+            this.dgFiles_Remark.MinWidth = 10;
             this.dgFiles_Remark.Name = "dgFiles_Remark";
             this.dgFiles_Remark.Visible = true;
             this.dgFiles_Remark.VisibleIndex = 8;
@@ -271,7 +267,7 @@
             this.dgFiles_gridControl.MainView = this.dgFiles;
             this.dgFiles_gridControl.MenuManager = this.barManager1;
             this.dgFiles_gridControl.Name = "dgFiles_gridControl";
-            this.dgFiles_gridControl.Size = new System.Drawing.Size(1052, 427);
+            this.dgFiles_gridControl.Size = new System.Drawing.Size(952, 372);
             this.dgFiles_gridControl.TabIndex = 0;
             this.dgFiles_gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgFiles});
@@ -297,15 +293,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1082, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(982, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 603);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 553);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1082, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(982, 0);
             // 
             // barDockControlLeft
             // 
@@ -313,15 +309,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 603);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 553);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1082, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(982, 0);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 603);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 553);
             // 
             // 打开文件ToolStripMenuItem
             // 
@@ -418,10 +414,10 @@
             this.toolStripStatusLabel1,
             this.toolStripProgressBar1,
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 573);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 523);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1082, 30);
+            this.statusStrip1.Size = new System.Drawing.Size(982, 30);
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -452,7 +448,7 @@
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLog.Size = new System.Drawing.Size(1072, 431);
+            this.txtLog.Size = new System.Drawing.Size(950, 322);
             this.txtLog.TabIndex = 0;
             this.txtLog.WordWrap = false;
             // 
@@ -461,7 +457,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(9, 538);
+            this.label5.Location = new System.Drawing.Point(9, 429);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(248, 18);
@@ -631,7 +627,7 @@
             this.dgRuleConfig_gridControl.MainView = this.dataGridRuleConfig;
             this.dgRuleConfig_gridControl.MenuManager = this.barManager1;
             this.dgRuleConfig_gridControl.Name = "dgRuleConfig_gridControl";
-            this.dgRuleConfig_gridControl.Size = new System.Drawing.Size(1078, 514);
+            this.dgRuleConfig_gridControl.Size = new System.Drawing.Size(956, 405);
             this.dgRuleConfig_gridControl.TabIndex = 5;
             this.dgRuleConfig_gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dataGridRuleConfig});
@@ -640,7 +636,7 @@
             // 
             this.btnSelectRule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelectRule.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectRule.ImageOptions.Image")));
-            this.btnSelectRule.Location = new System.Drawing.Point(953, 525);
+            this.btnSelectRule.Location = new System.Drawing.Point(831, 416);
             this.btnSelectRule.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSelectRule.Name = "btnSelectRule";
             this.btnSelectRule.Size = new System.Drawing.Size(125, 43);
@@ -654,7 +650,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.btnSave.Location = new System.Drawing.Point(213, 21);
+            this.btnSave.Location = new System.Drawing.Point(152, 21);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(596, 66);
@@ -798,9 +794,9 @@
             this.tabNavigationPage2,
             this.tabNavigationPage3,
             this.tabNavigationPage4});
-            this.tabPane1.RegularSize = new System.Drawing.Size(1082, 573);
+            this.tabPane1.RegularSize = new System.Drawing.Size(982, 523);
             this.tabPane1.SelectedPage = this.tabNavigationPage1;
-            this.tabPane1.Size = new System.Drawing.Size(1082, 573);
+            this.tabPane1.Size = new System.Drawing.Size(982, 523);
             this.tabPane1.TabIndex = 14;
             this.tabPane1.Text = "tabPane1";
             // 
@@ -812,13 +808,13 @@
             this.tabNavigationPage1.Controls.Add(this.btnOpenFolderWaitFile);
             this.tabNavigationPage1.Controls.Add(this.btnOpenAWaitFile);
             this.tabNavigationPage1.Name = "tabNavigationPage1";
-            this.tabNavigationPage1.Size = new System.Drawing.Size(1060, 514);
+            this.tabNavigationPage1.Size = new System.Drawing.Size(960, 464);
             // 
             // btnExportWaitFile
             // 
             this.btnExportWaitFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExportWaitFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExportWaitFile.ImageOptions.Image")));
-            this.btnExportWaitFile.Location = new System.Drawing.Point(664, 449);
+            this.btnExportWaitFile.Location = new System.Drawing.Point(564, 394);
             this.btnExportWaitFile.Name = "btnExportWaitFile";
             this.btnExportWaitFile.Size = new System.Drawing.Size(125, 43);
             this.btnExportWaitFile.TabIndex = 5;
@@ -829,7 +825,7 @@
             // 
             this.btnOpenFolderWaitFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOpenFolderWaitFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenFolderWaitFile.ImageOptions.Image")));
-            this.btnOpenFolderWaitFile.Location = new System.Drawing.Point(926, 449);
+            this.btnOpenFolderWaitFile.Location = new System.Drawing.Point(826, 394);
             this.btnOpenFolderWaitFile.Name = "btnOpenFolderWaitFile";
             this.btnOpenFolderWaitFile.Size = new System.Drawing.Size(125, 43);
             this.btnOpenFolderWaitFile.TabIndex = 4;
@@ -840,7 +836,7 @@
             // 
             this.btnOpenAWaitFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOpenAWaitFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenAWaitFile.ImageOptions.Image")));
-            this.btnOpenAWaitFile.Location = new System.Drawing.Point(795, 449);
+            this.btnOpenAWaitFile.Location = new System.Drawing.Point(695, 394);
             this.btnOpenAWaitFile.Name = "btnOpenAWaitFile";
             this.btnOpenAWaitFile.Size = new System.Drawing.Size(125, 43);
             this.btnOpenAWaitFile.TabIndex = 3;
@@ -854,7 +850,7 @@
             this.tabNavigationPage2.Controls.Add(this.btnSelectRule);
             this.tabNavigationPage2.Controls.Add(this.label5);
             this.tabNavigationPage2.Name = "tabNavigationPage2";
-            this.tabNavigationPage2.Size = new System.Drawing.Size(1082, 573);
+            this.tabNavigationPage2.Size = new System.Drawing.Size(960, 464);
             // 
             // tabNavigationPage3
             // 
@@ -863,7 +859,7 @@
             this.tabNavigationPage3.Controls.Add(this.groupControl2);
             this.tabNavigationPage3.Controls.Add(this.groupControl1);
             this.tabNavigationPage3.Name = "tabNavigationPage3";
-            this.tabNavigationPage3.Size = new System.Drawing.Size(1082, 573);
+            this.tabNavigationPage3.Size = new System.Drawing.Size(960, 464);
             // 
             // groupControl4
             // 
@@ -875,7 +871,7 @@
             this.groupControl4.Controls.Add(this.comboxWordFileFormat);
             this.groupControl4.Location = new System.Drawing.Point(3, 278);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(1076, 83);
+            this.groupControl4.Size = new System.Drawing.Size(954, 83);
             this.groupControl4.TabIndex = 12;
             this.groupControl4.Text = "文件格式转换：";
             // 
@@ -925,7 +921,7 @@
             this.groupControl2.Controls.Add(this.ckExcelOptionIsKeepFormula);
             this.groupControl2.Location = new System.Drawing.Point(3, 189);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(1076, 81);
+            this.groupControl2.Size = new System.Drawing.Size(954, 81);
             this.groupControl2.TabIndex = 11;
             this.groupControl2.Text = "Excel处理设置：";
             // 
@@ -945,7 +941,7 @@
             this.groupControl1.Controls.Add(this.label3);
             this.groupControl1.Location = new System.Drawing.Point(3, 3);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1076, 179);
+            this.groupControl1.Size = new System.Drawing.Size(954, 179);
             this.groupControl1.TabIndex = 10;
             this.groupControl1.Text = "基本设置：";
             // 
@@ -955,7 +951,7 @@
             this.tabNavigationPage4.Controls.Add(this.groupControl3);
             this.tabNavigationPage4.Controls.Add(this.btnSave);
             this.tabNavigationPage4.Name = "tabNavigationPage4";
-            this.tabNavigationPage4.Size = new System.Drawing.Size(1082, 573);
+            this.tabNavigationPage4.Size = new System.Drawing.Size(960, 464);
             // 
             // groupControl3
             // 
@@ -965,7 +961,7 @@
             this.groupControl3.Controls.Add(this.txtLog);
             this.groupControl3.Location = new System.Drawing.Point(3, 111);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(1076, 459);
+            this.groupControl3.Size = new System.Drawing.Size(954, 350);
             this.groupControl3.TabIndex = 5;
             this.groupControl3.Text = "处理日志：";
             // 
@@ -973,7 +969,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 603);
+            this.ClientSize = new System.Drawing.Size(982, 553);
             this.Controls.Add(this.tabPane1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.barDockControlLeft);
@@ -983,7 +979,7 @@
             this.LookAndFeel.SkinName = "Office 2010 Blue";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MinimumSize = new System.Drawing.Size(1100, 650);
+            this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "Index";
             this.Text = "XCLWinKits——Windows软件工具箱   1.4.5，Copyright ©2018 by:XCL Email:x889@foxmail.com ";
             ((System.ComponentModel.ISupportInitialize)(this.dgFiles)).EndInit();
