@@ -97,22 +97,22 @@ namespace XCLWinKits
 
         private void 检查更新ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/xucongli1989/XCLWinKits");
+            CommonHelper.ConfigHelper.OpenUrl("https://github.com/xucongli1989/XCLWinKits");
         }
 
         private void 作者博客ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://blog.csdn.net/luoyeyu1989");
+            CommonHelper.ConfigHelper.OpenUrl("http://blog.csdn.net/luoyeyu1989");
         }
 
         private void 正则表达式语法简明参考ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(string.Format(@"{0}\Res\RegexFiles\regex0.html", Application.StartupPath.TrimEnd('\\')));
+            CommonHelper.ConfigHelper.OpenUrl(string.Format(@"{0}\Res\RegexFiles\regex0.html", Application.StartupPath.TrimEnd('\\')));
         }
 
         private void 淘宝小店ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://luoyeyu.taobao.com/");
+            CommonHelper.ConfigHelper.OpenUrl("http://luoyeyu.taobao.com/");
         }
 
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -122,17 +122,17 @@ namespace XCLWinKits
 
         private void 我的ABCToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.wodeabc.com/article/show/8002027");
+            CommonHelper.ConfigHelper.OpenUrl("https://www.wodeabc.com/article/show/8002027");
         }
 
         private void GitHubToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/xucongli1989");
+            CommonHelper.ConfigHelper.OpenUrl("https://github.com/xucongli1989");
         }
 
         private void 捐助ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Pay().ShowDialog();
+            CommonHelper.ConfigHelper.OpenUrl("https://www.wodeabc.com/Pay/Confirm?productId=102120&from=XCLWinKits&IsOnlyShowDesc=true");
         }
 
         #endregion 菜单

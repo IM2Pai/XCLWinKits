@@ -130,19 +130,10 @@
     <Compile Include="Index.Designer.cs">
       <DependentUpon>Index.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pay.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pay.Designer.cs">
-      <DependentUpon>Pay.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Index.resx">
       <DependentUpon>Index.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pay.resx">
-      <DependentUpon>Pay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -235,8 +226,6 @@
     <Content Include="imgs\8.jpg" />
     <Content Include="Logo.ico" />
     <Content Include="logo.jpg" />
-    <Content Include="pay.png" />
-    <Content Include="regexTool1.jpg" />
     <Content Include="Res\RegexFiles\regex0.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

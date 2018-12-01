@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace CommonHelper
 {
@@ -10,7 +11,6 @@ namespace CommonHelper
         /// <summary>
         /// 获取当前应用程序根目录（末尾不带\）
         /// </summary>
-        /// <returns></returns>
         public static string RootPath
         {
             get { return System.Windows.Forms.Application.StartupPath.TrimEnd('\\'); }
@@ -60,5 +60,35 @@ namespace CommonHelper
         }
 
         #endregion Config.xml
+
+        #region Shell
+
+        [DllImport("shell32.dll")]
+        private extern static IntPtr ShellExecute(int hwnd, string lpOperation, string lpFile, string lpParameters, string lpDirectory, int nShowCmd);
+
+        public enum ShowWindowCommands
+        {
+            SW_HIDE = 0,
+            SW_SHOWNORMAL = 1,
+            SW_NORMAL = 1,
+            SW_SHOWMINIMIZED = 2,
+            SW_SHOWMAXIMIZED = 3,
+            SW_MAXIMIZE = 3,
+            SW_SHOWNOACTIVATE = 4,
+            SW_SHOW = 5,
+            SW_MINIMIZE = 6,
+            SW_SHOWMINNOACTIVE = 7,
+            SW_SHOWNA = 8,
+            SW_RESTORE = 9,
+            SW_SHOWDEFAULT = 10,
+            SW_MAX = 10
+        }
+
+        public static void OpenUrl(string url)
+        {
+            ShellExecute(0, @"open", url, null, null, (int)ShowWindowCommands.SW_NORMAL);
+        }
+
+        #endregion Shell
     }
 }
