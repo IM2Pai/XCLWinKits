@@ -199,10 +199,6 @@
       <Project>{4b88b6bb-fdc4-4798-bfe7-462f1d9baa9b}</Project>
       <Name>StringToJsConst</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UrlCodeConvert\UrlCodeConvert.csproj">
-      <Project>{f74ca7a1-69f4-42bc-998e-60687042d928}</Project>
-      <Name>UrlCodeConvert</Name>
-    </ProjectReference>
     <ProjectReference Include="..\XCLNetFileReplace\XCLNetFileReplace.csproj">
       <Project>{5100B375-4C25-4AA8-BCDF-1AFA355A5F93}</Project>
       <Name>XCLNetFileReplace</Name>

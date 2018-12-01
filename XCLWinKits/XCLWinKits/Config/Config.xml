@@ -19,6 +19,11 @@
           <CategoryItem Sort="0" Name="其它加密解密" AssemblyName="CommonEncrypt"></CategoryItem>
         </CategoryItemList>
       </Category>
+      <Category Name="编码转换" Sort="0">
+        <CategoryItemList>
+          <CategoryItem Sort="0" Name="常用字符串编码转换" AssemblyName="CodingConvert"></CategoryItem>
+        </CategoryItemList>
+      </Category>
       <Category Name="其它" Sort="0">
         <CategoryItemList>
           <CategoryItem Sort="0" Name="时间日期差" AssemblyName="DateTimeDIFF"></CategoryItem>

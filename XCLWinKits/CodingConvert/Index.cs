@@ -34,6 +34,22 @@ namespace CodingConvert
                 DevExpress.XtraEditors.XtraMessageBox.Show("请输入要编码的内容！", "系统提示");
                 return;
             }
+            if (this.commboxCodingName.Text == CommonHelper.CommonEnum.CodingEnum.JS_Escape.ToString())
+            {
+                this.txtResult.Text = Microsoft.JScript.GlobalObject.escape(this.txtInputString.Text);
+                return;
+            }
+            if (this.commboxCodingName.Text == CommonHelper.CommonEnum.CodingEnum.JS_EncodeURI.ToString())
+            {
+                this.txtResult.Text = Microsoft.JScript.GlobalObject.encodeURI(this.txtInputString.Text);
+                return;
+            }
+            if (this.commboxCodingName.Text == CommonHelper.CommonEnum.CodingEnum.JS_EncodeURIComponent.ToString())
+            {
+                this.txtResult.Text = Microsoft.JScript.GlobalObject.encodeURIComponent(this.txtInputString.Text);
+                return;
+            }
+
             this.txtResult.Text = this.GetCodeString(this.txtInputString.Text, true);
         }
 
@@ -42,6 +58,21 @@ namespace CodingConvert
             if (string.IsNullOrEmpty(this.txtResult.Text))
             {
                 DevExpress.XtraEditors.XtraMessageBox.Show("请输入要解码的内容！", "系统提示");
+                return;
+            }
+            if (this.commboxCodingName.Text == CommonHelper.CommonEnum.CodingEnum.JS_Escape.ToString())
+            {
+                this.txtInputString.Text = Microsoft.JScript.GlobalObject.unescape(this.txtResult.Text);
+                return;
+            }
+            if (this.commboxCodingName.Text == CommonHelper.CommonEnum.CodingEnum.JS_EncodeURI.ToString())
+            {
+                this.txtInputString.Text = Microsoft.JScript.GlobalObject.decodeURI(this.txtResult.Text);
+                return;
+            }
+            if (this.commboxCodingName.Text == CommonHelper.CommonEnum.CodingEnum.JS_EncodeURIComponent.ToString())
+            {
+                this.txtInputString.Text = Microsoft.JScript.GlobalObject.decodeURIComponent(this.txtResult.Text);
                 return;
             }
             this.txtInputString.Text = this.GetCodeString(this.txtResult.Text, false);
@@ -60,17 +91,12 @@ namespace CodingConvert
             string strResult = string.Empty;
             try
             {
-                var coding = System.Text.Encoding.GetEncoding(this.commboxCodingName.SelectedValue.ToString());
-                if (isEncode)
+                if (this.commboxCodingName.Text == CommonHelper.CommonEnum.CodingEnum.Unicode.ToString())
                 {
-                    strResult = System.Web.HttpUtility.UrlEncode(str, coding);
-                }
-                else
-                {
-                    strResult = System.Web.HttpUtility.UrlDecode(str, coding);
+                    strResult = isEncode ? XCLNetTools.Encode.Unicode.UnicodeEncode(str) : XCLNetTools.Encode.Unicode.UnicodeDecode(str);
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 strResult = "处理失败！";
             }

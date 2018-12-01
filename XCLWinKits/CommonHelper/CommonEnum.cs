@@ -6,14 +6,11 @@ namespace CommonHelper
     {
         public enum CodingEnum
         {
-            [Description("Unicode")]
+            JS_Escape,
+            JS_EncodeURI,
+            JS_EncodeURIComponent,
             Unicode,
-
-            [Description("UTF-8")]
-            UTF8,
-
-            [Description("GB2312")]
-            GB2312
+            //UTF8
         }
 
         public enum EncryptEnum

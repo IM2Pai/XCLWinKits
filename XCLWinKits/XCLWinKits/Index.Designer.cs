@@ -245,7 +245,7 @@
             this.barButtonItem9.AllowDrawArrow = false;
             this.barButtonItem9.AllowDrawArrowInMenu = false;
             this.barButtonItem9.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            this.barButtonItem9.Caption = "软件好用？就请捐助一下吧！";
+            this.barButtonItem9.Caption = "好用？请点此捐助！疑问？请邮件哦！";
             this.barButtonItem9.DropDownControl = this.popupMenu3;
             this.barButtonItem9.Hint = null;
             this.barButtonItem9.Id = 9;
