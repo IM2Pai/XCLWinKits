@@ -100,19 +100,9 @@ namespace XCLWinKits
             CommonHelper.ConfigHelper.OpenUrl("https://github.com/xucongli1989/XCLWinKits");
         }
 
-        private void 作者博客ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CommonHelper.ConfigHelper.OpenUrl("http://blog.csdn.net/luoyeyu1989");
-        }
-
         private void 正则表达式语法简明参考ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CommonHelper.ConfigHelper.OpenUrl(string.Format(@"{0}\Res\RegexFiles\regex0.html", Application.StartupPath.TrimEnd('\\')));
-        }
-
-        private void 淘宝小店ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CommonHelper.ConfigHelper.OpenUrl("http://luoyeyu.taobao.com/");
         }
 
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)

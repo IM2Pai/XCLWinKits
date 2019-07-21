@@ -27,6 +27,7 @@
       <Category Name="其它" Sort="0">
         <CategoryItemList>
           <CategoryItem Sort="0" Name="时间日期差" AssemblyName="DateTimeDIFF"></CategoryItem>
+          <CategoryItem Sort="0" Name="我的IP地址" AssemblyName="MyIP"></CategoryItem>
         </CategoryItemList>
       </Category>
     </CategoryList>

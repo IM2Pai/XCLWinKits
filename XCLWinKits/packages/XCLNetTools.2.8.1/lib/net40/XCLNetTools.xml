@@ -514,15 +514,18 @@
         </member>
         <member name="M:XCLNetTools.Common.IPHelper.GetClientIP">
             <summary>
-            取得用户客户端IP(穿过代理服务器取远程用户真实IP地址)
+            取得用户http客户端IP(穿过代理服务器取远程用户真实IP地址)
             </summary>
-            <returns>ip地址</returns>
         </member>
-        <member name="M:XCLNetTools.Common.IPHelper.GetIpByIP138">
+        <member name="M:XCLNetTools.Common.IPHelper.GetIPFromPublicWeb">
             <summary>
-            根据ip138网站反馈结果获取服务端外网ip地址
+            根据第三方ip查询网站反馈结果获取服务端外网ip地址
             </summary>
-            <returns>ip地址</returns>
+        </member>
+        <member name="M:XCLNetTools.Common.IPHelper.GetLocalIP">
+            <summary>
+            获取本机有效的本地IP地址
+            </summary>
         </member>
         <member name="T:XCLNetTools.Common.SwitchControl">
             <summary>
@@ -692,6 +695,75 @@
             </summary>
             <param name="val">T或F</param>
             <returns>T:true,F:false</returns>
+        </member>
+        <member name="T:XCLNetTools.Common.TreeDataHelper`2">
+            <summary>
+            树状数据结构帮助类
+            </summary>
+            <typeparam name="IDType">主键ID的数据类型，一般为int、long</typeparam>
+            <typeparam name="ModelType">要查询的记录实体类型</typeparam>
+        </member>
+        <member name="P:XCLNetTools.Common.TreeDataHelper`2.RootParentID">
+            <summary>
+            当节点的parentid为此值时，那么此节点就为根节点，一般情况下为0
+            </summary>
+        </member>
+        <member name="P:XCLNetTools.Common.TreeDataHelper`2.GetParentIDFunc">
+            <summary>
+            自定义根据id返回其父id的方法，如果找不到此id的记录，请抛出异常而不是返回0或null或其它值，以此来避免无法找到根节点
+            </summary>
+        </member>
+        <member name="P:XCLNetTools.Common.TreeDataHelper`2.GetChildIDListFunc">
+            <summary>
+            自定义根据id返回其子id的方法
+            </summary>
+        </member>
+        <member name="P:XCLNetTools.Common.TreeDataHelper`2.GetModelByIDFunc">
+            <summary>
+            自定义根据id返回数据记录实体的方法
+            </summary>
+        </member>
+        <member name="M:XCLNetTools.Common.TreeDataHelper`2.IsRootID(`0)">
+            <summary>
+            是否为根节点
+            </summary>
+        </member>
+        <member name="M:XCLNetTools.Common.TreeDataHelper`2.IsLeaf(`0)">
+            <summary>
+            是否为叶子节点
+            </summary>
+        </member>
+        <member name="M:XCLNetTools.Common.TreeDataHelper`2.GetRootID(`0)">
+            <summary>
+            根据指定ID，返回它所在的根节点ID
+            </summary>
+        </member>
+        <member name="M:XCLNetTools.Common.TreeDataHelper`2.GetRootModel(`0)">
+            <summary>
+            根据指定ID，返回它所在的根节点实体
+            </summary>
+        </member>
+        <member name="M:XCLNetTools.Common.TreeDataHelper`2.GetLayerIDList(`0)">
+            <summary>
+            根据指定ID，返回从该节点一直到根节点的路径上的所有ID
+            注：返回结果的第一项为根节点，最后一项为传入的节点
+            </summary>
+        </member>
+        <member name="M:XCLNetTools.Common.TreeDataHelper`2.GetLayerModelList(`0)">
+            <summary>
+            根据指定ID，返回从该节点一直到根节点的路径上的所有ID实体
+            注：返回结果的第一项为根节点，最后一项为传入的节点
+            </summary>
+        </member>
+        <member name="M:XCLNetTools.Common.TreeDataHelper`2.GetTreeModelList(`0)">
+            <summary>
+            根据指定根节点id，返回它下面的所有子孙的树状层级结构的实体信息（这里的根节点可以是任意节点）
+            </summary>
+        </member>
+        <member name="M:XCLNetTools.Common.TreeDataHelper`2.GetExtendDataEntityList(`0)">
+            <summary>
+            根据指定根节点id，返回它下面的所有子孙的实体信息列表（这里的根节点可以是任意节点）
+            </summary>
         </member>
         <member name="T:XCLNetTools.Control.ServerControl.Lib">
             <summary>
@@ -2553,6 +2625,21 @@
             返回状态码,默认为OK
             </summary>
         </member>
+        <member name="T:XCLNetTools.Entity.LocationEntity">
+            <summary>
+            IP网络位置实体
+            </summary>
+        </member>
+        <member name="P:XCLNetTools.Entity.LocationEntity.IP">
+            <summary>
+            ip地址，如：113.118.186.219
+            </summary>
+        </member>
+        <member name="P:XCLNetTools.Entity.LocationEntity.Address">
+            <summary>
+            地址，如：广东省深圳市 电信
+            </summary>
+        </member>
         <member name="T:XCLNetTools.Entity.Message.JsonMsg">
             <summary>
             json消息信息
@@ -2809,6 +2896,55 @@
         <member name="P:XCLNetTools.Entity.SqlPagerConditionEntity.FieldNameList">
             <summary>
             要查询的字段（若无值，则默认为所有字段）
+            </summary>
+        </member>
+        <member name="T:XCLNetTools.Entity.TreeData.ExtendDataEntity`2">
+            <summary>
+            扩展数据实体
+            </summary>
+            <typeparam name="IDType">主键数据类型</typeparam>
+            <typeparam name="ModelType">要查询的记录实体类型</typeparam>
+        </member>
+        <member name="P:XCLNetTools.Entity.TreeData.ExtendDataEntity`2.IsRoot">
+            <summary>
+            是否为根节点
+            </summary>
+        </member>
+        <member name="P:XCLNetTools.Entity.TreeData.ExtendDataEntity`2.IsLeaf">
+            <summary>
+            是否为叶子节点
+            </summary>
+        </member>
+        <member name="P:XCLNetTools.Entity.TreeData.ExtendDataEntity`2.NodeLevel">
+            <summary>
+            层级，根节点为1，然后累加
+            </summary>
+        </member>
+        <member name="P:XCLNetTools.Entity.TreeData.ExtendDataEntity`2.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:XCLNetTools.Entity.TreeData.ExtendDataEntity`2.ParentID">
+            <summary>
+            父ID
+            </summary>
+        </member>
+        <member name="P:XCLNetTools.Entity.TreeData.ExtendDataEntity`2.Model">
+            <summary>
+            数据实体
+            </summary>
+        </member>
+        <member name="T:XCLNetTools.Entity.TreeData.TreeMapEntity`2">
+            <summary>
+            树状层级映射实体
+            </summary>
+            <typeparam name="IDType">主键数据类型</typeparam>
+            <typeparam name="ModelType">要查询的记录实体类型</typeparam>
+        </member>
+        <member name="P:XCLNetTools.Entity.TreeData.TreeMapEntity`2.ChildList">
+            <summary>
+            子数据实体
             </summary>
         </member>
         <member name="T:XCLNetTools.Entity.Office.ExcelHandler.OutPutClass">
@@ -6365,8 +6501,15 @@
         <member name="M:XCLNetTools.StringHander.Common.GetRootUri2">
             <summary>
             增强GetRootUri方法，从当前url中判断是http还是https
+            如:"http://www.xcl.com:2156/ or https://www.xcl.com:2156/VirtualWeb/"
             </summary>
-            <returns>处理后的url</returns>
+        </member>
+        <member name="M:XCLNetTools.StringHander.Common.GetRootUriByHeader(System.String)">
+            <summary>
+            从指定的header中获取网站根路径，如果没有指定header或内容为空，则返回GetRootUri2()的内容
+            如:"http://www.xcl.com:2156/ or https://www.xcl.com:2156/VirtualWeb/"
+            注：末尾带'/'
+            </summary>
         </member>
         <member name="M:XCLNetTools.StringHander.Common.ToHttpUrl(System.String,XCLNetTools.Enum.CommonEnum.HttpTypeEnum)">
             <summary>

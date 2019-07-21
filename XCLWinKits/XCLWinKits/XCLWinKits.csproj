@@ -119,8 +119,8 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
-    <Reference Include="XCLNetTools, Version=2.7.2.38555, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\XCLNetTools.2.7.2\lib\net40\XCLNetTools.dll</HintPath>
+    <Reference Include="XCLNetTools, Version=2.8.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XCLNetTools.2.8.1\lib\net40\XCLNetTools.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +194,10 @@
     <ProjectReference Include="..\MD5Tool\MD5Tool.csproj">
       <Project>{A6C35F83-3EC8-4C84-BE1E-C20D6E707436}</Project>
       <Name>MD5Tool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyIP\MyIP.csproj">
+      <Project>{ec927be0-21fa-4216-bde5-6b8d12e98c2b}</Project>
+      <Name>MyIP</Name>
     </ProjectReference>
     <ProjectReference Include="..\StringToJsConst\StringToJsConst.csproj">
       <Project>{4b88b6bb-fdc4-4798-bfe7-462f1d9baa9b}</Project>
