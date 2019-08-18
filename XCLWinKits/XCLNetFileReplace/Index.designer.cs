@@ -86,11 +86,12 @@
             this.txtFileFirstName = new System.Windows.Forms.TextBox();
             this.txtFileLastName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnNotNeedOutPutPath = new DevExpress.XtraEditors.SimpleButton();
             this.ckExcelOptionIsKeepFormula = new System.Windows.Forms.CheckBox();
             this.ckExcelOptionIsKeepDataFormat = new System.Windows.Forms.CheckBox();
             this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
             this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.btnClearFileList = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRemove = new DevExpress.XtraEditors.SimpleButton();
             this.btnExportWaitFile = new DevExpress.XtraEditors.SimpleButton();
             this.btnOpenFolderWaitFile = new DevExpress.XtraEditors.SimpleButton();
             this.btnOpenAWaitFile = new DevExpress.XtraEditors.SimpleButton();
@@ -103,6 +104,7 @@
             this.comboxWordFileFormat = new DevExpress.XtraEditors.ComboBoxEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.ckKeepDirectory = new System.Windows.Forms.CheckBox();
             this.tabNavigationPage4 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.dgFiles)).BeginInit();
@@ -150,8 +152,10 @@
             this.dgFiles.GridControl = this.dgFiles_gridControl;
             this.dgFiles.Name = "dgFiles";
             this.dgFiles.OptionsBehavior.Editable = false;
+            this.dgFiles.OptionsCustomization.AllowFilter = false;
             this.dgFiles.OptionsCustomization.AllowGroup = false;
             this.dgFiles.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.dgFiles.OptionsSelection.MultiSelect = true;
             this.dgFiles.OptionsView.ShowGroupPanel = false;
             // 
             // dgFiles_FileID
@@ -267,10 +271,12 @@
             this.dgFiles_gridControl.MainView = this.dgFiles;
             this.dgFiles_gridControl.MenuManager = this.barManager1;
             this.dgFiles_gridControl.Name = "dgFiles_gridControl";
-            this.dgFiles_gridControl.Size = new System.Drawing.Size(952, 372);
+            this.dgFiles_gridControl.Size = new System.Drawing.Size(952, 348);
             this.dgFiles_gridControl.TabIndex = 0;
             this.dgFiles_gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgFiles});
+            this.dgFiles_gridControl.DragDrop += new System.Windows.Forms.DragEventHandler(this.dgFiles_gridControl_DragDrop);
+            this.dgFiles_gridControl.DragEnter += new System.Windows.Forms.DragEventHandler(this.dgFiles_gridControl_DragEnter);
             // 
             // barManager1
             // 
@@ -485,7 +491,9 @@
             this.dataGridRuleConfig.GridControl = this.dgRuleConfig_gridControl;
             this.dataGridRuleConfig.Name = "dataGridRuleConfig";
             this.dataGridRuleConfig.OptionsBehavior.Editable = false;
+            this.dataGridRuleConfig.OptionsCustomization.AllowFilter = false;
             this.dataGridRuleConfig.OptionsCustomization.AllowGroup = false;
+            this.dataGridRuleConfig.OptionsCustomization.AllowSort = false;
             this.dataGridRuleConfig.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.dataGridRuleConfig.OptionsView.ShowGroupPanel = false;
             // 
@@ -649,7 +657,8 @@
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
+            this.btnSave.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnSave.Location = new System.Drawing.Point(152, 21);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
@@ -661,17 +670,16 @@
             // 
             // txtOutPutPath
             // 
-            this.txtOutPutPath.Location = new System.Drawing.Point(117, 37);
+            this.txtOutPutPath.Location = new System.Drawing.Point(117, 39);
             this.txtOutPutPath.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtOutPutPath.Name = "txtOutPutPath";
-            this.txtOutPutPath.ReadOnly = true;
-            this.txtOutPutPath.Size = new System.Drawing.Size(139, 26);
+            this.txtOutPutPath.Size = new System.Drawing.Size(346, 26);
             this.txtOutPutPath.TabIndex = 0;
             // 
             // btnOutPutPath
             // 
             this.btnOutPutPath.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOutPutPath.ImageOptions.Image")));
-            this.btnOutPutPath.Location = new System.Drawing.Point(272, 32);
+            this.btnOutPutPath.Location = new System.Drawing.Point(487, 35);
             this.btnOutPutPath.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnOutPutPath.Name = "btnOutPutPath";
             this.btnOutPutPath.Size = new System.Drawing.Size(99, 35);
@@ -682,7 +690,7 @@
             // btnOpenOutPath
             // 
             this.btnOpenOutPath.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenOutPath.ImageOptions.Image")));
-            this.btnOpenOutPath.Location = new System.Drawing.Point(379, 32);
+            this.btnOpenOutPath.Location = new System.Drawing.Point(608, 35);
             this.btnOpenOutPath.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnOpenOutPath.Name = "btnOpenOutPath";
             this.btnOpenOutPath.Size = new System.Drawing.Size(99, 35);
@@ -693,7 +701,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 44);
+            this.label1.Location = new System.Drawing.Point(28, 43);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 18);
@@ -703,7 +711,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 92);
+            this.label2.Location = new System.Drawing.Point(13, 173);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 18);
@@ -713,7 +721,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 138);
+            this.label3.Location = new System.Drawing.Point(481, 173);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 18);
@@ -722,41 +730,30 @@
             // 
             // txtFileFirstName
             // 
-            this.txtFileFirstName.Location = new System.Drawing.Point(117, 86);
+            this.txtFileFirstName.Location = new System.Drawing.Point(117, 169);
             this.txtFileFirstName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFileFirstName.Name = "txtFileFirstName";
-            this.txtFileFirstName.Size = new System.Drawing.Size(468, 26);
+            this.txtFileFirstName.Size = new System.Drawing.Size(346, 26);
             this.txtFileFirstName.TabIndex = 6;
             // 
             // txtFileLastName
             // 
-            this.txtFileLastName.Location = new System.Drawing.Point(117, 135);
+            this.txtFileLastName.Location = new System.Drawing.Point(587, 169);
             this.txtFileLastName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFileLastName.Name = "txtFileLastName";
-            this.txtFileLastName.Size = new System.Drawing.Size(468, 26);
+            this.txtFileLastName.Size = new System.Drawing.Size(346, 26);
             this.txtFileLastName.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(598, 41);
+            this.label4.Location = new System.Drawing.Point(114, 78);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(308, 18);
             this.label4.TabIndex = 8;
             this.label4.Text = "若不指定输出目录，则在原文件上直接操作！";
-            // 
-            // btnNotNeedOutPutPath
-            // 
-            this.btnNotNeedOutPutPath.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNotNeedOutPutPath.ImageOptions.Image")));
-            this.btnNotNeedOutPutPath.Location = new System.Drawing.Point(486, 32);
-            this.btnNotNeedOutPutPath.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnNotNeedOutPutPath.Name = "btnNotNeedOutPutPath";
-            this.btnNotNeedOutPutPath.Size = new System.Drawing.Size(99, 35);
-            this.btnNotNeedOutPutPath.TabIndex = 9;
-            this.btnNotNeedOutPutPath.Text = "无";
-            this.btnNotNeedOutPutPath.Click += new System.EventHandler(this.btnNotNeedOutPutPath_Click);
             // 
             // ckExcelOptionIsKeepFormula
             // 
@@ -803,6 +800,8 @@
             // tabNavigationPage1
             // 
             this.tabNavigationPage1.Caption = "第一步，选择待处理文件";
+            this.tabNavigationPage1.Controls.Add(this.btnClearFileList);
+            this.tabNavigationPage1.Controls.Add(this.btnRemove);
             this.tabNavigationPage1.Controls.Add(this.dgFiles_gridControl);
             this.tabNavigationPage1.Controls.Add(this.btnExportWaitFile);
             this.tabNavigationPage1.Controls.Add(this.btnOpenFolderWaitFile);
@@ -810,13 +809,35 @@
             this.tabNavigationPage1.Name = "tabNavigationPage1";
             this.tabNavigationPage1.Size = new System.Drawing.Size(960, 464);
             // 
+            // btnClearFileList
+            // 
+            this.btnClearFileList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClearFileList.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnClearFileList.ImageOptions.Image")));
+            this.btnClearFileList.Location = new System.Drawing.Point(658, 375);
+            this.btnClearFileList.Name = "btnClearFileList";
+            this.btnClearFileList.Size = new System.Drawing.Size(143, 43);
+            this.btnClearFileList.TabIndex = 7;
+            this.btnClearFileList.Text = "清空列表";
+            this.btnClearFileList.Click += new System.EventHandler(this.btnClearFileList_Click);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemove.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRemove.ImageOptions.Image")));
+            this.btnRemove.Location = new System.Drawing.Point(513, 375);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(141, 43);
+            this.btnRemove.TabIndex = 6;
+            this.btnRemove.Text = "从列表中移除";
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
             // btnExportWaitFile
             // 
             this.btnExportWaitFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExportWaitFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExportWaitFile.ImageOptions.Image")));
-            this.btnExportWaitFile.Location = new System.Drawing.Point(564, 394);
+            this.btnExportWaitFile.Location = new System.Drawing.Point(805, 375);
             this.btnExportWaitFile.Name = "btnExportWaitFile";
-            this.btnExportWaitFile.Size = new System.Drawing.Size(125, 43);
+            this.btnExportWaitFile.Size = new System.Drawing.Size(143, 43);
             this.btnExportWaitFile.TabIndex = 5;
             this.btnExportWaitFile.Text = "导出结果";
             this.btnExportWaitFile.Click += new System.EventHandler(this.btnExportWaitFile_Click);
@@ -825,22 +846,22 @@
             // 
             this.btnOpenFolderWaitFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOpenFolderWaitFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenFolderWaitFile.ImageOptions.Image")));
-            this.btnOpenFolderWaitFile.Location = new System.Drawing.Point(826, 394);
+            this.btnOpenFolderWaitFile.Location = new System.Drawing.Point(364, 375);
             this.btnOpenFolderWaitFile.Name = "btnOpenFolderWaitFile";
-            this.btnOpenFolderWaitFile.Size = new System.Drawing.Size(125, 43);
+            this.btnOpenFolderWaitFile.Size = new System.Drawing.Size(143, 43);
             this.btnOpenFolderWaitFile.TabIndex = 4;
-            this.btnOpenFolderWaitFile.Text = "导入文件夹";
+            this.btnOpenFolderWaitFile.Text = "添加文件夹";
             this.btnOpenFolderWaitFile.Click += new System.EventHandler(this.btnOpenFolderWaitFile_Click);
             // 
             // btnOpenAWaitFile
             // 
             this.btnOpenAWaitFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOpenAWaitFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenAWaitFile.ImageOptions.Image")));
-            this.btnOpenAWaitFile.Location = new System.Drawing.Point(695, 394);
+            this.btnOpenAWaitFile.Location = new System.Drawing.Point(217, 375);
             this.btnOpenAWaitFile.Name = "btnOpenAWaitFile";
-            this.btnOpenAWaitFile.Size = new System.Drawing.Size(125, 43);
+            this.btnOpenAWaitFile.Size = new System.Drawing.Size(143, 43);
             this.btnOpenAWaitFile.TabIndex = 3;
-            this.btnOpenAWaitFile.Text = "导入文件";
+            this.btnOpenAWaitFile.Text = "添加文件";
             this.btnOpenAWaitFile.Click += new System.EventHandler(this.btnOpenAWaitFile_Click);
             // 
             // tabNavigationPage2
@@ -869,7 +890,7 @@
             this.groupControl4.Controls.Add(this.comboxExcelFileFormat);
             this.groupControl4.Controls.Add(this.label6);
             this.groupControl4.Controls.Add(this.comboxWordFileFormat);
-            this.groupControl4.Location = new System.Drawing.Point(3, 278);
+            this.groupControl4.Location = new System.Drawing.Point(3, 323);
             this.groupControl4.Name = "groupControl4";
             this.groupControl4.Size = new System.Drawing.Size(954, 83);
             this.groupControl4.TabIndex = 12;
@@ -919,7 +940,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl2.Controls.Add(this.ckExcelOptionIsKeepDataFormat);
             this.groupControl2.Controls.Add(this.ckExcelOptionIsKeepFormula);
-            this.groupControl2.Location = new System.Drawing.Point(3, 189);
+            this.groupControl2.Location = new System.Drawing.Point(3, 229);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.Size = new System.Drawing.Size(954, 81);
             this.groupControl2.TabIndex = 11;
@@ -929,21 +950,31 @@
             // 
             this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl1.Controls.Add(this.ckKeepDirectory);
             this.groupControl1.Controls.Add(this.label4);
             this.groupControl1.Controls.Add(this.btnOpenOutPath);
             this.groupControl1.Controls.Add(this.txtOutPutPath);
             this.groupControl1.Controls.Add(this.label1);
             this.groupControl1.Controls.Add(this.label2);
-            this.groupControl1.Controls.Add(this.btnNotNeedOutPutPath);
             this.groupControl1.Controls.Add(this.txtFileFirstName);
             this.groupControl1.Controls.Add(this.btnOutPutPath);
             this.groupControl1.Controls.Add(this.txtFileLastName);
             this.groupControl1.Controls.Add(this.label3);
             this.groupControl1.Location = new System.Drawing.Point(3, 3);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(954, 179);
+            this.groupControl1.Size = new System.Drawing.Size(954, 213);
             this.groupControl1.TabIndex = 10;
             this.groupControl1.Text = "基本设置：";
+            // 
+            // ckKeepDirectory
+            // 
+            this.ckKeepDirectory.AutoSize = true;
+            this.ckKeepDirectory.Location = new System.Drawing.Point(117, 117);
+            this.ckKeepDirectory.Name = "ckKeepDirectory";
+            this.ckKeepDirectory.Size = new System.Drawing.Size(195, 22);
+            this.ckKeepDirectory.TabIndex = 10;
+            this.ckKeepDirectory.Text = "保持原文件路径层级结构";
+            this.ckKeepDirectory.UseVisualStyleBackColor = true;
             // 
             // tabNavigationPage4
             // 
@@ -1040,7 +1071,6 @@
         private System.Windows.Forms.TextBox txtFileLastName;
         private DevExpress.XtraGrid.Views.Grid.GridView dataGridRuleConfig;
         private System.Windows.Forms.Label label4;
-        private DevExpress.XtraEditors.SimpleButton btnNotNeedOutPutPath;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox ckExcelOptionIsKeepDataFormat;
         private DevExpress.XtraGrid.Columns.GridColumn dgFiles_FileID;
@@ -1093,6 +1123,9 @@
         private DevExpress.XtraEditors.ComboBoxEdit comboxWordFileFormat;
         private System.Windows.Forms.Label label7;
         private DevExpress.XtraEditors.ComboBoxEdit comboxExcelFileFormat;
+        private System.Windows.Forms.CheckBox ckKeepDirectory;
+        private DevExpress.XtraEditors.SimpleButton btnRemove;
+        private DevExpress.XtraEditors.SimpleButton btnClearFileList;
     }
 }
 

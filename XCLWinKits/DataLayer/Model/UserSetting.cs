@@ -32,6 +32,11 @@ namespace DataLayer.Model
         public string OutPutPath { get; set; }
 
         /// <summary>
+        /// 是否保持原文件路径格式
+        /// </summary>
+        public bool? IsKeepDirectory { get; set; }
+
+        /// <summary>
         /// 前缀名
         /// </summary>
         public string PrefixName { get; set; }

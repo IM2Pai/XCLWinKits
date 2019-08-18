@@ -39,6 +39,7 @@ namespace XCLWinKits
                         bt.Margin = new System.Windows.Forms.Padding(10);
                         bt.Padding = new System.Windows.Forms.Padding(5);
                         bt.Click += new EventHandler(bt_Click);
+                        bt.Cursor = Cursors.Hand;
                         flowPanel.Controls.Add(bt);
                     }
                 }
@@ -80,7 +81,7 @@ namespace XCLWinKits
                 }
                 catch
                 {
-                    Form form = Assembly.LoadFile(Application.StartupPath + @"\XCLWinKits.exe").CreateInstance(string.Format("{0}.Index", bt.Name)) as System.Windows.Forms.Form;
+                    Form form = Assembly.Load(Application.StartupPath + @"\XCLWinKits.exe").CreateInstance(string.Format("{0}.Index", bt.Name)) as System.Windows.Forms.Form;
                     form.Show();
                 }
             }

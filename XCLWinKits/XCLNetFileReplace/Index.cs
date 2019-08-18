@@ -15,7 +15,6 @@ namespace XCLNetFileReplace
     public partial class Index : BaseForm.BaseFormClass
     {
         private Computer pc = new Computer();
-        private string openFileFolderPath = string.Empty;//打开的文件所在的公共目录,如"C:\XCL\"
         private object lockObject = new object();
 
         private delegate void Delegate_UpdateStatus(Model.DoState doState);
@@ -48,6 +47,7 @@ namespace XCLNetFileReplace
         /// </summary>
         private void InitData()
         {
+            this.dgFiles_gridControl.AllowDrop = true;
             this.replaceSetting = userSettingBLL.GetFileReplaceSetting() ?? new DataLayer.Model.FileReplaceSetting();
             fileBLL.Clear();
             this.InitCurrentRuleList();
@@ -55,6 +55,10 @@ namespace XCLNetFileReplace
             this.txtOutPutPath.Text = this.replaceSetting.OutPutPath;
             this.txtFileFirstName.Text = this.replaceSetting.PrefixName;
             this.txtFileLastName.Text = this.replaceSetting.SuffixName;
+            if (this.replaceSetting.IsKeepDirectory.HasValue)
+            {
+                this.ckKeepDirectory.Checked = this.replaceSetting.IsKeepDirectory.Value;
+            }
             if (this.replaceSetting.IsKeepDataFormat.HasValue)
             {
                 this.ckExcelOptionIsKeepDataFormat.Checked = this.replaceSetting.IsKeepDataFormat.Value;
@@ -156,6 +160,7 @@ namespace XCLNetFileReplace
             this.replaceSetting.OutPutPath = this.txtOutPutPath.Text;
             this.replaceSetting.PrefixName = this.txtFileFirstName.Text;
             this.replaceSetting.SuffixName = this.txtFileLastName.Text;
+            this.replaceSetting.IsKeepDirectory = this.ckKeepDirectory.Checked;
             this.replaceSetting.IsKeepDataFormat = this.ckExcelOptionIsKeepDataFormat.Checked;
             this.replaceSetting.IsKeepFormula = this.ckExcelOptionIsKeepFormula.Checked;
             this.replaceSetting.RuleConfigIds = ruleIdLst;
@@ -171,6 +176,7 @@ namespace XCLNetFileReplace
             this.btnSave.Enabled = false;
             Model.DoState doState = new Model.DoState();
             doState.SumCount = lst.Count;
+            this.UpdateStatus(doState);
             foreach (var m in lst)
             {
                 this.SetTextLogValue(string.Format("正在处理文件：{0}", m.FileName));
@@ -277,7 +283,14 @@ namespace XCLNetFileReplace
                     {
                         realPath = XCLNetTools.FileHandler.ComFile.GetFileFolderPath(model.Path) + "\\" + filetitle + "." + model.ExtensionName;
                     }
-                    realPath = realPath.Replace(this.openFileFolderPath.TrimEnd('\\'), this.txtOutPutPath.Text.TrimEnd('\\'));
+                    if (this.ckKeepDirectory.Checked)
+                    {
+                        realPath = realPath.Replace(System.IO.Path.GetPathRoot(realPath).TrimEnd('\\'), this.txtOutPutPath.Text.TrimEnd('\\'));
+                    }
+                    else
+                    {
+                        realPath = realPath.Replace(XCLNetTools.FileHandler.ComFile.GetFileFolderPath(realPath), this.txtOutPutPath.Text.TrimEnd('\\'));
+                    }
                     XCLNetTools.FileHandler.ComFile.CopyFile(model.Path, realPath);
                     if (!System.IO.File.Exists(realPath))
                     {
@@ -647,11 +660,6 @@ namespace XCLNetFileReplace
         /// </summary>
         private void InitFiles(string[] files)
         {
-            if (null == files || files.Length == 0)
-            {
-                return;
-            }
-
             List<DataLayer.Model.FileReplace_File> lst = new List<DataLayer.Model.FileReplace_File>();
             for (int i = 0; i < files.Length; i++)
             {
@@ -711,14 +719,6 @@ namespace XCLNetFileReplace
             {
                 DevExpress.XtraEditors.XtraMessageBox.Show("请先选择输出目录！", "系统提示");
             }
-        }
-
-        /// <summary>
-        /// 无需输出目录
-        /// </summary>
-        private void btnNotNeedOutPutPath_Click(object sender, EventArgs e)
-        {
-            this.txtOutPutPath.Text = "";
         }
 
         /// <summary>
@@ -818,12 +818,13 @@ namespace XCLNetFileReplace
             }
             try
             {
-                this.InitFiles(openFile.FileNames);
+                var currentFileNameLst = this.fileBLL.GetAllList().Select(k => k.Path).ToList();
+                currentFileNameLst.AddRange(openFile.FileNames.ToList());
+                this.InitFiles(currentFileNameLst.Distinct().ToArray());
                 if (null != openFile.FileNames && openFile.FileNames.Length > 0)
                 {
                     string fName = XCLNetTools.FileHandler.ComFile.GetFileName(openFile.FileNames[0]);
-                    this.openFileFolderPath = openFile.FileNames[0].Replace(fName, "");
-                    this.replaceSetting.LastOpenFolderPath = this.openFileFolderPath;
+                    this.replaceSetting.LastOpenFolderPath = openFile.FileNames[0].Replace(fName, "");
                 }
             }
             catch
@@ -848,15 +849,86 @@ namespace XCLNetFileReplace
             }
             try
             {
+                var currentFileNameLst = this.fileBLL.GetAllList().Select(k => k.Path).ToList();
                 string[] files = XCLNetTools.FileHandler.ComFile.GetFolderFilesByRecursion(openFolder.SelectedPath);
-                this.InitFiles(files);
-                this.openFileFolderPath = openFolder.SelectedPath;
-                this.replaceSetting.LastOpenFolderPath = this.openFileFolderPath;
+                currentFileNameLst.AddRange(files.ToList());
+                this.InitFiles(currentFileNameLst.Distinct().ToArray());
+                this.replaceSetting.LastOpenFolderPath = openFolder.SelectedPath;
             }
             catch
             {
                 DevExpress.XtraEditors.XtraMessageBox.Show("系统错误，请重新打开有效文件夹！", "系统提示");
             }
+        }
+
+        /// <summary>
+        /// 文件列表拖拽
+        /// </summary>
+        private void dgFiles_gridControl_DragDrop(object sender, DragEventArgs e)
+        {
+            var pathList = ((Array)e.Data.GetData(DataFormats.FileDrop));
+            if (null == pathList || pathList.Length == 0)
+            {
+                return;
+            }
+            var fileList = new List<string>();
+            foreach (string path in pathList)
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    fileList.Add(path);
+                }
+                else if (System.IO.Directory.Exists(path))
+                {
+                    fileList.AddRange(XCLNetTools.FileHandler.ComFile.GetFolderFilesByRecursion(path));
+                }
+            }
+            var currentFileNameLst = this.fileBLL.GetAllList().Select(k => k.Path).ToList();
+            currentFileNameLst.AddRange(fileList);
+            this.InitFiles(currentFileNameLst.Distinct().ToArray());
+        }
+
+        /// <summary>
+        /// 文件拖拽
+        /// </summary>
+        private void dgFiles_gridControl_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.All;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        /// <summary>
+        /// 从待处理列表中移除选中的文件
+        /// </summary>
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            var selectedRowIndexArr = this.dgFiles.GetSelectedRows();
+            if (null == selectedRowIndexArr || selectedRowIndexArr.Length == 0)
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show("请选择需要移除的文件！", "系统提示");
+                return;
+            }
+            var needRemovePathList = new List<string>();
+            selectedRowIndexArr.ToList().ForEach(k =>
+            {
+                needRemovePathList.Add(this.dgFiles.GetRowCellValue(k, "Path").ToString());
+            });
+            var fileNameList = this.fileBLL.GetAllList().Where(k => !needRemovePathList.Contains(k.Path)).Select(k => k.Path).ToArray();
+            this.InitFiles(fileNameList.ToArray());
+        }
+
+        /// <summary>
+        /// 清空文件列表
+        /// </summary>
+        private void btnClearFileList_Click(object sender, EventArgs e)
+        {
+            this.InitFiles(new string[] { });
         }
     }
 }
