@@ -90,6 +90,7 @@
             this.ckExcelOptionIsKeepDataFormat = new System.Windows.Forms.CheckBox();
             this.tabPane1 = new DevExpress.XtraBars.Navigation.TabPane();
             this.tabNavigationPage1 = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.btnReloadFileList = new DevExpress.XtraEditors.SimpleButton();
             this.btnClearFileList = new DevExpress.XtraEditors.SimpleButton();
             this.btnRemove = new DevExpress.XtraEditors.SimpleButton();
             this.btnExportWaitFile = new DevExpress.XtraEditors.SimpleButton();
@@ -267,11 +268,11 @@
             this.dgFiles_gridControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgFiles_gridControl.Location = new System.Drawing.Point(8, 3);
+            this.dgFiles_gridControl.Location = new System.Drawing.Point(2, 3);
             this.dgFiles_gridControl.MainView = this.dgFiles;
             this.dgFiles_gridControl.MenuManager = this.barManager1;
             this.dgFiles_gridControl.Name = "dgFiles_gridControl";
-            this.dgFiles_gridControl.Size = new System.Drawing.Size(952, 348);
+            this.dgFiles_gridControl.Size = new System.Drawing.Size(956, 404);
             this.dgFiles_gridControl.TabIndex = 0;
             this.dgFiles_gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgFiles});
@@ -800,6 +801,7 @@
             // tabNavigationPage1
             // 
             this.tabNavigationPage1.Caption = "第一步，选择待处理文件";
+            this.tabNavigationPage1.Controls.Add(this.btnReloadFileList);
             this.tabNavigationPage1.Controls.Add(this.btnClearFileList);
             this.tabNavigationPage1.Controls.Add(this.btnRemove);
             this.tabNavigationPage1.Controls.Add(this.dgFiles_gridControl);
@@ -809,11 +811,22 @@
             this.tabNavigationPage1.Name = "tabNavigationPage1";
             this.tabNavigationPage1.Size = new System.Drawing.Size(960, 464);
             // 
+            // btnReloadFileList
+            // 
+            this.btnReloadFileList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReloadFileList.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnReloadFileList.ImageOptions.Image")));
+            this.btnReloadFileList.Location = new System.Drawing.Point(68, 414);
+            this.btnReloadFileList.Name = "btnReloadFileList";
+            this.btnReloadFileList.Size = new System.Drawing.Size(143, 43);
+            this.btnReloadFileList.TabIndex = 8;
+            this.btnReloadFileList.Text = "重载列表文件";
+            this.btnReloadFileList.Click += new System.EventHandler(this.btnReloadFileList_Click);
+            // 
             // btnClearFileList
             // 
             this.btnClearFileList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClearFileList.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnClearFileList.ImageOptions.Image")));
-            this.btnClearFileList.Location = new System.Drawing.Point(658, 375);
+            this.btnClearFileList.Location = new System.Drawing.Point(658, 414);
             this.btnClearFileList.Name = "btnClearFileList";
             this.btnClearFileList.Size = new System.Drawing.Size(143, 43);
             this.btnClearFileList.TabIndex = 7;
@@ -824,7 +837,7 @@
             // 
             this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemove.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRemove.ImageOptions.Image")));
-            this.btnRemove.Location = new System.Drawing.Point(513, 375);
+            this.btnRemove.Location = new System.Drawing.Point(513, 414);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(141, 43);
             this.btnRemove.TabIndex = 6;
@@ -835,7 +848,7 @@
             // 
             this.btnExportWaitFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExportWaitFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExportWaitFile.ImageOptions.Image")));
-            this.btnExportWaitFile.Location = new System.Drawing.Point(805, 375);
+            this.btnExportWaitFile.Location = new System.Drawing.Point(805, 414);
             this.btnExportWaitFile.Name = "btnExportWaitFile";
             this.btnExportWaitFile.Size = new System.Drawing.Size(143, 43);
             this.btnExportWaitFile.TabIndex = 5;
@@ -846,7 +859,7 @@
             // 
             this.btnOpenFolderWaitFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOpenFolderWaitFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenFolderWaitFile.ImageOptions.Image")));
-            this.btnOpenFolderWaitFile.Location = new System.Drawing.Point(364, 375);
+            this.btnOpenFolderWaitFile.Location = new System.Drawing.Point(364, 414);
             this.btnOpenFolderWaitFile.Name = "btnOpenFolderWaitFile";
             this.btnOpenFolderWaitFile.Size = new System.Drawing.Size(143, 43);
             this.btnOpenFolderWaitFile.TabIndex = 4;
@@ -857,7 +870,7 @@
             // 
             this.btnOpenAWaitFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOpenAWaitFile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenAWaitFile.ImageOptions.Image")));
-            this.btnOpenAWaitFile.Location = new System.Drawing.Point(217, 375);
+            this.btnOpenAWaitFile.Location = new System.Drawing.Point(217, 414);
             this.btnOpenAWaitFile.Name = "btnOpenAWaitFile";
             this.btnOpenAWaitFile.Size = new System.Drawing.Size(143, 43);
             this.btnOpenAWaitFile.TabIndex = 3;
@@ -1126,6 +1139,7 @@
         private System.Windows.Forms.CheckBox ckKeepDirectory;
         private DevExpress.XtraEditors.SimpleButton btnRemove;
         private DevExpress.XtraEditors.SimpleButton btnClearFileList;
+        private DevExpress.XtraEditors.SimpleButton btnReloadFileList;
     }
 }
 

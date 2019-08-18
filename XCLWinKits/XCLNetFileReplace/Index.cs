@@ -173,6 +173,7 @@ namespace XCLNetFileReplace
 
             #region 任务处理
 
+            this.txtLog.Clear();
             this.btnSave.Enabled = false;
             Model.DoState doState = new Model.DoState();
             doState.SumCount = lst.Count;
@@ -192,13 +193,27 @@ namespace XCLNetFileReplace
         /// </summary>
         private DataLayer.Model.FileReplace_File DoIt(DataLayer.Model.FileReplace_File model)
         {
+            model.IsDone = true;
+            if (!System.IO.File.Exists(model.Path))
+            {
+                model.Remark = "文件不存在！";
+                model.ProcessState = (int)DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.无需处理;
+                return model;
+            }
+
+            if (string.IsNullOrEmpty(model.ExtensionName))
+            {
+                model.Remark = "无法确认文件类型！";
+                model.ProcessState = (int)DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.无需处理;
+                return model;
+            }
+
             Stopwatch sw = new Stopwatch();
             sw.Start();
 
             int replaceCount = 0;
             Regex reg = null;
             List<string> strRemark = new List<string>();
-            model.IsDone = true;
 
             Aspose.Cells.Cell currentCell = null;
             Aspose.Cells.CellValueType currentCellType;
@@ -222,20 +237,6 @@ namespace XCLNetFileReplace
             string newFileTitle = string.Empty;
             var wbSaveFormat = CommonHelper.Common.GetAsposeCellsFormatEnum(this.comboxExcelFileFormat.Text);
             var docSaveFormat = CommonHelper.Common.GetAsposeWordFormatEnum(this.comboxWordFileFormat.Text);
-
-            if (!System.IO.File.Exists(model.Path))
-            {
-                model.Remark = "文件不存在！";
-                model.ProcessState = (int)DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.无需处理;
-                return model;
-            }
-
-            if (string.IsNullOrEmpty(model.ExtensionName))
-            {
-                model.Remark = "无法确认文件类型！";
-                model.ProcessState = (int)DataLayer.Common.DataEnum.FileReplace_File_ProcessStateEnum.无需处理;
-                return model;
-            }
 
             try
             {
@@ -929,6 +930,15 @@ namespace XCLNetFileReplace
         private void btnClearFileList_Click(object sender, EventArgs e)
         {
             this.InitFiles(new string[] { });
+        }
+
+        /// <summary>
+        /// 重载列表文件
+        /// </summary>
+        private void btnReloadFileList_Click(object sender, EventArgs e)
+        {
+            var currentFileNameLst = this.fileBLL.GetAllList().Select(k => k.Path).Where(k => System.IO.File.Exists(k)).ToList();
+            this.InitFiles(currentFileNameLst.Distinct().ToArray());
         }
     }
 }
